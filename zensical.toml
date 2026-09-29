@@ -7,22 +7,35 @@
 # ============================================================================
 
 [project]
+site_name = "CISCO CCN3"
+site_description = "Notas de aprendizaje de cisco ccn3"
+site_author = "Alexander Guerrero"
+repo_url = "https://github.com/alexanderguerrero1998/zensical-vue"
+repo_name = "zensical-vue"
+docs_dir = "docs"
+edit_uri = "edit/main/docs/"
+nav = [
+        {
+          "INTRODUCCION A LAS REDES" = [ 
+            { "Conceptos basicos" = "capitulo-1/capitulo_1.md" },
+          ]
+        },{ "DIRECCIONAMIENTO IP" = [ { "Direccionamiento IP" = "capitulo-2/capitulo_2.md" },]}
+        ,{ "CONMUTACION" = [ { "Conmutacion" = "capitulo-3/capitulo_3.md" },]}
+        ,{ "CONFIGURACION DEL SWITCH" = [ { "Configuracion del switch" = "capitulo-4/capitulo_4.md" },]}
+        ,{ "CONCEPTOS DE ENRUTAMIENTO" = [ { "Conceptos de enrutamiento" = "capitulo-5/capitulo_5.md" },]}
+        ,{ "CONFIGURACION DEL ROUTER" = [ { "Configuracion del router" = "capitulo-6/capitulo_6.md" },]}
+        ,{ "REDES INALAMBRICAS" = [ { "Redes inalambricas" = "capitulo-7/capitulo_7.md" },]}
+        ,{ "SEGURIDAD" = [ { "Seguridad" = "capitulo-8/capitulo_8.md" },]}
+        ,{ "CONFIGURACION DE ENRUTAMIENTO" = [ { "Configuracion de enrutamiento" = "capitulo-9/capitulo_9.md" },]}
+        ,{ "CALIDAD DE SERVICIO" = [ { "Calidad de servicio" = "capitulo-10/capitulo_10.md" },]}
+        ,{ "REDES DE AREA AMPLIA" = [ { "Redes de area amplia" = "capitulo-11/capitulo_11.md" },]}
+        ,{ "ADMINISTRACION Y GESTION" = [ { "Administracion y gestion" = "capitulo-12/capitulo_12.md" },]}
+        ,{ "AUTOMATIZACION DE LA RED" = [ { "Automatizacion de la red" = "capitulo-13/capitulo_13.md" },]}
+        ,{ "OTRO LIBRO" = [ { "NODE FUNDAMENTALS" = "Efficient_NodeJS/cap1/nodeFunfamentals.md" },]}
+  
+]
 
-# The site_name is shown in the page header and the browser window title
-#
-# Read more: https://zensical.org/docs/setup/basics/#site_name
-site_name = "Documentation"
 
-# The site_description is included in the HTML head and should contain a
-# meaningful description of the site content for use by search engines.
-#
-# Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A new project generated from the default template project."
-
-# The site_author attribute. This is used in the HTML head element.
-#
-# Read more: https://zensical.org/docs/setup/basics/#site_author
-site_author = "<your name here>"
 
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.

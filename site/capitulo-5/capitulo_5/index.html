@@ -1,0 +1,2684 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-4/capitulo_4/">
+      
+      
+        <link rel="next" href="../../capitulo-6/capitulo_6/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Conceptos de enrutamiento - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#conceptos-de-enrutamiento" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conceptos de enrutamiento
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#determinacion-de-rutas-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Determinación de rutas IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determinación de rutas IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distancia-administrativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Distancia administrativa
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distancia administrativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métricas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento estático
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrutamiento estático">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rutas-estaticas-por-defecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rutas estáticas por defecto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rutas-estaticas-flotantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rutas estáticas flotantes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rutas-locales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rutas locales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento dinámico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrutamiento dinámico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clases-de-protocolos-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clases de protocolos de enrutamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistema-autonomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistema autónomo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-vector-distancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento vector distancia
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bucles de enrutamiento
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles de enrutamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solucion-a-los-bucles-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Solución a los bucles de enrutamiento
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solución a los bucles de enrutamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#horizonte-dividido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Horizonte dividido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrica-maxima" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métrica máxima
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envenenamiento-de-rutas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Envenenamiento de rutas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporizadores-de-espera" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Temporizadores de espera
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-estado-de-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento estado de enlace
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrutamiento estado de enlace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-distancia-vs-estado-de-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vector distancia Vs Estado de enlace
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#determinacion-de-rutas-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Determinación de rutas IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determinación de rutas IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distancia-administrativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Distancia administrativa
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distancia administrativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métricas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento estático
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrutamiento estático">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rutas-estaticas-por-defecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rutas estáticas por defecto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rutas-estaticas-flotantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rutas estáticas flotantes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rutas-locales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rutas locales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento dinámico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrutamiento dinámico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clases-de-protocolos-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clases de protocolos de enrutamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistema-autonomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistema autónomo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-vector-distancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento vector distancia
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bucles de enrutamiento
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles de enrutamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solucion-a-los-bucles-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Solución a los bucles de enrutamiento
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solución a los bucles de enrutamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#horizonte-dividido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Horizonte dividido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrica-maxima" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métrica máxima
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envenenamiento-de-rutas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Envenenamiento de rutas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporizadores-de-espera" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Temporizadores de espera
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrutamiento-estado-de-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento estado de enlace
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrutamiento estado de enlace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-distancia-vs-estado-de-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vector distancia Vs Estado de enlace
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    CONCEPTOS DE ENRUTAMIENTO
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="conceptos-de-enrutamiento">Conceptos de enrutamiento<a class="headerlink" href="#conceptos-de-enrutamiento" title="Permanent link">&para;</a></h1>
+<h2 id="determinacion-de-rutas-ip">Determinación de rutas IP<a class="headerlink" href="#determinacion-de-rutas-ip" title="Permanent link">&para;</a></h2>
+<p>Para que un dispositivo de capa tres pueda determinar la ruta hacia un destino debe tener conocimiento de las diferentes rutas hacia él y cómo hacerlo. El aprendizaje y la determinación de estas rutas se lleva a cabo mediante un proceso de enrutamiento dinámico a través de cálculos y algoritmos que se ejecutan en la red o enrutamiento estático ejecutado manualmente por el administrador o incluso ambos métodos.</p>
+<p>La información de enrutamiento que el router aprende desde sus fuentes se coloca en su propia tabla de enrutamiento. El router se vale de esta tabla para determinar los puertos de salida que debe utilizar para retransmitir un paquete hasta su destino.</p>
+<p>La tabla de enrutamiento es la fuente principal de información del router acerca de las redes. Si la red de destino está conectada directamente, el router sabrá de antemano el puerto que debe usar para reenviar paquetes. Si las redes de destino no están conectadas directamente, el router debe aprender y calcular la ruta óptima a usar para reenviar paquetes a dichas redes. La tabla de enrutamiento se construye mediante uno de estos dos métodos o ambos:</p>
+<ul>
+<li><strong>Rutas estáticas:</strong> aprendidas por el router a través del administrador, que establece dicha ruta manualmente, quien también debe actualizar cuando tenga lugar un cambio en la topología.</li>
+<li><strong>Rutas dinámicas:</strong> rutas aprendidas automáticamente por el router a través de la información enviada por otros routers, una vez que el administrador ha configurado un protocolo de enrutamiento que permite el aprendizaje dinámico de rutas.</li>
+</ul>
+<p>Para poder enrutar paquetes de información un router debe conocer lo siguiente:</p>
+<ul>
+<li><strong>Dirección de destino:</strong> dirección a donde han de ser enviados los paquetes.</li>
+<li><strong>Fuentes de información:</strong> fuente (otros routers) de donde el router aprende las rutas hasta los destinos especificados.</li>
+<li><strong>Descubrir las posibles rutas hacia el destino:</strong> rutas iniciales posibles hasta los destinos deseados.</li>
+<li><strong>Seleccionar las mejores rutas:</strong> determinar cuál es la mejor ruta hasta el destino especificado.</li>
+<li><strong>Mantener las tablas de enrutamiento actualizadas:</strong> mantener conocimiento actualizado de las rutas al destino.</li>
+</ul>
+<h3 id="distancia-administrativa">Distancia administrativa<a class="headerlink" href="#distancia-administrativa" title="Permanent link">&para;</a></h3>
+<p>Los routers son multiprotocolo, lo que quiere decir que pueden utilizar al mismo tiempo diferentes protocolos incluidas rutas estáticas. Si varios protocolos proporcionan la misma información de enrutamiento se les debe otorgar un valor administrativo. La distancia administrativa permite que un protocolo tenga mayor prioridad sobre otro si su distancia administrativa es menor. Este valor viene por defecto, sin embargo el administrador puede configurar un valor diferente si así lo determina.</p>
+<p>El rango de las distancias administrativas varía de 1 a 255 y se especifica en la siguiente tabla:</p>
+<table>
+<thead>
+<tr>
+<th>Origen de la ruta</th>
+<th>Distancia administrativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interfaz física</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Ruta estática</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Ruta sumarizada EIGRP</td>
+<td>5</td>
+</tr>
+<tr>
+<td>BGP externo</td>
+<td>20</td>
+</tr>
+<tr>
+<td>EIGRP interno</td>
+<td>90</td>
+</tr>
+<tr>
+<td>IGRP</td>
+<td>100</td>
+</tr>
+<tr>
+<td>OSPF</td>
+<td>110</td>
+</tr>
+<tr>
+<td>IS-IS</td>
+<td>115</td>
+</tr>
+<tr>
+<td>RIP</td>
+<td>120</td>
+</tr>
+<tr>
+<td>EIGRP externo</td>
+<td>170</td>
+</tr>
+<tr>
+<td>BGP interno</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Inalcanzable</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<h4 id="metricas">Métricas<a class="headerlink" href="#metricas" title="Permanent link">&para;</a></h4>
+<p>Las métricas utilizadas habitualmente por los protocolos de enrutamiento pueden calcularse basándose en una sola o en múltiples características de la ruta. Existen diferentes protocolos de enrutamiento y cada uno utiliza métricas diferentes.</p>
+<ul>
+<li><strong>Número de saltos:</strong> número de routers por los que pasará un paquete.</li>
+<li><strong>Tic tac (Novell):</strong> retraso en un enlace de datos usando pulsos de reloj de PC IBM (msg).</li>
+<li><strong>Coste:</strong> valor arbitrario, basado generalmente en el ancho de banda, el coste económico u otra medida, que puede ser asignado por un administrador de red.</li>
+<li><strong>Ancho de banda:</strong> capacidad de datos de un enlace. Por ejemplo, un enlace Ethernet de 10Mb será preferible normalmente a una línea dedicada de 64Kb.</li>
+<li><strong>Retraso:</strong> tiempo en mover un paquete de un origen a un destino.</li>
+<li><strong>Carga:</strong> cantidad de actividad existente en un recurso de red, como un router o un enlace.</li>
+<li><strong>Fiabilidad:</strong> normalmente, se refiere al valor de errores de bits de cada enlace de red.</li>
+<li><strong>MTU (<em>Maximum Transmission Unit</em>):</strong> longitud máxima de trama en octetos que puede ser aceptada por todos los enlaces de la ruta.</li>
+</ul>
+<p>Los valores de la métrica y de la distancia administrativa pueden verse en la tabla de enrutamiento encerrado entre corchetes. El ejemplo se basa en una topología OSPF, donde el primero de los valores corresponde a la DA (110) y el segundo a la métrica.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Router#show ip route
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Gateway of last resort is not set
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>172.16.0.0/16 is variably subnetted, 3 subnets, 2 masks
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>O E2   172.16.20.128/29 [110/20] via 172.16.20.9, 00:00:29, Serial1
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>O IA  172.16.20.128/26 [110/74] via 172.16.20.9, 00:01:29, Serial1
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>C      172.16.20.8/29 is directly connected, Serial1
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>O E2   192.168.0.0/24 [110/20] via 172.16.20.9, 00:01:29, Serial1
+</span></code></pre></div>
+<h2 id="enrutamiento-estatico">Enrutamiento estático<a class="headerlink" href="#enrutamiento-estatico" title="Permanent link">&para;</a></h2>
+<p>Las rutas estáticas se definen administrativamente y establecen rutas específicas que han de seguir los paquetes para pasar de un puerto de origen hasta un puerto de destino. Se establece un control preciso del enrutamiento según los parámetros del administrador.</p>
+<p>Las rutas estáticas por defecto (default) especifican una puerta de enlace (gateway) de último recurso, a la que el router debe enviar un paquete destinado a una red que no aparece en su tabla de enrutamiento, es decir, que desconoce.</p>
+<p>Las rutas estáticas se utilizan habitualmente en enrutamientos desde una red hasta una red de conexión única, ya que no existe más que una ruta de entrada y salida en una red de conexión única, evitando de este modo la sobrecarga de tráfico que genera un protocolo de enrutamiento.</p>
+<p>La ruta estática se configura para conseguir conectividad con un enlace de datos que no esté directamente conectado al router. Para conectividad de extremo a extremo, es necesario configurar la ruta en ambas direcciones. Las rutas estáticas permiten la construcción manual de la tabla de enrutamiento.</p>
+<p>El comando <code>ip route</code> configura una ruta estática, los parámetros siguientes al comando definen la ruta estática.</p>
+<p>Una ruta estática se representa con una "S" en la tabla de enrutamiento:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Router#show ip route
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP,
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area,
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2,
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP,
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1,
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>       L2 - IS-IS level-2, ia - IS-IS inter area, * - candidate default,
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>       U - per-user static route, o - ODR, P - periodic downloaded static route
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Gateway of last resort is not set
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>161.44.0.0/24 is subnetted, 1 subnets
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>C       161.44.192.0 is directly connected, Ethernet0
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>131.108.0.0/24 is subnetted, 1 subnets
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>C       131.108.99.0 is directly connected, Serial0
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>S       198.10.1.0/24 [1/0] via 161.44.192.2
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Es necesario configurar una ruta estática en sentido inverso para conseguir una comunicación en ambas direcciones.</p>
+</div>
+<h3 id="rutas-estaticas-por-defecto">Rutas estáticas por defecto<a class="headerlink" href="#rutas-estaticas-por-defecto" title="Permanent link">&para;</a></h3>
+<p>Una ruta estática por defecto (default), predeterminada o de último recurso es un tipo especial de ruta estática que se utiliza cuando no se conoce una ruta hasta un destino determinado, o cuando no es posible almacenar en la tabla de enrutamiento la información relativa a todas las rutas posibles.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Router_B(config)#ip route 0.0.0.0 0.0.0.0 Serial 0
+</span></code></pre></div>
+<p>El gráfico ilustra un ejemplo de utilización de una ruta estática por default, el router B tiene configurada la ruta por defecto hacia el exterior como única salida/entrada del sistema autónomo 100, los demás routers aprenderán ese camino gracias a la redistribución que el protocolo hará dentro del sistema autónomo.</p>
+<p>Una ruta estática por defecto se representa con una "S*" en la tabla de enrutamiento.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Router#show ip route
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP,
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area,
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2,
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP,
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1,
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>       L2 - IS-IS level-2, ia - IS-IS inter area, * - candidate default,
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>       U - per-user static route, o - ODR, P - periodic downloaded static route
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Gateway of last resort is 161.44.192.2 to network 198.10.1.0
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>161.44.0.0/24 is subnetted, 1 subnets
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>C       161.44.192.0 is directly connected, Ethernet0
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>131.108.0.0/24 is subnetted, 1 subnets
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>C       131.108.99.0 is directly connected, Serial0
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>S*      198.10.1.0/24 [1/0] via 161.44.192.2
+</span></code></pre></div>
+<h3 id="rutas-estaticas-flotantes">Rutas estáticas flotantes<a class="headerlink" href="#rutas-estaticas-flotantes" title="Permanent link">&para;</a></h3>
+<p>Una ruta estática flotante es una ruta estática que el router utiliza para respaldar una ruta dinámica. Debe configurar una ruta estática flotante con una distancia administrativa más alta que la ruta dinámica a la que hará de respaldo.</p>
+<p>Recuerde que el router basa su decisión en el concepto de distancia administrativa (AD). La ruta que tenga una distancia administrativa más baja será la que se escoja como primera opción para alcanzar la red de destino y la otra quedará como respaldo. En este caso, el router escogerá la ruta dinámica ante una ruta estática flotante. Se puede utilizar una ruta estática flotante. Por lo tanto, una ruta estática se puede utilizar como una ruta estática flotante con una distancia administrativa más alta que la ruta dinámica como alternativa si se pierde la ruta aprendida por el protocolo de enrutamiento.</p>
+<h3 id="rutas-locales">Rutas locales<a class="headerlink" href="#rutas-locales" title="Permanent link">&para;</a></h3>
+<p>En las nuevas versiones de Cisco aparecen en la tabla de enrutamiento rutas identificadas como "L". Las rutas locales de IPv6 han existido siempre, mientras que las rutas locales o rutas de host IPv4 fueron añadidas a partir de la característica de enrutamiento Multi-topología (MTR).</p>
+<p>Las rutas de host permiten ver en la tabla de enrutamiento la dirección IP de la interfaz del router, mientras que con las versiones anteriores la "C" únicamente identificaba a la red directamente conectada.</p>
+<p>Hay tres maneras de crear una ruta de host:</p>
+<ul>
+<li>Automáticamente, Cisco IOS instala una ruta de host cuando una dirección de interfaz está configurada en el router.</li>
+<li>Manualmente, como una ruta estática configurada para dirigir el tráfico a un dispositivo de destino específico.</li>
+<li>Una ruta de host se obtiene de forma automática a través de otros métodos.</li>
+</ul>
+<p>En el siguiente ejemplo las direcciones IP asignadas a Ethernet0/0 son 10.1.1.1/30 para IPv4 y 2001:db8::1/64 para el IPv6. Ningunas son rutas de host. Recuerde que una ruta host para el IPv4 tiene la máscara /32, y una ruta de host para el IPv6 tiene la máscara /128.</p>
+<p>Para cada direccionamiento IPv4 y IPv6, Cisco IOS instala las rutas de host en las tablas de enrutamiento respectivas. Las rutas locales se identifican con una "L" en la salida del comando <code>show ip route</code>. Ahora las direcciones 10.1.1.1/32 y 2001:db8::1/128 aparecen como rutas de host local respectivamente. La ruta FF00::/8 es también una ruta local, pero esta ruta es necesaria para el enrutamiento multicast:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Router#show ip route
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area,
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2,
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       E1 - OSPF external type 1, E2 - OSPF external type 2, i - IS-IS,
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>       su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2,
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>       ia - IS-IS inter area, * - candidate default, U - per-user static route,
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       o - ODR, P - periodic downloaded static route, H - NHRP,
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>       + - replicated route, % - next hop override
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Gateway of last resort is not set
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>C       10.1.1.0/30 is directly connected, Ethernet0/0
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>L       10.1.1.1/32 is directly connected, Ethernet0/0
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Router#show ipv6 route
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>IPv6 Routing Table - default - 3 entries
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>Codes: C - Connected, L - Local, S - Static, U - Per-user Static route,
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>       B - BGP, R - RIP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea,
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>       IS - ISIS summary, D - EIGRP, EX - EIGRP external, ND - Neighbor Discovery,
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2,
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>C       2001:DB8::/64 [0/0]
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        via Ethernet0/0, directly connected
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>L       2001:DB8::1/128 [0/0]
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>        via Ethernet0/0, receive
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>L       FF00::/8 [0/0]
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>        via Null0, receive
+</span></code></pre></div>
+<p>Las rutas locales tienen la distancia administrativa de 0, que es la misma distancia administrativa que las rutas directamente conectadas "C". Sin embargo, cuando se configura la redistribución, se redistribuyen únicamente las rutas directamente conectadas, pero las rutas locales no.</p>
+<p>El comando <code>show ipv6 route local</code> se utiliza para verificar solamente las rutas locales IPv6.</p>
+<h2 id="enrutamiento-dinamico">Enrutamiento dinámico<a class="headerlink" href="#enrutamiento-dinamico" title="Permanent link">&para;</a></h2>
+<p>Los cambios que una red puede experimentar hacen poco factible la utilización de rutas estáticas, el administrador se vería forzado a reconfigurar los routers ante cada cambio. El enrutamiento dinámico permite que los routers actualicen conocimientos ante posibles cambios sin tener que recurrir a nuevas configuraciones. Un protocolo de enrutamiento permite determinar dinámicamente las rutas y mantener actualizadas sus tablas.</p>
+<p>Es importante diferenciar los protocolos enrutados y los de enrutamiento. Un protocolo enrutado lleva una completa información de capa tres, como TCP/IP, IPX, APPLE TALK, Net BEUI. Un protocolo de enrutamiento es el utilizado por los routers para mantener tablas de enrutamiento y así poder elegir la mejor ruta hacia un destino.</p>
+<p>Existen dos grandes núcleos de protocolos de enrutamiento:</p>
+<ul>
+<li><strong>Protocolos de gateway interior (IGP):</strong> se usan para intercambiar información de enrutamiento dentro de un sistema autónomo (RIP, EIGRP, OSPF).</li>
+<li><strong>Protocolos de gateway exterior (EGP):</strong> se usan para intercambiar información de enrutamiento entre sistemas autónomos (BGP).</li>
+</ul>
+<h3 id="clases-de-protocolos-de-enrutamiento">Clases de protocolos de enrutamiento<a class="headerlink" href="#clases-de-protocolos-de-enrutamiento" title="Permanent link">&para;</a></h3>
+<p>Todos los protocolos de enrutamiento cumplen las mismas funciones, aprendiendo y determinando cuál es la mejor ruta hacia un destino.</p>
+<p>Existen dos clases de protocolos de enrutamiento:</p>
+<ul>
+<li><strong>Vector distancia:</strong> este tipo de protocolo determina la dirección y la distancia a cualquier red.</li>
+<li><strong>Estado de enlace:</strong> estos protocolos poseen una idea exacta de la topología de la red y no efectúan actualizaciones a menos que ocurra un cambio en la topología.</li>
+</ul>
+<p>Un tercer caso de protocolo de enrutamiento sería un método híbrido como es el caso de EIGRP, diseñado por Cisco, que combina aspectos de los dos casos anteriores.</p>
+<p>Un protocolo de enrutamiento también puede clasificarse como classful (con clase) o classless (sin clase), es decir, que pueden no reconocer las máscaras de subred como en el caso de los classfull o sí pueden hacerlo en el caso de los classless.</p>
+<p>Los routers que no pasan la información de las subredes son con clase, porque el router solo codifica la clase de red IP para la información de enrutamiento. En cuanto el direccionamiento IP fue adaptándose a las necesidades de crecimiento los protocolos se hicieron más sofisticados, pudiendo manipular máscaras de subred, estos protocolos son los llamados sin clase.</p>
+<p>Un administrador puede habilitar el comando <code>ip classless</code> para el caso que se reciba un paquete hacia una subred desconocida, el router enviará ese paquete a la ruta predeterminada para enviar la trama al siguiente salto.</p>
+<h3 id="sistema-autonomo">Sistema autónomo<a class="headerlink" href="#sistema-autonomo" title="Permanent link">&para;</a></h3>
+<p>Un sistema autónomo (AS) es un conjunto de redes bajo un dominio administrativo común. El uso de números de sistema autónomos asignados por entidades (IANA, ARIN, RIPE) solo es necesario si el sistema utiliza algún BGP, o una red pública como Internet.</p>
+<p>Los sistemas autónomos intercambian información a través de protocolos de gateway exterior como BGP.</p>
+<h2 id="enrutamiento-vector-distancia">Enrutamiento vector distancia<a class="headerlink" href="#enrutamiento-vector-distancia" title="Permanent link">&para;</a></h2>
+<p>Los algoritmos de enrutamiento basados en vectores pasan copias periódicas de una tabla de enrutamiento de un router a otro y acumulan vectores de distancia. Distancia es una medida de longitud, mientras que vector significa una dirección. Las actualizaciones regulares entre routers comunican los cambios en la topología. Cada protocolo de enrutamiento basado en vectores de distancia utiliza un algoritmo distinto para determinar la ruta óptima. El algoritmo genera un número, denominado métrica de ruta, para cada ruta existente a través de la red. Normalmente cuanto menor es este valor, mejor es la ruta.</p>
+<p>Los dos ejemplos típicos de protocolos por vector distancia son:</p>
+<ul>
+<li><strong>RIP (<em>Routing Information Protocol</em>):</strong> protocolo suministrado con los sistemas UNIX. Es el protocolo de gateway interior (IGP) más comúnmente utilizado. RIP utiliza el número de saltos como métrica de enrutamiento. Existen dos versiones, RIP v1 como protocolo tipo classfull y RIP v2, más completo que su antecesor, como protocolo classless.</li>
+<li><strong>IGRP (<em>Interior Gateway Routing Protocol</em>):</strong> protocolo desarrollado por Cisco para tratar los problemas asociados con el enrutamiento en redes de gran envergadura. IGRP es un protocolo tipo classfull.</li>
+</ul>
+<h2 id="bucles-de-enrutamiento">Bucles de enrutamiento<a class="headerlink" href="#bucles-de-enrutamiento" title="Permanent link">&para;</a></h2>
+<p>El proceso de mantener la información de enrutamiento puede generar errores si no existe una convergencia rápida y precisa entre los routers. En los diseños de redes complejas pueden producirse bucles o loops de enrutamiento. Los routers transmiten a sus vecinos actualizaciones constantes, si un router A recibe de B una actualización de una red que ha caído, este transmitirá dicha información a todos sus vecinos incluido el router B, quien primeramente le informó de la novedad, a su vez el router B volverá a comunicar que la red se ha caído al router A formándose un bucle interminable.</p>
+<h3 id="solucion-a-los-bucles-de-enrutamiento">Solución a los bucles de enrutamiento<a class="headerlink" href="#solucion-a-los-bucles-de-enrutamiento" title="Permanent link">&para;</a></h3>
+<p>Los protocolos vector distancia poseen diferentes métodos para evitar los bucles de enrutamiento, generalmente estas herramientas funcionan por sí mismas (por defecto); sin embargo, en algunos casos pueden desactivarse con el consiguiente riesgo que pudiera generar un bucle de red.</p>
+<h4 id="horizonte-dividido">Horizonte dividido<a class="headerlink" href="#horizonte-dividido" title="Permanent link">&para;</a></h4>
+<p>Resulta sin sentido volver a enviar información acerca de una ruta a la dirección de donde ha venido la actualización original. A menos que el router conozca otra ruta viable al destino, horizonte dividido o <em>split horizon</em> no devolverá información por la interfaz donde la recibió.</p>
+<h4 id="metrica-maxima">Métrica máxima<a class="headerlink" href="#metrica-maxima" title="Permanent link">&para;</a></h4>
+<p>Un protocolo de enrutamiento permite la repetición del bucle de enrutamiento hasta que la métrica exceda del valor máximo permitido. Los routers agregan a la información de enrutamiento la cantidad de saltos transcurridos desde el origen a medida que los paquetes son enrutados. En el caso de RIP el bucle solo estará permitido hasta que la métrica llegue a 16 saltos, cuando el paquete sume 16 saltos será descartado por RIP.</p>
+<h4 id="envenenamiento-de-rutas">Envenenamiento de rutas<a class="headerlink" href="#envenenamiento-de-rutas" title="Permanent link">&para;</a></h4>
+<p>El router crea una entrada en la tabla donde guarda el estado coherente de la red en tanto que otros routers convergen gradualmente y de forma correcta después de un cambio en la topología. La actualización inversa es una operación complementaria del horizonte dividido. El objetivo es asegurarse de que todos los routers del segmento hayan recibido información acerca de la ruta envenenada. El router agrega a la información de enrutamiento la cantidad máxima de saltos, el envenenamiento utiliza la métrica máxima para indicar que se trata de una ruta inalcanzable.</p>
+<h4 id="temporizadores-de-espera">Temporizadores de espera<a class="headerlink" href="#temporizadores-de-espera" title="Permanent link">&para;</a></h4>
+<p>Los temporizadores hacen que los routers no apliquen ningún cambio que pudiera afectar a las rutas durante un período de tiempo determinado. Si llega una actualización con una métrica mejor a la red inaccesible, el router se actualiza y elimina el temporizador. Si no recibe cambios óptimos dará por caída la red al transcurrir el tiempo de espera.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Los protocolos vector distancia inundan la red con broadcast de actualizaciones de enrutamiento.</p>
+</div>
+<h2 id="enrutamiento-estado-de-enlace">Enrutamiento estado de enlace<a class="headerlink" href="#enrutamiento-estado-de-enlace" title="Permanent link">&para;</a></h2>
+<p>Los protocolos de estado de enlace construyen tablas de enrutamiento basándose en una base de datos de la topología. Esta base de datos se elabora a partir de paquetes de estado de enlace que se pasan entre todos los routers para describir el estado de una red.</p>
+<p>El algoritmo SPF (<em>Shortest Path First</em>) usa una base de datos para construir la tabla de enrutamiento. El enrutamiento por estado de enlace utiliza la información resultante del árbol SPF, a partir de los paquetes de estado de enlace (LSP) creando una tabla de enrutamiento con las rutas y puertos de toda la red.</p>
+<p>Los protocolos de enrutamiento por estado de enlace recopilan la información necesaria de todos los routers de la red, cada uno de los routers calcula de forma independiente su mejor ruta hacia un destino. De esta manera se producen muy pocos errores al tener una visión independiente de la red por cada router.</p>
+<p>Estos protocolos prácticamente no tienen limitaciones de saltos. Cuando se produce un fallo en la red el router que detecta el error utiliza una dirección multicast para enviar una tabla LSA, cada router recibe y la reenvía a sus vecinos. La métrica utilizada se basa en el coste, que surge a partir del algoritmo de Dijkstra y se basa en la velocidad del enlace.</p>
+<p>Los protocolos de estado de enlace son protocolos de enrutamiento de gateway interior, se utilizan dentro de un mismo AS (<em>Autonomous System</em>), el que puede dividirse en sectores más pequeños como divisiones lógicas llamadas áreas. El área 0 es el área principal del AS. Este área también es conocida como área de <em>backbone</em>.</p>
+<p>Los dos ejemplos típicos de protocolos de estado de enlace son:</p>
+<ul>
+<li><strong>IS-IS (<em>Intermediate System to Intermediate System</em>):</strong> protocolo de enrutamiento jerárquico de estado de enlace casi en desuso hoy en día.</li>
+<li><strong>OSPF (<em>Open Shortest Path First</em>):</strong> protocolo de enrutamiento por estado de enlace jerárquico, que se ha propuesto como sucesor de RIP en la comunidad de Internet. Entre las características de OSPF se incluyen el enrutamiento de menor coste, el enrutamiento de múltiples rutas y el balanceo de carga.</li>
+</ul>
+<h3 id="vector-distancia-vs-estado-de-enlace">Vector distancia Vs Estado de enlace<a class="headerlink" href="#vector-distancia-vs-estado-de-enlace" title="Permanent link">&para;</a></h3>
+<p>Los protocolos de estado de enlace son más rápidos y más escalables que los de vector distancia, algunas razones podrían ser:</p>
+<ul>
+<li>Los protocolos de estado de enlace solo envían actualizaciones cuando hay cambios en la topología.</li>
+<li>Las actualizaciones periódicas son menos frecuentes que en los protocolos por vector de distancia.</li>
+<li>Las redes que ejecutan protocolos de enrutamiento por estado de enlace soportan direccionamiento sin clase.</li>
+<li>Las redes con protocolos de enrutamiento por estado de enlace soportan resúmenes de ruta.</li>
+<li>Las redes que ejecutan protocolos de enrutamiento por estado de enlace pueden ser segmentadas en distintas áreas jerárquicamente organizadas, limitando así el alcance de los cambios de rutas.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>El término convergencia hace referencia a la capacidad de los routers de poseer la misma información de enrutamiento actualizada. Las siglas VLSM son las de máscara de subred de longitud variable.</p>
+</div>
+<p><strong>La siguiente tabla compara las características de los protocolos de enrutamiento:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th style="text-align: center;">RIP</th>
+<th style="text-align: center;">RIPv2</th>
+<th style="text-align: center;">IGRP</th>
+<th style="text-align: center;">EIGRP</th>
+<th style="text-align: center;">IS-IS</th>
+<th style="text-align: center;">OSPF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vector distancia</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Estado de enlace</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr>
+<td>Resumen automático de ruta</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Resumen manual de ruta</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr>
+<td>Soporte VLSM</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr>
+<td>Diseñado por Cisco</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Convergencia</td>
+<td style="text-align: center;">Lento</td>
+<td style="text-align: center;">Lento</td>
+<td style="text-align: center;">Lento</td>
+<td style="text-align: center;">Muy rápido</td>
+<td style="text-align: center;">Muy rápido</td>
+<td style="text-align: center;">Muy rápido</td>
+</tr>
+<tr>
+<td>Distancia administrativa</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">115</td>
+<td style="text-align: center;">110</td>
+</tr>
+<tr>
+<td>Tiempo de actualización</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Métrica</td>
+<td style="text-align: center;">Saltos</td>
+<td style="text-align: center;">Saltos</td>
+<td style="text-align: center;">Compuesta</td>
+<td style="text-align: center;">Compuesta</td>
+<td style="text-align: center;">Coste</td>
+<td style="text-align: center;">Coste</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Mientras los campos IP se mantienen intactos a lo largo de la ruta, las tramas cambian en cada salto con la MAC correspondiente al salto siguiente.</p>
+</div>
+<h2 id="fundamentos-para-el-examen">Fundamentos para el examen<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Tome en cuenta las diferencias entre enrutamiento estático y dinámico, aprendizaje de direcciones y cuál es la manera más adecuada para aplicarlas.</li>
+<li>Analice las condiciones básicas necesarias para la aplicación de rutas estáticas y rutas estáticas por defecto y cuáles son los parámetros de configuración de cada una de ellas.</li>
+<li>Recuerde qué es y para qué sirve un sistema autónomo.</li>
+<li>Recuerde qué es la distancia administrativa, cómo funciona en los procesos de enrutamiento y sus diferentes valores.</li>
+<li>Analice y assimile el funcionamiento de los protocolos de enrutamiento.</li>
+<li>Estudie cómo funciona un protocolo vector distancia, cuáles son y sus respectivas métricas.</li>
+<li>Analice la problemática de los bucles de enrutamiento y sus posibles soluciones razonando el funcionamiento de cada una de ellas.</li>
+<li>Recuerde para qué se utilizan los IGP y los EGP.</li>
+<li>Piense en qué consiste una ruta estática de respaldo o flotante.</li>
+<li>Estudie cómo funciona un protocolo de estado de enlace, cuáles son, sus jerarquías y compárelos con los de vector distancia.</li>
+<li>Recuerde la diferencia entre protocolos enrutables y de enrutamiento.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-4/capitulo_4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuracion del switch">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuracion del switch
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../capitulo-6/capitulo_6/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuracion del router">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Configuracion del router
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

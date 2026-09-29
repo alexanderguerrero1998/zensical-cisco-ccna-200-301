@@ -1,0 +1,2635 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-6/capitulo_6/">
+      
+      
+        <link rel="next" href="../../capitulo-8/capitulo_8/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Redes inalámbricas - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redes-inalambricas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redes inalámbricas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#redes-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Redes WLAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redes WLAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topologias-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Topologías WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-de-un-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funcionamiento de un AP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celdas-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Celdas WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radiofrecuencia-en-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Radiofrecuencia en WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arquitectura WLAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura WLAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cisco-wireless-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco Wireless Architectures
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciones-de-los-wlc-y-lap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de los WLC y LAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diseño de WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguridad-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Seguridad WLAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seguridad WLAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wep" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WEP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-seguridad-eap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métodos de seguridad EAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WPA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wpa2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WPA2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wpa3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WPA3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Caso práctico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso práctico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-una-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de una WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#redes-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Redes WLAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redes WLAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topologias-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Topologías WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-de-un-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funcionamiento de un AP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celdas-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Celdas WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radiofrecuencia-en-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Radiofrecuencia en WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arquitectura WLAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura WLAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cisco-wireless-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco Wireless Architectures
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciones-de-los-wlc-y-lap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de los WLC y LAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diseño de WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguridad-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Seguridad WLAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seguridad WLAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wep" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WEP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-seguridad-eap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métodos de seguridad EAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WPA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wpa2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WPA2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wpa3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WPA3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Caso práctico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso práctico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-una-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de una WLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    REDES INALAMBRICAS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="redes-inalambricas">Redes inalámbricas<a class="headerlink" href="#redes-inalambricas" title="Permanent link">&para;</a></h1>
+<h2 id="redes-wlan">Redes WLAN<a class="headerlink" href="#redes-wlan" title="Permanent link">&para;</a></h2>
+<p>Una red Ethernet tradicional está definida en los estándares IEEE 802.3. Cada conexión Ethernet tiene que operar bajo unas condiciones controladas, especialmente en lo que se refiere al enlace físico. Tanto el estado, la velocidad y el modo de Duplex deben operar tal como lo describe el estándar.</p>
+<p>Las redes inalámbricas están constituidas de una manera similar, pero definidas en el estándar IEEE 802.11. Los dispositivos Ethernet cableados tienen que recibir y transmitir tramas Ethernet acordes al protocolo CSMA/CD (<em>Carrier Sense Multiple Access/Collision Detect</em>) en un segmento de red compartido donde los host se comunican de modo Half Duplex: cada host puede hablar libremente y posteriormente escuchar si hay colisiones con otros dispositivos que también están intentando hablar.</p>
+<p>Los enlaces Ethernet Full Duplex o conmutados no sufren colisiones ni compiten por el uso del ancho de banda, aunque siguen las mismas normas que Half Duplex. Aunque las redes inalámbricas se basan en el mismo mecanismo, el medio wireless es más difícil de controlar.</p>
+<p>Cuando un PC comparte un segmento de red, lo hace con un número conocido de host; cuando el mismo PC utiliza una red wireless utiliza la atmósfera como medio en la capa de acceso, al igual que otros usuarios que son libres de utilizarla.</p>
+<p>Una WLAN (<em>Wireless LAN</em>) utiliza un medio compartido donde un número indeterminado de host puede competir por el medio en cualquier momento. Las colisiones son un hecho constante en una WLAN porque funciona en modo Half Duplex y siempre dentro de la misma frecuencia. Sólo una estación puede transmitir en un determinado momento de tiempo.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Para lograr el modo Full Duplex todas las estaciones que transmiten y las que reciben deberían hacerlo en frecuencias diferentes. Operación no permitida en IEEE 802.11.</p>
+</div>
+<p>Las tramas ACK sirven como un medio rudimentario para la detección de colisiones, pero no logra prevenirlas. El estándar IEEE 802.11 utiliza un método preventivo llamado CSMA/CA (<em>Carrier Sense Multiple Access Collision Avoidance</em>). Mientras que las redes cableadas detectan las colisiones, las redes inalámbricas intentan evitarlas. Todas las estaciones deben escuchar antes de poder transmitir una trama.</p>
+<p>Cuando una estación necesita enviar una trama pueden cumplirse estas dos condiciones:</p>
+<ul>
+<li><strong>Ningún otro dispositivo está transmitiendo.</strong> La estación puede transmitir su trama de inmediato. La estación receptora debe enviar una trama ACK para confirmar que la trama original llegó bien y libre de colisiones.</li>
+<li><strong>Otro dispositivo está en ese momento transmitiendo una trama.</strong> La estación tiene que esperar hasta que la trama en progreso se haya completado. La estación espera un período aleatorio de tiempo para transmitir su propia trama.</li>
+</ul>
+<h3 id="topologias-wlan">Topologías WLAN<a class="headerlink" href="#topologias-wlan" title="Permanent link">&para;</a></h3>
+<p>Una red wireless básica no comprende ningún tipo de organización; un PC con capacidad wireless puede conectarse en cualquier parte y en cualquier momento. Naturalmente debe existir algo más que permita enviar o recibir sobre el medio inalámbrico antes de que el PC pueda comunicarse.</p>
+<p>En la terminología 802.11 un grupo de dispositivos wireless se llama SSID (<em>Service Set Identifier</em>), que es una cadena de texto incluida en cada trama que se envía. Si hay coincidencia entre receptor y emisor se produce el intercambio. El PC se convierte en cliente de la red wireless y para esto debe poseer un adaptador inalámbrico y un software que interactúen con los protocolos wireless.</p>
+<p>El estándar 802.11 permite que dos clientes wireless se comuniquen entre sí sin necesidad de otros medios de red, conocido como red <em>ad-hoc</em> o IBSS (<em>Independent Basic Service Set</em>).</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>No existe control incorporado sobre la cantidad de dispositivos que pueden transmitir y recibir tramas sobre un medio wireless. También dependerá de la posibilidad de que agentes externos permitan transmitir a otras estaciones sin dificultad, lo que hace que proporcionar un medio adecuado wireless sea difícil.</p>
+</div>
+<p><strong>BSS</strong> (<em>Basic Service Set</em>) centraliza el acceso y controla sobre el grupo de dispositivos inalámbricos utilizando un AP (<em>Access Point</em>) como un concentrador de la red. Cualquier cliente wireless intentando usar la red tiene que completar una condición de membresía con el AP. El AP o punto de acceso lleva a cabo ciertas consideraciones antes de permitir transmitir a la estación:</p>
+<ul>
+<li>El SSID debe concordar.</li>
+<li>Una tasa de transferencia de datos compatible.</li>
+<li>Las mismas credenciales de autenticación.</li>
+</ul>
+<p>La membresía con el AP se llama <strong>asociación</strong>, el cliente debe enviar un mensaje de petición de asociación. El AP utiliza un identificador BSS único llamado BSSID que se basa en la propia dirección MAC de radio del AP. El AP permite o deniega la asociación enviando un mensaje de respuesta de asociación. Una vez asociadas todas las comunicaciones desde y hacia el cliente pasarán por el AP. Los clientes ahora no pueden comunicarse directamente con otros sin la intervención del AP.</p>
+<p>Un AP puede funcionar como un sistema autónomo y a su vez ser un punto de conexión hacia una red Ethernet tradicional porque dispone de capacidad inalámbrica y de cableado. Los AP situados en sitios diferentes pueden estar conectados entre ellos con una infraestructura de switching. Esta topología recibe el nombre en el estándar 802.11 ESS (<em>Extended Service Set</em>).</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>En ESS un cliente puede asociarse con un AP, pero si el cliente se mueve a una localización diferente puede intercambiarse con otro AP más cercano.</p>
+</div>
+<h3 id="funcionamiento-de-un-ap">Funcionamiento de un AP<a class="headerlink" href="#funcionamiento-de-un-ap" title="Permanent link">&para;</a></h3>
+<p>La función primaria del AP es puentear datos wireless del aire hasta una red tradicional cableada o hacia otra red inalámbrica a través un WGB (<em>Workgroup Bridge</em>) o ambas conexiones a la vez. Un AP puede soportar múltiples SSID y aceptar conexiones de un número de clientes wireless de tal manera que éstos se convierten en miembros de la LAN como si fueran conexiones cableadas.</p>
+<p>Un AP también puede actuar como un bridge formando un enlace inalámbrico desde una LAN hacia otra en largas distancias. Los enlaces entre los AP son utilizados normalmente para conectividad entre edificios. Los AP conectados con antenas direccionales pueden brindar conectividad en grandes distancias.</p>
+<p>Los AP actúan como un punto central controlando el acceso de los clientes a la red LAN. Cualquier intento de acceso a la WLAN debe establecer inicialmente conexión con el AP, quien permitirá un acceso abierto o restringido según las credenciales de autenticación. Los clientes deben efectuar un saludo de dos vías antes de asociarse. El AP puede solicitar más condiciones antes de la asociación, y antes de permitir el acceso al cliente, como credenciales específicas o volumen de datos.</p>
+<p>El AP puede compararse con un mecanismo de traducción donde las tramas de un medio son enviadas a otro en capa 2; también asocia el SSID a una o múltiples VLAN.</p>
+<p>Cuando la capacidad del enlace inalámbrico no está presente en algún dispositivo, pero sí es posible conectar el dispositivo a una conexión Ethernet, puede utilizarse un tipo de adaptador WGB (<em>Workgroup Bridge</em>) para conectar el dispositivo a una red WLAN. Por ejemplo, una impresora que solo tiene una conexión RJ45 el WGB actúa como un adaptador de red inalámbrico externo para ese dispositivo que no tiene ninguno.</p>
+<h3 id="celdas-wlan">Celdas WLAN<a class="headerlink" href="#celdas-wlan" title="Permanent link">&para;</a></h3>
+<p>Un AP puede proporcionar conectividad WLAN solamente a los clientes dentro de su cobertura, la señal está definida por la emisión que pueda tener la antena. En un espacio abierto podría describirse como una forma circular alrededor de la antena omnidireccional. El patrón de ondas emitidas tiene tres dimensiones, afectando también a los pisos superiores e inferiores de un edificio.</p>
+<p>La ubicación de los AP tiene que estar cuidadosamente planificada para proporcionar cobertura en toda el área necesaria. El hecho de que los clientes sean móviles hace que la cobertura de los AP sea diferente a lo que se espera debido a los objetos que puedan interponerse entre ellos y las antenas.</p>
+<p>El área de cobertura del AP se denomina <strong>celda</strong>. Los clientes dentro de una celda pueden asociarse con el AP y utilizar libremente la WLAN.</p>
+<p>La celda está limitando la capacidad de operación de los clientes a su radio de cobertura. Para expandir el área total de la cobertura WLAN pueden sumarse más celdas en zonas cercanas simplemente distribuyendo los AP en dichas zonas basándose en estándar 802.11 ESS (<em>Extended Service Set</em>). La idea es que la suma de las celdas pueda cubrir cada una de las áreas donde un cliente esté localizado.</p>
+<p>Los clientes pueden moverse desde una celda AP a otra y sus asociaciones se van pasando de un AP a otro, mecanismo llamado <strong>roaming</strong>. Los datos que se están confiando en un AP una vez que el cliente se mueve de celda deben ser confiados por el nuevo AP. Esto minimiza la posibilidad de pérdidas de datos durante el proceso de roaming.</p>
+<p>Un buen diseño de una red WLAN intenta aprovechar al máximo la cobertura de un AP minimizando la cantidad de puntos de acceso necesarios para cubrir una zona determinada reduciendo a su vez el coste de la instalación. También es importante recordar que el medio es Half Duplex y que a mayor cantidad de usuarios menor ancho de banda disponible.</p>
+<p>Para entornos seguros el tamaño de la celda se reduce en microceldas o picoceldas bajando la potencia del AP.</p>
+<h3 id="radiofrecuencia-en-wlan">Radiofrecuencia en WLAN<a class="headerlink" href="#radiofrecuencia-en-wlan" title="Permanent link">&para;</a></h3>
+<p>Las comunicaciones por RF (<em>Radiofrecuencia</em>) comienzan con una oscilación transmitida desde un dispositivo que será recibida en uno o varios dispositivos. Esta oscilación de la señal se basa en una constante llamada frecuencia. El transmisor y el receptor deben estar en la misma frecuencia para transmitir la misma señal. Tanto la estación transmisora como la receptora tienen un dispositivo transmisor unido a una antena que permite recibir y transmitir la señal.</p>
+<p>Una señal de RF puede ser medida en función de su potencia o energía en unidades de Watts (W) o miliwatt, que es una milésima parte de un Watt. Por ejemplo, un teléfono móvil puede tener una potencia aproximada de 200 mW y un punto de acceso WLAN entre 1 y 100 mW.</p>
+<p>Un rango de frecuencias se llama <strong>banda</strong>, como el utilizado en estaciones de radio de AM (<em>Amplitud Modulada</em>) o FM (<em>Frecuencia Modulada</em>).</p>
+<p>Muchas comunicaciones de WLAN ocurren dentro de la banda de 2,4 GHz comprendido en un rango de 2,412 a 2,484 GHz; mientras que otras utilizan una banda de 5 GHz en un rango de 5,150 a 5,825 GHz. La banda de 5 GHz contiene cuatro bandas separadas y distintas:</p>
+<ul>
+<li>de 5.150 a 5.250 GHz</li>
+<li>de 5.250 a 5.350 GHz</li>
+<li>de 5.470 a 5.725 GHz</li>
+<li>de 5.725 a 5.825 GHz</li>
+</ul>
+<p>La señal emitida por una estación wireless se llama <strong>portadora</strong> (<em>carrier</em>), es una señal constante a una determinada frecuencia. Una estación de radio que sólo transmite la portadora no está emitiendo datos de ningún tipo. Para agregar información, el transmisor debe modular la portadora para insertar la información que desea transmitir. Las estaciones receptoras deben revertir el proceso demodulando la portadora para recuperar la información original.</p>
+<p>Los métodos de modulación pueden ser diferentes según hagan variar la frecuencia o la amplitud de la señal portadora. Las WLAN utilizan unas técnicas de modulación más complejas porque sus volúmenes de datos son mayores que los de audio.</p>
+<p>El principio de la modulación WLAN es empaquetar tantos datos como sean posibles dentro de una señal y de esa manera minimizar las posibles pérdidas por interferencias o ruidos. Cuando los datos se pierden deben ser retransmitidos utilizando más recursos.</p>
+<p>Aunque el receptor espera encontrar la portadora en una frecuencia fija, la modulación hace que la portadora varíe cada cierto tiempo. Esta variación de la frecuencia de la portadora se llama <strong>canal</strong>, a la que se hace referencia con un tipo de numeración. Los canales WLAN están definidos en el estándar 802.11.</p>
+<h3 id="estandares-wlan">Estándares WLAN<a class="headerlink" href="#estandares-wlan" title="Permanent link">&para;</a></h3>
+<p>Todos los estándares WLAN están incluidos en las series IEEE 802.11. Definen la operación de capa 1 y de capa 2, que incluye las frecuencias, los canales wireless, el rendimiento, la seguridad, la movilidad, etc.</p>
+<p>La frecuencia de las WLAN utiliza una banda que no tiene licencias lo que permite a cualquiera utilizarla sin ningún permiso. Pero existe una regulación que establece reglas sobre qué frecuencias están disponibles y qué potencias se pueden utilizar.</p>
+<p>Algunas de las agencias reguladoras pueden ser:</p>
+<ul>
+<li>Federal Communications Commission (FCC)</li>
+<li>Electrical and Electronics Engineers (IEEE)</li>
+<li>European Telecommunications Standard Institute (ETSI)</li>
+<li>La alianza Wi-Fi</li>
+<li>La alianza Wireless Ethernet Compatibility (WECA).</li>
+<li>La asociación WLANA</li>
+</ul>
+<p>Los estándares IEEE 802.11 están contenidos en la siguiente tabla:</p>
+<table>
+<thead>
+<tr>
+<th>Estándar</th>
+<th>2,4GHz</th>
+<th>5GHz</th>
+<th>Velocidad</th>
+<th>Fecha</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>802.11</td>
+<td>Si</td>
+<td>No</td>
+<td>2 Mbps</td>
+<td>1997</td>
+</tr>
+<tr>
+<td>802.11b</td>
+<td>Si</td>
+<td>No</td>
+<td>11 Mbps</td>
+<td>1999</td>
+</tr>
+<tr>
+<td>802.11a</td>
+<td>No</td>
+<td>Si</td>
+<td>54 Mbps</td>
+<td>1999</td>
+</tr>
+<tr>
+<td>802.11g</td>
+<td>Si</td>
+<td>No</td>
+<td>54 Mbps</td>
+<td>2003</td>
+</tr>
+<tr>
+<td>802.11n</td>
+<td>Si</td>
+<td>Si</td>
+<td>600 Mbps</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>802.11ac</td>
+<td>No</td>
+<td>Si</td>
+<td>6.93 Gbps</td>
+<td>2003</td>
+</tr>
+<tr>
+<td>802.11ax</td>
+<td>Si</td>
+<td>Si</td>
+<td>4x802.11ac</td>
+<td>2019</td>
+</tr>
+</tbody>
+</table>
+<p>Los clientes inalámbricos y los AP pueden ser compatibles con uno o más estándares, sin embargo, un cliente y un AP solo pueden comunicarse si ambos soportan y aceptan usar el mismo tipo de normativa.</p>
+<h2 id="arquitectura-wlan">Arquitectura WLAN<a class="headerlink" href="#arquitectura-wlan" title="Permanent link">&para;</a></h2>
+<p>Tradicionalmente la arquitectura WLAN se centra en los AP. Cada uno de los AP funciona como un concentrador de su propio BSS dentro de la celda donde los clientes se localizan para obtener la correspondiente asociación con el AP. El tráfico desde y hacia cada cliente debe pasar por el AP.</p>
+<p>Cada AP debe ser configurado individualmente, aunque puede darse el caso de que varios utilicen las mismas políticas. Cada AP opera de manera independiente utilizando su propio canal de RF, la asociación con los clientes y la seguridad. En síntesis, cada AP es autónomo. Por este último motivo la gestión de la seguridad en una red wireless puede ser difícil. Cada AP autónomo maneja sus propias políticas de seguridad, no existe un lugar común para monitorizar la seguridad, detección de intrusos, políticas de ancho de banda, etc.</p>
+<p>Gestionar las operaciones de RF de varios AP autónomos puede ser también bastante difícil. Cuestiones como las interferencias, la selección de canales, la potencia de salida, cobertura, solapamientos y zonas negras pueden ser partes conflictivas para la configuración de los AP autónomos.</p>
+<h3 id="cisco-wireless-architectures">Cisco Wireless Architectures<a class="headerlink" href="#cisco-wireless-architectures" title="Permanent link">&para;</a></h3>
+<p>A medida que la red inalámbrica crece se hace más difícil configurar y administrar cada AP. Cisco ofrece plataformas de gestión como Cisco Prime Infrastructure o Cisco DNA Center de donde desde una ubicación especifica dentro de la empresa es posible administrar la red wireless.</p>
+<p>Esta arquitectura <em>cloud-based</em> AP envía y almacena toda la gestión de los AP en la nube. Esta arquitectura ofrece las siguientes capacidades centralizadas de tal manera que los dispositivos de la red inalámbrica las reciben independientemente de donde se encuentren:</p>
+<ul>
+<li>Seguridad</li>
+<li>Desarrollo</li>
+<li>Configuración y Administración</li>
+<li>Control y monitorización</li>
+</ul>
+<p>Los AP Cisco Meraki están basados en la nube, una vez que se enciendan y se registren en la nube, se autoconfigurarán. A partir de ese momento se puede administrar el AP desde el panel de control de la nube Meraki.</p>
+<p>Los procesos de tiempo real involucran enviar y recibir las tramas 802.11, las señales de los AP y los mensajes <em>probe</em> con información de la red. La encriptación de los datos también se maneja por paquete y en tiempo real. El AP debe interactuar con los clientes wireless a nivel de capa 2 desde la subcapa MAC, estas funciones son parte del hardware del AP. Las tareas de gestión no son integrales al manejo de tramas sobre señales RF, de esta forma estas funciones pueden dividirse, facilitando la administración centralizadamente.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Los mensajes <em>probe</em> contienen información sobre la red, se envían periódicamente y sirven para anuncia la presencia de una WLAN y para sincronizar a los miembros del conjunto de servicios.</p>
+</div>
+<p>Por lo tanto, cuando las funciones del AP se dividen, se puede elegir un AP determinado para llevar a cabo solamente la operación 802.11 en tiempo real en cuyo caso el AP se llama LAP (<em>Lightweight Access Point</em>). Los LAP reciben su nombre porque realizan menor cantidad de tareas que un AP tradicional autónomo. Mientras que las funciones de gestión se llevan a cabo en el WLC (<em>Wireless LAN Controller</em>) que es común a varios AP. Las funciones del WLC son la autenticación de usuarios, políticas de seguridad, administración de canales, niveles de potencia de salida, etc.</p>
+<p>Esta división de tareas se conoce como arquitectura <strong>split-MAC</strong>, donde las operaciones normales de MAC son separadas en dos ubicaciones distintas, esto ocurre por cada LAP en la red. Cada uno tiene que unirse a sí mismo con un WLC de manera que pueda encender y soportar a los clientes wireless. El WLC se convierte en el concentrador que soporta un número variado de LAP en la red conmutada.</p>
+<p>El proceso de asociación del LAP con el WLC se produce a través de un túnel para pasar los mensajes relativos a 802.11 y los datos de los clientes. Los LAP y el WLC pueden estar localizados en la misma subred o VLAN, pero no tiene que ser siempre así. El túnel hace posible el encapsulado de los datos entre ambos AP dentro de nuevos paquetes IP. Los datos tunelizados pueden ser conmutados o enrutados a través de la red del campus.</p>
+<p>El LAP y el WLC utilizan para intercambiar mensajes a través del túnel el <strong>CAPWAP</strong> (<em>Control and Provisioning of Wireless Access Points</em>) y lo hacen de dos modos diferentes:</p>
+<ul>
+<li><strong>Mensajes de control CAPWAP</strong>, son mensajes utilizados para la configuración del LAP y gestionan la operación. Estos mensajes están autenticados y encriptados de tal manera que el LAP es controlado de manera segura solamente por el WLC.</li>
+<li><strong>Datos CAPWAP</strong>, los paquetes hacia y desde los clientes wireless son asociados con el LAP. Los datos son encapsulados dentro de LWAPP pero por defecto no están encriptados entre el AP y el WLC. Cuando se habilita la encriptación de los datos en un AP, los paquetes se protegen con el protocolo DTLS (<em>Datagram Transport Layer Security</em>).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>CAPWAP está basado en el LWAPP (<em>Lightweight Access Point Protocol</em>) y está definido en las RFCs 5415, 5416, 541 y 5418.</p>
+</div>
+<h3 id="funciones-de-los-wlc-y-lap">Funciones de los WLC y LAP<a class="headerlink" href="#funciones-de-los-wlc-y-lap" title="Permanent link">&para;</a></h3>
+<p>Una vez que los túneles CAPWAP se construyen desde el WLC a uno o más LAP, el WLC puede comenzar a ofrecer una cantidad de funciones adicionales:</p>
+<ul>
+<li><strong>Asignación de canales dinámicos:</strong> el WLC elige la configuración de los canales de RF que usará cada LAP basándose en otros AP activos en el área.</li>
+<li><strong>Optimización potencia de transmisión:</strong> el WLC configura la potencia de transmisión para cada LAP en función de la cobertura de área necesaria y se ajusta automáticamente de manera periódica.</li>
+<li><strong>Solución de fallos en la cobertura:</strong> si un LPA deja de funcionar, el hueco que deja la falta de cobertura es solucionado aumentando el poder de transmisión en los LAP que hay alrededor de manera automática.</li>
+<li><strong>Roaming flexible:</strong> los clientes pueden moverse libremente en capa 2 o en capa 3 con un tiempo de roaming muy rápido.</li>
+<li><strong>Balanceo de carga dinámico:</strong> cuando 2 o más LAP están posicionados para cubrir la misma área geográfica el WLC puede asociar los clientes con el LAP menos usado distribuyendo la carga de clientes entre los LAP.</li>
+<li><strong>Monitorización de RF:</strong> el WLC gestiona cada LAP de manera que pueda buscar los canales y monitorizar el uso de la RF. Escuchando en un canal el WLC puede conseguir información sobre interferencias, ruido, señales de diversos tipos.</li>
+<li><strong>Gestión de la seguridad:</strong> el WLC puede requerir a los clientes wireless que obtengan una dirección IP de un servidor DHCP confiable antes de permitirles su asociación con la WLAN.</li>
+</ul>
+<p>Para manejar un gran número de LAP se pueden desplegar varios WLC de manera redundante. La gestión de varios WLC puede requerir un esfuerzo significativo, debido a que el número de AP y clientes para ser monitorizados y gestionados puede ser elevado.</p>
+<p>El LAP lleva una configuración muy básica, normalmente está en modo local cuando proporciona BSS y permite que los dispositivos del cliente se asocien a WLAN. Para funcionar en otros modos el AP debe tener una configuración inicial para encontrar un WLC y recibir la configuración completa de tal manera que nunca necesite ser configurado por el puerto de consola. Los siguientes pasos detallan el proceso de inicio que el LAP tiene que completar antes de entrar en actividad:</p>
+<ol>
+<li>Se obtiene una dirección desde un servidor DHCP. El servidor DHCP debe estar configurado con la opción DHCP 43.</li>
+<li>Obtenida la IP, el LAP efectúa un broadcast con un mensaje de petición esperando encontrar un WLC en la misma subred. Esta función sólo es posible si existe adyacencia de capa 2.</li>
+<li>El LAP aprende la dirección IP de los WLC disponibles.</li>
+<li>Envía una petición de unión al primer WLC que encuentra en la lista de direcciones. Si el primero no responde se intenta con el siguiente. Cuando el WLC acepta al LAP envía una respuesta para hacer efectiva la unión.</li>
+<li>El WLC compara el código de imagen del LAP con el código que tiene localmente almacenado, el LAP descarga la imagen y se reinicia.</li>
+<li>El WLC y el LAP construyen un túnel seguro CAPWAP para tráfico de gestión y otro similar no seguro para los datos del cliente.</li>
+</ol>
+<p>La mayoría de los AP de Cisco pueden funcionar como autónomos o como LAP, dependiendo de la imagen que tenga cargada. Desde el WLC, también puede configurar un LAP para operar en modos especiales extras, añadiendo más y mejores funcionalidades.</p>
+<h2 id="diseno-de-wlan">Diseño de WLAN<a class="headerlink" href="#diseno-de-wlan" title="Permanent link">&para;</a></h2>
+<p>A partir de un sistema autónomo que puede implementarse en una red hogareña o en una pequeña oficina SOHO (<em>Small Office Home Office</em>), el diseño puede variar según las necesidades de la empresa o la escalabilidad necesaria.</p>
+<p>En entornos de pequeña escala, como ubicaciones de sucursales pequeñas o medianas es posible que no sea necesario el uso de WLC dedicados. En este caso, la función WLC se puede ubicar junto con un AP instalado en el sitio de la sucursal. Esto se conoce como implementación de WLC <strong>Cisco Mobility Express</strong>. Un WLC Mobility Express puede soportar hasta <strong>100 AP</strong>.</p>
+<p>Para campus pequeños o ubicaciones de sucursales distribuidas, donde el número de AP es relativamente pequeño en cada uno, el WLC puede ubicarse conjuntamente con los switchs instalados en cada sucursal, como se muestra en la Figura 27-10. Esto se conoce como una implementación <strong>embedded WLC</strong> porque el WLC está integrado dentro del hardware de conmutación. Esta implementación de Cisco puede soportar hasta <strong>200 AP</strong>. Los AP no necesariamente tienen que estar conectados a los switchs que alojan el WLC, pueden estar en otras ubicaciones y unirse al WLC.</p>
+<p>Un WLC también puede ubicarse en una posición central en la red, dentro de un centro de datos en una nube privada. Esto se conoce como un despliegue <strong>cloud-based WLC</strong>, donde el WLC existe como una máquina virtual en lugar de un dispositivo físico. Si la plataforma de informática en la nube ya existe, entonces implementar un WLC basado en la nube se vuelve sencillo. Este tipo de controlador puede admitir hasta <strong>3000 AP</strong>.</p>
+<p>Otro enfoque es instalar el WLC en una ubicación central para que pueda maximizar el número de AP unidos a él. Esto se llama implementación unificada o <strong>centralized WLC</strong>, que tiende a seguir el concepto de concentrar todos los recursos que los usuarios necesitan alcanzar en una ubicación central, como un centro de datos o Internet. El tráfico hacia y desde los usuarios inalámbricos viajaría por los túneles CAPWAP. La estabilidad y la implementación de políticas de seguridad aplicables a los usuarios inalámbricos son algunos de los factores más importantes en el diseño unificado. Un WLC centralizado puede soportar un máximo de <strong>6000 AP</strong>.</p>
+<p>El WLC puede conectarse a uno o varios puertos de un switch, ya sea en modo de acceso, troncal o LAG (<em>Link Aggregation Group</em>). LAG se configura como un mismo grupo lógico como un EtherChannel de modo que los puertos se agrupan para actuar como un enlace más grande. Si falla un puerto individual, el tráfico se redirigirá a los puertos de trabajo restantes.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Los WLC de Cisco no admiten ningún protocolo de negociación LAG, como LACP o PaGP. Por lo tanto, debe configurar los puertos del switch en modo <em>on</em> de manera que los puertos que forman el EtherChannel estén siempre activos.</p>
+</div>
+<h2 id="seguridad-wlan">Seguridad WLAN<a class="headerlink" href="#seguridad-wlan" title="Permanent link">&para;</a></h2>
+<p>Como concentrador central de BSS (<em>Basic Service Set</em>) un AP gestiona las WLAN de los clientes dentro de su rango. Todo el tráfico desde y hacia un cliente pasa a través del AP para alcanzar otros clientes en la BSS o clientes cableados localizados en cualquier otro sitio. Los clientes inalámbricos no se pueden comunicar directamente entre sí.</p>
+<p>El AP es el dispositivo donde se implementarán varias formas de seguridad, por ejemplo, el control de los miembros WLAN autenticando a los clientes: en caso de un fallo de autenticación no le será permitido el uso de la red wireless. También el AP y sus clientes pueden trabajar juntos para asegurar los datos que fluyen entre ellos.</p>
+<p>Cuando un cliente intenta establecer una conexión wireless primero tiene que buscar un AP que sea alcanzable y presentar sus credenciales. El cliente tiene que negociar su admisión y las medidas de seguridad en la siguiente secuencia:</p>
+<ol>
+<li>Usar un SSID que concuerde con el AP.</li>
+<li>Autenticarse con el AP.</li>
+<li>Utilizar un método (opcional) de encriptación de paquetes (privacidad de datos).</li>
+<li>Utilizar un método (opcional) de autenticación de paquetes (integridad de datos).</li>
+<li>Construir una asociación con el AP.</li>
+</ol>
+<p>En las redes 802.11 los clientes pueden autenticarse con un AP utilizando alguno de los siguientes métodos:</p>
+<ol>
+<li><strong>Autenticación abierta</strong>, en este método no utiliza ningún tipo de autenticación, simplemente ofrece un acceso abierto al AP.</li>
+<li><strong>Pre-Phared Key (PSK)</strong>, se define una clave secreta en el cliente y en el AP. Si la clave concuerda se le concede el acceso al cliente.</li>
+</ol>
+<p>El proceso de autenticación en estos dos métodos se termina cuando el AP admite el acceso. El AP posee suficiente información en sí mismo para de manera independiente determinar si el cliente puede o no tener acceso. La autenticación abierta y PSK son considerados métodos antiguos, no escalables y poco seguros. En el caso de la autenticación abierta sólo el SSID es solicitado y aunque hace que la configuración sea extremadamente fácil, no proporciona ningún tipo de medida de seguridad.</p>
+<h3 id="wep">WEP<a class="headerlink" href="#wep" title="Permanent link">&para;</a></h3>
+<p>La autenticación compartida (PSK) utiliza una clave conocida como WEP (<em>Wireless Equivalence Protocol</em>) que se guarda en el cliente y en el AP. Cuando un cliente intenta unirse a la WLAN el AP presenta un desafío al cliente quien exhibe su clave WEP para hacer un cómputo y enviar de vuelta la clave y el desafío al AP, si los valores son idénticos el cliente es finalmente autenticado.</p>
+<p>La clave WEP también sirve para autenticar cada paquete cuando se envía por la WLAN, sus contenidos son procesados por un mecanismo criptográfico. Cuando los paquetes son recibidos en el otro extremo el contenido se desencripta utilizando la misma clave WEP. Este método de autenticación es, obviamente, más seguro que la autenticación abierta pero aun así tiene su lado negativo:</p>
+<ul>
+<li>No se escala bien porque el uso de una cadena de claves tiene que estar configurada en cada dispositivo.</li>
+<li>No es del todo seguro.</li>
+<li>Las claves permanecen hasta su reconfiguración manual.</li>
+<li>Las claves pueden ser desencriptadas.</li>
+</ul>
+<h3 id="metodos-de-seguridad-eap">Métodos de seguridad EAP<a class="headerlink" href="#metodos-de-seguridad-eap" title="Permanent link">&para;</a></h3>
+<p>EAP (<em>Extensible Authentication Protocol</em>) es el mecanismo básico de seguridad de muchas redes wireless. EAP está definido en la RFC 3748 y fue diseñado para manejar las autenticaciones de usuario vía PPP. Debido a que es extensible permite una variedad de métodos de entornos de seguridad. La RFC 4017 cubre las variantes de EAP que pueden ser utilizadas en WLAN tales como:</p>
+<ul>
+<li><strong>LEAP</strong> (<em>Lightweight EAP</em>), desarrollado por Cisco. Se utiliza un servidor RADIUS externo para manejar la autenticación de los clientes.</li>
+<li><strong>EAP-TLS</strong>, definido en la RFC 2716 y utiliza TLS (<em>Transport Layer Security</em>) para autenticar a los clientes de manera segura. Basado en SSL (<em>Secure Socket Layer</em>), utilizado para acceder a sesiones Web seguras. Cada AP tiene que tener un certificado generado por una autoridad certificadora. Cada vez que el cliente intenta autenticarse el servidor crea una clave nueva y será única para cada cliente.</li>
+<li><strong>PEAP</strong> (<em>Protected EAP</em> o EAP-PEAP), es similar al EAP-TLS. Requiere un certificado digital sólo en el servidor de autenticación de tal manera que el mismo puede autenticar a los clientes. Cada vez que el cliente intenta autenticarse el servidor crea una clave nueva y será única para cada cliente. Pueden utilizarse cualquiera de estos dos métodos:<ul>
+<li>MS-CHAPv2 (<em>Microsoft Challenge Handshake Authentication Protocol V2</em>)</li>
+<li>GTS (<em>Generic Token Card</em>), es un dispositivo de hardware que genera contraseñas de un solo uso para el usuario o una contraseña generada manualmente</li>
+</ul>
+</li>
+<li><strong>EAP-FAST</strong> (<em>EAP Flexible Authentication via Secure Tunneling</em>), es un método de seguridad wireless desarrollado por Cisco. Su nombre indica flexibilidad reduciendo la complejidad de la configuración. No se utilizan certificados digitales. Construye un túnel seguro entre el cliente y el servidor utilizando PAC (<em>Protected Access Credential</em>) como única credencial para construir el túnel.</li>
+</ul>
+<h3 id="wpa">WPA<a class="headerlink" href="#wpa" title="Permanent link">&para;</a></h3>
+<p>El estándar IEEE 802.11i se centra en resolver los problemas de seguridad en las WLAN, incluso abarca más allá que la autenticación del cliente utilizando claves WEP. WPA (<em>Wi-Fi Protected Access</em>) utiliza varios de los componentes del estándar 802.11 proporcionando las siguientes medidas de seguridad:</p>
+<ul>
+<li>Autenticación de cliente utilizando 802.1x o llave precompartida.</li>
+<li>Autenticación mutua entre cliente y servidor.</li>
+<li>Privacidad de los datos con TKIP (<em>Temporal Key Integrity Protocol</em>).</li>
+<li>Integridad de los datos utilizando MIC (<em>Message Integrity Check</em>).</li>
+</ul>
+<p>TKIP acentúa la encriptación WEP en hardware dentro de los clientes wireless y el AP. El proceso de encriptación WEP permanece, pero las llaves son generadas más frecuentemente que con los métodos EAP. TKIP genera nuevas llaves por cada paquete. Se crea una llave inicial cuando el cliente se autentica por algún método AEP, la llave se genera con una mezcla de la dirección MAC del transmisor con un número de secuencia. Cada vez que un paquete es enviado la llave WEP se actualiza incrementalmente.</p>
+<p>WPA puede utilizar llaves precompartidas para autenticación si no se utilizan servidores de autenticación externos. Para estos casos la llave precompartida se utiliza sólo para la autenticación mutua entre el cliente y el AP. La privacidad de datos y la encriptación no utilizan la llave precompartida. TKIP se encarga de la encriptación de la llave para la posterior encriptación WEP.</p>
+<p>El proceso MIC (<em>Message Integrity Check</em>) se utiliza para generar una huella digital por cada paquete que se envía en la WLAN comparándolo con los contenidos al recibir el paquete. De esta manera se consigue la integridad de los datos para que no puedan modificarse y poder compararlos con la huella enviada. Por cada paquete MIC se genera una llave con un cálculo complejo que solamente pude ser generado en una sola dirección. Para desencriptarlo es necesario conocer la dirección MAC del destino para efectuar los cálculos necesarios.</p>
+<h3 id="wpa2">WPA2<a class="headerlink" href="#wpa2" title="Permanent link">&para;</a></h3>
+<p>WPA2 (<em>Wi-Fi Protected Access V2</em>) está basado en el estándar 802.11i. Se extiende mucho más en las medidas de seguridad que WPA. Para la encriptación de los datos se utiliza AES-CCMP (<em>Advanced Encryption Standard-Counter/CBC-MAC Protocol</em>) que es un método robusto y escalable adoptado para utilizarlo por muchas organizaciones gubernamentales. Soporta TKIP para la encriptación de los datos y compatibilidad con WPA.</p>
+<p>Con WPA o con autenticación EAP un cliente wireless tiene que autenticar al AP que visita, si el cliente se está moviendo de un AP a otro el continuo proceso de autenticación puede llegar a ser tedioso. WPA2 resuelve este problema utilizando PKC (<em>Proactive Key Caching</em>) donde un cliente se autentica sólo una vez en el primer AP que se encuentra. Si el resto de los AP soportan WPA2 y están configurados como un grupo lógico, la autenticación se pasa automáticamente de un AP a otro.</p>
+<h3 id="wpa3">WPA3<a class="headerlink" href="#wpa3" title="Permanent link">&para;</a></h3>
+<p>WPA3 nace como reemplazo futuro para WPA2, agregando varios mecanismos de seguridad importantes y superiores que solventan las vulnerabilidades de la versión 2. WPA3 utiliza un cifrado más fuerte con AES-GCMP (<em>Advanced Encryption Standard-Galois/Counter Mode Protocol</em>). También utiliza PMF (<em>Protected Management Frames</em>) para evitar actividades maliciosas que puedan suplantar o alterar la operación entre AP y los clientes de un BSS. La clave no se envía, y el intercambio es tal que un observador que capture los paquetes enviados, no puede averiguar ni la clave original ni la clave maestra generada.</p>
+<p>WPA3 puede utilizarse en dos modos diferentes:</p>
+<ul>
+<li>WPA3-personal</li>
+<li>WPA3-enterprise, posee niveles de seguridad más elevados para entornos en los que se requiere mayor seguridad (gobierno, aplicaciones militares, etc.)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Tipo de autenticación y encriptación en WPA, WPA2 y WPA3:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de autenticación y encriptación</th>
+<th>WPA</th>
+<th>WPA2</th>
+<th>WPA3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autenticación con Pre-Shared Keys</td>
+<td>Sí</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Autenticación con 802.1x</td>
+<td>Sí</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Encriptación y MIC con TKIP</td>
+<td>Sí</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Encriptación y MIC con AES y CCMP</td>
+<td>Sí</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Encriptación y MIC con AES y GCMP</td>
+<td>No</td>
+<td>No</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="caso-practico">Caso práctico<a class="headerlink" href="#caso-practico" title="Permanent link">&para;</a></h2>
+<h3 id="configuracion-de-una-wlan">Configuración de una WLAN<a class="headerlink" href="#configuracion-de-una-wlan" title="Permanent link">&para;</a></h3>
+<p>La configuración inicial de un AP de Cisco debe realizarse a través de un cable de consola conectado al puerto serie de un PC. Una vez que el AP tiene una dirección IP y está conectado a la red también puede usar Telnet o SSH para conectarse a su CLI a través de la red cableada. Los AP autónomos admiten sesiones de administración basadas en navegador a través de HTTP y HTTPS. Los LAP pueden administrarse desde una sesión de navegador al WLC.</p>
+<p>Un puerto de un switch que posee una conexión por cable a un AP puede configurarse en modo acceso o troncal. En el modo troncal, la encapsulación 802.1Q etiqueta cada trama de acuerdo con el número de VLAN del que proviene. El lado inalámbrico de un AP inherentemente conecta las tramas 802.11 al marcarlas con el BSSID de la WLAN a la que pertenecen. Todas las VLAN cableadas configuradas en el WLC pueden asignarse a las WLAN configuradas en el LAP, estas VLAN se transportan a través del túnel CAPWAP entre los dos dispositivos.</p>
+<p>Una vez que el WLC tenga una configuración inicial y una dirección IP puede abrir un navegador web en la dirección de administración del WLC con HTTP o HTTPS. La interfaz gráfica de usuario GUI (<em>Graphical User Interface</em>) proporciona una manera amigable y efectiva de configurar, administrar, monitorizar y solucionar problemas en la red wireless.</p>
+<p>Comience la configuración básica en el administrador del sistema, iniciando una sesión de emulación de terminal con las opciones ya conocidas:</p>
+<ul>
+<li>9600 baudios</li>
+<li>8 bits de datos</li>
+<li>1 bit de detención</li>
+<li>Ninguna paridad</li>
+<li>Sin control del flujo de hardware</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Welcome to the Cisco Wizard Configuration Tool
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>. . . . . . . . . . . . . . . . . . . . . . . .
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Enter Administrative User Name (24 characters max): admin
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Enter Administrative Password (24 characters max): *****
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Service Interface IP Address Configuration [none][DHCP]: none
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Enable Link Aggregation (LAG) [yes][NO]: No
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Management Interface IP Address: 192.168.60.10
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Management Interface Netmask: 255.255.255.0
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Management Interface Default Router: 192.168.60.1
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Management Interface VLAN Identifier (0 = untagged): 10
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>. . . . . . . . . . . . . . . . . . . . . . . .
+</span></code></pre></div>
+<p>Tanto la GUI basada en la web como la CLI requieren que los administradores inicien sesión. Los usuarios pueden autenticarse localmente o con un servidor AAA (<em>Authentication, Authorization, Accounting</em>), como TACACS+ o RADIUS.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Siguiendo los objetivos del examen de certificación CCNA 200-301 se ha configurado un WLC utilizando la interfaz GUI en un escenario de pruebas, sobre un direccionamiento privado clase C. Las capturas de pantalla muestran los pasos a seguir. Cada paso de configuración se realiza mediante una sesión de navegador web que está conectada a la dirección IP de administración del WLC.</p>
+</div>
+<p>El primer paso es definir una WLAN en el controlador, de esta forma el WLC vinculará los AP a la interfaz correspondiente, los clientes comenzarán entonces a recibir tramas con la información correspondiente a su WLAN y podrán unirse al BSS. Las WLAN pueden estar asociadas a una VLAN, por lo tanto el tráfico de una VLAN hacia otra, solo será posible mediante los servicios de un router a través de la infraestructura de la red cableada.</p>
+<p>De forma predeterminada, un WLC tiene una configuración mínima, por lo que no se definen WLAN. Antes de crear una nueva WLAN, hay que tener en cuenta las siguientes cuestiones:</p>
+<ul>
+<li>Los WLC admiten un máximo de 512 WLAN, pero solo 16 de pueden configurarse activamente en un AP</li>
+<li>Será necesario configurar un SSID</li>
+<li>Definir una interfaz del controlador y número de VLAN</li>
+<li>Tipo de seguridad inalámbrica</li>
+<li>Anunciar cada WLAN a los clientes inalámbricos potenciales consume recursos</li>
+</ul>
+<p>Seleccione <strong>WLAN</strong> en la barra de menú superior, para crear una WLAN nueva haga clic en el botón <strong>Go</strong>. En la siguiente pantalla configure el nombre y el SSID, en nuestro caso se ha utilizado el mismo nombre para ambos, <code>Desarrollo005</code> (estos no tienen por qué ser idénticos).</p>
+<p>Una vez aplicados los cambios pueden seguir añadiéndose configuraciones tales como seguridad, QoS, elección de la RF utilizada, también se muestra el estado de la WLAN y su vinculación con el SSID. Observe que, aunque la página General muestra una política de seguridad predeterminada para la WLAN la WPA2 con 802.1x, puede realizar cambios a través de la pestaña Security.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>La casilla <strong>Broadcast SSID</strong> permite a los AP transmitir el nombre del SSID automáticamente. Desmarcar esta casilla para que el nombre del SSID no se difunda no contribuye en nada sustancial a la seguridad de WLAN.</p>
+</div>
+<p>Defina un servidor RADIUS para comenzar a configurar la seguridad de su nueva WLAN. Si se definen varios servidores, el controlador los probará en orden secuencial. En la captura aparecen dos servidores configurados, 192.168.0.33 y 192.168.0.34.</p>
+<p>Para añadir un nuevo servidor, ingrese la dirección IP, la clave secreta compartida y el número de puerto. Como el WLC ya tenía dos servidores RADIUS configurados, el servidor en 192.168.0.35 será por orden el número 3. En <strong>server status</strong> active el servidor para que el controlador pueda comenzar a usarlo. En la parte inferior de la página, puede seleccionar el tipo de usuario que se autenticará con el servidor:</p>
+<ul>
+<li>Network User, para autenticar clientes inalámbricos</li>
+<li>Management, para autenticar administradores inalámbricos</li>
+</ul>
+<p>Finalice haciendo clic en <strong>Apply</strong>.</p>
+<p>Para crear una nueva interfaz dinámica, acceda a <strong>Controlador/Interfaces</strong>, en este caso ya existen dos interfaces llamadas "Administrador" y "Backup". Haga clic en <strong>Nuevo</strong> para definir una nueva interfaz. Ingrese un nombre para dicha interfaz y el número de VLAN al que estará vinculado, en este caso "Prueba" y VLAN10. Finalice con el botón <strong>Aplicar</strong>.</p>
+<p>Luego, configure la dirección IP, la máscara y la dirección de la puerta de enlace para la interfaz. En nuestro ejemplo 192.168.0.12 255.255.255.0. También debe definir las direcciones del servidor DHCP primario y secundario que usará el controlador para las solicitudes DHCP de los clientes vinculados a la interfaz, en este caso 192.168.0.101 y 102. Haga clic en el botón <strong>Aplicar</strong> para completar la configuración de la interfaz y volver a la lista de interfaces.</p>
+<p>El siguiente paso es configurar los ajustes de la seguridad, desde la pestaña <strong>Security</strong>. Seleccione los ajustes apropiados según las exigencias de la red a nivel de capa 2, salvo que se especifique lo contrario intente configurar las opciones de seguridad más fuertes y fiables.</p>
+<p>En la siguiente imagen se ha seleccionado <strong>WPA+WPA2</strong> en el menú desplegable y dentro de los parámetros la encriptación WPA2 y AES. En lo que respecta a las claves de autenticación se ha seleccionado <strong>PSK</strong>. La WLAN <code>Desarrollo005</code> solo permitirá autenticación WPA2-Personal con clave precompartida PSK (<em>pre-shared key</em>).</p>
+<p>Para usar WPA2-Enterprise, marque la opción <strong>802.1X</strong>. En ese caso, se usarían 802.1x y EAP para autenticar clientes inalámbricos en uno o más servidores RADIUS. El controlador usaría servidores de la lista que ha definido previamente. Para especificar los servidores que puede usar la WLAN, debe seleccionar la pestaña <strong>Security</strong> y luego la pestaña <strong>AAA Servers</strong>. Al lado de cada servidor, seleccione una dirección IP específica del servidor en el menú desplegable de servidores definidos globalmente, en este caso 192.168.0.33, 192.168.0.34 y 192.168.0.35 respectivamente. Los servidores se prueban en orden secuencial hasta que uno de ellos responde (puede configurar hasta seis).</p>
+<p>A continuación, siguiendo las exigencias del examen de certificación CCNA, configure la calidad de servicio para la WLAN. Seleccione la pestaña <strong>QoS</strong>, luego en el menú desplegable <em>Quality of Service</em> marque la que usted necesite de las siguientes opciones:</p>
+<ul>
+<li>Platinum (voice)</li>
+<li>Gold (vídeo)</li>
+<li>Silver (best effort)</li>
+<li>Bronze (background)</li>
+</ul>
+<p>Por defecto, el controlador funciona en <em>best effort</em>.</p>
+<p>Finalmente, para que la configuración tenga efecto haga clic en el botón <strong>Apply</strong>, se creará la nueva WLAN y se agregará la nueva configuración al WLC.</p>
+<p>De manera predeterminada, y como medida de seguridad, un controlador no permitirá el tráfico de administración desde una WLAN. Esto significa que no se puede acceder a la GUI o CLI del controlador desde un dispositivo inalámbrico que esté asociado a la WLAN. Sin embargo, siempre se puede acceder a través de sus interfaces cableadas. Este comportamiento se puede modificar globalmente para todas la WLAN, de manera que sea accesible la administración desde cualquier WLAN. Seleccione la pestaña <strong>Management</strong> y luego en la barra lateral <strong>Logs/Mgmt Via Wireless</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Para este caso práctico se ha tomado como referencia un dispositivo Cisco 5520 WLC.</p>
+</div>
+<h2 id="fundamentos-para-el-examen">Fundamentos para el examen<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Analice el principio del funcionamiento de una WLAN, compárelo con una LAN tradicional y los respectivos métodos para evitar o detectar colisiones.</li>
+<li>Recuerde cuales son los dispositivos necesarios para el funcionamiento de una WLAN, tanto en un medio pequeño como en una red empresarial.</li>
+<li>Recuerde que es SSID, BSS, BSSID.</li>
+<li>Compare el funcionamiento de un AP autónomo y una arquitectura centralizada.</li>
+<li>Recuerde los conceptos básicos de radiofrecuencia.</li>
+<li>Estudie los estándares WLAN y compárelos.</li>
+<li>Recuerde las funciones de los WLC y LAP.</li>
+<li>Entienda y analice como construyen los túneles CAPWAP.</li>
+<li>Estudie los métodos de seguridad, autenticación y encriptación compárelos entre sí.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-6/capitulo_6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuracion del router">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuracion del router
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../capitulo-8/capitulo_8/" class="md-footer__link md-footer__link--next" aria-label="Next: Seguridad">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Seguridad
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

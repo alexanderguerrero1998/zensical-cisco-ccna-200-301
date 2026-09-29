@@ -1,0 +1,2906 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-9/capitulo_9/">
+      
+      
+        <link rel="next" href="../../capitulo-11/capitulo_11/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Calidad de servicio - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#calidad-de-servicio" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Calidad de servicio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convergencia-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Convergencia de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convergencia de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancho-de-banda-disponible" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ancho de banda disponible
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retraso-de-extremo-a-extremo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Retraso de extremo a extremo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variacion-del-retraso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variación del retraso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perdida-de-paquetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pérdida de paquetes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-del-tipo-de-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comparativa del tipo de tráfico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administracion-de-la-congestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Administración de la congestión
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Administración de la congestión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fifo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FIFO
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wfq" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WFQ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbwfq" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CBWFQ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llq" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        LLQ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        QoS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QoS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identificacion-del-trafico-y-sus-requerimientos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identificación del tráfico y sus requerimientos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-del-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clasificación del tráfico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definicion-de-politicas-para-cada-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definición de políticas para cada clase
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelos de QoS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos de QoS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-effort" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Best-effort
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intserv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IntServ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffserv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DiffServ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clasificacion-y-marcado-de-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clasificación y marcado de tráfico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clasificación y marcado de tráfico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marcado-en-capa-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Marcado en capa 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marcado-de-capa-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Marcado de capa 3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fronteras-de-confianza" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fronteras de confianza
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wred" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WRED
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acuerdos-de-nivel-de-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Acuerdos de nivel de servicio
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-y-manipulacion-del-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Control y manipulación del tráfico
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convergencia-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Convergencia de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convergencia de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancho-de-banda-disponible" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ancho de banda disponible
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retraso-de-extremo-a-extremo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Retraso de extremo a extremo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variacion-del-retraso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variación del retraso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perdida-de-paquetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pérdida de paquetes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-del-tipo-de-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comparativa del tipo de tráfico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administracion-de-la-congestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Administración de la congestión
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Administración de la congestión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fifo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FIFO
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wfq" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WFQ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbwfq" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CBWFQ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llq" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        LLQ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        QoS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QoS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identificacion-del-trafico-y-sus-requerimientos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identificación del tráfico y sus requerimientos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-del-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clasificación del tráfico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definicion-de-politicas-para-cada-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definición de políticas para cada clase
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelos de QoS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos de QoS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-effort" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Best-effort
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intserv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IntServ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffserv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DiffServ
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clasificacion-y-marcado-de-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clasificación y marcado de tráfico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clasificación y marcado de tráfico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marcado-en-capa-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Marcado en capa 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marcado-de-capa-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Marcado de capa 3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fronteras-de-confianza" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fronteras de confianza
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wred" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WRED
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acuerdos-de-nivel-de-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Acuerdos de nivel de servicio
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-y-manipulacion-del-trafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Control y manipulación del tráfico
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    CALIDAD DE SERVICIO
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="calidad-de-servicio">Calidad de servicio<a class="headerlink" href="#calidad-de-servicio" title="Permanent link">&para;</a></h1>
+<h2 id="convergencia-de-red">Convergencia de red<a class="headerlink" href="#convergencia-de-red" title="Permanent link">&para;</a></h2>
+<p>Actualmente las redes soportan diferentes tipos de aplicaciones tales como voz, vídeo y datos sobre una infraestructura común. La convergencia de todos estos tipos de aplicaciones conjuntas representa un reto para el personal administrador encargado de ello.</p>
+<p>Muchas aplicaciones de datos están basadas en protocolos orientados a la conexión como TCP; cuando pierden un segmento es retransmitido otro, mientras que las aplicaciones de voz o vídeo tienen una tolerancia mínima hacia las pérdidas de datos. Debido a esto es necesario implementar mecanismos que prioricen determinados tipos de tráfico cuando exista congestión en la red. Los fallos en la red afectan a todas las aplicaciones, mientras que la red converge después de un fallo, quienes más sufren el desperfecto son los usuarios que estén usando aplicaciones interactivas de voz o vídeo, pudiendo incluso perder la llamada.</p>
+<p>Existen cuatro cuestiones importantes a tener en cuenta en redes convergentes:</p>
+<ul>
+<li>Ancho de banda disponible.</li>
+<li>Retraso de extremo a extremo.</li>
+<li>Jitter o fluctuación en el retraso.</li>
+<li>Pérdida de paquetes.</li>
+</ul>
+<h3 id="ancho-de-banda-disponible">Ancho de banda disponible<a class="headerlink" href="#ancho-de-banda-disponible" title="Permanent link">&para;</a></h3>
+<p>Los paquetes normalmente fluyen usando el camino con mejor ancho de banda. El mejor ancho de banda disponible en la ruta es el del enlace con menor ancho de banda. En la siguiente figura se observa que la ruta a través de los router R1-R2-R3-R4 es el mejor camino del cliente al servidor y 10 Mbps es el máximo ancho de banda del camino.</p>
+<p>La falta de ancho de banda hace que las aplicaciones se degraden debido al retraso y a la pérdida de paquetes. Esto es detectado de forma inmediata por los usuarios de aplicaciones de voz o vídeo.</p>
+<p>Es posible resolver los problemas de ancho de banda con algunos de los siguientes recursos:</p>
+<ul>
+<li><strong>Incrementar el ancho de banda:</strong> lo cual es efectivo pero costoso, aunque dependiendo del escenario en algunos casos es recomendable.</li>
+<li><strong>Usar mecanismos de QoS</strong> (<em>Quality of Service</em>) de clasificación y marcado, así como mecanismos de encolamiento apropiados. De esta manera se enviarán primero los paquetes más importantes.</li>
+<li><strong>Usar técnicas de compresión:</strong> compresión a capa 2, compresión de cabeceras TCP, cRTP (<em>RTP header compression</em>), etc. Siempre es preferible compresión en hardware en vez de en software, ya que el mecanismo en sí usa muchos recursos de CPU.</li>
+</ul>
+<h3 id="retraso-de-extremo-a-extremo">Retraso de extremo a extremo<a class="headerlink" href="#retraso-de-extremo-a-extremo" title="Permanent link">&para;</a></h3>
+<p>Hay diferentes tipos de retraso desde origen a destino. El retraso de extremo a extremo es la suma de estos cuatro tipos de retraso:</p>
+<ul>
+<li><strong>Retraso de procesamiento:</strong> es el tiempo que un dispositivo de capa 3 tarda en mover un paquete desde la interfaz de entrada a la de salida. El tipo de CPU así como la arquitectura de hardware influyen en esto.</li>
+<li><strong>Retraso de encolamiento:</strong> es el tiempo que un paquete pasa en la cola de salida de una interfaz. Dependerá de lo ocupado que esté el router, del número de paquetes esperando, del tipo de cola y del ancho de banda de la interfaz.</li>
+<li><strong>Retraso de serialización:</strong> es el tiempo empleado en poner en el medio físico todos los bits de una trama.</li>
+<li><strong>Retraso de propagación:</strong> es el tiempo que se tarda en transmitir en el medio físico los bits correspondientes a una trama. Depende del tipo de medio físico.</li>
+</ul>
+<h3 id="variacion-del-retraso">Variación del retraso<a class="headerlink" href="#variacion-del-retraso" title="Permanent link">&para;</a></h3>
+<p>Las fluctuaciones en el retraso reciben el nombre de <em>jitter</em>. Se produce cuando los paquetes llegan al destino a velocidades diferentes a las que se emitieron desde el origen.</p>
+<p>Para paquetes de VoIP o vídeo es esencial que la aplicación sea capaz de liberarlos en el destino a la misma velocidad y en el mismo orden que fueron emitidos en un principio. Esto lo hace sirviéndose del <em>buffer</em>, que es donde se van almacenando a medida que llegan, y de RTP (<em>Real-Time Transport Protocol</em>), que sella los paquetes para que sean entregados en orden.</p>
+<p>Algunas de las claves para ayudar a reducir el jitter son las siguientes:</p>
+<ul>
+<li>Incrementar el ancho de banda.</li>
+<li>Priorizar los paquetes sensitivos.</li>
+<li>Usar técnicas de compresión de capa 2.</li>
+<li>Usar técnicas de compresión de cabeceras.</li>
+</ul>
+<h3 id="perdida-de-paquetes">Pérdida de paquetes<a class="headerlink" href="#perdida-de-paquetes" title="Permanent link">&para;</a></h3>
+<p>La pérdida de paquetes ocurre cuando un router no tiene más espacio libre en el buffer de memoria de la interfaz de salida para almacenar los nuevos paquetes que le llegan, debiendo descartarlos.</p>
+<p>TCP reenvía los paquetes descartados, a la vez que reduce el tamaño de ventana. Aplicaciones UDP como TFTP por ejemplo pueden generar más tráfico en la red al tener que retransmitir un archivo completo en caso de pérdida de paquetes. Para llamadas de VoIP la pérdida de paquetes resulta en conversaciones entrecortadas, mientras que para vídeo la imagen parece congelarse. Con los mecanismos de QoS adecuados es posible evitar estas situaciones.</p>
+<p>A través del comando <code>show interface</code> es posible obtener información cuando existan pérdidas de paquetes o congestión:</p>
+<ul>
+<li><strong>Output drop:</strong> número de paquetes descartados, debido a que la cola de salida de la interfaz está llena.</li>
+<li><strong>Input queue drop:</strong> si la CPU está sobrecargada el router podría tener problemas al procesar paquetes entrantes, incrementando este contador.</li>
+<li><strong>Ignore:</strong> número de tramas ignoradas debido a falta de espacio en el buffer.</li>
+<li><strong>Overrun:</strong> cuando la CPU está sobrecargada podría no proporcionar espacio en el buffer lo suficientemente rápido, haciendo que se descarten paquetes.</li>
+<li><strong>Frame error:</strong> incluye las tramas con CRC no válido, las que son más pequeñas que el estándar (<em>runts</em>) y las gigantes (<em>giants</em>).</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Switch# show interfaces gigabitEthernet 9/1
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GigabitEthernet9/1 is up, line protocol is up (connected)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Hardware is Gigabit Ethernet Port, address is 84b2.61f3.4d60 (bia 84b2.61f3.4d60)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Description: USUARIOS
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec,
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>reliability 255/255, txload 1/255, rxload 1/255
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Encapsulation ARPA, loopback not set
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Keepalive set (10 sec)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Full-duplex, 100Mb/s, link type is auto, media type is 10/100/1000-TX
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>input flow-control is on, output flow-control is on
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Auto-MDIX on (operational: on)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>ARP type: ARPA, ARP Timeout 04:00:00
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Last input 00:00:14, output never, output hang never
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>Last clearing of &quot;show interface&quot; counters never
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>Input queue: 0/2000/0/0 (size/max/drops/flushes); Total output drops: 0
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>Queueing strategy: fifo
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>Output queue: 0/40 (size/max)
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>5 minute input rate 0 bits/sec, 0 packets/sec
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>5 minute output rate 11000 bits/sec, 11 packets/sec
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>4553059 packets input, 866005355 bytes, 0 no buffer
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>Received 147281 broadcasts (138296 multicasts)
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>0 runts, 0 giants, 0 throttles
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>0 input packets with dribble condition detected
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>27569591 packets output, 5138649237 bytes, 0 underruns
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>0 output errors, 0 collisions, 3 interface resets
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>0 unknown protocol drops
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>0 babbles, 0 late collision, 0 deferred
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>0 lost carrier, 0 no carrier
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>0 output buffer failures, 0 output buffers swapped out
+</span></code></pre></div>
+<p>Los siguientes métodos pueden utilizarse para reducir o evitar la pérdida de paquetes:</p>
+<ul>
+<li>Incrementar el ancho de banda.</li>
+<li>Incrementar el tamaño del buffer, modificando los valores por defecto.</li>
+<li>Proporcionar un ancho de banda garantizado, usando herramientas de QoS tales como CBWFQ (<em>Class Based Weighted Fair Queuing</em>) o LLQ (<em>Low Latency Queuing</em>).</li>
+<li>Evitar la congestión, descartando aleatoriamente paquetes antes de que las colas se llenen. Para esto existen métodos como RED (<em>Random Early Detection</em>) y WRED (<em>Weighted Random Early Detection</em>).</li>
+</ul>
+<h3 id="comparativa-del-tipo-de-trafico">Comparativa del tipo de tráfico<a class="headerlink" href="#comparativa-del-tipo-de-trafico" title="Permanent link">&para;</a></h3>
+<p>Una red puede contener tres tipos de tráfico:</p>
+<p><strong>1. Tráfico de voz:</strong></p>
+<ul>
+<li>Es predecible y constante.</li>
+<li>Es muy sensible a los retrasos y a la pérdida de paquetes y no puede ser retransmitido en caso de pérdida.</li>
+<li>El tráfico de voz debe recibir una prioridad más alta que UDP.</li>
+<li>Puede tolerar una cierta cantidad de latencia, jitter y pérdida, sin que sea perceptible.</li>
+</ul>
+<p><strong>2. Tráfico de vídeo:</strong></p>
+<ul>
+<li>Tiende a ser impredecible, inconsistente, y por ráfagas.</li>
+<li>Es más sensible a la pérdida de paquetes y tiene un mayor volumen de datos.</li>
+<li>Al igual que el tráfico de voz puede tolerar una cierta cantidad de latencia, jitter y pérdida, sin que sea perceptible.</li>
+</ul>
+<p><strong>3. Tráfico de datos:</strong></p>
+<ul>
+<li>Las aplicaciones que no tienen tolerancia a la pérdida de paquetes de datos, tales como correo electrónico y páginas web, utilizan TCP para garantizar que, si se pierden paquetes serán reenviados.</li>
+<li>Puede ser constante o por ráfagas.</li>
+<li>Algunas aplicaciones TCP pueden consumir gran parte de la capacidad de la red. FTP consumirá tanto ancho de banda como pueda conseguir cuando se descarga un archivo de gran tamaño, como una película o un juego.</li>
+<li>Es relativamente insensible a pérdidas y retrasos en comparación con el tráfico de voz y vídeo.</li>
+</ul>
+<p>El administrador de la red debe tener en cuenta la calidad y la experiencia del usuario, QoE (<em>Quality of Experience</em>) y qué tipo de aplicaciones utiliza.</p>
+<h2 id="administracion-de-la-congestion">Administración de la congestión<a class="headerlink" href="#administracion-de-la-congestion" title="Permanent link">&para;</a></h2>
+<p>La congestión ocurre cuando el ritmo con el que llegan los paquetes al router es mayor que el ritmo con el que salen. Esto puede ser causado principalmente cuando la o las interfaces de salida tiene menos capacidad o son más lentas que la interfaz de entrada, como por ejemplo si los paquetes llegan en un enlace de Giga y han de salir por un enlace Ethernet. También podría ocurrir que el tráfico llegase por dos o más interfaces y solamente pudiera salir por una, que tiene menos ancho de banda que las de entrada.</p>
+<p>Los dispositivos de red pueden reaccionar de diferentes maneras ante una congestión. Para situaciones en que la congestión sea permanente habría que pensar en un incremento del ancho de banda, pero para situaciones donde la congestión es temporal es posible implementar diferentes técnicas de encolamiento, que se pueden elegir dependiendo del objetivo que se busque.</p>
+<p>Si una cola está llena y le llegan nuevos paquetes, se produce un fenómeno conocido como <em>tail drop</em> donde los paquetes son descartados directamente. Dicho fenómeno hace que mientras la cola esté llena los paquetes entrantes sean descartados a medida que llegan. Para evitar la caída o el <em>tail drop</em> ciertos paquetes que están en la cola se descartan para evitar que todos los nuevos paquetes entrantes sean descartados. La elección de qué paquetes serán descartados dependerá del tipo de cola. Generalmente las interfaces usan un sistema llamado FIFO (<em>First In, First Out</em>).</p>
+<p>La arquitectura de encolamiento en una interfaz está compuesta por dos componentes: la cola de software y la cola de hardware (TxQ). Si la cola de hardware no se llena, no habrá paquetes en la cola de software. Pero si la cola de hardware estuviera congestionada o llena, entonces los paquetes se almacenarían en la cola de software y serían procesados por el mecanismo de encolamiento que se hubiera implementado (FIFO, PQ, CQ, RR, LLQ, etc.) para posteriormente ser pasados a la cola de hardware, que siempre usa un mecanismo FIFO.</p>
+<p>El mecanismo de encolamiento por software normalmente cuenta con un determinado número de colas, cada una perteneciente a una clase de tráfico, donde los paquetes son asignados una vez que llegan a la interfaz. En caso de que la cola esté llena los paquetes son descartados directamente (<em>tail drop</em>).</p>
+<p>Si no existieran las colas de software todo el tráfico sería encolado a través de la cola de hardware que siempre es FIFO, de manera que ciertas aplicaciones sufrirían más que otras y no habría manera de dar un trato adecuado al tráfico. En caso de configurar la cola de hardware con un valor demasiado grande se obtendría un resultado similar al mencionado anteriormente; mientras que si la cola de hardware es demasiado pequeña se llenará pronto y los nuevos paquetes serán asignados más rápidamente a la cola de software, que dependiendo de su configuración les dará un trato u otro.</p>
+<p>Se recomienda no cambiar la configuración de la cola de hardware a no ser que sea necesario; el comando <code>tx-ring-limit</code> modifica el modo de configuración de la cola en la interfaz.</p>
+<p>El comando <code>show controllers</code> muestra el tamaño de la cola de hardware.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Router# show controllers
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Interface EOBC0
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Hardware is DEC21143
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>dec21140_ds=0x6107CA20, registers=0x3C018000, ib=0x78A7380
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>rx ring entries=128, tx ring entries=256, af setup failed=0
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>rxring=0x78A7480, rxr shadow=0x6107CC0C, rx_head=6, rx_tail=0
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>txring=0x78A7CC0, txr shadow=0x6107CE38, tx_head=18, tx_tail=18,
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>tx_count=0
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>PHY link up
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>CSR0=0xF8024882, CSR1=0xFFFFFFFF, CSR2=0xFFFFFFFF, CSR3=0x78A7480
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>CSR4=0x78A7CC0, CSR5=0xF0660000, CSR6=0x320CA002, CSR7=0xF3FFA261
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>CSR8=0xE0000000, CSR9=0xFFFDC3FF, CSR10=0xFFFFFFFF, CSR11=0x0
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>CSR12=0xC6, CSR13=0xFFFF0000, CSR14=0xFFFFFFFF, CSR15=0x8FF80000
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>DEC21143 PCI registers:
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>bus_no=0, device_no=6
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>CFID=0x00191011, CFCS=0x02800006, CFRV=0x02000041, CFLT=0x0000FF00
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>CBIO=0x01124401, CBMA=0x48018000, CFIT=0x28140100, CFDD=0x00000400
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>MII registers:
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Register 0x00: FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>Register 0x08: FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>Register 0x10: FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>Register 0x18: FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>throttled=0, enabled=0, disabled=0
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>rx_fifo_overflow=0, rx_no_enp=0, rx_discard=0
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>tx_underrun_err=0, tx_jabber_timeout=0, tx_carrier_loss=0
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>tx_no_carrier=0, tx_late_collision=0, tx_excess_coll=0
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>tx_collision_cnt=26, tx_deferred=0, fatal_tx_err=0, tbl_overflow=0
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>HW addr filter: 0x78D10E0, ISL Disabled
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>Entry= 0: Addr=0000.0000.0000
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>Entry= 1: Addr=0000.0000.0000
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>Entry= 2: Addr=0000.0000.0000
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>Entry= 3: Addr=0000.0000.0000
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>Entry= 4: Addr=0000.0000.0000
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>Entry= 5: Addr=0000.0000.0000
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>Entry= 6: Addr=0000.0000.0000
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>Entry= 7: Addr=0000.0000.0000
+</span></code></pre></div>
+<h3 id="fifo">FIFO<a class="headerlink" href="#fifo" title="Permanent link">&para;</a></h3>
+<p>FIFO (<em>First In First Out</em>) es el mecanismo con que la cola de hardware siempre procesa los paquetes. La configuración no es compleja, un sólo comando basta para habilitarla, y los paquetes simplemente llegan, se ponen en la cola y esperan a ser enviados; el primero en llegar será el primero en salir. La clase de paquete o la prioridad no importan, simplemente importa quién llega primero.</p>
+<p>Esto puede ocasionar un problema debido a que algunas aplicaciones de descarga como FTP pueden saturar el enlace evitando el paso de paquetes de VoIP o dejando pasar solamente algunos, causando que las llamadas suenen entrecortadas o que incluso se caigan.</p>
+<h3 id="wfq">WFQ<a class="headerlink" href="#wfq" title="Permanent link">&para;</a></h3>
+<p>WFQ (<em>Weighted Fair Queuing</em>) es un algoritmo basado en flujos; los paquetes llegan y son categorizados en diferentes tipos de flujos asignados a diferentes colas FIFO. WFQ elimina los problemas de retraso y jitter.</p>
+<p>Los flujos pueden ser identificados según a lo siguiente:</p>
+<ul>
+<li>Dirección IP de origen.</li>
+<li>Dirección IP de destino.</li>
+<li>Número de protocolo.</li>
+<li>Campo ToS (<em>Type of Service</em>).</li>
+<li>Número de puerto de origen TCP/UDP.</li>
+<li>Número de puerto de destino TCP/UDP.</li>
+</ul>
+<p>WFQ realiza las siguientes funciones:</p>
+<ul>
+<li>Divide el tráfico en flujos.</li>
+<li>Proporciona una cantidad de ancho de banda justo a los flujos activos.</li>
+<li>Hace que los flujos con poco volumen de tráfico sean despachados más rápido.</li>
+<li>Proporciona más ancho de banda a los flujos con más prioridad.</li>
+</ul>
+<p>WFQ tiene las siguientes ventajas y desventajas:</p>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li>La configuración es simple y no hace falta clasificar previamente.</li>
+<li>Se garantiza que todas las colas podrán enviar paquetes.</li>
+<li>Se descartan paquetes en flujos de tráfico agresivos y se agiliza los no agresivos.</li>
+<li>Es un protocolo estándar.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li>El sistema de clasificación y la programación de la salida de los paquetes de la cola no puede ser modificada.</li>
+<li>Solamente es soportado en enlaces lentos (hasta 2,048 Mbps).</li>
+<li>No se garantiza prevención del retraso o un ancho de banda mínimo para ningún flujo.</li>
+<li>Podría darse el caso de que múltiples flujos fueran asignados a la misma cola.</li>
+</ul>
+<h3 id="cbwfq">CBWFQ<a class="headerlink" href="#cbwfq" title="Permanent link">&para;</a></h3>
+<p>CBWFQ (<em>Class Based Weighted Fair Queuing</em>) permite la definición manual de clases, cada una de las cuales es asignada a su propia cola. Dichas clases se definen mediante el uso de <em>class maps</em>. Cada una de las colas tiene definido un mínimo de ancho de banda que puede utilizar, pero como su propio nombre indica, es un mínimo; en caso de haber más ancho de banda libre podría emplearlo.</p>
+<p>CBWFQ permite la creación de hasta 64 colas, cada una de las cuales es del tipo FIFO, con un ancho de banda garantizado y un límite máximo de paquetes, que en caso de ser alcanzado produciría un <em>tail drop</em>, aunque podría evitarse con métodos avanzados como WRED.</p>
+<p>CBWFQ tiene los siguientes beneficios:</p>
+<ul>
+<li>Permite la definición de clases de tráfico mediante el uso de <em>class maps</em>.</li>
+<li>Permite la reserva de ancho de banda por cada clase de tráfico basándose en ciertos criterios.</li>
+<li>Proporciona granularidad al permitir definir hasta 64 clases diferentes de flujos de tráfico.</li>
+</ul>
+<p>La desventaja de CBWFQ es que no incorpora ningún mecanismo para favorecer el tráfico en tiempo real de aplicaciones como VoIP o vídeo.</p>
+<h3 id="llq">LLQ<a class="headerlink" href="#llq" title="Permanent link">&para;</a></h3>
+<p>Hasta ahora no se ha tratado ningún mecanismo de encolamiento que cubriera las necesidades que tienen las aplicaciones en tiempo real. LLQ (<em>Low Latency Queuing</em>) cuenta con una cola de prioridad estricta que se utiliza para aplicaciones en tiempo real que son sensitivas al retraso y al jitter. Esta cola está limitada, impidiendo así que anule a las demás, pero limitando su uso. En caso de que haya congestión LLQ sólo usará el ancho de banda que se le ha asignado, permitiendo así que las demás colas también puedan enviar.</p>
+<p>Este sistema es similar a CBWFQ pero difiere en la adición de colas de prioridad estricta con el uso del comando <code>strict-priority</code>. Se debe tener en cuenta que son posibles más de una cola de prioridad estricta, siendo dos usadas en muchos casos para VoIP y vídeo.</p>
+<p>LLQ ofrece todos los beneficios de CBWFQ y además proporciona una o más colas de prioridad estricta que garantizarán ancho de banda a aplicaciones sensitivas al retraso y al jitter. Dichas colas no evitarán que el resto puedan seguir transmitiendo durante períodos de congestión ya que estarán limitadas.</p>
+<p>La configuración es casi idéntica a la de CBWFQ con la variación del parámetro <code>priority</code> en vez de <code>bandwidth</code>.</p>
+<h2 id="qos">QoS<a class="headerlink" href="#qos" title="Permanent link">&para;</a></h2>
+<p>En una red normal con poca utilización un switch envía los paquetes tan pronto como le llegan, pero si la red está congestionada los paquetes no pueden ser entregados en un tiempo razonable. Tradicionalmente la disponibilidad de la red se incrementa aumentando el ancho de banda de los enlaces o el hardware de los switch. QoS (<em>Quality of Service</em>) ofrece técnicas utilizadas en la red para priorizar un tráfico determinado respecto a otros.</p>
+<p>QoS se define como la habilidad de la red para proporcionar un mejor o especial servicio a un conjunto de usuarios o aplicaciones en detrimento de otros usuarios o aplicaciones.</p>
+<p>Para implementar QoS hay que llevar a cabo tres pasos:</p>
+<ul>
+<li>Identificar tipos de tráfico y sus requerimientos.</li>
+<li>Clasificación del tráfico basándose en los requerimientos identificados.</li>
+<li>Definir las políticas para cada clase.</li>
+</ul>
+<h3 id="identificacion-del-trafico-y-sus-requerimientos">Identificación del tráfico y sus requerimientos<a class="headerlink" href="#identificacion-del-trafico-y-sus-requerimientos" title="Permanent link">&para;</a></h3>
+<p>Es el punto de partida en cualquier implementación de QoS y conlleva los siguientes apartados:</p>
+<ul>
+<li><strong>Llevar a cabo una auditoría de red.</strong> Es aconsejable tomar estos datos durante los momentos en que la red esté más ocupada así como durante otros períodos.</li>
+<li><strong>Determinar la importancia de cada aplicación.</strong> El modelo de negocio determinará la importancia de cada aplicación. Se pueden definir clases de tráfico y los requerimientos para cada clase.</li>
+<li><strong>Definir niveles de servicio para cada clase de tráfico.</strong> Cada clase identificada previamente ha de tener un nivel de servicio que constará de características como ancho de banda garantizado, retraso, preferencia a la hora de que se descarte, etc.</li>
+</ul>
+<h3 id="clasificacion-del-trafico">Clasificación del tráfico<a class="headerlink" href="#clasificacion-del-trafico" title="Permanent link">&para;</a></h3>
+<p>Es posible clasificar desde unas pocas a cientos de variaciones de tráfico dentro de diferentes clases. Las clases definidas han de ir de acuerdo a las necesidades y objetivos de negocio. Las siguientes clases son el resultado de varios estudios y está demostrado que si no todas, alguna de ellas aparecerá en cualquier red empresarial:</p>
+<ul>
+<li><strong>Clase de VoIP:</strong> como su propio nombre indica corresponde al tráfico de VoIP.</li>
+<li><strong>Clase de aplicaciones de misión crítica:</strong> corresponde a aplicaciones de alta importancia.</li>
+<li><strong>Clase de tráfico de señalización:</strong> pertenece al tráfico de señalización de VoIP, vídeo, etc.</li>
+<li><strong>Clase de tráfico de aplicaciones de transacción:</strong> son aplicaciones del tipo de bases de datos interactivas, etc.</li>
+<li><strong>Clase Best-effort:</strong> esta clase engloba el tráfico no estipulado en las anteriores y se le proporciona el ancho de banda que sobre.</li>
+<li><strong>Clase sin importancia:</strong> corresponde a servicios o aplicaciones que se consideran inferiores a las Best-effort. Podrían ser e-mail personal, aplicaciones P2P, juegos online, etc.</li>
+</ul>
+<h3 id="definicion-de-politicas-para-cada-clase">Definición de políticas para cada clase<a class="headerlink" href="#definicion-de-politicas-para-cada-clase" title="Permanent link">&para;</a></h3>
+<p>Este paso conlleva el completar las siguientes tareas:</p>
+<ul>
+<li>Especificar un ancho de banda máximo.</li>
+<li>Especificar un ancho de banda mínimo garantizado.</li>
+<li>Asignar niveles de prioridad.</li>
+<li>Usar herramientas que sean adecuadas para la congestión, gestionándola, eliminándola, etc.</li>
+</ul>
+<p>La tabla siguiente muestra un ejemplo de una política de QoS.</p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Prioridad</th>
+<th>Tipo de cola</th>
+<th>Ancho de banda Mín/Máx</th>
+<th>Herramienta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voice</td>
+<td>5</td>
+<td>Prioridad</td>
+<td>1 Mbps Mín / 1 Mbps Máx</td>
+<td>Prioridad de cola</td>
+</tr>
+<tr>
+<td>Business mission critical</td>
+<td>4</td>
+<td>CBWFQ</td>
+<td>1 Mbps Mín</td>
+<td>CBWFQ</td>
+</tr>
+<tr>
+<td>Signaling</td>
+<td>3</td>
+<td>CBWFQ</td>
+<td>400 Kbps Mín</td>
+<td>CBWFQ</td>
+</tr>
+<tr>
+<td>Transactional</td>
+<td>2</td>
+<td>CBWFQ</td>
+<td>1 Mbps Mín</td>
+<td>CBWFQ</td>
+</tr>
+<tr>
+<td>Best-effort</td>
+<td>1</td>
+<td>CBWFQ</td>
+<td>500 Kbps Máx</td>
+<td>CBWFQ / CB-Policing</td>
+</tr>
+<tr>
+<td>Scavenger</td>
+<td>0</td>
+<td>CBWFQ</td>
+<td>Máx 100 Kbps</td>
+<td>CBWFQ / CB-Policing / WRED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="modelos-de-qos">Modelos de QoS<a class="headerlink" href="#modelos-de-qos" title="Permanent link">&para;</a></h2>
+<h3 id="best-effort">Best-effort<a class="headerlink" href="#best-effort" title="Permanent link">&para;</a></h3>
+<p>Este modelo significa que no hay QoS aplicado, de manera que todos los paquetes dentro de la red independientemente del tipo que sean reciben el mismo trato. Como beneficio de este sistema está la facilidad de implementación, ya que no hay que hacer nada para ponerlo en funcionamiento, pero tiene como desventaja que no es posible garantizar ningún tipo de servicio a ninguna aplicación.</p>
+<h3 id="intserv">IntServ<a class="headerlink" href="#intserv" title="Permanent link">&para;</a></h3>
+<p>Se trata del primer modelo que proporcionó QoS de extremo a extremo, basado en la señalización explícita y reserva de recursos de red para aquellas aplicaciones que los necesitan. El protocolo usado para la señalización es el RSVP (<em>Resource Reservation Protocol</em>).</p>
+<p>Cuando una aplicación tiene un requerimiento de ancho de banda, RSVP va salto por salto a lo largo del camino intentando hacer la reserva solicitada en cada uno de los routers que se encuentra en la ruta. Si la reserva se puede hacer la aplicación podrá operar; pero si algún elemento en el camino no tiene los recursos suficientes la aplicación tendrá que esperar.</p>
+<p>Para implementar Servicios Integrados de manera satisfactoria, además de RSVP debería habilitarse lo siguiente:</p>
+<ul>
+<li><strong>Control de Admisión:</strong> en caso de que los recursos no puedan proporcionarse sin afectar a las aplicaciones actualmente en uso se deberían denegar.</li>
+<li><strong>Clasificación:</strong> el tráfico perteneciente a una aplicación que ha solicitado una reserva se debería clasificar y ser reconocido por los routers en el camino.</li>
+<li><strong>Políticas:</strong> es necesario tomar acciones cuando las aplicaciones excedan la utilización de los recursos acordados.</li>
+<li><strong>Encolamiento:</strong> es importante que los dispositivos puedan almacenar los paquetes mientras se envían los que estaban primero.</li>
+<li><strong>Programación:</strong> funciona junto con el encolamiento y hace referencia al caso en el que existan varias colas y qué cantidad de datos podrían transmitir cada una en cada ciclo.</li>
+</ul>
+<p>Los beneficios de Servicios Integrados son el control de admisión de recursos de extremo a extremo, políticas de control de admisión por petición y señalización de números de puerto dinámicos. Como desventajas mencionar que cada flujo activo necesita señalización continua, usando así recursos extra y haciendo que no sea un modelo altamente escalable.</p>
+<h3 id="diffserv">DiffServ<a class="headerlink" href="#diffserv" title="Permanent link">&para;</a></h3>
+<p>Este modelo es el más actual de los tres y ha sido desarrollado para suplir las deficiencias de sus predecesores. Está explicado detalladamente en las RFC 2474 y 2475. Servicios diferenciados usa PHB (<em>Per-Hop Behavior</em>), que hace referencia al comportamiento por salto. Esto significa que cada salto en el camino está programado para proporcionar un nivel de servicio específico a cada clase de tráfico.</p>
+<p>Con este modelo, el tráfico es en principio clasificado y marcado. A medida que fluye en la red va recibiendo distinto trato dependiendo de su marca.</p>
+<p>En los servicios diferenciados hay que tener en cuenta que:</p>
+<ul>
+<li>El tráfico es clasificado.</li>
+<li>Las políticas de QoS son aplicadas dependiendo de la clase.</li>
+<li>Se debe elegir el nivel de servicio para cada tipo de clase que corresponderá a unas necesidades determinadas.</li>
+</ul>
+<p>Como ventajas principales mencionar la escalabilidad y habilidad para soportar muchos tipos de niveles de servicio. Como puntos negativos, el servicio no es absolutamente garantizado y es más complejo de implementar.</p>
+<h2 id="clasificacion-y-marcado-de-trafico">Clasificación y marcado de tráfico<a class="headerlink" href="#clasificacion-y-marcado-de-trafico" title="Permanent link">&para;</a></h2>
+<p>Clasificar es el proceso de identificar y categorizar tipos de tráfico en clases. La categorización se ha hecho tradicionalmente basándose en ACL, pero además es posible utilizar descriptores de tráfico como:</p>
+<ul>
+<li>Interfaz de entrada.</li>
+<li>Valor del CoS (<em>Class of Service</em>).</li>
+<li>Dirección IP de origen o destino.</li>
+<li>Valor de IP Precedence o DSCP en la cabecera IP.</li>
+<li>Valor EXP en la cabecera MPLS.</li>
+<li>Tipo de aplicación.</li>
+</ul>
+<p>Siempre se debe intentar clasificar y marcar el tráfico tan cerca del origen como sea posible, siendo la capa de acceso de la red el lugar ideal. Marcar es el proceso de etiquetar tráfico basándose en su categoría. Los campos usados para el marcado dependen de si es en capa 2 (CoS, EXP, DE, CLP) o capa 3 (IP Precedence, DSCP).</p>
+<h3 id="marcado-en-capa-2">Marcado en capa 2<a class="headerlink" href="#marcado-en-capa-2" title="Permanent link">&para;</a></h3>
+<p>802.1q es un modelo de enlace troncal de capa 2 estandarizado definido por la IEEE. Dentro de la cabecera existe un campo de 3 bits llamado PRI (<em>Priority</em>) o CoS (<em>Class of Service</em>) 802.1p, utilizado para propósitos de QoS y que puede tener 8 posibles valores.</p>
+<p>La siguiente tabla describe los valores de los bits CoS 802.1p dentro de la cabecera:</p>
+<table>
+<thead>
+<tr>
+<th>CoS (bits)</th>
+<th>CoS (Decimal)</th>
+<th>IETF RFC791</th>
+<th>Aplicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000</td>
+<td>0</td>
+<td>Routine</td>
+<td>Datos</td>
+</tr>
+<tr>
+<td>001</td>
+<td>1</td>
+<td>Priority</td>
+<td>Datos de media prioridad</td>
+</tr>
+<tr>
+<td>010</td>
+<td>2</td>
+<td>Immediate</td>
+<td>Datos de alta prioridad</td>
+</tr>
+<tr>
+<td>011</td>
+<td>3</td>
+<td>Flash</td>
+<td>Señal de llamada</td>
+</tr>
+<tr>
+<td>100</td>
+<td>4</td>
+<td>Flash-Override</td>
+<td>Videoconferencia</td>
+</tr>
+<tr>
+<td>101</td>
+<td>5</td>
+<td>Critical</td>
+<td>Voz</td>
+</tr>
+<tr>
+<td>110</td>
+<td>6</td>
+<td>Internet</td>
+<td>Reservado (inter-network control)</td>
+</tr>
+<tr>
+<td>111</td>
+<td>7</td>
+<td>Network</td>
+<td>Reservado (network control)</td>
+</tr>
+</tbody>
+</table>
+<p>La siguiente figura muestra la cabecera de 4 bytes 802.1q.</p>
+<h3 id="marcado-de-capa-3">Marcado de capa 3<a class="headerlink" href="#marcado-de-capa-3" title="Permanent link">&para;</a></h3>
+<p>IPv4 e IPv6 especifican un campo de 8 bits en sus cabeceras para marcar paquetes. Este campo recibe el nombre de:</p>
+<ul>
+<li><strong>IPv4:</strong> Tipo de servicio</li>
+<li><strong>IPv6:</strong> Clase de tráfico</li>
+</ul>
+<p>Se utilizan los 3 bits más significativos (más a la izquierda) del campo ToS (<em>Type of Service</em>), los cuales reciben el nombre de IP Precedence, y dan un total de 8 posibles combinaciones; cuanto más alto el número, mayor prioridad.</p>
+<p>La siguiente figura muestra una cabecera IP y detalla el campo ToS mostrando los posibles valores de IP Precedence.</p>
+<p>Los valores 6 y 7 de la tabla anterior son usados por diferentes protocolos en su tráfico de gestión y no está permitido que se configuren para aplicaciones.</p>
+<p>La redefinición del byte ToS dio lugar al campo DiffServ, usando los 6 bits más significativos (más a la izquierda), lo que aumenta la flexibilidad y las opciones. Los 2 bits menos significativos son llamados ECN (<em>Explicit Congestion Notification</em>) y se usan para control del flujo. DSCP (<em>Differentiated Services Code Point</em>) es compatible con IP Precedence, lo que hace que la migración sea más fácil.</p>
+<p>En la terminología Diffserv, el comportamiento de reenvío asignado a un DSCP se denomina PHB (<em>Per-hop Behavior</em>). El PHB define la precedencia de reenvío que un paquete marcado en relación con otro tráfico del sistema con Diffserv. Esta precedencia determina si el sistema con IP QoS o Diffserv reenvía o descarta dicho paquete. Para un paquete reenviado, cada enrutador Diffserv que el paquete encuentra en la ruta hasta su destino aplica el mismo PHB. La excepción ocurre si otro sistema Diffserv cambia el DSCP.</p>
+<p>Existen cuatro tipos de PHB con los valores del DSCP:</p>
+<ul>
+<li><strong>Call Selector:</strong> poniendo a cero los 3 bits menos significativos del DSCP <code>xxx000</code>, se obtiene compatibilidad con IP Precedence.</li>
+<li><strong>Por defecto:</strong> con los 3 bits más significativos del IP Precedence/DSCP <code>000xxx</code>, se obtiene un resultado de Best-effort.</li>
+<li><strong>Assured Forwarding (AF):</strong> con los 3 bits más significativos del DSCP puestos a <code>001xxx</code>, <code>010xxx</code>, <code>011xxx</code> o <code>100xxx</code> (AF1, AF2, AF3, AF4) se usa para garantizar ancho de banda.</li>
+<li><strong>Expedite Forwarding (EF):</strong> con los 3 bits más significativos del DSCP puestos a <code>101xxx</code> (el campo DSCP sería 101110 equivalente a 46 en decimal) se usa para proporcionar un servicio de bajo retardo.</li>
+</ul>
+<h2 id="fronteras-de-confianza">Fronteras de confianza<a class="headerlink" href="#fronteras-de-confianza" title="Permanent link">&para;</a></h2>
+<p>Los dispositivos finales como pueden ser PC, teléfonos IP, switches y routers localizados en diferentes niveles de la jerarquía de la red podrían marcar los paquetes IP o las tramas 802.1Q/P. Una medida importante en el diseño es decidir dónde localizar las fronteras de confianza. Dichas fronteras formarán un perímetro, dentro del cual los diferentes dispositivos respetarán y confiarán en las marcas de QoS realizadas dentro de ese perímetro. Las marcas hechas por dispositivos fuera de ese perímetro son eliminadas o chequeadas.</p>
+<p>A la hora de decidir dónde colocar la frontera de confianza hay que tener en cuenta que los dispositivos confiables deberían estar dentro de nuestro control administrativo y que dependiendo del dispositivo tendrá capacidad para realizar unas tareas u otras. Con esto en consideración la frontera de confianza puede ser implementada en una de las siguientes capas:</p>
+<ul>
+<li>Sistema final.</li>
+<li>Capa de Acceso.</li>
+<li>Capa de Distribución.</li>
+</ul>
+<h2 id="wred">WRED<a class="headerlink" href="#wred" title="Permanent link">&para;</a></h2>
+<p>Las herramientas para evitar la congestión del tráfico de red son simples. Siguen de cerca las cargas de tráfico en un esfuerzo para anticipar y evitar la congestión en la red y los cuellos de botella antes de que se conviertan en un problema.</p>
+<p>Estas técnicas proporcionan un tratamiento preferencial cuando hay congestión para el tráfico premium (según su prioridad), mientras que al mismo tiempo maximizan el rendimiento y la capacidad de la red al reducir al mínimo la pérdida de paquetes y el retardo.</p>
+<p>El algoritmo WRED (<em>Weighted Random Early Detection</em>) permite evitar la congestión en interfaces de red, proporcionando gestión de memoria intermedia y permitiendo disminuir o desacelerar el tráfico TCP, antes de que se agoten los buffers de memoria.</p>
+<p>WRED es un mecanismo que previene el <em>tail drop</em> descartando paquetes de manera aleatoria antes de que éste se produzca, con la capacidad añadida de poder decidir qué tráfico descartar en caso de que fuera necesario. La cantidad de paquetes que son descartados crece a medida que va creciendo el tamaño de la cola de la interfaz.</p>
+<p>Con WRED es posible configurar diferentes perfiles (umbral mínimo, máximo y MPD) para dar más prioridad a unos flujos de tráfico que a otros. La prioridad se basa en los valores IP Precedence o DSCP.</p>
+<p>WRED considera el tráfico RSVP sensitivo a los descartes, de manera que el tráfico que no sea RSVP es descartado primero. Por otra parte, los flujos de tráfico no IP son considerados menos importantes que los IP y se empiezan a descartar antes.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>WRED no debe aplicarse a colas de tráfico VoIP, ya que dicho tráfico es extremadamente sensitivo a los descartes de paquetes y daría lugar a conversaciones entrecortadas, además de tratarse de tráfico UDP.</p>
+</div>
+<h2 id="acuerdos-de-nivel-de-servicio">Acuerdos de nivel de servicio<a class="headerlink" href="#acuerdos-de-nivel-de-servicio" title="Permanent link">&para;</a></h2>
+<p>Un SLA (<em>Service Level Agreements</em>) es un acuerdo contractual entre dos partes, normalmente identificados como la empresa y el proveedor de servicios. Dichos servicios pueden ser líneas dedicadas punto a punto, acceso a Internet, etc. Es recomendable monitorizar dicho SLA para que ambas partes cumplan con lo acordado.</p>
+<p>Los parámetros que se suelen negociar en relación a QoS son:</p>
+<ul>
+<li>Retraso.</li>
+<li>Jitter.</li>
+<li>Pérdida de paquetes.</li>
+<li>Rendimiento.</li>
+<li>Disponibilidad del servicio.</li>
+</ul>
+<p>El desarrollo de la telefonía IP y aplicaciones interactivas han hecho que cada vez sean más importantes los SLA relativos a QoS.</p>
+<p>Tradicionalmente las empresas han usado Circuitos Virtuales (VC) ya sean permanentes o temporales (PVC o SVC) para proporcionar conectividad entre sitios remotos. En este tipo de servicios no es posible negociar un SLA relativo a QoS, ya que el servicio que se presta es de capa 1 y 2.</p>
+<p>El SLA se centra en parámetros como velocidad media de transferencia (CIR), ráfaga de tráfico alcanzable transmitiendo a la velocidad media (Bc, <em>committed burst</em>), ráfaga en exceso (Be, <em>excess burst</em>) y velocidad máxima de transferencia. Cuando los enlaces WAN se congestionan hay que aplicar técnicas de QoS tales como <em>traffic shaping</em>, compresión de cabeceras, LLQ, etc.</p>
+<p>Actualmente hay muchos proveedores que ofrecen servicios de capa 3 mediante el uso de MPLS VPN, lo que proporciona muchas más ventajas que los servicios de capa 1 o 2 tradicionales. Escalabilidad, facilidad de provisión y flexibilidad del servicio son sinónimos de las MPLS VPN. Al trabajar en capa 3 se pueden, ahora sí, establecer SLA relativos a QoS.</p>
+<h2 id="control-y-manipulacion-del-trafico">Control y manipulación del tráfico<a class="headerlink" href="#control-y-manipulacion-del-trafico" title="Permanent link">&para;</a></h2>
+<p>Existen dos mecanismos para amoldar el tráfico a las necesidades de la red. Ambos miden la cantidad de tráfico y lo comparan con una política o un acuerdo de nivel de servicio (SLA). SLA es utilizado normalmente por las empresas o ISP en lo que respecta al manejo de ancho de banda, tráfico, disponibilidad, fiabilidad, etc. Cuando dicho SLA se sobrepasa y hay un exceso en el tráfico enviado, se pueden utilizar métodos para su regulación:</p>
+<ul>
+<li><strong>Shaping:</strong> utiliza buffers para retardar el envío de dicho tráfico. Es aplicado en dirección de salida.</li>
+<li><strong>Policing:</strong> descarta ese tráfico o en algunos casos lo remarca. Puede aplicarse tanto en salida como en entrada.</li>
+</ul>
+<p>La utilización de <em>shaping</em> es recomendable en los siguientes casos:</p>
+<ul>
+<li><strong>Para frenar la velocidad a la que el tráfico es enviado a través de una red WAN.</strong> En caso de que el sitio remoto o la red del proveedor tengan problemas de congestión, el dispositivo que envía puede ser notificado, usando por ejemplo BECN en Frame-Relay, almacenando tráfico y bajando la cantidad enviada hasta que las condiciones de la red mejoren. Dos casos comunes son cuando un sitio remoto tiene una conexión al proveedor a menor velocidad que la del sitio que envía, y cuando al sitio remoto le están llegando datos de múltiples sitios, saturando así su conexión.</li>
+<li><strong>Para cumplir con la velocidad de suscripción.</strong> Dependiendo del SLA que exista con el proveedor habrá que aplicar <em>shaping</em> para los enlaces WAN o MetroEthernet.</li>
+<li><strong>Para enviar diferentes clases de tráfico a diferentes velocidades.</strong> Si en el SLA se especifica una velocidad máxima para una clase de tráfico en particular, el dispositivo que envía tendrá que aplicar <em>shaping</em> basado en clase.</li>
+</ul>
+<p>La utilización de <em>policing</em> es recomendable en los siguientes casos:</p>
+<ul>
+<li><strong>Para limitar la velocidad a un valor menor que la velocidad del medio o interfaz física.</strong> Suele darse el caso cuando un proveedor ofrece un servicio de acceso a su red a través de una interfaz que puede proporcionar una velocidad mayor a la del SLA acordado.</li>
+<li><strong>Para limitar la velocidad del tráfico en cada clase.</strong> Esto ocurre cuando el SLA pactado incluye diferentes velocidades por clase de tráfico.</li>
+<li><strong>Para remarcar tráfico.</strong> Normalmente se remarca el tráfico si excede el SLA para que, posteriormente, otros dispositivos puedan tomar alguna acción.</li>
+</ul>
+<h2 id="fundamentos-para-el-examen">Fundamentos para el examen<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Recuerde los fundamentos para una correcta convergencia de una red.</li>
+<li>Estudie todas las posibilidades para garantizar el mayor ancho de banda posible.</li>
+<li>Recuerde la importancia del jitter.</li>
+<li>Diferencie los tipos de tráfico y compárelos.</li>
+<li>Respecto a la congestión recuerde cuáles pueden ser los mecanismos para evitarla.</li>
+<li>Identifique y estudie los diferentes tipos de tráfico.</li>
+<li>Estudie los modelos de QoS.</li>
+<li>Recuerde términos como SLA, WRED, CoS, CBWFQ, FIFO.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-9/capitulo_9/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuracion de enrutamiento">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuracion de enrutamiento
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../capitulo-11/capitulo_11/" class="md-footer__link md-footer__link--next" aria-label="Next: Redes de area amplia">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Redes de area amplia
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

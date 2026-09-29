@@ -1,0 +1,3559 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-10/capitulo_10/">
+      
+      
+        <link rel="next" href="../../capitulo-12/capitulo_12/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Redes de área amplia - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redes-de-area-amplia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redes de área amplia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topologias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Topologías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conectividad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terminología
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-de-capa-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares de capa 1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-de-capa-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares de capa 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interfaces
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PPP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#establecimiento-de-la-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Establecimiento de la conexión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion-pap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autenticación PAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-ppp-con-pap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración PPP con PAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion-chap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autenticación CHAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-ppp-con-chap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración PPP con CHAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pppoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PPPoE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPPoE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fases
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tamano-mtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tamaño MTU
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilink-ppp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MULTILINK PPP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MULTILINK PPP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAT
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NAT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminologia-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terminología NAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración estática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración dinámica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-pat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de PAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VPN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funcionamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IPSec
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SSL VPN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tunel-gre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Túnel GRE
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-tunel-gre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de túnel GRE
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#otras-tecnologias-de-acceso-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        OTRAS TECNOLOGÍAS DE ACCESO WAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTRAS TECNOLOGÍAS DE ACCESO WAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metro-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Metro Ethernet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dmvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DMVPN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MPLS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DSL
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CASO PRÁCTICO
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CASO PRÁCTICO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-ppp-con-chap_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración PPP con CHAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-nat-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de NAT dinámico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-una-vpn-de-router-a-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de una VPN de router a router
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FUNDAMENTOS PARA EL EXAMEN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        WAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topologias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Topologías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conectividad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terminología
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-de-capa-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares de capa 1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-de-capa-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares de capa 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interfaces
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PPP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#establecimiento-de-la-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Establecimiento de la conexión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion-pap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autenticación PAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-ppp-con-pap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración PPP con PAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion-chap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autenticación CHAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-ppp-con-chap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración PPP con CHAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pppoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PPPoE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPPoE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fases
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tamano-mtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tamaño MTU
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilink-ppp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MULTILINK PPP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MULTILINK PPP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAT
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NAT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminologia-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terminología NAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración estática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración dinámica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-pat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de PAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VPN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funcionamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IPSec
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SSL VPN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tunel-gre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Túnel GRE
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-tunel-gre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de túnel GRE
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#otras-tecnologias-de-acceso-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        OTRAS TECNOLOGÍAS DE ACCESO WAN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTRAS TECNOLOGÍAS DE ACCESO WAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metro-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Metro Ethernet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dmvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DMVPN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MPLS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DSL
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CASO PRÁCTICO
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CASO PRÁCTICO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-ppp-con-chap_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración PPP con CHAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-nat-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de NAT dinámico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-una-vpn-de-router-a-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de una VPN de router a router
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FUNDAMENTOS PARA EL EXAMEN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    REDES DE AREA AMPLIA
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="redes-de-area-amplia">Redes de área amplia<a class="headerlink" href="#redes-de-area-amplia" title="Permanent link">&para;</a></h1>
+<h2 id="wan">WAN<a class="headerlink" href="#wan" title="Permanent link">&para;</a></h2>
+<p>Una WAN (<em>Wide Area Networks</em>) define la forma en que los datos se desplazan a través de una zona geográficamente extensa. Las WAN interconectan diferentes LAN utilizando los servicios de un proveedor, que a diferencia del diseño de LAN se hace absolutamente necesario. Las tecnologías de señalización y transporte que utilizan los proveedores de servicios suelen ser transparentes para los usuarios finales y generalmente son tecnologías propietarias. Las operaciones de una WAN se centran principalmente en las capas 1 y 2 del modelo OSI.</p>
+<h3 id="topologias">Topologías<a class="headerlink" href="#topologias" title="Permanent link">&para;</a></h3>
+<p>Una WAN puede utilizar varios tipos de topologías, las siguientes son las más comunes:</p>
+<ul>
+<li><strong>Topología punto a punto:</strong> emplea un circuito punto a punto entre dos puntos finales. Típicamente se relaciona con las conexiones de líneas alquiladas dedicadas.</li>
+<li><strong>Topología hub-and-spoke:</strong> se utiliza cuando se necesita una conexión entre múltiples sitios. Una sola interfaz en el hub puede ser compartida por todos los circuitos de remotos.</li>
+<li><strong>Topología de malla completa:</strong> cualquier sitio puede comunicarse directamente con cualquier otro sitio. Una desventaja puede ser el gran número de circuitos virtuales que necesitan ser configurados y mantenidos.</li>
+<li><strong>Topología dual-homed:</strong> proporciona redundancia, pero es una topología muy costosa.</li>
+</ul>
+<h3 id="conectividad">Conectividad<a class="headerlink" href="#conectividad" title="Permanent link">&para;</a></h3>
+<p>Dentro de una nube WAN generalmente es posible observar varios tipos de conexiones.</p>
+<ul>
+<li><strong>Líneas alquiladas.</strong> También denominada conexión punto a punto o línea dedicada. Ofrece una única opción de comunicación por un medio exclusivo para el cliente. Las líneas alquiladas eliminan los problemas de conexión/desconexión de llamada, brindando a su vez mayor privacidad y seguridad. Suelen emplearse en conexiones serie síncronas manteniendo constante la utilización del ancho de banda. Suelen ser las líneas más costosas.</li>
+<li><strong>Circuitos conmutados.</strong> Es un método de conmutación donde solo se establece conexión entre el emisor y el receptor únicamente durante el tiempo que dure la transmisión. Las sucesivas conexiones pueden o no utilizar la misma ruta que la anterior. Las conexiones de circuito conmutado suelen emplearse para entornos que tengan uso esporádico, enlaces de respaldo o enlaces bajo demanda. Este tipo de servicios también pueden utilizar los servicios de telefonía básicos mediante una conexión asíncrona conectada a un módem. Un ejemplo es el de RDSI.</li>
+<li><strong>Paquetes conmutados.</strong> Es un método de conmutación donde los dispositivos comparten un único enlace punto a punto o punto multipunto para transportar paquetes desde un origen hacia un destino a través de una internetwork portadora. Estas redes utilizan circuitos virtuales para ofrecer conectividad, de forma permanente o conmutada (PVC o SVC). El destino es identificado por las cabeceras y el ancho de banda es dedicado, sin embargo una vez entregada la trama el proveedor puede compartirlo con otros clientes. Un ejemplo es el de Frame-Relay.</li>
+<li><strong>Celdas conmutadas.</strong> Es un método similar al de conmutación de paquetes, solo que en lugar de ser paquetes de longitud variable se utilizan celdas de longitud fija que se transporten sobre circuitos virtuales. Un ejemplo es el de ATM.</li>
+</ul>
+<h3 id="terminologia">Terminología<a class="headerlink" href="#terminologia" title="Permanent link">&para;</a></h3>
+<p>Los términos y servicios asociados con las tecnologías WAN son cuantiosos, sin embargo los más utilizados son los siguientes:</p>
+<ul>
+<li><strong>CPE (Customer Premises Equipment):</strong> dispositivos ubicados físicamente en el cliente.</li>
+<li><strong>Demarcación:</strong> punto en el que finaliza el CPE y comienza el bucle local.</li>
+<li><strong>Bucle local:</strong> también llamada última milla, es el cableado desde la demarcación hasta la oficina central del proveedor.</li>
+<li><strong>CO:</strong> oficina central donde se encuentra el switch CO, dentro de la red pueden existir varios tipos de CO.</li>
+<li><strong>ISP (Internet Services Provider):</strong> proveedor de servicios o acceso de Internet.</li>
+<li><strong>Telco:</strong> nombre genérico utilizado para designar a una empresa de telecomunicaciones.</li>
+<li><strong>Nube:</strong> grupo de dispositivos y recursos que se encuentran dentro de la red de pago.</li>
+</ul>
+<h3 id="estandares-de-capa-1">Estándares de capa 1<a class="headerlink" href="#estandares-de-capa-1" title="Permanent link">&para;</a></h3>
+<p>Los dispositivos WAN soportan los siguientes estándares de capa física:</p>
+<ul>
+<li>EIA/TIA-232.</li>
+<li>EIA/TIA-449.</li>
+<li>V.35.</li>
+<li>X.21.</li>
+<li>EIA-530.</li>
+<li>HSSI.</li>
+</ul>
+<p>El gráfico ilustra los diferentes tipos de conectores para las interfaces serie.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Las tarjetas WIC (WAN interface Card) utilizan interfaces SmartSerial, lo que reduce notablemente el tamaño de sus antecesoras manteniendo las mismas propiedades.</p>
+</div>
+<h3 id="estandares-de-capa-2">Estándares de capa 2<a class="headerlink" href="#estandares-de-capa-2" title="Permanent link">&para;</a></h3>
+<p>Dependiendo de la tecnología WAN utilizada es necesario configurar el tipo de encapsulamiento adecuado. Entre los tipos de encapsulación WAN se detallan:</p>
+<ul>
+<li><strong>HDLC (High-Level Data Link Control):</strong> es el tipo de encapsulación por defecto de los routers Cisco, es un protocolo de enlace de datos síncrono propietario.</li>
+<li><strong>PPP (Point-to-Point Protocol):</strong> es un protocolo estándar que ofrece conexiones de router a router y de host a red. Utiliza enlaces síncronos y asíncronos. Utiliza mecanismos de autenticación como PAP y CHAP.</li>
+<li><strong>SLIP (Serial Link Internet Protocol):</strong> antecesor de PPP ya casi en desuso.</li>
+<li><strong>Frame-Relay:</strong> es un protocolo de enlace de datos conmutado y estándar que maneja varios circuitos virtuales para establecer las conexiones. Posee corrección de errores y control de flujo.</li>
+<li><strong>X.25/LAPB (Link Access Procedure Balanced):</strong> antecesor de Frame-Relay menos fiable que este último.</li>
+<li><strong>ATM (Asynchonous Transfer Mode):</strong> estándar para la transmisión de celdas de longitud fija. Se utiliza indistintamente para voz, vídeo y datos.</li>
+</ul>
+<p>El comando <code>encapsulation</code> habilita el encapsulamiento para una interfaz serie.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Router(config-if)#encapsulation serial número
+</span></code></pre></div>
+<p>El comando <code>show interfaces</code> muestra el tipo de encapsulación en una interfaz determinada.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Router&gt;show interfaces serial 0
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Serial 0 is up, line protocol is up
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Hardware is MCI Serial
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Internet address is 131.108.156.98, subnet mask is 255.255.255.240
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>MTU 1500 bytes, BW 1544 Kbit, DLY 20000 usec, rely 255/255, load 1/255
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Encapsulation HDLC, loopback not set, keepalive set (10 sec)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Last input 0:00:00, output 0:00:00, output hang never
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Last clearing of &quot;show interface&quot; counters never
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Output queue 0/40, 5762 drops; input queue 0/75, 301 drops
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Five minute input rate 9000 bits/sec, 16 packets/sec
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Five minute output rate 9000 bits/sec, 17 packets/sec
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>5780806 packets input,785841604 bytes, 0 no buffer
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Received 757 broadcasts, 0 runts, 0 giants
+</span></code></pre></div>
+<h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h3>
+<p>Las interfaces seriales WAN responden de forma diferente a las interfaces Ethernet. Es importante poder identificar fallos para resolver posibles incidencias. En muchos casos las interfaces serie tienen errores que no son locales, fallos en las conexiones remotas provocarán caídas inesperadas en dichas interfaces. Los comandos <code>show interfaces</code> y <code>show controllers</code> brindan soporte logístico para definir errores o conflictos.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Router&gt;show interfaces serial 0
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Serial 0 is up, line protocol is up
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Hardware is MCI Serial
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Internet address is 131.108.156.98, subnet mask is 255.255.255.240
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>MTU 1500 bytes, BW 1544 Kbit, DLY 20000 usec, rely 255/255, load 1/255
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Encapsulation HDLC, loopback not set, keepalive set (10 sec)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Last input 0:00:00, output 0:00:00, output hang never
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Last clearing of &quot;show interface&quot; counters never
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Output queue 0/40, 5762 drops; input queue 0/75, 301 drops
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Five minute input rate 9000 bits/sec, 16 packets/sec
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Five minute output rate 9000 bits/sec, 17 packets/sec
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>5780806 packets input,785841604 bytes, 0 no buffer
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>Received 757 broadcasts, 0 runts, 0 giants
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>146124 input errors, 87243 CRC, 58857 frame, 0 overrun, 0 ignored, 3 abort
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>5298821 packets output, 765669598 bytes, 0 underruns
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>0 output errors, 0 collisions, 2941 interface resets, 0 restarts
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>2 carrier transitions
+</span></code></pre></div>
+<p>En la sintaxis anterior se resalta el estado de la interfaz, errores en las tramas, paquetes descartados, etc. Las dos sintaxis que siguen corresponden a un router DCE y un router DTE, observe el detalle del sincronismo y tipo de conexión.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>RouterDCE# sh controllers serial 0/0
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Interface Serial0/0
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Hardware is PowerQUICC MPC860
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>DCE V.35, clock rate 56000
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>idb at 0x81081AC4, driver data structure at 0x81084AC0
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>SCC Registers:
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>General [GSMR]=0x2:0x00000000, Protocol-specific [PSMR]=0x8
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Events [SCCE]=0x0000, Mask [SCCM]=0x0000, Status [SCCS]=0x00
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Transmit on Demand [TODR]=0x0, Data Sync [DSR]=0x7E7E
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Interrupt Registers:
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Config [CICR]=0x00367F80, Pending [CIPR]=0x0000C000
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>Mask [CIMR]=0x00200000, In-srv [CISR]=0x00000000
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>--More--
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>RouterDTE#sh controllers serial 0/0
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Interface Serial0/0
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Hardware is PowerQUICC MPC860
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>DTE V.35 TX and RX clocks detected
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>idb at 0x81081AC4, driver data structure at 0x81084AC0
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>SCC Registers:
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>General [GSMR]=0x2:0x00000000, Protocol-specific [PSMR]=0x8
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Events [SCCE]=0x0000, Mask [SCCM]=0x0000, Status [SCCS]=0x00
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Transmit on Demand [TODR]=0x0, Data Sync [DSR]=0x7E7E
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Interrupt Registers:
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Config [CICR]=0x00367F80, Pending [CIPR]=0x0000C000
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>Mask [CIMR]=0x00200000, In-srv [CISR]=0x00000000
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>--More--
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Las interfaces DCE deben tener configurado el <em>clock rate</em>, es decir el sincronismo o velocidad. Una interfaz local DTE puede presentar fallos si la interfaz remota DCE no tiene correctamente configurado el valor del <em>clock rate</em>. Los <em>keepalive</em> deben ser iguales en ambos extremos.</p>
+</div>
+<h2 id="ppp">PPP<a class="headerlink" href="#ppp" title="Permanent link">&para;</a></h2>
+<p>PPP (<em>Point-to-Point Protocol</em>) es un protocolo WAN de enlace de datos. Se diseñó como un protocolo abierto para trabajar con varios protocolos de capa de red, como IP, IPX y Apple Talk.</p>
+<p>Se puede considerar a PPP la versión no propietaria de HDLC (<em>High-Level Data Link Control</em>), aunque el protocolo subyacente es considerablemente diferente. PPP funciona tanto con encapsulación síncrona como asíncrona porque el protocolo usa un identificador para denotar el inicio o el final de una trama. Dicho indicador se utiliza en las encapsulaciones asíncronas para señalar el inicio o el final de una trama y se usa como una encapsulación síncrona orientada a bit. Dentro de la trama PPP el bit de entramado es el encargado de señalar el comienzo y el fin de la trama PPP. El campo de direccionamiento de la trama PPP es un broadcast debido a que PPP no identifica estaciones individuales.</p>
+<p>PPP se basa en el protocolo de control de enlaces LCP (<em>Link Control Protocol</em>), que establece, configura y pone a prueba las conexiones de enlace de datos que utiliza PPP. El protocolo de control de red NCP (<em>Network Control Protocol</em>) es un conjunto de protocolos (uno por cada capa de red compatible con PPP) que establece y configura diferentes capas de red para que funcionen a través de PPP. Para IP, IPX y Apple Talk, las designaciones NCP son IPCP, IPXCP y ATALKCP, respectivamente.</p>
+<p>PPP provee mecanismos de control de errores y soporta los siguientes tipos de interfaces físicas:</p>
+<ul>
+<li>Serie síncrona.</li>
+<li>Serie asíncrona.</li>
+<li>RDSI.</li>
+<li>HSSI.</li>
+</ul>
+<h3 id="establecimiento-de-la-conexion">Establecimiento de la conexión<a class="headerlink" href="#establecimiento-de-la-conexion" title="Permanent link">&para;</a></h3>
+<p>El establecimiento de una sesión PPP tiene tres fases:</p>
+<ol>
+<li><strong>Establecimiento del enlace:</strong> en esta fase cada dispositivo PPP envía paquetes LCP para configurar y verificar el enlace de datos.</li>
+<li><strong>Autenticación:</strong> fase opcional, una vez establecido el enlace es elegido el método de autenticación. Normalmente los métodos de autenticación son PAP y CHAP.</li>
+<li><strong>Protocolo de capa de red:</strong> en esta fase el router envía paquetes NCP para elegir y configurar uno o más protocolos de capa de red. A partir de esta fase es posible el envío de tráfico a través del enlace.</li>
+</ol>
+<h3 id="autenticacion-pap">Autenticación PAP<a class="headerlink" href="#autenticacion-pap" title="Permanent link">&para;</a></h3>
+<p>PAP (<em>Password Authentication Protocol</em>) proporciona un método de autenticación simple utilizando un intercambio de señales de dos vías. El proceso de autenticación solo se realiza durante el establecimiento inicial del enlace.</p>
+<p>Una vez completada la fase de establecimiento PPP, el nodo remoto envía repetidas veces al router extremo su usuario y contraseña hasta que se acepta la autenticación o se corta la conexión.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>PAP no es un método de autenticación seguro, las contraseñas se envían en modo abierto y no existe protección contra el registro de las mismas o los ataques externos.</p>
+</div>
+<h3 id="configuracion-ppp-con-pap">Configuración PPP con PAP<a class="headerlink" href="#configuracion-ppp-con-pap" title="Permanent link">&para;</a></h3>
+<p>Para activar la encapsulación PPP con autenticación PAP en una interfaz se debe cambiar la encapsulación en dicha interfaz serial, el tipo de autenticación y configurar la dirección IP.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Router(config-if)#encapsulation PPP
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Router(config-if)#ppp authentication pap
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Router(config-if)#ip address dirección máscara
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Router(config-if)#no shutdown
+</span></code></pre></div>
+<p>Defina el nombre de usuario y la contraseña que espera recibir del router remoto.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Router(config)#username nombre del remoto password contraseña
+</span></code></pre></div>
+<h3 id="autenticacion-chap">Autenticación CHAP<a class="headerlink" href="#autenticacion-chap" title="Permanent link">&para;</a></h3>
+<p>CHAP (<em>Challenge Handshake Authentication Protocol</em>) es un método de autenticación más seguro que PAP. Se emplea durante el establecimiento del enlace y posteriormente se verifica periódicamente para comprobar la identidad del router remoto utilizando un saludo de tres vías. La contraseña es encriptada utilizando MD5, una vez establecido el enlace el router agrega un mensaje desafío que es verificado por ambos routers, si ambos coinciden, se acepta la autenticación, de lo contrario la conexión se cierra inmediatamente.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>CHAP ofrece protección contra ataques externos mediante el uso de un valor de desafío variable que es único e indescifrable. Esta repetición de desafíos limita la posibilidad de ataques.</p>
+</div>
+<h3 id="configuracion-ppp-con-chap">Configuración PPP con CHAP<a class="headerlink" href="#configuracion-ppp-con-chap" title="Permanent link">&para;</a></h3>
+<p>Defina el nombre de usuario y la contraseña que espera recibir del router remoto.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Router(config)#username nombre del remoto password contraseña
+</span></code></pre></div>
+<p>Puede usar el mismo nombre de host en múltiples routers cuando quiera que el router remoto crea que está conectado a un solo router.</p>
+<p>Para activar la encapsulación PPP con autenticación CHAP en una interfaz se debe cambiar la encapsulación en dicha interfaz serial, el tipo de autenticación y la dirección IP:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Router(config-if)#encapsulation PPP
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Router(config-if)#ppp authentication chap
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Router(config-if)#ip address IP máscara
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Router(config-if)#no shutdown
+</span></code></pre></div>
+<h3 id="verificacion">Verificación<a class="headerlink" href="#verificacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>show interfaces</code>. Muestra el estado de las interfaces con su autenticación.</li>
+<li><code>debug ppp authentication</code>. Muestra el proceso de autenticación.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Router#show int bri0/0
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>BRI0 is standby mode, line protocol is down
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Hardware is BRI
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Internet address is 10.1.99.55/24
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>MTU 1500 bytes, BW 64 Kbit, DLY 20000 usec,
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>reliability 255/255, txload 1/255, rxload 1/255
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Encapsulation PPP, loopback not set
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Last input never, output never, output hang never
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Last clearing of &quot;show interface&quot; counters never
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Queueing strategy: weighted fair
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>Output queue: 0/1000/64/0 (size/max total/threshold/drops)
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>Conversations 0/0/16 (active/max active/max total)
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>Reserved Conversations 0/0 (allocated/max allocated)
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>Available Bandwidth 48 kilobits/sec
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>5 minute input rate 0 bits/sec, 0 packets/sec
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>5 minute output rate 0 bits/sec, 0 packets/sec
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>0 packets input, 0 bytes, 0 no buffer
+</span></code></pre></div>
+<h2 id="pppoe">PPPoE<a class="headerlink" href="#pppoe" title="Permanent link">&para;</a></h2>
+<p>PPPoE (<em>Point-to-Point Protocol over Ethernet</em>) está descrito en la RFC 2516, combina dos estándares ampliamente conocidos como Ethernet y PPP, pudiendo hacer uso de autenticación PAP o CHAP para añadir seguridad.</p>
+<p>Los clientes PPPoE son típicamente ordenadores personales conectados a un ISP a través de una conexión de banda ancha, tales como DSL o cable. El ISP utiliza PPPoE porque es compatible con el acceso de banda ancha de alta velocidad utilizando en su infraestructura de acceso remoto y porque es más fácil de utilizar para los clientes.</p>
+<p>PPPoE permite la asignación de direcciones IP autenticadas. En este tipo de aplicación, el cliente y el servidor PPPoE están interconectados mediante los protocolos de capa 2 que se ejecutan sobre un DSL u otra conexión de banda ancha.</p>
+<p>Normalmente existen tres métodos de conectar al abonado a la red:</p>
+<ul>
+<li><strong>Ubicar un router con capacidades DSL en la casa del abonado.</strong> Este router tendrá un módem DSL integrado y un cliente PPPoE. Esta opción evita la necesidad de instalar software PPPoE en los dispositivos del abonado que requieran de conexión. El router proporcionará al abonado DHCP, NAT/PAT y otros servicios como pueden ser DNS.</li>
+<li><strong>Ubicar un router sin capacidades DSL en la casa del abonado.</strong> Esta opción requiere la instalación adicional de un módem externo en la parte del abonado para terminar la conexión DSL. El router debería tener software PPPoE para proporcionar una conexión constante. Además ejecutará DHCP, NAT/PAT y otros servicios como pueden ser DNS.</li>
+<li><strong>Ubicar un módem DSL externo en la casa del abonado.</strong> Con esta opción es necesario instalar clientes PPPoE en todos los hosts del abonado que requieran el servicio.</li>
+</ul>
+<p>La capa 1 DSL termina en el DSLAM y quien se encarga de enviar los datos a través del medio existente, ya sea fibra o cobre, hasta la red ATM. Desde el CPE hasta el router de agregación solamente se utilizan las capas 1 y 2 del modelo OSI. Una vez que se negocia la sesión PPP entre CPE y el router de agregación comienza la utilización de la capa 3. El direccionamiento IP que recibe el CPE es asignado por el proveedor usando DHCP. El aprovisionamiento de abonados se realiza por abonado y no por sitio. Para proporcionar conexiones punto a punto sobre Ethernet cada sesión PPP debe aprender la dirección MAC del par remoto y establecer una sesión única. Esto es realizado por un protocolo incluido en PPPoE que realiza este descubrimiento.</p>
+<h3 id="fases">Fases<a class="headerlink" href="#fases" title="Permanent link">&para;</a></h3>
+<p>El proceso de inicialización de PPPoE tiene dos fases adicionales:</p>
+<ul>
+<li><strong>Fase de descubrimiento.</strong> Para iniciar la sesión PPP el CPE debe primero realizar un descubrimiento para identificar la MAC del dispositivo con el que va a establecer la vecindad con el par. El CPE descubre todos los recursos disponibles en el router de agregación y elige uno.</li>
+<li><strong>Fase de sesión PPP.</strong> Una vez que la fase de sesión PPPoE comienza los datos PPP pueden ser transmitidos. Esta transmisión es enteramente unicast entre el CPE y el router de agregación.</li>
+</ul>
+<h3 id="tamano-mtu">Tamaño MTU<a class="headerlink" href="#tamano-mtu" title="Permanent link">&para;</a></h3>
+<p>Cliente especifica el tamaño de la MTU en la ventana TCP en el saludo de 3 vías. Se utiliza el tamaño máximo de la porción de datos que permite TCP MSS (<em>Maximum Segment Size</em>). Por defecto el tamaño del MSS es de 1460 bytes, cuando la MTU por defecto es de 1500 bytes.</p>
+<p>La RFC 2516 establece que el tamaño de la carga útil negociada en PPPoE sea de 1492 bytes. La cabecera PPPoE es 6 bytes y hay que sumarle 2 bytes del campo <code>Protocol-ID</code>. Si se suman esas 3 cifras se obtiene un valor de 1500 bytes, que es el valor por defecto de la MTU en interfaces Ethernet.</p>
+<p>La figura siguiente muestra la estructura de la trama PPPoE:</p>
+<h3 id="verificacion_1">Verificación<a class="headerlink" href="#verificacion_1" title="Permanent link">&para;</a></h3>
+<p>Para ver la dirección IP asignada por el ISP en la interfaz ejecute el siguiente comando.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Router#show ip interface brief
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Interface              IP-Address      OK? Method Status                Protocol
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>GigabitEthernet0/0     unassigned      YES unset  adm down              down
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>GigabitEthernet0/1     unassigned      YES unset  up                    up
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Serial0/0/0            unassigned      YES unset  adm down              down
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Serial0/0/1            unassigned      YES unset  adm down              down
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Dialer1                10.1.1.2        YES IPCP  up                    up
+</span></code></pre></div>
+<p>El comando <code>show running-config</code> muestra la encapsulación y la autenticación. Puede hacerse una búsqueda selectiva utilizando el parámetro <code>section</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Router#show run | section interface dialer1
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>interface Dialer1
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> ip address negotiated
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> encapsulation ppp
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a> dialer pool 1
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a> dialer-group 1
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a> no cdp enable
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a> ppp authentication pap chap callin
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a> ppp pap sent-username cisco password ccna
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a> ppp chap hostname cisco
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a> ppp chap password ccna
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>!
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>ip route 0.0.0.0 0.0.0.0 Dialer1
+</span></code></pre></div>
+<p>El comando <code>show interface dialer</code> muestra entre otros datos la MTU y la encapsulación en la interfaz.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Router#show interfaces dialer 1
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Dialer1 is up, line protocol is up (spoofing)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Hardware is Unknown
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Internet address is 212.93.198.1/32
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>MTU 1500 bytes, BW 56 Kbit, DLY 20000 usec,
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>reliability 255/255, txload 1/255, rxload 1/255
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Encapsulation PPP, loopback not set
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>DTR is pulsed for 1 seconds on reset
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>.....................................
+</span></code></pre></div>
+<p>El proceso de negociación puede verse con el comando <code>debug</code>, recuerde siempre terminar el proceso con un <code>undebug all</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Router#debug ppp negotiation
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>PPP protocol negotiation debugging is on
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Router#
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>2w3d: Vi1 PPP: No remote authentication for call-out
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>2w3d: Vi1 PPP: Phase is ESTABLISHING
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>2w3d: Vi1 LCP: O CONFREQ [Open] id 146 len 10
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>2w3d: Vi1 LCP: MagicNumber 0x8CCF0E1E (0x05068CCF0E1E)
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>2w3d: Vi1 LCP: O CONFACK [Open] id 102 Len 15
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>2w3d: Vi1 LCP: AuthProto CHAP (0x0305C22305)
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>2w3d: Vi1 LCP: MagicNumber 0xD945AD0A (0x0506D945AD0A)
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>2w3d: Di1 IPCP: Remove route to 20.20.2.1
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>2w3d: Vi1 LCP: I CONFACK [ACKsent] id 146 Len 10
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>2w3d: Vi1 LCP: MagicNumber 0x8CCF0E1E (0x05068CCF0E1E)
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>2w3d: Vi1 LCP: State is Open
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>2w3d: Vi1 PPP: Phase is AUTHENTICATING, by the peer
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>2w3d: Vi1 CHAP: I CHALLENGE id 79 Len 33 from &quot;6400-2-NRP-2&quot;
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>2w3d: Vi1 CHAP: O RESPONSE id 79 Len 28 from &quot;John&quot;
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>2w3d: Vi1 CHAP: I SUCCESS id 79 Len 4
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>2w3d: Vi1 PPP: Phase is UP
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>2w3d: Vi1 IPCP: O CONFREQ [Closed] id 7 Len 10
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>2w3d: Vi1 IPCP: Address 0.0.0.0 (0x030600000000)
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>2w3d: Vi1 IPCP: I CONFREQ [REQsent] id 4 Len 10
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>2w3d: Vi1 IPCP: Address 20.20.2.1 (0x030614140201)
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>2w3d: Vi1 IPCP: O CONFACK [REQsent] id 4 Len 10
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>2w3d: Vi1 IPCP: Address 20.20.2.1 (0x030614140201)
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>2w3d: Vi1 IPCP: I CONFNAK [ACKsent] id 7 Len 10
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>2w3d: Vi1 IPCP: Address 40.1.1.2 (0x030628010102)
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>2w3d: Vi1 IPCP: O CONFREQ [ACKsent] id 8 Len 10
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>2w3d: Vi1 IPCP: Address 40.1.1.2 (0x030628010102)
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>2w3d: Vi1 IPCP: I CONFACK [ACKsent] id 8 Len 10
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>2w3d: Vi1 IPCP: Address 40.1.1.2 (0x030628010102)
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>2w3d: Vi1 IPCP: State is Open
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>2w3d: Di1 IPCP: Install negotiated IP interface address 40.1.1.2
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>2w3d: Di1 IPCP: Install route to 20.20.2.1
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>Router#undebug all
+</span></code></pre></div>
+<h2 id="multilink-ppp">MULTILINK PPP<a class="headerlink" href="#multilink-ppp" title="Permanent link">&para;</a></h2>
+<p>Multilink PPP, se define en la RFC 1990, es una variante del PPP que se utiliza para agregar múltiples enlaces WAN en un solo canal lógico para el transporte de tráfico. Permite el equilibrio de carga de tráfico de diferentes enlaces y permite un cierto nivel de redundancia en de la línea en caso de fallo de un enlace. Proporciona además interoperabilidad entre varios proveedores.</p>
+<p>Multilink PPP permite que los paquetes sean fragmentados y que los fragmentos se envíen al mismo tiempo a través de múltiples enlaces punto a punto con la misma dirección remota y que sean re-ensamblados en el destino. Multilink PPP proporciona un ancho de banda bajo demanda y reduce la latencia de transmisión a través de enlaces WAN. Multilink PPP puede trabajar sobre interfaces simples o múltiples síncronas y asíncronas que se han configurado para soportar tanto llamada bajo demanda como encapsulación PPP.</p>
+<p>Multilink PPP trabaja con interfaces PPP totalmente funcionales. Un grupo Multilink PPP puede tener varios enlaces que conectan los dispositivos pares. Estos enlaces pueden ser enlaces serie o enlaces de banda ancha (Ethernet o ATM). Mientras cada enlace se comporta como una interfaz en serie estándar, todos los enlaces enlazados funcionan como una unidad.</p>
+<h3 id="configuracion">Configuración<a class="headerlink" href="#configuracion" title="Permanent link">&para;</a></h3>
+<p>El primer paso en la configuración de MLPPP es la configuración de la interfaz.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Router(config)# interface multilink-bundle-number
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Router(config-if)# ip address ip-address mask
+</span></code></pre></div>
+<p>Establecer políticas de QoS entrantes y salientes.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Router(config-if)# service-policy output policy-map-name
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Router(config-if)# service-policy input policy-map-name
+</span></code></pre></div>
+<p>Especifique un tamaño máximo en unidades de tiempo para fragmentos de paquetes y el intercalado de paquetes.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Router(config-if)# ppp multilink fragment milliseconds[microseconds]
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Router(config-if)# ppp multilink interleave
+</span></code></pre></div>
+<p>La interfaz MLPP debe estar asociada a una interfaz física con encapsulación PPP y habilitado el PPP multilink en dicha interface.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Router(config)# interface serial slot/port:timeslot
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Router(config-if)# encapsulation ppp
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Router(config-if)# ppp multilink
+</span></code></pre></div>
+<p>Para designar la interfaz a un grupo específico, se utiliza el siguiente comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Router(config-if)# ppp multilink group-number
+</span></code></pre></div>
+<p>Cuando se configura el comando <code>ppp multilink group</code> en un enlace, el comando aplica las siguientes restricciones en el enlace:</p>
+<ul>
+<li>El enlace no se le permite unirse a cualquier grupo que no sea la interfaz de grupo indicado.</li>
+<li>La sesión PPP debe terminarse si el dispositivo par intenta unirse a un grupo diferente.</li>
+</ul>
+<h3 id="verificacion_2">Verificación<a class="headerlink" href="#verificacion_2" title="Permanent link">&para;</a></h3>
+<p>Los comandos <code>show ppp multilink</code> y <code>show interfaces</code> permiten ver características de la configuración.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Router# show ppp multilink
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Multilink2, bundle name is 7206-2
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Endpoint discriminator is 7206-2
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Bundle up for 00:00:09, 1/255 load
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>Receive buffer limit 12000 bytes, frag timeout 1500 ms
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>0/0 fragments/bytes in reassembly list
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>0 lost fragments, 0 reordered
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>0/0 discarded fragments/bytes, 0 lost received
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>0x0 received sequence, 0x3 sent sequence
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>Member links:1 active, 1 inactive (max not set, min not set)
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>Se3/2, since 00:00:10, 240 weight, 232 frag size
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>Se3/3 (inactive)
+</span></code></pre></div>
+<h2 id="nat">NAT<a class="headerlink" href="#nat" title="Permanent link">&para;</a></h2>
+<p>NAT (<em>Network Address Traslation</em>) permite acceder a Internet traduciendo las direcciones privadas en direcciones IP registradas. Incrementa la seguridad y la privacidad de la red local al traducir el direccionamiento interno a uno externo.</p>
+<p>NAT tiene varias formas de trabajar según los requisitos y la flexibilidad de que se disponga, cualquiera de ellas es sumamente importante a la hora de controlar el tráfico hacia el exterior:</p>
+<ul>
+<li><strong>Estáticamente:</strong> NAT permite la asignación de una a una entre las direcciones locales y las exteriores o globales.</li>
+<li><strong>Dinámicamente:</strong> NAT permite asignar a una red IP interna a varias externas incluidas en un grupo o <em>pool</em> de direcciones.</li>
+<li><strong>PAT (Port Address Traslation):</strong> es una forma de NAT dinámica, comúnmente llamada NAT sobrecargado, que asigna varias direcciones IP internas a una sola externa. PAT utiliza números de puertos de origen únicos en la dirección global interna para distinguir entre las diferentes traducciones.</li>
+</ul>
+<h3 id="terminologia-nat">Terminología NAT<a class="headerlink" href="#terminologia-nat" title="Permanent link">&para;</a></h3>
+<p>En NAT se utiliza comúnmente la siguiente terminología:</p>
+<ul>
+<li><strong>Dirección local interna:</strong> es la dirección IP asignada a un host de la red interna.</li>
+<li><strong>Dirección global interna:</strong> es la dirección IP asignada por el proveedor de servicio que representa a la dirección local ante el mundo.</li>
+<li><strong>Dirección local externa:</strong> es la dirección IP de un host externo tal como lo ve la red interna.</li>
+<li><strong>Dirección global externa:</strong> es una dirección IP asignada por el propietario a un host de la red externa.</li>
+</ul>
+<h3 id="configuracion-estatica">Configuración estática<a class="headerlink" href="#configuracion-estatica" title="Permanent link">&para;</a></h3>
+<p>Para configurar NAT estáticamente utilice el siguiente comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Router(config)#ip nat inside source static ip-interna ip-global
+</span></code></pre></div>
+<p>Defina cuáles serán las interfaces de entrada y salida y su correspondiente dirección IP:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Router(config)#interface tipo número
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Router(config-if)#ip address ip-interna máscara
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Router(config-if)#ip nat inside
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Router(config-if)#no shutdown
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>Router(config-if)#exit
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>Router(config)# interface tipo número
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Router(config-if)#ip address ip-global máscara
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>Router(config-if)#ip nat outside
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>Router(config-if)#no shutdown
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>Router(config-if)#exit
+</span></code></pre></div>
+<h3 id="configuracion-dinamica">Configuración dinámica<a class="headerlink" href="#configuracion-dinamica" title="Permanent link">&para;</a></h3>
+<p>Para configurar NAT dinámicamente se debe crear un <em>pool</em> de direcciones, para ello utilice el siguiente comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Router(config)#ip nat pool nombre ip-inicio ip-final netmask máscara
+</span></code></pre></div>
+<p>Defina una lista de acceso que permita solo a las direcciones que deban traducirse:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Router(config)#access-list 1 permit ip-interna-permitida wildcard
+</span></code></pre></div>
+<p>Asocie la lista de acceso al <em>pool</em>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Router(config)#ip nat inside source list 1 pool nombre-del-pool
+</span></code></pre></div>
+<p>Defina las interfaces de entrada y salida:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Router(config)#interface tipo número
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Router(config-if)#ip address ip-interna máscara
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>Router(config-if)#ip nat inside
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>Router(config-if)#no shutdown
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Router(config-if)#exit
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>Router(config)# interface tipo número
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>Router(config-if)#ip address ip-global máscara
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>Router(config-if)#ip nat outside
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>Router(config-if)#no shutdown
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>Router(config-if)#exit
+</span></code></pre></div>
+<h3 id="configuracion-de-pat">Configuración de PAT<a class="headerlink" href="#configuracion-de-pat" title="Permanent link">&para;</a></h3>
+<p>PAT o NAT sobrecargado se configura definiendo una lista de acceso que permita solo a las direcciones que deban traducirse:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Router(config)#access-list 1 permit ip-interna-permitida wildcard
+</span></code></pre></div>
+<p>Asocie dicha lista a la interfaz de salida agregando al final el comando <code>overload</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Router(config)#ip nat inside source list 1 interface tipo número overload
+</span></code></pre></div>
+<p>Defina las interfaces de entrada y salida:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Router(config)#interface tipo número
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Router(config-if)#ip address ip-interna máscara
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Router(config-if)#ip nat inside
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>Router(config-if)#no shutdown
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>Router(config-if)#exit
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>Router(config)# interface tipo número
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>Router(config-if)#ip address ip-global máscara
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>Router(config-if)#ip nat outside
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>Router(config-if)#no shutdown
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>Router(config-if)#exit
+</span></code></pre></div>
+<h3 id="verificacion_3">Verificación<a class="headerlink" href="#verificacion_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>show ip nat translations</code>. Muestra las traslaciones de direcciones IP.</li>
+<li><code>show ip nat statistics</code>. Muestra las estadísticas NAT.</li>
+<li><code>debug ip nat</code>. Muestra los procesos de traslación de dirección.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Router# show ip nat translations
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>Pro  Inside global      Inside local       Outside local      Outside global
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>TCP  171.16.233.209    192.168.1.95      ---                 ---
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>UDP  171.16.233.210    192.168.1.89      ---                 ---
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Router# show ip nat statistics
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Total translations: 2 (0 static, 2 dynamic; 0 extended)
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Outside interfaces: Serial0
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>Inside interfaces: Ethernet1
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>Hits: 135 Misses: 5
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>Expired translations: 2
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>Dynamic mappings:
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>-- Inside Source
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>access-list 1 pool CCNA refcount 2
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a> pool CCNA: netmask 255.255.255.240
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>        start 172.16.233.208 end 172.16.233.221
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>        type generic, total addresses 14, allocated 2 (14%), misses 0
+</span></code></pre></div>
+<h2 id="vpn">VPN<a class="headerlink" href="#vpn" title="Permanent link">&para;</a></h2>
+<p>Una VPN (<em>Virtual Private Networks</em>) se utiliza principalmente para conectar dos redes privadas a través de la red pública de datos. Sin embargo puede tener varias aplicaciones más. Un túnel es básicamente un método para encapsular un protocolo en otro. La existencia de protocolos no enrutables hacen que el uso de las VPN sea imprescindible para enviar el tráfico que utiliza este tipo de protocolos. Incluso para otros tipos de protocolos enrutables cuya dificultad de enrutamiento es elevada, se hace más sencillo cuando este se envía por un túnel.</p>
+<p>Otra buena razón para la utilización de túneles es evitar los problemas que suelen dar los protocolos de enrutamiento en redes extremadamente grandes debido a que muchas veces su arquitectura no coincide en tipos de protocolos o entre áreas.</p>
+<p>Los túneles son sumamente útiles en laboratorios o ambientes de prueba donde se intenta emular las topologías de red más complejas.</p>
+<p>Existen muchas variaciones diferentes para la configuración de las VPN, aun para las más comunes. En el caso de este libro se utilizará como ejemplo de configuración la de túneles GRE (<em>Generic Routing Encapsulation</em>) que es una norma abierta. Existen varias versiones de GRE, la versión 0 es la común, la versión 1 también llamada PPTP (<em>Point to Point Tunneling Protocol</em>) incluye una capa intermedia PPP, mientras que GRE soporta directamente protocolos de capa 3 como IP e IPX. GRE no utiliza TCP ni UDP, trabaja directamente con IP, identificado con el número 47. Posee características propias de entrega, verificación e integridad.</p>
+<h3 id="funcionamiento">Funcionamiento<a class="headerlink" href="#funcionamiento" title="Permanent link">&para;</a></h3>
+<p>Los routers encapsulan los paquetes IP con la etiqueta GRE y los envían por la red al router de destino al final del túnel, el router remoto desencapsula los paquetes quitándoles la etiqueta GRE dejándolos listos para enrutarlos localmente. El paquete GRE pudo haber cruzado una gran cantidad de router para alcanzar su destino, sin embargo para este, solo ha efectuado un único salto hacia el destino. Esto significa que en el encabezado IP el tiempo de vida del paquete TTL (<em>Time To Live</em>) se ha incrementado una vez.</p>
+<p>La utilización de las VPN obliga muchas veces a los routers a segmentar los paquetes para enviarlos a través del túnel debido a que su tamaño excede la MTU que estos pueden soportar. En ciertos casos pueden existir dificultades con las aplicaciones que ven las cabeceras de los paquetes IP duplicadas, sin embargo, esto ocurre en raros casos. Cuando el router no puede segmentar el paquete debe descartarlos, en estos casos envía mensajes ICMP al dispositivo origen para que regule el tamaño de los paquetes. Como resultado final de este proceso es que para el uso eficaz de las VPN el tamaño de las MTU debe reducirse.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>El término "túnel VPN" implica que el paquete encapsulado se ha cifrado, mientras que el término "túnel" se refiere al mecanismo de enviar paquetes de un protocolo encapsulados dentro de otro.</p>
+</div>
+<h3 id="ipsec">IPSec<a class="headerlink" href="#ipsec" title="Permanent link">&para;</a></h3>
+<p>IPSec (<em>Internet Protocol Security</em>) es un conjunto de protocolos y algoritmos de seguridad diseñados para la protección del tráfico de red para trabajar con IPv4 e IPv6 de modo transparente o modo túnel que soporta una gran variedad de encriptaciones y autenticaciones. El principio básico de funcionamiento de IPSec es la independencia algorítmica que le permite efectuar cambios de algoritmos si alguien descubre un fallo crítico o si existe otro más eficaz.</p>
+<p>IPSec está diseñado para proporcionar seguridad sobre la capa de red IP, por lo tanto, puede ser utilizado eficazmente sobre protocolos como TCP, UDP, ICMP y otros. Esto es muy importante porque significa que se puede usar IPSec con protocolos o aplicaciones inseguras logrando un excelente nivel de seguridad global.</p>
+<p>IPSec se introdujo para proporcionar servicios de seguridad tales como:</p>
+<ul>
+<li><strong>Confidencialidad:</strong> el tráfico se encripta de manera segura para que no pueda ser leído por nadie más que las partes a las que está dirigido.</li>
+<li><strong>Integridad:</strong> certificar la integridad de los datos, asegurando que el tráfico no ha sido modificado a lo largo de su trayecto.</li>
+<li><strong>Autenticación:</strong> autenticar a los extremos reconociendo el tráfico que proviene de un extremo seguro y validado.</li>
+<li><strong>Anti-repetición:</strong> evita que una copia ilegitima de los paquetes se intente utilizar luego para parecer un usuario legítimo.</li>
+</ul>
+<p>IPSec utiliza dos protocolos importantes de seguridad:</p>
+<ul>
+<li><strong>AH (Authentication Header)</strong> que le permite asegurar que los datos no se han manipulado de forma alguna, y que realmente viene del dispositivo de la fuente correcta. AH no encripta directamente los datos.</li>
+<li><strong>ESP (Encapsulating Security Payload)</strong> proporciona encriptación a la carga útil del paquete para el envío seguro de los datos.</li>
+</ul>
+<p>La autenticación y la encriptación se utilizan en funciones completamente diferentes pero absolutamente complementarias. Al usar IPSec, es sumamente recomendable el uso de ambos protocolos.</p>
+<p>IPSec tiene dos modos principales de funcionamiento:</p>
+<ul>
+<li><strong>Modo túnel:</strong> todo el paquete IP (datos más cabeceras del mensaje) es cifrado y/o autenticado. Debe ser entonces encapsulado en un nuevo paquete IP para que funcione el enrutamiento. El modo túnel se utiliza para comunicaciones red a red, VPN.</li>
+<li><strong>Modo transporte:</strong> solo la carga útil (los datos que se transfieren) del paquete IP es cifrada y/o autenticada. El enrutamiento permanece intacto, ya que no se modifica ni se cifra la cabecera IP. Este método se usa para comunicaciones de ordenador a ordenador.</li>
+</ul>
+<h3 id="ssl-vpn">SSL VPN<a class="headerlink" href="#ssl-vpn" title="Permanent link">&para;</a></h3>
+<p>SSL VPN (<em>Secure Sockets Layer VPN</em>) es una tecnología emergente que proporciona acceso remoto con las mismas capacidades que una de VPN, sumando la función de SSL que viene integrado en los navegadores Web modernos.</p>
+<p>SSL VPN permite a los usuarios remotos autorizados desde cualquier lugar con conexión a Internet utilizar un navegador web para establecer conexiones VPN de acceso remoto, generando mejoras en la productividad y disponibilidad.</p>
+<p>SSL VPN tiene algunas características únicas en comparación con otras tecnologías VPN existentes. La más notable es que SSL VPN utiliza el protocolo SSL y su sucesor, TLS (<em>Transport Layer Security</em>), para proporcionar una conexión segura entre usuarios remotos y los recursos de la red interna. Actualmente esta función SSL/TLS está incorporada en todos los navegadores web.</p>
+<p>A diferencia de la tecnología tradicional IPsec VPN, que requiere la instalación de software cliente IPSec antes de que se pueda establecer una conexión, los usuarios no necesitan instalar ningún software cliente para utilizar SSL VPN. Como consecuencia de este resultado, SSL VPN también se conoce como <em>clientless VPN</em> o <em>Web VPN</em>.</p>
+<h3 id="tunel-gre">Túnel GRE<a class="headerlink" href="#tunel-gre" title="Permanent link">&para;</a></h3>
+<p>Los túneles GRE (<em>Generic Routing Encapsulation</em>) permiten encapsular cualquier tipo de tráfico. En un principio se utilizaban para encapsular tráfico no IP dentro de las redes IP, pero también permiten la encapsulación de tráfico IP. Funcionan encapsulando la cabecera IP original dentro de la cabecera GRE.</p>
+<p>Algunas ventajas y desventajas de los túneles GRE son las siguientes:</p>
+<ul>
+<li>Es similar a un túnel IPsec en el sentido de que ambos encapsulan la cabecera original IP.</li>
+<li>No ofrece mecanismos de control de flujo.</li>
+<li>GRE añade un mínimo de 24 bytes a la cabecera, en los que se incluye la nueva cabecera IP.</li>
+<li>Permiten tunelizar cualquier protocolo de capa 3.</li>
+<li>Permite que los protocolos de enrutamiento viajen a través del túnel.</li>
+<li>A diferencia de los túneles IPsec los túneles GRE no coordinan parámetros antes de enviar tráfico. Mientras el otro extremo del túnel sea alcanzable permite enviar tráfico, sin proporcionar confiabilidad o mirar los números de secuencia. GRE deja estas tareas para protocolos de capas superiores.</li>
+<li>GRE ofrece una seguridad limitada mucho más débil que la de IPsec. Cuenta con un proceso de encriptación pero la clave viaja junto con los paquetes, dejándola expuesta a que sea robada.</li>
+<li>A diferencia de IPsec los túneles GRE permiten que el tráfico de los protocolos de enrutamiento viaje a través de ellos. Con IPsec se limita al uso de rutas estáticas, haciendo que la escalabilidad sea un problema.</li>
+</ul>
+<p>La combinación de GRE junto con IPsec se denomina <em>GRE over IPsec</em> y permite que estos dos mecanismos de tunelización se complementen entre sí.</p>
+<h3 id="configuracion-de-tunel-gre">Configuración de túnel GRE<a class="headerlink" href="#configuracion-de-tunel-gre" title="Permanent link">&para;</a></h3>
+<p>En la actualidad los túneles GRE se utilizan normalmente para transportar tráfico IP en una red IP o sobre un túnel IPsec. El origen del túnel GRE en un extremo ha de ser el final del túnel en el otro y viceversa. Esta validación es llevada a cabo inicialmente cuando se establece el túnel. Es necesario configurar una subred apropiada y común para el túnel.</p>
+<p>La configuración del túnel GRE incluye:</p>
+<ul>
+<li>Crear la interfaz túnel.</li>
+<li>Origen del túnel. Interfaz o dirección IP local del router.</li>
+<li>Destino del túnel. Dirección IP en el extremo remoto.</li>
+<li>Modo del túnel. Por defecto GRE/IP.</li>
+<li>Tráfico del túnel. Datos que viajan a través del túnel y por lo tanto van encapsulados en GRE.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Router(config)#interface tunnel número
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>Router(config-if)#ip address dirección máscara
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Router(config-if)#tunnel source interfaz-oigen
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>Router(config-if)#tunnel destination ip-destino
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>Router(config-if)#tunnel mode [gre|ipv6ip] ip
+</span></code></pre></div>
+<h2 id="otras-tecnologias-de-acceso-wan">OTRAS TECNOLOGÍAS DE ACCESO WAN<a class="headerlink" href="#otras-tecnologias-de-acceso-wan" title="Permanent link">&para;</a></h2>
+<h3 id="metro-ethernet">Metro Ethernet<a class="headerlink" href="#metro-ethernet" title="Permanent link">&para;</a></h3>
+<p>La tecnología Metro Ethernet es un servicio ofrecido por los proveedores de telecomunicaciones para interconectar redes LAN ubicadas a grandes distancias, ejecutando un transporte WAN. Esta tecnología se basada en el estándar Ethernet, y puede cubrir un área metropolitana. Es comúnmente usada como una red de acceso para conectar a las empresas con los abonados y hacia Internet.</p>
+<p>Ethernet es la tecnología de red más utilizada por las empresas, por lo que el acceso basado en Ethernet puede ser fácilmente implementado en la red del cliente. Estas características permiten a una empresa conectar sus sucursales en una sola intranet mediante Metro Ethernet.</p>
+<p>Las redes Metro Ethernet, están soportadas principalmente por medios de transmisión como cobre y fibra óptica, existiendo también soluciones de radio frecuencia.</p>
+<p>Los beneficios que ofrece Metro Ethernet son los siguientes:</p>
+<ul>
+<li><strong>Fiabilidad</strong>, los enlaces pueden constituirse por múltiples conexiones de cobre y/o fibra.</li>
+<li><strong>Fácil administración</strong>, interconectando con Ethernet se simplifica las operaciones de red, administración, manejo y actualización.</li>
+<li><strong>Fácil implementación</strong>, se emplean interfaces Ethernet que son las más difundidas para las soluciones de red.</li>
+<li><strong>Ancho de banda</strong>, los servicios Metro Ethernet permiten a los usuarios acceder a conexiones de banda ancha a menor costo.</li>
+<li><strong>Flexibilidad</strong>, Metro Ethernet también es una red multiservicio que soporta una amplia gama de aplicaciones, contando con mecanismos donde se incluye soporte como puede ser telefonía IP y vídeo.</li>
+</ul>
+<h3 id="dmvpn">DMVPN<a class="headerlink" href="#dmvpn" title="Permanent link">&para;</a></h3>
+<p>DMVPN (<em>Dynamic Multipoint VPN</em>) es una solución de software de Cisco para escenarios en los que múltiples sitios remotos necesitan comunicarse entre sí evitando pasar por un sitio central. Este recurso permite crear y eliminar múltiples redes privadas virtuales de una manera fácil, dinámica y escalable.</p>
+<p>Las topologías DMVPN pueden utilizar:</p>
+<ul>
+<li>Túneles hub-to-spoke.</li>
+<li>Túneles hub-to-spoke y spoke-to-spoke.</li>
+</ul>
+<p>Para que DMVPN funcione son necesarias las siguientes tecnologías:</p>
+<ul>
+<li>NHRP (<em>Next Hop Resolution Protocol</em>).</li>
+<li>Túneles mGRE (<em>Multipoint Generic Routing Encapsulation</em>).</li>
+<li>IPsec (<em>IP Security</em>).</li>
+</ul>
+<p>La siguiente figura muestra una topología hub-and-spoke en la que la oficina central actúa como el hub. Cuando por ejemplo los sitios remotos B y C necesitan comunicarse entre ellos un nuevo túnel DMVPN es creado entre dichos sitios.</p>
+<h3 id="mpls">MPLS<a class="headerlink" href="#mpls" title="Permanent link">&para;</a></h3>
+<p>MPLS (<em>Multiprotocol Label Switching</em>) es una tecnología WAN que está definida en la RFC 3031. MPLS proporciona un mecanismo por el cual los paquetes son etiquetados sin la necesidad de examinar la cabecera de capa 3. En lugar de mirar en la cabecera de capa 3 los dispositivos MPLS sencillamente miran en las etiquetas haciéndolos independientes de los protocolos de capa 3. La etiqueta de un paquete de entrada es examinada y comparada con la base de datos de etiquetas. Basándose en la información contenida en dicha tabla se le asigna una nueva etiqueta para ser asociada al paquete y que sea enviado fuera de la interfaz correspondiente.</p>
+<p>MPLS es un mecanismo de conmutación que ejecuta un proceso de conmutar paquetes MPLS incluyendo el análisis de la etiqueta. Esta etiqueta contiene la información de envío necesaria para poder conmutar el paquete dentro del switch MPLS llamado LSR que no necesita ejecutar enrutamiento de capa 3.</p>
+<p>Las etiquetas normalmente corresponden a redes de destino aunque también podrían corresponder a otro tipo de variables como son VPN de capa 3, circuitos virtuales de capa 2, calidad de servicio, etc. Estas opciones son configurables en cada uno de los dispositivos. Por esta razón MPLS no fue diseñado únicamente para enviar paquetes IP.</p>
+<p>Los principios básicos de enrutamiento también se aplican a MPLS, esencialmente la elección del dispositivo del siguiente salto sin importar la naturaleza del proceso de enrutamiento que se está ejecutando.</p>
+<p>La red MPLS aunque es propiedad del ISP no deja de ser una extensión de la red de la empresa.</p>
+<p>Las redes MPLS convergen de manera dinámica, soportan múltiples protocolos de enrutamiento y pueden utilizar políticas de calidad de servicio.</p>
+<p>El mecanismo de MPLS en los routers Cisco está basado en CEF (<em>Cisco Express Forwarding</em>) y es un mecanismo necesario para el funcionamiento de las mismas.</p>
+<h3 id="dsl">DSL<a class="headerlink" href="#dsl" title="Permanent link">&para;</a></h3>
+<p>Las líneas DSL (<em>Digital Suscriber Line</em>) son soluciones comunes de acceso que cuentan con la ventaja añadida de que se pueden utilizar sobre la infraestructura telefónica existente, lo que hace innecesario desplegar un nuevo cable para su implementación.</p>
+<p>La transmisión múltiple de señales a través de un cable se realiza por medio de la modulación de la señal. La modulación es la adición de información a una señal portadora electrónica u óptica. La voz utiliza solamente una pequeña parte de la frecuencias disponibles en los cables de par trenzado.</p>
+<p>La implementación de esta tecnología es económica gracias al uso del cableado existente pero guarda ciertas limitaciones como:</p>
+<ul>
+<li>La distancia del proveedor al cliente.</li>
+<li>Interferencias de radiofrecuencia.</li>
+<li>No puede ser implementada sobre fibra óptica.</li>
+<li>Atenuación y degradación de la señal en largas distancias.</li>
+</ul>
+<p>Existen dos variantes de DSL:</p>
+<ul>
+<li><strong>ADSL</strong>, DSL Asimétrica. Las velocidades de subida y bajada son diferentes. Es la más popular para uso doméstico o pequeñas oficinas.</li>
+<li><strong>SDSL</strong>, ASL Simétrica. Las velocidades de subida y bajada son idénticas.</li>
+</ul>
+<h2 id="caso-practico">CASO PRÁCTICO<a class="headerlink" href="#caso-practico" title="Permanent link">&para;</a></h2>
+<h3 id="configuracion-ppp-con-chap_1">Configuración PPP con CHAP<a class="headerlink" href="#configuracion-ppp-con-chap_1" title="Permanent link">&para;</a></h3>
+<p>Las siguientes sintaxis muestran las configuraciones básicas de una conexión serie punto a punto utilizando una encapsulación PPP y una autenticación CHAP:</p>
+<p>Router Local:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Router(config)#hostname Local
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Local(config)#username Remoto password cisco
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>Local(config)#interface serial 0/1
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Local(config-if)#encapsulation PPP
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>Local(config-if)#ppp authentication chap
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>Local(config-if)#ip address 203.24.33.1 255.255.255.0
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>Local(config-if)#no shutdown
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>Local(config-if)#exit
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>Local(config)#interface ethernet 0/1
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>Local(config-if)#ip address 192.168.0.1 255.255.255.0
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>Local(config-if)#no shutdown
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>Local(config-if)#exit
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>Local(config)#router ospf 100
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>Local(config-router)#network 192.168.0.0 0.0.0.255 area 0
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>Local(config-router)#network 203.24.33.0 0.0.0.255 area 0
+</span></code></pre></div>
+<p>Router Remoto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Router(config)#hostname Remoto
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>Remoto(config)#username Local password cisco
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Remoto(config)#interface serial 0/0
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>Remoto(config-if)#clockrate 56000
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>Remoto(config-if)#encapsulation PPP
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>Remoto(config-if)#ppp authentication chap
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>Remoto(config-if)#ip address 203.24.33.2 255.255.255.0
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>Remoto(config-if)#no shutdown
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>Remoto(config)#interface ethernet 0/0
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>Remoto(config-if)#ip address 198.170.0.1 255.255.255.0
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>Remoto(config-if)#no shutdown
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>Remoto(config-if)#exit
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>Remoto(config)#router ospf 100
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>Remoto(config-router)#network 198.170.0.0 0.0.0.255 area 0
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>Remoto(config-router)#network 203.24.33.0 0.0.0.255 area 0
+</span></code></pre></div>
+<p>Verificación en el router Local:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Local#sh int serial 0/0
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>Serial0/0 is up, line protocol is up (connected)
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>Hardware is HD64570
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>Internet address is 203.24.33.1/24
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>MTU 1500 bytes, BW 1544 Kbit, DLY 20000 usec,
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>reliability 255/255, txload 1/255, rxload 1/255
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>Encapsulation PPP, loopback not set, keepalive set (10 sec)
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>LCP Open
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>Open: IPCP, CDPCP
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>Last input never, output never, output hang never
+</span></code></pre></div>
+<h3 id="configuracion-de-nat-dinamico">Configuración de NAT dinámico<a class="headerlink" href="#configuracion-de-nat-dinamico" title="Permanent link">&para;</a></h3>
+<p>El ejemplo muestra la configuración de un router con NAT dinámico donde se ha creado un <em>pool</em> de direcciones IP llamado INTERNET, la interfaz entrante es la ethernet 0/0 y la saliente la interfaz serial 0/1:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Router(config)#ip nat pool INTERNET 20.20.10.20 20.20.10.30 netmask 255.255.255.0
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Router(config)#access-list 1 permit 192.168.1.0 0.0.0.255
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>Router(config)#ip nat inside source list 1 pool INTERNET
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>Router(config)#interface ethernet 0/0
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>Router(config-if)#ip address 192.168.1.25 255.255.255.0
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>Router(config-if)#ip nat inside
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>Router(config-if)#no shutdown
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>Router(config-if)#exit
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>Router(config)# interface serial 0/1
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>Router(config-if)#ip address 20.20.10.11 255.255.255.0
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>Router(config-if)#ip nat outside
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>Router(config-if)#no shutdown
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>Router(config-if)#exit
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>Router#show ip nat translations
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>Pro  Inside global      Inside local       Outside local      Outside global
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>tcp  20.20.10.22:1025   192.168.1.3:1025   20.20.10.12:23     20.20.10.12:23
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>icmp 20.20.10.22:33     192.168.1.2:33     20.20.10.12:33     20.20.10.12:33
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>icmp 20.20.10.22:34     192.168.1.3:34     20.20.10.12:34     20.20.10.12:34
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Las listas de acceso asociadas a NAT deben permitir solo el acceso a las redes que se van a convertir, sea específico y no utilice el <code>permit any</code>.</p>
+</div>
+<h3 id="configuracion-de-una-vpn-de-router-a-router">Configuración de una VPN de router a router<a class="headerlink" href="#configuracion-de-una-vpn-de-router-a-router" title="Permanent link">&para;</a></h3>
+<p>Se describe a continuación la configuración de un túnel GRE en una VPN de router a router según la siguiente topología.</p>
+<p>Configuración del router remoto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Router#configure terminal
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Router(config)#hostname remoto
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>remoto(config)#interface Tunnel 0
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>remoto(config-if)#ip address 192.168.1.1 255.255.255.252
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>remoto(config-if)#tunnel source serial 0/0/0
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>remoto(config-if)#tunnel destination 172.16.2.1
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>remoto(config-if)#no shut
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>remoto(config-if)#exit
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>remoto(config)#interface Serial 0/0/0
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>remoto(config-if)#ip address 172.16.2.2 255.255.255.0
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>remoto(config-if)#no shutdown
+</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>remoto(config-if)#exit
+</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>remoto(config)#interface gigabitEthernet 0/0
+</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>remoto(config-if)#ip address 192.168.16.1 255.255.255.0
+</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>remoto(config-if)#no shutdown
+</span><span id="__span-36-16"><a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>remoto(config-if)#exit
+</span><span id="__span-36-17"><a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a>remoto(config)#ip route 192.168.15.0 255.255.255.0 192.168.1.2
+</span><span id="__span-36-18"><a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a>remoto(config)#end
+</span></code></pre></div>
+<p>Configuración del router central:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Router#configure terminal
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Router(config)#hostname central
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>central(config)#interface Tunnel1
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>central(config-if)#ip address 192.168.1.2 255.255.255.252
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>central(config-if)#tunnel source serial 0/0/0
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>central(config-if)#tunnel destination 172.16.1.1
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>central(config-if)#no shut
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>central(config-if)#exit
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>central(config)#interface Serial 0/0/0
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>central(config-if)#ip address 172.16.2.1 255.255.255.0
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>central(config-if)#no shutdown
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>central(config-if)#exit
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>central(config)#interface gigabitEthernet 0/0
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>central(config-if)#ip address 192.168.15.1 255.255.255.0
+</span><span id="__span-37-15"><a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a>central(config-if)#no shutdown
+</span><span id="__span-37-16"><a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>central(config-if)#exit
+</span><span id="__span-37-17"><a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>central(config)#ip route 192.168.16.0 255.255.255.0 192.168.1.1
+</span><span id="__span-37-18"><a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a>central(config)#end
+</span><span id="__span-37-19"><a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a>central#sh int tunnel 1
+</span><span id="__span-37-20"><a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a>Tunnel1 is up, line protocol is up (connected)
+</span><span id="__span-37-21"><a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a>Hardware is Tunnel
+</span><span id="__span-37-22"><a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a>Internet address is 192.168.1.2/30
+</span><span id="__span-37-23"><a id="__codelineno-37-23" name="__codelineno-37-23" href="#__codelineno-37-23"></a>MTU 17916 bytes, BW 100 Kbit/sec, DLY 50000 usec,
+</span><span id="__span-37-24"><a id="__codelineno-37-24" name="__codelineno-37-24" href="#__codelineno-37-24"></a>reliability 255/255, txload 1/255, rxload 1/255
+</span><span id="__span-37-25"><a id="__codelineno-37-25" name="__codelineno-37-25" href="#__codelineno-37-25"></a>Encapsulation TUNNEL, loopback not set
+</span><span id="__span-37-26"><a id="__codelineno-37-26" name="__codelineno-37-26" href="#__codelineno-37-26"></a>Keepalive not set
+</span><span id="__span-37-27"><a id="__codelineno-37-27" name="__codelineno-37-27" href="#__codelineno-37-27"></a>Tunnel source 172.16.2.1 (Serial0/0/0), destination 172.16.2.2
+</span><span id="__span-37-28"><a id="__codelineno-37-28" name="__codelineno-37-28" href="#__codelineno-37-28"></a>Tunnel protocol/transport GRE/IP
+</span><span id="__span-37-29"><a id="__codelineno-37-29" name="__codelineno-37-29" href="#__codelineno-37-29"></a>Key disabled, sequencing disabled
+</span><span id="__span-37-30"><a id="__codelineno-37-30" name="__codelineno-37-30" href="#__codelineno-37-30"></a>Checksumming of packets disabled
+</span><span id="__span-37-31"><a id="__codelineno-37-31" name="__codelineno-37-31" href="#__codelineno-37-31"></a>Tunnel TTL 255
+</span><span id="__span-37-32"><a id="__codelineno-37-32" name="__codelineno-37-32" href="#__codelineno-37-32"></a>Fast tunneling enabled
+</span><span id="__span-37-33"><a id="__codelineno-37-33" name="__codelineno-37-33" href="#__codelineno-37-33"></a>Tunnel transport MTU 1476 bytes
+</span><span id="__span-37-34"><a id="__codelineno-37-34" name="__codelineno-37-34" href="#__codelineno-37-34"></a>Tunnel transmit bandwidth 8000 (kbps)
+</span><span id="__span-37-35"><a id="__codelineno-37-35" name="__codelineno-37-35" href="#__codelineno-37-35"></a>Tunnel receive bandwidth 8000 (kbps)
+</span><span id="__span-37-36"><a id="__codelineno-37-36" name="__codelineno-37-36" href="#__codelineno-37-36"></a>Last input never, output never, output hang never
+</span><span id="__span-37-37"><a id="__codelineno-37-37" name="__codelineno-37-37" href="#__codelineno-37-37"></a>Last clearing of &quot;show interface&quot; counters never
+</span><span id="__span-37-38"><a id="__codelineno-37-38" name="__codelineno-37-38" href="#__codelineno-37-38"></a>Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 1
+</span><span id="__span-37-39"><a id="__codelineno-37-39" name="__codelineno-37-39" href="#__codelineno-37-39"></a>Queueing strategy: fifo
+</span><span id="__span-37-40"><a id="__codelineno-37-40" name="__codelineno-37-40" href="#__codelineno-37-40"></a>Output queue: 0/0 (size/max)
+</span><span id="__span-37-41"><a id="__codelineno-37-41" name="__codelineno-37-41" href="#__codelineno-37-41"></a>5 minute input rate 0 bits/sec, 0 packets/sec
+</span><span id="__span-37-42"><a id="__codelineno-37-42" name="__codelineno-37-42" href="#__codelineno-37-42"></a>5 minute output rate 0 bits/sec, 0 packets/sec
+</span><span id="__span-37-43"><a id="__codelineno-37-43" name="__codelineno-37-43" href="#__codelineno-37-43"></a>...................................
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>remoto#sh ip route
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Codes: L-local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>      D-EIGRP, EX-EIGRP external, O-OSPF, IA-OSPF inter area
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>      N1-OSPF NSSA external type 1, N2-OSPF NSSA external type 2
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>      E1-OSPF external type 1, E2-OSPF external type 2, E-EGP
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>      i-IS-IS, L1-IS-IS level-1,L2-IS-IS level-2,ia-IS-IS interarea
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>      *-candidate default, U - per-user static route, o-ODR
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>      P-periodic downloaded static route
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>Gateway of last resort is not set
+</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>
+</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>     172.16.0.0/16 is variably subnetted, 2 subnets, 2 masks
+</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>C       172.16.2.0/24 is directly connected, Serial0/0/0
+</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>L       172.16.2.2/32 is directly connected, Serial0/0/0
+</span><span id="__span-38-15"><a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+</span><span id="__span-38-16"><a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>C       192.168.1.0/30 is directly connected, Tunnel0
+</span><span id="__span-38-17"><a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>L       192.168.1.1/32 is directly connected, Tunnel0
+</span><span id="__span-38-18"><a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>S       192.168.15.0/24 [1/0] via 192.168.1.2
+</span><span id="__span-38-19"><a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a>     192.168.16.0/24 is variably subnetted, 2 subnets, 2 masks
+</span><span id="__span-38-20"><a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a>C       192.168.16.0/24 is directly connected, GigabitEthernet0/0
+</span><span id="__span-38-21"><a id="__codelineno-38-21" name="__codelineno-38-21" href="#__codelineno-38-21"></a>L       192.168.16.1/32 is directly connected, GigabitEthernet0/0
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>central#show ip interface brief
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Interface              IP-Address      OK? Method Status                Protocol
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>GigabitEthernet0/0     192.168.15.1    YES manual up                    up
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>Serial0/0/0            172.16.2.1      YES manual up                    up
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>Tunnel1                192.168.1.2     YES manual up                    up
+</span></code></pre></div>
+<h2 id="fundamentos-para-el-examen">FUNDAMENTOS PARA EL EXAMEN<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Estudie las terminologías, estándares y conexiones utilizadas en las redes WAN.</li>
+<li>Recuerde los tipos de encapsulación de capa 2 de las redes WAN.</li>
+<li>Memorice los conceptos sobre PPP y los pasos en el establecimiento de una sesión PPP.</li>
+<li>Tenga en cuenta los tipos de autenticaciones PPP y sus diferencias fundamentales.</li>
+<li>Analice las diferencias entre PPP, PPPoE y MLPPP.</li>
+<li>Estudie los fundamentos sobre NAT, los diferentes tipos de traducciones y para qué se utilizan en cada caso.</li>
+<li>Recuerde las terminologías empleadas en la tarea de configuración de NAT.</li>
+<li>Analice el proceso de traslación de una dirección IP a otra.</li>
+<li>Estudie los fundamentos y funciones de una VPN.</li>
+<li>Analice la seguridad que debe proporcionar una VPN y el funcionamiento de IPsec.</li>
+<li>Estudie, analice y ejercite en dispositivos reales o en simuladores todos los comandos necesarios para las configuraciones de PPP y NAT y todos los comandos para su verificación.</li>
+<li>Recuerde que otros tipos de tecnologías de acceso WAN existen, analice para qué emplearía cada una.</li>
+<li>Ejercite todas las configuraciones en dispositivos reales o en simuladores.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-10/capitulo_10/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Calidad de servicio">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Calidad de servicio
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../capitulo-12/capitulo_12/" class="md-footer__link md-footer__link--next" aria-label="Next: Administracion y gestion">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Administracion y gestion
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

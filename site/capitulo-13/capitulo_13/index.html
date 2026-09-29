@@ -1,0 +1,2550 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-12/capitulo_12/">
+      
+      
+        <link rel="next" href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Automatización de la red - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automatizacion-de-la-red" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automatización de la red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SDN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SDN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arquitectura SDN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-sdn_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arquitectura SDN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de SDN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#southbound-y-northbound-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Southbound y Northbound API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-sda" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco SDA
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco SDA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuneles-vxlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Túneles VxLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lisp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        LISP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-dna-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco DNA Center
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco DNA Center">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        REST
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        JSON
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-de-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramientas de gestión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-aci" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco ACI
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-apic-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco APIC-EM
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco APIC-EM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analisis-de-acl-con-apic-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Análisis de ACL con APIC-EM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SDN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SDN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arquitectura SDN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-sdn_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arquitectura SDN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de SDN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#southbound-y-northbound-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Southbound y Northbound API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-sda" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco SDA
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco SDA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuneles-vxlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Túneles VxLAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lisp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        LISP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-dna-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco DNA Center
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco DNA Center">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        REST
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        JSON
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-de-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramientas de gestión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-aci" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco ACI
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cisco-apic-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cisco APIC-EM
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cisco APIC-EM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analisis-de-acl-con-apic-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Análisis de ACL con APIC-EM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    AUTOMATIZACION DE LA RED
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="automatizacion-de-la-red">Automatización de la red<a class="headerlink" href="#automatizacion-de-la-red" title="Permanent link">&para;</a></h1>
+<h2 id="sdn">SDN<a class="headerlink" href="#sdn" title="Permanent link">&para;</a></h2>
+<p>Las redes definidas por software SDN (<em>Software Defined Networking</em>) permiten a las organizaciones acelerar la implementación y la distribución de aplicaciones reduciendo drásticamente los costes mediante la automatización del flujo de trabajo basada en políticas. La tecnología SDN habilita arquitecturas de nube mediante distribución y movilidad de aplicaciones de manera automatizada, a pedido y a escala. Las SDN incrementan los beneficios de la virtualización del centro de datos, ya que aumentan la flexibilidad y la utilización de recursos y reducen los gastos generales y los costos de infraestructura.</p>
+<h3 id="arquitectura-sdn">Arquitectura SDN<a class="headerlink" href="#arquitectura-sdn" title="Permanent link">&para;</a></h3>
+<p>Un dispositivo de red está dividido en dos planos diferentes, por ejemplo el procesador de un router se encarga de enrutar o enviar la mayoría del tráfico que le llega con destino diferente al propio router, mecanismo conocido como el <em>data plane</em>. Mientras que determinados tipos de tráfico, como por ejemplo actualizaciones de enrutamiento, tráfico de gestión, <em>keepalives</em>, etc. que están destinados al propio router, esto es conocido como plano de control o <em>Control Plane</em>.</p>
+<p>Básicamente las funciones de cada plano son las siguientes:</p>
+<ul>
+<li><strong>Control Plane:</strong><ul>
+<li>Toma decisiones acerca de dónde se envía el tráfico.</li>
+<li>Los paquetes del plano de control están destinados localmente o son originados por el propio router.</li>
+<li>Incluyen la configuración del sistema, la gestión y el intercambio de información de la tabla de enrutamiento.</li>
+<li>Contiene mecanismos de envío de capa 2 y capa 3, tales como tablas de adyacencias IPv4 e IPv6, tablas de topologías, tablas ARP y STP.</li>
+</ul>
+</li>
+<li><strong>Data plane:</strong><ul>
+<li>También conocido como el plano de reenvío.</li>
+<li>Reenvía el tráfico al siguiente salto en el camino hacia la red de destino seleccionada de acuerdo a la lógica del plano de control.</li>
+<li>Los paquetes del plano de datos pasan por el router o por el switch.</li>
+<li>Los routers y switches lo utilizan para enviar flujos de tráfico.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Cisco Express Forwarding (CEF) es una tecnología de conmutación de capa 3 avanzada que permite el envío de paquetes del plano de datos sin consultar el plano de control.</p>
+</div>
+<h3 id="arquitectura-sdn_1">Arquitectura SDN<a class="headerlink" href="#arquitectura-sdn_1" title="Permanent link">&para;</a></h3>
+<p>En la arquitectura tradicional de un router o un switch las funciones del plano de control y del plano de datos se producen en el mismo dispositivo. Una red definida por software (SDN) mueve el plano de control de cada dispositivo de red a una entidad central de administración y control denominado SDN <em>controller</em>.</p>
+<p>Para convertir el concepto de SDN en una aplicación práctica, se deben cumplir dos requisitos. En primer lugar, tiene que haber una arquitectura lógica común en todos los switches, routers y otros dispositivos de red que será gestionado por un controlador SDN. Esta arquitectura lógica puede implementarse de diferentes maneras en diferentes equipos de proveedores y en diferentes tipos de dispositivos de red, siempre que el controlador SDN interprete una función lógica uniforme entre todos ellos. En segundo lugar, se necesita un protocolo estándar, seguro entre el controlador SDN y el dispositivo de red.</p>
+<p>Ambas exigencias las trata OpenFlow, que es a la vez un protocolo entre los controladores SDN y dispositivos de red, así como una especificación de la estructura lógica de la red.</p>
+<p>Las funciones de un controlador SDN pueden resumirse en las siguientes:</p>
+<ul>
+<li>Define los flujos de datos que se producen en el plano de datos SDN. Un flujo de datos es una secuencia de paquetes que atraviesan una red y que comparten un conjunto de valores de los campos de cabecera.</li>
+<li>Todas las funciones complejas son realizadas por el controlador.</li>
+<li>El controlador completa y gestiona las tablas de flujo de los switches.</li>
+<li>El controlador SDN se comunica con dispositivos compatibles con OpenFlow utilizando el protocolo OpenFlow.</li>
+<li>Utiliza Transport Layer Security (TLS) para enviar de forma segura las comunicaciones del plano de control sobre la red.</li>
+<li>Cada switch OpenFlow se conecta a otros switches OpenFlow.</li>
+</ul>
+<p>Para el switch, un flujo es una secuencia de paquetes que coincide con una entrada específica en una tabla de flujo. Las tablas tienen los objetivos siguientes:</p>
+<ul>
+<li>Una tabla de flujo compara los paquetes de entrada de un flujo particular y especifica las funciones que se van a realizar en los paquetes.</li>
+<li>Un medidor de tabla desencadena una serie de acciones relacionadas con el rendimiento en un flujo.</li>
+<li>Una tabla de flujo puede dirigir un flujo a una tabla de grupo, que puede accionar una variedad de acciones que afectan a uno o más flujos.</li>
+</ul>
+<h3 id="tipos-de-sdn">Tipos de SDN<a class="headerlink" href="#tipos-de-sdn" title="Permanent link">&para;</a></h3>
+<p>Existen tres tipos de modelos de SDN:</p>
+<ul>
+<li><strong>Device-based SDN:</strong> los dispositivos son programables por aplicaciones que se ejecutan en el propio dispositivo o en un servidor en la red. Cisco OnePK es un ejemplo de un SDN basado en dispositivo. Se permite crear aplicaciones utilizando C, Java y Python, integrar e interactuar con los dispositivos de Cisco.</li>
+<li><strong>Controller-based SDN:</strong> utiliza un controlador centralizado que tiene conocimiento de todos los dispositivos en la red. Las aplicaciones pueden interactuar con el controlador responsable de la gestión de dispositivos y manipular los flujos de tráfico en toda la red. Cisco Open SDN Controller es una distribución comercial de OpenDaylight.</li>
+<li><strong>Policy-based SDN:</strong> similar al Controller-based SDN donde un controlador centralizado tiene una vista de todos los dispositivos en la red. SDN basado en políticas incluye una capa adicional donde la política funciona a un nivel más alto de abstracción. Utiliza aplicaciones integradas que automatizan las tareas de configuración avanzada a través de un flujo de trabajo guiado y de interfaz gráfica de usuario fácil de usar sin conocimientos de programación necesarios. Cisco APIC-EM es un ejemplo de este tipo de SDN.</li>
+</ul>
+<h3 id="southbound-y-northbound-api">Southbound y Northbound API<a class="headerlink" href="#southbound-y-northbound-api" title="Permanent link">&para;</a></h3>
+<p>En una arquitectura SDN, las <em>Southbound API</em> (<em>Application Program Interfaces</em>) se utilizan para comunicar el SDN Controller y los routers y switches de la red. Puede ser una solución abierta o propietaria. Las <em>Southbound API</em> proporcionan un control más eficiente sobre la red y permiten que el controlador SDN realice cambios de forma dinámica de acuerdo a las demandas y las necesidades en tiempo real.</p>
+<p>OpenFlow es la primera y probablemente la más conocida interfaz <em>Southbound API</em>. Es un estándar desarrollado por ONF (<em>Open Networking Foundation</em>) que define la forma en que el controlador SDN debe interactuar con el plano de datos para realizar ajustes en la red para adaptarse a las necesidades cambiantes. El protocolo OpenFlow permite al controlador SDN administrar la estructura lógica de un switch, sin tener en cuenta los detalles de cómo el switch implementa la arquitectura lógica OpenFlow.</p>
+<p>Con OpenFlow, las entradas en las tablas de flujo de los routers y switches se pueden agregar y quitar para hacer que la red responda mejor a las demandas de tráfico en tiempo real. Además de OpenFlow, Cisco OpFlex es también una <em>Southbound API</em> conocida.</p>
+<p>En una arquitectura SDN, las <em>Northbound API</em> (<em>Application Program Interfaces</em>) se utilizan para comunicar el SDN Controller y los servicios y aplicaciones que se ejecutan en la red. Las <em>Northbound API</em> facilitan la innovación y permiten la organización, gestión y automatización de la red para ajustarse a las necesidades de las diferentes aplicaciones a través de la arquitectura SDN.</p>
+<p>Las <em>Northbound API</em> son, posiblemente, las API más críticas en el medio SDN, ya que la importancia de la SDN está ligada a las aplicaciones que potencialmente pueden soportar y permitir. Debido a que son tan críticas, las <em>Northbound API</em> deben ser compatibles con una amplia variedad de aplicaciones, por lo que es posible que no quepan todas. Esto es posiblemente por qué las <em>Northbound API</em> sean el componente más complejo en un entorno SDN, debido a que existe una variedad de posibles interfaces en diferentes lugares de la pila para controlar diferentes tipos de aplicaciones a través de un controlador de SDN.</p>
+<p>Las <em>Northbound API</em> también se utilizan para integrar el controlador SDN con herramientas de automatización remota, como Puppet, Chef, SaltStack, Ansible y CFEngine, así como plataformas de gestión, como OpenStack, VMware's vCloud-Director y de código abierto CloudStack. El objetivo es aislar el funcionamiento interno de la red, de modo que los desarrolladores de aplicaciones puedan hacer cambios para adaptarse a las necesidades de la aplicación sin tener necesidad de saber cómo funciona la red.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>La interfaz de programación de aplicaciones (API) es un mecanismo que permite que los componentes de software se comuniquen entre sí.</p>
+</div>
+<h2 id="cisco-sda">Cisco SDA<a class="headerlink" href="#cisco-sda" title="Permanent link">&para;</a></h2>
+<p>Cisco SDA (<em>Software-Defined Access</em>) utiliza el modelo definido por software y varias API. Establece una forma completamente diferente de construir las redes de campus en comparación con los métodos tradicionales.</p>
+<p>La arquitectura de SDA se compone básicamente de routers, switches, terminales, una interfaz gráfica (GUI) para los usuarios y un controlador DNA Center. SDA brinda un enfoque diferente a las redes WLAN y LAN y de cómo los terminales o puntos finales acceden a la red.</p>
+<p>El modelo SDA se compone de tres partes o espacios necesarios:</p>
+<ul>
+<li><strong>Overlay:</strong> es donde se crean los túneles VxLAN entre los switches SDA y que luego se utilizan para transportar el tráfico de un punto final a otro.</li>
+<li><strong>Underlay:</strong> es la parte que contiene los dispositivos y conexiones para proporcionar conectividad IP a todos los nodos en la estructura, con el objetivo de admitir el descubrimiento dinámico de todos los dispositivos y puntos finales SDA como parte del proceso para crear túneles VxLAN superpuestos.</li>
+<li><strong>Fabric:</strong> la combinación de overlay y underlay, que en conjunto proporcionan todas las características para entregar datos a través de la red con las características y atributos deseados.</li>
+</ul>
+<p>Fabric, underlay y overlay se ubican del lado <em>southbound API</em>. Por diseño, en implementaciones SDN, la mayoría de las nuevas capacidades ocurren en el lado <em>northbound</em>.</p>
+<p>Underlay proporciona conectividad entre los nodos en el entorno SDA con el fin de admitir túneles VxLAN en la red overlay. Para hacer eso, underlay incluye los switches, routers, cables y enlaces inalámbricos utilizados para crear la red física. También incluye la configuración y el funcionamiento de underlay para que pueda soportar el trabajo de la red overlay. Esto que parece un juego de palabras es muy fácil de comprender. Piense en capas, sin las capacidades de underlay, overlay no podría existir.</p>
+<p>SDA se puede agregar a una LAN de campus existente, o crear una red SDA desde cero dentro de la red empresarial. La primera opción tiene algunos riesgos y restricciones, como interrupciones de tráfico que puedan afectar a la producción durante el proceso de migración.</p>
+<p>Para elegir los dispositivos compatibles con SDA tiene que pensar en los roles que desempeñará cada uno:</p>
+<ul>
+<li><strong>Fabric edge node:</strong> un switch que se conecta a dispositivos finales como los switches de acceso tradicionales.</li>
+<li><strong>Fabric border node:</strong> un switch que se conecta a dispositivos fuera del control de SDA, por ejemplo, switches que se conectan a los routers WAN o a un centro de datos ACI.</li>
+<li><strong>Fabric control node:</strong> un switch que realiza funciones especiales en el plano de control para LISP, este dispositivo requiere más CPU y memoria.</li>
+</ul>
+<p>La secuencia de funcionamiento de SDA overlay es la siguiente. Primero, un punto final envía una trama que se entregará a través de la red SDA. El primer nodo SDA que recibe la trama la encapsula en un nuevo mensaje, utilizando un encabezado de túnel VxLAN, y reenvía la trama a través del túnel VxLAN, los otros nodos SDA que forman underlay reenvían la trama en función de cómo ha sido creado el túnel VxLAN. El último nodo SDA elimina el encabezado VxLAN, deja la trama original y la reenvía hacia el punto final de destino.</p>
+<p>Todo este trabajo ocurre en modo ASIC de cada switch por lo que no hay penalización de rendimiento.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>ASIC (<em>Application Specific Integrated Circuit</em>) es un circuito especializado de hardware diseñado para realizar una operación particular de manera altamente eficiente.</p>
+</div>
+<h3 id="tuneles-vxlan">Túneles VxLAN<a class="headerlink" href="#tuneles-vxlan" title="Permanent link">&para;</a></h3>
+<p>SDA tiene muchas capacidades adicionales más allá de la simple entrega de mensajes, estas nuevas capacidades le permiten proporcionar funciones mejoradas. Con ese fin, SDA no solo enruta los paquetes IP o conmuta las tramas de Ethernet. Además, encapsula las tramas de enlace de datos entrantes a través de la red SDA con una tecnología de túnel llamada VxLAN (<em>Virtual Extensible LAN</em>). Algunas de las características de los túneles VxLAN pueden ser las siguientes:</p>
+<ul>
+<li>La encapsulación y desencapsulación en el túnel VxLAN debe ser realizada vía ASIC (<em>Application Specific Integrated Circuit</em>) en cada switch para que no haya penalización de rendimiento. Por lo tanto los switches deben tener necesariamente esa compatibilidad de hardware.</li>
+<li>La encapsulación VxLAN debe proporcionar los campos de encabezado que SDA necesita para sus características, por lo que el protocolo de tunelización debe ser flexible y extensible, a la vez que compatible con el hardware específico del switch.</li>
+<li>El proceso de tunelización necesita encapsular toda la trama de enlace de datos en lugar de encapsular el paquete IP. Eso permite que SDA admita funciones de reenvío de capa 2, así como funciones de reenvío de capa 3.</li>
+</ul>
+<p>Estos objetivos se consiguen por medio del protocolo VxLAN que crea los túneles dentro de la red SDA encapsulando las tramas desde un terminal para ser enviadas a través del túnel. Para soportar el encapsulamiento VxLAN, underlay utiliza un direccionamiento IP diferente al de la red empresarial, sin embargo los túneles mantienen el mismo direccionamiento que el de la red de la empresa.</p>
+<p>En la figura, la red empresarial tiene un direccionamiento <code>192.0.2.0/24</code>, mientras que los dispositivos underlay utilizan la <code>172.16.0.0/16</code>. El túnel overlay creado a través de los dos terminales fabric están dentro del mismo espacio de direccionamiento IP.</p>
+<h3 id="lisp">LISP<a class="headerlink" href="#lisp" title="Permanent link">&para;</a></h3>
+<p>LISP (<em>Locator/ID Separation Protocol</em>) se diseñó originalmente para disminuir las tablas de enrutamiento en internet. LISP está definido en la RFC 6830. Los switches de capa 2 aprenden los destinos de las tramas almacenando las direcciones MAC en tablas. Cuando llegan nuevas tramas el <em>Control Plane</em> del switch examina la tabla MAC en busca de coincidencias, agilizando la conmutación de capa 2. Los routers aprenden las direcciones IP de destino utilizando protocolos de enrutamiento y almacenando las rutas en tablas. Cuando llegan nuevos paquetes, el <em>Control Plane</em> de capa 3 intenta hacer coincidir la dirección IP de destino con alguna entrada en la tabla de enrutamiento IP.</p>
+<p>LISP separa la ubicación y la identificación reemplazando las direcciones IP con RLOC (<em>Routing Locators</em>) y EID (<em>Endpoint Identifiers</em>). Los RLOC se asignan a los routers en función de la región para que puedan agregarse topológicamente. Los EID se asignan a puntos finales y no necesitan ser asignados topológicamente. Solo se puede acceder a los EID a través del RLOC en la frontera LISP donde se ubican. A diferencia del enrutamiento IP típico, los prefijos EID no se instalan en la tabla de enrutamiento. En cambio, LISP usa una base de datos EID-RLOC para localizar los EID y entregar los paquetes.</p>
+<p>Los nodos frontera Fabric (por lo general switches) aprenden la ubicación de los posibles puntos finales utilizando los medios tradicionales, en función de su dirección MAC, dirección IP individual y por subred, identificando cada punto final con un EID. Estos reconocen el hecho de que pueden alcanzar un punto final (EID) consultando en una base de datos contenida en el servidor de tablas LISP. El servidor LISP mantiene la relación de los EID con los RLOC que identifican el nodo de borde fabric que puede alcanzar el EID. En adelante, cuando el <em>Data Plane</em> fabric necesite reenviar un mensaje, buscará y encontrará el destino en la base de datos del servidor de mapas LISP.</p>
+<p>Básicamente el proceso LISP se describe en la siguiente figura:</p>
+<p>PC1 envía una trama Ethernet al nodo borde SW1 con destino a PC2 pero el switch desconoce dónde reenviar la trama. SW1 consulta al servidor LISP por si conoce la dirección IP de PC2. El servidor consulta su tabla y encuentra una entrada creada anteriormente que mapea el EID con el RLOC de SW2. El servidor LISP contacta con SW2 para confirmar que la entrada en la tabla es correcta. SW2 completa el proceso informando a SW1 de que él puede llegar a PC2.</p>
+<p>Ahora que SW1 sabe cómo llegar a PC2, encapsula la trama en un paquete IP y añade el encabezado VxLAN para ser enviado a través del túnel VxLAN.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>LISP funciona a nivel de <em>Control Plane</em>, mientras que VxLAN lo hace a nivel de <em>Data Plane</em>.</p>
+</div>
+<h2 id="cisco-dna-center">Cisco DNA Center<a class="headerlink" href="#cisco-dna-center" title="Permanent link">&para;</a></h2>
+<p>Cisco DNA Center (<em>Digital Network Architecture</em>) es una aplicación que Cisco ofrece preinstalada en los dispositivos Cisco DNA Center Appliance. Funciona como controlador en una red SDA o como plataforma de administración para dispositivos de red tradicionales. DNA Center admite varias <em>southbound API</em> para que el controlador pueda comunicarse con los dispositivos que administra. Requiere varios protocolos para poder comunicarse con una amplia gama de dispositivos, por ejemplo: Telnet, SSH, SNMP o versiones más modernas como NETCONF, RESTCONF. También incluye una potente y robusta <em>northbound REST API</em>.</p>
+<p>El modelo de seguridad basado en grupos SDA resuelve la problemática y los desafíos operativos con las ACL tradicionales. SDA y Cisco DNA logran esta característica particular al vincular la seguridad a grupos de usuarios, a los que se les asigna una etiqueta SGT (<em>Scalable Group Tag</em>). Luego, el administrador configura una política que identifica a los SGT que pueden enviar paquetes a otros SGT. Por lo tanto, una política de control de acceso basada en grupos tiene dos componentes principales:</p>
+<ul>
+<li><strong>Grupos escalables:</strong> los SGT que comprenden una agrupación de usuarios, dispositivos terminales o recursos que comparten los mismos requisitos de control de acceso. Un grupo escalable puede contener tan solo un elemento (un usuario, un dispositivo de punto final o un recurso).</li>
+<li><strong>Reglas de acceso:</strong> es un componente básico común que se utiliza tanto en las políticas de control de acceso basadas en IP como en grupos. Define las reglas que componen las políticas de control de acceso. Estas reglas especifican las acciones (permitir o denegar) realizadas cuando el tráfico coincide con un puerto o protocolo específico y las acciones implícitas (permitir o denegar) realizadas cuando ninguna otra regla coincide.</li>
+</ul>
+<p>Los problemas con la administración de las ACL en cada dispositivo ya no representan complejidad con el modelo de seguridad grupal de SDA. Por ejemplo:</p>
+<ul>
+<li>El administrador puede considerar cada nuevo requisito de seguridad por separado, sin analizar una ACL existente generalmente larga y compleja.</li>
+<li>Cada nuevo requisito se puede considerar sin buscar todas las ACL en las rutas probables entre los puntos finales y analizar cada una de las ACL.</li>
+<li>DNA Center mantiene las políticas separadas, con espacio para guardar notas sobre el motivo de la política.</li>
+<li>Cada política puede eliminarse sin que afecte a la lógica de las otras políticas.</li>
+</ul>
+<p>Para entender el funcionamiento de esta nueva característica de seguridad, piense cuando un terminal intenta enviar su primer paquete a un nuevo destino. El nodo SDA de ingreso inicia un proceso enviando mensajes al DNA Center. Luego, DNA Center trabaja con herramientas de seguridad en la red, como por ejemplo ISE (<em>Identity Services Engine</em>), para identificar a los usuarios y luego vincularlos con sus respectivos SGT. A continuación, DNA Center verifica la lógica configurada y si existe una acción de permiso entre el par de SGT de origen y destino, DNA Center dirige los nodos borde para crear el túnel VxLAN. Si en cambio las políticas de seguridad establecen que no se debe permitir el tráfico, DNA Center no dirige la estructura para crear el túnel y los paquetes se descartan.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Cisco ISE (<em>Identity Services Engine</em>) es una plataforma que proporciona los servicios AAA necesarios para la autenticación, autorización y auditoría.</p>
+</div>
+<p>Un ejemplo típico de utilización de DNA Center como plataforma de gestión de red es el Cisco Prime Infrastructure. Una plataforma de gestión centralizada ofrece mejoras a la hora de administrar una red en comparación con la forma tradicional, dispositivo por dispositivo. Algunas de las ventajas y características de una gestión centralizada pueden ser:</p>
+<ul>
+<li>Permite administrar tanto la LAN cableada como la inalámbrica desde la misma plataforma de administración.</li>
+<li>Descubre dispositivos de red, crea un inventario y los organiza según la topología.</li>
+<li>Brinda soporte para las funciones tradicionales de administración de LAN, WAN y centros de datos empresariales.</li>
+<li>Utiliza SNMP, SSH y Telnet, así como CDP y LLDP, para descubrir y aprender información sobre los dispositivos en la red.</li>
+<li>Admite diferentes tareas para instalar un nuevo dispositivo, configurarlo para que funcione en producción y realiza seguimiento y monitorización continua y puede realizar cambios en cualquier momento.</li>
+<li>Administra imágenes de software y automatiza actualizaciones.</li>
+<li>Simplifica la implementación de la configuración de QoS en cada dispositivo.</li>
+<li>Utiliza funciones Plug-and-Play para la instalación inicial de nuevos dispositivos de red después de instalar físicamente el nuevo dispositivo, conectar un cable de red y encender.</li>
+</ul>
+<h3 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link">&para;</a></h3>
+<p>Para automatizar y programar redes de forma centralizada, los softwares de automatización deben realizar varias tareas. El software analiza los datos en forma de variables, toma decisiones basadas en ese análisis y luego puede tomar medidas para cambiar la configuración de los dispositivos de red o informar sobre el estado de la red.</p>
+<p>Las diferentes funciones de automatización residen en diferentes dispositivos: el terminal del administrador, un servidor, un controlador y los distintos dispositivos de red. Para que estos procesos de automatización interrelacionados funcionen correctamente, necesitan convenciones de software bien definidas para permitir una comunicación ágil entre los componentes de software.</p>
+<p>Típicamente las API (<em>Application Programming Interface</em>) crean una forma para que las aplicaciones de software se comuniquen entre sí. Los requisitos del examen CCNA se basan en un tipo de API, las API REST (<em>REpresentational State Transfer</em>) por ser una de las más populares y utilizadas para la automatización de redes. Por otro lado, JSON (<em>JavaScript Object Notation</em>) es la convención estándar para el intercambio de variables de datos a través de API.</p>
+<p>En definitiva, REST proporciona un método estándar para que dos programas de automatización puedan comunicarse a través de una red y JSON define cómo comunicar las variables utilizadas por esos programas.</p>
+<p>Las API REST siguen un conjunto de reglas fundamentales sobre qué pueden hacer o no. Básicamente estas reglas se corresponden con las siguientes características:</p>
+<ul>
+<li><strong>Cliente-servidor:</strong> esta condición mantiene al cliente y al servidor mínimamente vinculados. Esto quiere decir que el cliente no necesita conocer los detalles de implementación del servidor y el servidor se despreocupa de cómo son usados los datos que envía al cliente.</li>
+<li><strong>Sin estado (Stateless):</strong> cada petición que recibe el servidor debería ser independiente, es decir, no es necesario mantener sesiones.</li>
+<li><strong>Cacheable:</strong> debe admitir un sistema de almacenamiento en caché. La infraestructura de red debe soportar una caché de varios niveles. Este almacenamiento evitará repetir varias conexiones entre el servidor y el cliente para recuperar un mismo recurso.</li>
+<li><strong>Interfaz uniforme:</strong> define una interfaz genérica para administrar cada interacción que se produzca entre el cliente y el servidor de manera uniforme, lo cual simplifica y separa la arquitectura. Esta restricción indica que cada recurso del servicio REST debe tener una única dirección URI (<em>Uniform Resource Identifier</em>).</li>
+<li><strong>Sistema de capas:</strong> el servidor puede disponer de varias capas para su implementación. Esto ayuda a mejorar la escalabilidad, el rendimiento y la seguridad.</li>
+</ul>
+<p>A menudo las siglas URI y URL se utilizan como sinónimos, sin embargo son términos diferentes. Una URL (<em>Uniform Resource Locator</em>) se utiliza principalmente para apuntar a una dirección de internet, a un componente de una página web o a un programa en una página web a través de algún protocolo como HTTP, FTP, SSH, FILE, etc., para acceder a la ubicación del recurso. Por otro lado, URI (<em>Uniform Resource Identifier</em>) se utiliza para distinguir un recurso de otro independientemente del método utilizado.</p>
+<p>Los diseñadores de las API basadas en REST a menudo eligen HTTP (<em>Hypertext Transfer Protocol</em>) porque la lógica de HTTP coincide con algunos de los conceptos definidos de manera general para las API REST. HTTP utiliza los mismos principios que REST: funciona con un modelo cliente-servidor; utiliza un modelo operacional sin estado; e incluye encabezados que marcan claramente los objetos como almacenables en caché o no almacenables. También incluye verbos que coinciden con el funcionamiento de las aplicaciones.</p>
+<p>Los verbos en HTTP (<em>HTTP verbs</em>) definen la acción que se quiere realizar sobre el recurso:</p>
+<ul>
+<li><strong>Get:</strong> solicita una representación de un recurso específico.</li>
+<li><strong>Head:</strong> solicita una respuesta idéntica a la de una petición GET, pero sin el cuerpo de la respuesta.</li>
+<li><strong>Post:</strong> se utiliza para enviar una entidad a un recurso en específico, causando a menudo un cambio en el estado o efectos secundarios en el servidor.</li>
+<li><strong>Put:</strong> reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.</li>
+<li><strong>Connect:</strong> establece un túnel hacia el servidor identificado por el recurso.</li>
+<li><strong>Options:</strong> se utiliza para describir las opciones de comunicación para el recurso de destino.</li>
+<li><strong>Trace:</strong> realiza una prueba de bucle de retorno de mensaje a lo largo de la ruta al recurso de destino.</li>
+<li><strong>Patch:</strong> es utilizado para aplicar modificaciones parciales a un recurso.</li>
+<li><strong>Delete:</strong> borra un recurso en específico.</li>
+</ul>
+<p>Además de utilizar los verbos HTTP para realizar las funciones CRUD (<em>Create, Read, Update, Delete</em>), REST usa las URI para identificar en qué recurso actúa la solicitud HTTP. Para las API REST, el recurso puede ser cualquiera de los muchos recursos definidos por la API.</p>
+<p>El acrónimo CRUD (<em>Create, Read, Update, Delete</em>) identifica las cuatro acciones principales realizadas por una aplicación:</p>
+<ul>
+<li><strong>Create:</strong> permite al cliente crear algunas instancias nuevas de variables y estructuras de datos en el servidor e inicializar sus valores tal como se mantienen en el servidor.</li>
+<li><strong>Read:</strong> permite al cliente recuperar el valor actual de las variables que existen en el servidor, almacenando una copia de las variables, estructuras y valores en el cliente.</li>
+<li><strong>Update:</strong> permite al cliente cambiar o actualizar el valor de las variables que existen en el servidor.</li>
+<li><strong>Delete:</strong> permite al cliente eliminar del servidor diferentes instancias de variables de datos.</li>
+</ul>
+<p>Cada recurso contiene un conjunto de variables relacionadas, definidas por la API e identificadas por una URI. La estructura URI para una solicitud REST GET consta de tres componentes. Por ejemplo, el URI solicita al Cisco DNA Center una lista de todos los dispositivos conocidos, y Cisco DNA Center devuelve un diccionario de valores para cada dispositivo.</p>
+<ul>
+<li><strong>Protocolo:</strong> el término antes de <code>://</code> identifica el protocolo, en este caso, HTTPS.</li>
+<li><strong>Nombre de host o dirección IP:</strong> este valor se encuentra entre la doble barra y la siguiente simple (<code>//</code> y <code>/</code>), e identifica el host; si usa un nombre de host, el cliente REST debe realizar una resolución de nombre para conocer la dirección IP del servidor REST.</li>
+<li><strong>Ruta o Recurso:</strong> este valor se encuentra después de la primera barra simple (<code>/</code>) y termina al final del URI o antes de cualquier campo adicional (como un campo de consulta de parámetros). HTTP llama a este campo la ruta, pero para su uso con REST, el campo identifica de forma exclusiva el recurso tal como lo define la API.</li>
+</ul>
+<p>Muchos de los mensajes de solicitud HTTP necesitan pasar información al servidor REST más allá de la API. Algunos de esos datos se pueden pasar en campos de encabezado; por ejemplo, las API REST usan campos de encabezado HTTP para codificar gran parte de la información de autenticación para las llamadas REST. Además, los parámetros relacionados con una llamada REST se pueden pasar como parámetros como parte del URI.</p>
+<p>Siguiendo el ejemplo de la URI anterior, es posible que se requiera ese diccionario de valores para un solo dispositivo. La API de Cisco DNA Center lo permite añadiendo el parámetro al final del URI.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Para información más detallada sobre las API REST puede consultar la página de su creador Roy Fielding en <a href="https://restfulapi.net">https://restfulapi.net</a>.</p>
+</div>
+<p>La interfaz de programación API es un mecanismo de software que puede resultar muy complejo y tedioso. De manera personal considero que es materia de estudio para desarrolladores de software y no para un técnico administrador de redes CCNA, sin embargo es una exigencia para los administradores actuales y es, además, tema de examen, por lo que hay que darle la importancia necesaria. Para los estudiantes que quieran profundizar en las API, existe una aplicación llamada Postman que es gratuita y se puede descargar desde su web en <a href="https://www.postman.co">https://www.postman.co</a>. Tenga en cuenta que Cisco hace un uso extensivo de Postman (por ejemplo Cisco DevNet) en sus laboratorios y ejemplos.</p>
+<h3 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
+<p>JSON (<em>JavaScript Object Notation</em>) está incluido en el temario de la certificación CCNA 200-301, los siguientes párrafos describen el funcionamiento de este formato para intercambio de datos.</p>
+<p>Los lenguajes de serialización de datos brindan una forma de representar variables con texto en lugar de en la representación interna utilizada por cualquier lenguaje de programación en particular.</p>
+<p>Cada lenguaje de serialización de datos permite que los servidores API devuelvan datos para que el cliente API pueda replicar los mismos nombres de variables, así como las estructuras de datos que se encuentran en el servidor API.</p>
+<p>Para describir las estructuras de datos, los lenguajes de serialización de datos incluyen caracteres especiales y convenciones que comunican ideas sobre variables de lista, variables de diccionario y otras estructuras de datos más complejas.</p>
+<p>Los lenguajes de serialización de datos permiten superar estos problemas, ofreciendo a las aplicaciones un método estándar para representar variables para la transmisión y el almacenamiento de esas variables fuera del programa.</p>
+<p>El flujo del proceso de serialización de datos es el siguiente:</p>
+<ol>
+<li>El servidor recopila los datos representados internamente y los entrega al código API.</li>
+<li>La API convierte la representación interna en un modelo de datos que representa esas variables (con JSON, por ejemplo).</li>
+<li>El servidor envía el modelo de datos en formato JSON a través de mensajes a través de la red.</li>
+<li>El cliente REST toma los datos recibidos y convierte los datos con formato JSON en variables en el formato nativo de la aplicación cliente.</li>
+</ol>
+<p>El siguiente cuadro describe algunos lenguajes de serialización:</p>
+<table>
+<thead>
+<tr>
+<th>Acrónimo</th>
+<th>Nombre</th>
+<th>Referencia</th>
+<th>Propósito</th>
+<th>Utilización</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON</td>
+<td>JavaScript Object Notation</td>
+<td>JavaScript (JS) language; RFC 8259</td>
+<td>Modelado general de datos y serialización</td>
+<td>REST API</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>eXtensible Markup Language</td>
+<td>World Wide Web Consortium (W3C.org)</td>
+<td>Lenguaje de marcado de propósito general</td>
+<td>REST API, Páginas Web</td>
+</tr>
+<tr>
+<td>YAML</td>
+<td>YAML Ain't Markup Language</td>
+<td>YAML.org</td>
+<td>Modelado general de datos</td>
+<td>Ansible</td>
+</tr>
+</tbody>
+</table>
+<p>Básicamente JSON es un fichero de texto guardado con la extensión <code>.json</code> que luego será utilizado por alguna aplicación para el intercambio de datos. Leerlo y escribirlo es simple para humanos, mientras que para las máquinas es simple interpretarlo y generarlo. JSON es un formato de texto que es completamente independiente del lenguaje pero utiliza convenciones que son ampliamente conocidas por los programadores. Estas propiedades hacen que JSON sea un lenguaje ideal para el intercambio de datos.</p>
+<p>Las reglas sintácticas de JSON son bastante sencillas:</p>
+<ul>
+<li>
+<p><strong>matrices (arrays):</strong> son listas de valores separados por comas. Las matrices se escriben entre corchetes <code>[ ]</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[1, &quot;router&quot;, &quot;CPD_Norte&quot;]
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>objetos (objects):</strong> son listas de parejas nombre-valor. El nombre y el valor están separados por dos puntos <code>:</code> y las parejas están separadas por comas. Los objetos se escriben entre llaves <code>{ }</code> y los nombres de las parejas se escriben siempre entre comillas dobles <code>"texto"</code>. Si el valor es numérico no se escribe entre comillas.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{&quot;nombre&quot;: &quot;CPD_Norte&quot;, &quot;rack&quot;: 12, &quot;administrable&quot;: true}
+</span></code></pre></div>
+</li>
+</ul>
+<p>Los valores (tanto en los objetos como en las matrices) pueden ser:</p>
+<ul>
+<li><strong>números:</strong> enteros, decimales o en notación exponencial. El separador decimal es el punto.</li>
+<li><strong>cadenas:</strong> se escriben entre comillas dobles. Los caracteres especiales y los valores <em>unicode</em> se escriben con una contra barra <code>\</code> delante, por ejemplo las comillas se escriben <code>\"</code>.</li>
+<li><strong>booleanos y nulos:</strong> los valores booleanos <code>true</code>, <code>false</code> y los tipos de datos <code>null</code> se escriben sin comillas.</li>
+</ul>
+<p>Dentro de los objetos y matrices puede haber tanto objetos como matrices o ambos, sin límites.</p>
+<p>Los ficheros JSON no pueden contener comentarios. Los espacios en blanco y los saltos de línea no son significativos, es decir, puede haber cualquier número de espacios en blanco o saltos de línea separando cualquier elemento o símbolo del documento. El siguiente ejemplo muestra una matriz con dos objetos.</p>
+<h3 id="herramientas-de-gestion">Herramientas de gestión<a class="headerlink" href="#herramientas-de-gestion" title="Permanent link">&para;</a></h3>
+<p>En capítulos anteriores se ha visto, expuesto e incluso se han dado casos prácticos de cómo configurar dispositivos de red, sin embargo en una red de producción las configuraciones manuales pueden ser un desafío. A medida que una empresa crece, migran dispositivos o cambia de administrador, los cambios de configuración son mayores, por lo tanto la gestión manual se convierte en un problema.</p>
+<p>El proceso de configuración manual no registra el historial de cambios:</p>
+<ul>
+<li>qué líneas cambiaron</li>
+<li>qué cambió en cada línea</li>
+<li>qué configuración anterior se eliminó</li>
+<li>quién cambió la configuración</li>
+<li>cuándo se realizó cada cambio</li>
+</ul>
+<p>Algunos sistemas externos de gestión de sistemas, como la emisión de tickets de problemas y el software de gestión de cambios, pueden registrar detalles, pero únicamente para los dispositivos que se encuentran dentro de su gestión. Sin embargo, los dispositivos que se encuentran fuera de esa gestión y requieren un análisis para descubrir qué cambios han sufrido, también dependen de los administradores para seguir los procesos operativos de manera consistente y correcta.</p>
+<p>Con un sistema de control centralizado un equipo de red puede hacer un trabajo mucho más efectivo para rastrear los cambios y responder a quién, qué y cuándo cambió la configuración de cada dispositivo. Con este nuevo modelo, los administradores deben realizar cambios editando los archivos de configuración, lo que presenta otros desafíos que pueden resolverse mejor utilizando alguna herramienta de administración de configuración automatizada.</p>
+<p>Por ejemplo, una empresa puede tener muchos routers cumpliendo funciones similares con una configuración casi idéntica. Las herramientas de administración de configuración pueden separar los componentes de una configuración en las partes en común para todos los dispositivos en ese rol (la plantilla) frente a las partes exclusivas de cualquier dispositivo (las variables).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>hostname Norte
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>!
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>interface GigabitEthernet0/1
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> ip address 10.99.170.10 255.255.255.0
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>!
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>interface GigabitEthernet0/2
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a> ip address 10.99.170.11 255.255.255.0
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>!
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>ntp server 10.99.52.23
+</span></code></pre></div>
+<p>La siguiente plantilla imita la configuración anterior, excepto por colocar nombres de variables dentro de las llaves dobles.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hostname {{nombre}}
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>!
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>interface GigabitEthernet0/1
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> ip address {{direccion_1}} {{mascara_1}}
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>!
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>interface GigabitEthernet0/2
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a> ip address {{direccion_2}} {{mascara_2}}
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>!
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ntp server {{ntp_server}}
+</span></code></pre></div>
+<p>El sistema de gestión de la configuración procesa una plantilla más todas las variables relacionadas para producir la configuración prevista para un dispositivo. El administrador crea y edita posteriormente un archivo de plantilla y luego un archivo con las variables para cada router.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Norte</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">direccion_1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.99.170.10</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">mascara_1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">255.255.255.0</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">direccion_2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.99.170.11</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">mascara_2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">255.255.255.0</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nt">ntp_server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.99.52.23</span>
+</span></code></pre></div>
+<p>Puede parecer un trabajo añadido separar las configuraciones en una plantilla y luego cargar las variables, sin embargo las plantillas aumentan el enfoque al tener una configuración estándar para cada rol. Los nuevos dispositivos con un rol existente se pueden implementar fácilmente simplemente copiando un archivo variable existente por dispositivo y cambiando los valores.</p>
+<p>Ansible, Puppet y Chef son diferentes paquetes de software con opciones gratuitas que le permiten descargar y aprender sobre las herramientas. También puede comprar cada herramienta, que incluyen variaciones más específicas sobre las funcionalidades de cada una.</p>
+<p>Para usar <strong>Ansible</strong>, puede instalarse en algún ordenador: Mac, Linux o en una máquina virtual de Linux en un PC con Windows. Puede usar la versión gratuita de código abierto o la versión de pago Ansible Tower.</p>
+<p>Una vez que está instalado, crea varios archivos de texto, como los siguientes:</p>
+<ul>
+<li><strong>Playbooks:</strong> estos archivos proporcionan acciones y lógica sobre lo que debe hacer Ansible.</li>
+<li><strong>Inventario:</strong> estos archivos proporcionan nombres de host del dispositivo junto con información sobre cada dispositivo, como roles de dispositivo, por lo que Ansible puede realizar funciones para subconjuntos del inventario.</li>
+<li><strong>Plantillas:</strong> con el lenguaje Jinja2, las plantillas representan la configuración de un dispositivo pero con variables.</li>
+<li><strong>Variables:</strong> con YAML, un archivo puede enumerar variables que Ansible sustituirá en plantillas.</li>
+</ul>
+<p>Ansible no depende de ningún código o agente que se ejecute en el dispositivo de red. En cambio, Ansible se basa en las características típicas de los dispositivos de red, como SSH o NETCONF, para realizar cambios y extraer información. Cuando se usa SSH, el nodo de control Ansible realmente realiza cambios en el dispositivo como lo haría cualquier otro usuario SSH, pero haciendo el trabajo con el código Ansible.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Jinja es un motor de plantillas web para el lenguaje de programación Python.</p>
+</div>
+<p>Para usar <strong>Puppet</strong>, comienza instalándolo en un host Linux. Puede instalarlo en su propio host, pero para fines de producción, normalmente se instala en un servidor Linux llamado Puppet Master. Al igual que con Ansible, puede usar la versión gratuita de código abierto pero también existen versiones de pago.</p>
+<p>Una vez instalado, Puppet también utiliza varios archivos de texto importantes con diferentes componentes, como los siguientes:</p>
+<ul>
+<li><strong>Manifiesto:</strong> este es un archivo de texto legible para humanos en Puppet Master, que utiliza un lenguaje definido por Puppet, y que se utiliza para definir el estado de configuración deseado de un dispositivo.</li>
+<li><strong>Módulo, recurso, clase:</strong> estos términos se refieren a elementos del manifiesto, el módulo es el componente más grande compuesto por clases más pequeñas, que a su vez están compuestas de recursos.</li>
+<li><strong>Plantillas:</strong> al usar un lenguaje específico de dominio de Puppet, estos archivos le permiten a Puppet generar manifiestos (y módulos, clases y recursos) mediante la sustitución de variables en la plantilla.</li>
+</ul>
+<p>Una forma de pensar sobre las diferencias entre el enfoque de Ansible y el de Puppet es que los Playbooks de Ansible usan un lenguaje imperativo, mientras que Puppet usa un lenguaje declarativo. Es decir, con Ansible, los Playbooks enumerarán tareas y elecciones basadas en esos resultados, mientras que los manifiestos de Puppet declaran el estado final que debe tener un dispositivo. Por ejemplo, el mecanismo de Ansible sería "configurar todos los routers, en todos los edificios, si se producen errores realice las acciones que correspondan". Puppet en cambio declara "el router debe tener este estado de configuración".</p>
+<p>No todos los sistemas operativos de Cisco son compatibles con los agentes Puppet, por lo que Puppet resuelve ese problema utilizando un agente <em>proxy</em> que se ejecuta en algún host externo. El agente externo luego usa SSH para comunicarse con el dispositivo de red.</p>
+<p>Para usar <strong>Chef</strong>, al igual que Ansible y Puppet, es un paquete de software que se instala y ejecuta. Chef Automate es el producto al que la mayoría de la gente se refiere simplemente como Chef. Al igual que con Puppet, en producción probablemente se ejecute en modo servidor-cliente con un servidor y con varias estaciones de trabajo. Sin embargo, también puede ejecutar Chef Zero en modo independiente, lo cual es útil cuando recién comienza y aprende en el laboratorio.</p>
+<p>Una vez que Chef está instalado, crea varios archivos de texto con diferentes componentes, como los siguientes:</p>
+<ul>
+<li><strong>Recurso:</strong> los objetos de configuración cuyo estado es administrado por Chef, análogo a los ingredientes en una receta en un libro de cocina.</li>
+<li><strong>Receta:</strong> la lógica del Chef se aplica a los recursos para determinar cuándo, cómo y si actuar contra los recursos, de forma análoga a una receta en un libro de cocina.</li>
+<li><strong>Cookbooks:</strong> un conjunto de recetas sobre los mismos tipos de trabajo, agrupados para facilitar la gestión y el intercambio.</li>
+<li><strong>Runlist:</strong> una lista ordenada de recetas que se deben ejecutar en un dispositivo determinado.</li>
+</ul>
+<p>Chef usa una arquitectura similar a Puppet. Para los dispositivos de red, cada cliente Chef ejecuta un agente. El agente realiza la supervisión de la configuración en el sentido de que el cliente extrae recetas y recursos del servidor Chef y luego ajusta su configuración para mantenerse sincronizado con los detalles en esas recetas y listas de ejecución. Sin embargo, tenga en cuenta que muchos dispositivos Cisco no son compatibles con un cliente Chef, por lo que es probable que vea un mayor uso de Ansible y Puppet para la administración de la configuración de un dispositivo Cisco.</p>
+<p>Ansible puede describirse como el uso de un modelo <em>push</em> en lugar de un modelo <em>pull</em> como Puppet y Chef. <em>Push</em> significa que un "servidor maestro" se conecta a través de SSH a los nodos que quiere administrar y hace lo que se presume que debe hacer. Muchas veces este método resulta un cuello de botella si existen muchos nodos simultáneos que intentan conectarse al servidor. Por otro lado, en las redes donde no es posible este tipo de despliegue por estar altamente protegidas, se utiliza el modo <em>pull</em>, donde un nodo se conecta a un servidor maestro para obtener instrucciones sobre qué hacer.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Para mayor información puede consultar las webs de los fabricantes en <a href="https://www.ansible.com">https://www.ansible.com</a>, <a href="https://www.puppet.com">https://www.puppet.com</a> y <a href="https://www.chef.io">https://www.chef.io</a>.</p>
+</div>
+<h2 id="cisco-aci">Cisco ACI<a class="headerlink" href="#cisco-aci" title="Permanent link">&para;</a></h2>
+<p>Cisco ha desarrollado ACI (<em>Application Centric Infrastructure</em>) para ayudar a las organizaciones que no tienen necesidad o la habilidad para programar el uso de herramientas SDN, para automatizar la red. Cisco ACI es una solución de hardware especialmente diseñada para integrar los servicios en la nube y la gestión del centro de datos. La política de la red se elimina del plano de datos, simplificando la forma de crear y administrar las redes de datos.</p>
+<p>La implementación de Cisco ACI puede desarrollarse en una topología de dos niveles tipo <em>spine-leaf</em> (también llamada <em>Clos network</em>) de la siguiente manera:</p>
+<ul>
+<li>En una topología spine-leaf Cisco ACI se compone del APIC (<em>Cisco Application Policy Infrastructure Control</em>) y de switches de la serie Cisco Nexus 9000.</li>
+<li>Los switches de la capa <em>leaf</em> se conectan con los de la capa <em>spine</em>, pero nunca entre ellos.</li>
+<li>Del mismo modo los switches de la capa <em>spine</em> se conectan con los de la capa <em>leaf</em>, pero nunca entre ellos.</li>
+<li>En esta topología de dos niveles los dispositivos están a un salto de los demás.</li>
+<li>Los puntos finales se conectan solo a los switches de capa <em>leaf</em>.</li>
+<li>Los puntos finales pueden ser también conexiones a routers que se comunican con dispositivos fuera del centro de datos. Por necesidad y volumen, la mayoría de los puntos finales serán servidores físicos que ejecutan un sistema operativo nativo o servidores que ejecutan software de virtualización con un número de máquinas virtuales y contenedores.</li>
+</ul>
+<h2 id="cisco-apic-em">Cisco APIC-EM<a class="headerlink" href="#cisco-apic-em" title="Permanent link">&para;</a></h2>
+<p>Cisco APIC-EM (<em>Cisco Application Policy Infrastructure Control Enterprise Module</em>) es un SDN basado en políticas, brinda una solución más robusta, que prevé un mecanismo simple para controlar y gestionar las políticas en toda la red.</p>
+<p>APIC-EM ofrece SDN a las redes corporativas, WAN, redes de campus y de acceso. APIC-EM proporciona la automatización centralizada de perfiles de aplicación basados en políticas. A través de programación y control de red automatizada ayuda a responder rápidamente a gestiones de red.</p>
+<p>Cisco APIC-EM ofrece las siguientes características:</p>
+<ul>
+<li>Descubrimiento de dispositivos.</li>
+<li>Inventario de dispositivos.</li>
+<li>Inventario de hosts.</li>
+<li>Topología.</li>
+<li>Políticas.</li>
+<li>Análisis de políticas.</li>
+</ul>
+<h3 id="analisis-de-acl-con-apic-em">Análisis de ACL con APIC-EM<a class="headerlink" href="#analisis-de-acl-con-apic-em" title="Permanent link">&para;</a></h3>
+<p>Con APIC-EM es posible examinar las ACL en los dispositivos en busca de redundancias, conflictos o contradicciones como por ejemplo entradas mal ubicadas o en un orden incorrecto que permitan un host y que luego lo denieguen (<em>shadowed</em>). Permite inspeccionar y analizar las ACL a través de toda la red, dejando al descubierto los problemas y conflictos. Examina ACL específicas en la ruta entre dos nodos finales, descubriendo los posibles problemas.</p>
+<h2 id="fundamentos-para-el-examen">Fundamentos para el examen<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<p>Este capítulo puede resultar bastante abstracto si no se tienen dispositivos para realizar pruebas de laboratorio. Piense en la tendencia de las empresas en la utilización de un sistema de gestión centralizada, donde cientos de dispositivos se gestionan y administran remotamente. Por ejemplo, un router con una configuración mínima se conecta a la red y obtiene la configuración completa automáticamente y se pone en producción casi al instante.</p>
+<ul>
+<li>Recuerde las diferencias entre el plano de control y el plano de datos.</li>
+<li>Analice para qué sirven y para qué se utilizan las <em>Southbound API</em> y <em>Northbound API</em>.</li>
+<li>Compare la administración tradicional de una red de campus con una administración centralizada.</li>
+<li>Estudie las partes que componen el modelo SDA y cómo se forman los túneles VxLAN.</li>
+<li>Analice cómo aprenden las ubicaciones de los dispositivos los nodos frontera.</li>
+<li>Piense y analice las ventajas que ofrece Cisco DNA Center.</li>
+<li>Analice el mecanismo que emplean las API para comunicarse entre sí y cómo se definen las variables que utilizan.</li>
+<li>Tenga en claro las diferencias entre URL y URI.</li>
+<li>Realice prácticas a través de la web <a href="https://www.postman.co">https://www.postman.co</a>.</li>
+<li>Aprenda qué son y cómo funcionan los lenguajes de serialización.</li>
+<li>Estudie las demás opciones de gestión centralizada de red.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-12/capitulo_12/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Administracion y gestion">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Administracion y gestion
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-footer__link md-footer__link--next" aria-label="Next: NODE FUNDAMENTALS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                NODE FUNDAMENTALS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

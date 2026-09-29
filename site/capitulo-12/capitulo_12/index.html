@@ -1,0 +1,3037 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-11/capitulo_11/">
+      
+      
+        <link rel="next" href="../../capitulo-13/capitulo_13/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Administración y gestión - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#administracion-y-gestion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Administración y gestión
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#snmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SNMP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SNMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syslog" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SYSLOG
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SYSLOG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de logging
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nombre-del-cisco-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NOMBRE DEL CISCO IOS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NOMBRE DEL CISCO IOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activacion-y-licencias-del-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Activación y licencias del IOS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-sla" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IP SLA
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP SLA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#span" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SPAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SERVICIOS EN LA NUBE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SERVICIOS EN LA NUBE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelos-de-nubes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelos de nubes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VIRTUALIZACIÓN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VIRTUALIZACIÓN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hypervisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Hypervisor
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hypervisor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualizacion-de-la-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Virtualización de la red
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CASO PRÁCTICO
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CASO PRÁCTICO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activacion-de-licencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Activación de licencia
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activación de licencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-ip-sla" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de IP SLA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FUNDAMENTOS PARA EL EXAMEN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#snmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SNMP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SNMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syslog" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SYSLOG
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SYSLOG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de logging
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nombre-del-cisco-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NOMBRE DEL CISCO IOS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NOMBRE DEL CISCO IOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activacion-y-licencias-del-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Activación y licencias del IOS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-sla" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IP SLA
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP SLA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#span" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SPAN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SERVICIOS EN LA NUBE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SERVICIOS EN LA NUBE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelos-de-nubes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelos de nubes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VIRTUALIZACIÓN
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VIRTUALIZACIÓN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hypervisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Hypervisor
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hypervisor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualizacion-de-la-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Virtualización de la red
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CASO PRÁCTICO
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CASO PRÁCTICO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activacion-de-licencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Activación de licencia
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activación de licencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-ip-sla" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configuración de IP SLA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FUNDAMENTOS PARA EL EXAMEN
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ADMINISTRACION Y GESTION
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="administracion-y-gestion">Administración y gestión<a class="headerlink" href="#administracion-y-gestion" title="Permanent link">&para;</a></h1>
+<h2 id="snmp">SNMP<a class="headerlink" href="#snmp" title="Permanent link">&para;</a></h2>
+<p>SNMP (<em>Simple Network Management Protocol</em>) fue desarrollado para administrar nodos, servidores, estaciones de trabajo, routers, switches y dispositivos de seguridad, en una red IP. SNMP es un protocolo de capa de aplicación que facilita el intercambio de información de administración entre dispositivos de red. SNMP es parte de la suite del protocolo TCP/IP.</p>
+<p>SNMPv3 es un protocolo interoperable basado en estándares para administración de redes. La versión actual de SNMPv3 resuelve las vulnerabilidades de las versiones anteriores, incluyendo tres nuevas características de seguridad.</p>
+<ul>
+<li><strong>Integridad del mensaje:</strong> asegura que el paquete no ha sido manipulado en su tránsito por la red.</li>
+<li><strong>Autenticación:</strong> determina que el mensaje proviene de un origen válido.</li>
+<li><strong>Cifrado:</strong> encripta los contenidos de un paquete para evitar que pueda ser visualizado por una fuente no autorizada.</li>
+</ul>
+<p>SNMP está basado en administradores NMS (<em>Network Management Systems</em>), agentes que son los nodos administrados, y las MIB (<em>Management Information Bases</em>) que son las bases de información de administración. El administrador SNMP puede obtener y cambiar información del agente y cambiar variables de configuración o iniciar acciones determinadas en los dispositivos.</p>
+<p>Los agentes SNMP aceptan comandos y solicitudes de los sistemas de administración SNMP solo si estos forman parte de una comunidad SNMP (<em>community string</em>):</p>
+<ul>
+<li><strong>RO:</strong> proporcionan acceso de solo lectura.</li>
+<li><strong>RW:</strong> proporcionan acceso de lectura-escritura.</li>
+</ul>
+<p>Por defecto, la mayoría de los sistemas SNMP utiliza <code>public</code> como <em>community string</em>, por lo tanto, cualquiera que tenga un sistema SNMP podrá leer la MIB del router.</p>
+<p>Para configurar la comunidad SNMP por CLI se utiliza el siguiente comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Router(config)# snmp-server community nombre [ro | rw]
+</span></code></pre></div>
+<h3 id="configuracion">Configuración<a class="headerlink" href="#configuracion" title="Permanent link">&para;</a></h3>
+<p>La configuración de SNMPv3 es un poco más complicado que las versiones 1 o 2C, debido principalmente a las características de seguridad adicionales. Estos son los pasos para configurar SNMPv3 en un dispositivo:</p>
+<ol>
+<li>
+<p>Se pueden limitar los hosts que pueden acceder al switch a través de SNMP mediante la definición de una ACL nombrada o numerada. Las direcciones permitidas obtendrán acceso SNMPv3.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Router(config)# ip access-list standard acl-name
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Router(config-std-nacl)# permit source_net
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Router(config)# access-list access-list-number permit ip-addr
+</span></code></pre></div>
+</li>
+<li>
+<p>Se puede utilizar el comando <code>snmp-server view</code> para definir una vista específica para los usuarios. Si no se configura ninguna vista, todas las variables MIB son visibles para los usuarios.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Switch(config)# snmp-server view view-name oid-tree {included | excluded}
+</span></code></pre></div>
+</li>
+<li>
+<p>Se utiliza el comando <code>snmp-server group</code> para configurar un nombre de grupo que establecerá el nivel de seguridad de las políticas para usuarios SNMPv3 que están asignados al grupo. El nivel de seguridad se define con las siguientes opciones:</p>
+<ul>
+<li><code>noauth</code>: sin autenticación o cifrado de paquetes.</li>
+<li><code>auth</code>: autenticación de paquetes, pero no cifrado.</li>
+<li><code>priv</code>: paquetes autenticados y cifrados.</li>
+</ul>
+<p>Solo la política de seguridad se define en el grupo; todavía no se requieren contraseñas ni llaves.</p>
+<p>Si se ha configurado una vista, se pueden usar las opciones <code>read</code>, <code>write</code> y <code>notify</code> para limitar el acceso a operaciones de lectura, escritura o notificación. Si se ha configurado una ACL, se puede aplicar al grupo con la opción <code>access</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Router(config)# snmp-server group group-name v3 { noauth | auth | priv }
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    [ read read-view ] [ write write-view ] [ notify notify-view ]
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    [ access accesslist]
+</span></code></pre></div>
+</li>
+<li>
+<p>Se define un nombre de usuario para ser usado por el SNMP manager para comunicarse con el dispositivo. Se utiliza el comando <code>snmp-server user</code> para definir el nombre y asociarlo con el grupo SNMPv3. La opción <code>v3</code> configura el usuario para utilizar SNMPv3.</p>
+<p>El usuario SNMPv3 también debe tener algunos detalles añadidos a su política de seguridad. La opción <code>auth</code> permite definir autenticación de tipo MD5 o SHA. La opción <code>priv</code> define el método de cifrado.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Router(config)# snmp-server user user-name group-name v3
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    auth {md5 | sha} auth-password priv { des | 3des | aes { 128 | 192 | 256 } }
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    priv-password [ access-list-number ]
+</span></code></pre></div>
+<p>El mismo nombre de usuario SNMPv3, método de autenticación y contraseña, y método de cifrado y la contraseña, deben ser definidos en el SNMP manager para que se pueda comunicar con el router o switch.</p>
+</li>
+<li>
+<p>Se puede utilizar el comando <code>snmp-server host</code> para identificar el SNMP manager que recibirá las <em>traps</em> o los <em>informs</em>. El dispositivo puede utilizar SNMPv3 para enviar <em>traps</em> o <em>informs</em>, utilizando los parámetros de seguridad que se definen en el nombre de usuario SNMPv3:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Router(config)# snmp-server host host-address [ informs ]
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    version 3 { noauth | auth | priv } username [ trap-type ]
+</span></code></pre></div>
+</li>
+</ol>
+<p>En el siguiente ejemplo un router está configurado con SNMPv3. La ACL 10 permite acceso SNMP únicamente a las estaciones de gestión 192.168.3.99 y 192.168.100.4. El acceso SNMPv3 está definido para un grupo llamado gsnmp utilizando el nivel de seguridad priv, es decir autenticación y cifrado. Se crea un usuario SNMPv3 llamado monitor; la estación gestión de red usará ese nombre de usuario cuando proceda a sondear el dispositivo para obtener información. El nombre de usuario requerirá autenticación de paquetes SHA y cifrado AES-128, usando las contraseñas ccnp3rote5 y tsh5ccnp2, respectivamente.</p>
+<p>Por último, los mensajes <em>inform</em> SNMPv3 serán utilizados para enviar alertas a la estación de gestión 192.168.3.99 usando el nivel de seguridad priv y el usuario monitor.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Router(config)# access-list 10 permit 192.168.3.99
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Router(config)# access-list 10 permit 192.168.100.4
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Router(config)# snmp-server group gsnmp v3 priv
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Router(config)# snmp-server user monitor gsnmp v3 auth sha ccnp3rote5 priv aes 128 tsh5ccnp2
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Router(config)# snmp-server host 192.168.3.99 informs version 3 priv monitor
+</span></code></pre></div>
+<h4 id="verificacion">Verificación<a class="headerlink" href="#verificacion" title="Permanent link">&para;</a></h4>
+<p>El comando <code>show snmp group</code> se utiliza para mostrar información acerca de cada grupo SNMP en la red.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Router# show snmp group
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>groupname: V1 security model:v1
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>readview : v1default writeview: &lt;no writeview specified&gt;
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>notifyview: &lt;no notifyview specified&gt;
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>row status: active
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>groupname: ILMI security model:v1
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>readview : *ilmi writeview: *ilmi
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>notifyview: &lt;no notifyview specified&gt;
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>row status: active
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>groupname: ILMI security model:v2c
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>readview : *ilmi writeview: *ilmi
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>notifyview: &lt;no notifyview specified&gt;
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>row status: active
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>groupname: group1 security model:v1
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>readview : v1default writeview: &lt;no writeview specified&gt;
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>notifyview: &lt;no notifyview specified&gt;
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>row status: active
+</span></code></pre></div>
+<p>El comando <code>show snmp community</code> muestra las comunidades configuradas para permitir el acceso SNMP.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Router# show snmp community
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Community name: ILMI
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Community Index: ILMI
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Community SecurityName: ILMI
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>storage-type: read-only active
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Community name: private
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>Community Index: private
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Community SecurityName: private
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>storage-type: nonvolatile active
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>Community name: private@1
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>Community Index: private@1
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>Community SecurityName: private
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>storage-type: read-only active
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>Community name: public
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>Community Index: public
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>Community SecurityName: public
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>storage-type: nonvolatile active
+</span></code></pre></div>
+<p>El comando <code>show snmp user</code> se utiliza para mostrar información sobre los usuarios configurados para SNMP. Cuando no se especifica un nombre de usuario el comando muestra a todos los usuarios configurados.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Router# show snmp user authuser
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>User name: authuser
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Engine ID: 00000009020000000C025808
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>storage-type: nonvolatile       active access-list: 10
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Rowstatus: active
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Authentication Protocol: MD5
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Privacy protocol: DES
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Group name: VacmGroupName
+</span></code></pre></div>
+<h2 id="syslog">SYSLOG<a class="headerlink" href="#syslog" title="Permanent link">&para;</a></h2>
+<p>Los routers Cisco pueden registrar información en relación a los cambios de configuración, violaciones de las ACL, el estado de las interfaces y muchos otros tipos de eventos. Además, pueden enviar mensajes de registro a muchos destinos diferentes. El router puede estar configurado para enviar mensajes de registro a uno o más de los siguientes destinos:</p>
+<ul>
+<li><strong>Consola:</strong> los mensajes se registran en la consola y pueden ser visualizados cuando se modifica o se prueba el router usando software de emulación de terminal. El registro de consola está habilitado por defecto. Este tipo de registro no se almacena en el router.</li>
+<li><strong>Líneas de terminal:</strong> las sesiones pueden ser configuradas para recibir mensajes de registro en cualquiera de las líneas de terminal. Este tipo de registro no se almacena en el router.</li>
+<li><strong>Registro de buffer:</strong> el registro de buffer es un poco más útil como herramienta de seguridad porque los mensajes quedan almacenados en la memoria del router por un cierto tiempo.</li>
+<li><strong>SNMP traps:</strong> los eventos de los routers, como la superación de un umbral, pueden ser procesados por el router y reenviados como traps SNMP a un servidor SNMP externo. Las traps SNMP son una herramienta de registro de seguridad viable, pero requieren la configuración y mantenimiento de un sistema SNMP.</li>
+<li><strong>Syslog:</strong> los routers Cisco pueden ser configurados para reenviar mensajes de registro a un servicio syslog externo. Este servicio puede residir en uno o muchos servidores o estaciones de trabajo.</li>
+</ul>
+<p>Syslog es el estándar para registrar eventos del sistema. Syslog es la herramienta de registro de mensajes más popular, ya que proporciona capacidades de almacenamiento de registro de largo plazo y una ubicación central para todos los mensajes del router.</p>
+<p>Las implementaciones syslog contienen dos tipos de sistemas:</p>
+<ul>
+<li><strong>Servidores syslog:</strong> también conocidos como hosts de registro, estos sistemas aceptan y procesan mensajes de registro de clientes syslog.</li>
+<li><strong>Clientes syslog:</strong> routers u otros tipos de dispositivos que generan y reenvían mensajes de registro a servidores syslog.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Aviso</th>
+<th>Descripción</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>emergencies</td>
+<td>El sistema es inoperable.</td>
+<td>LOG_EMERG</td>
+</tr>
+<tr>
+<td>1</td>
+<td>alerts</td>
+<td>Se requiere una acción inmediata.</td>
+<td>LOG_ALERT</td>
+</tr>
+<tr>
+<td>2</td>
+<td>critical</td>
+<td>Existen condiciones críticas.</td>
+<td>LOG_CRIT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>errors</td>
+<td>Existen condiciones de error.</td>
+<td>LOG_ERR</td>
+</tr>
+<tr>
+<td>4</td>
+<td>warnings</td>
+<td>Existen condiciones de advertencia.</td>
+<td>LOG_WARNING</td>
+</tr>
+<tr>
+<td>5</td>
+<td>notification</td>
+<td>Notificaciones significativas.</td>
+<td>LOG_NOTICE</td>
+</tr>
+<tr>
+<td>6</td>
+<td>informational</td>
+<td>Mensajes informativos.</td>
+<td>LOG_INFO</td>
+</tr>
+<tr>
+<td>7</td>
+<td>debugging</td>
+<td>Mensajes de depuración.</td>
+<td>LOG_DEBUG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuracion-de-logging">Configuración de logging<a class="headerlink" href="#configuracion-de-logging" title="Permanent link">&para;</a></h3>
+<p>Los siguientes pasos configuran el registro del sistema:</p>
+<ol>
+<li>Configuración del host de registro de destino utilizando el comando <code>logging host</code>.</li>
+<li>Establecer el nivel de severidad del trap con el comando <code>logging trap level</code> (este paso es opcional).</li>
+<li>Configurar la interfaz de origen con el comando <code>logging source-interface</code>. Esto especifica que los paquetes syslog contengan la dirección IPv4 o IPv6 de una interfaz particular, sin importar qué interfaz usa el paquete para salir del router.</li>
+<li>Habilitar el registro utilizando el comando <code>logging on</code>. Puede habilitar o deshabilitar el registro para estos destinos individualmente usando los comandos <code>logging buffered</code>, <code>logging monitor</code> y <code>logging</code> de configuración global. Sin embargo, si el comando <code>logging on</code> está deshabilitado, no se envían mensajes a estos destinos. Solo la consola recibe mensajes.</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Router(config)# logging host 192.168.1.23
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Router(config)# logging trap critical
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Router(config)# logging source-interface fastethernet0/2
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Router(config)# logging on
+</span></code></pre></div>
+<p>Los mensajes emergentes de logging aparecen a medida que los eventos ocurren, también es posible visualizarlos con el comando <code>show logging</code>. Los mensajes llevan implícitos los datos correspondientes a la fecha, nivel de severidad y un mensaje de texto que indica detalles del mensaje.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>00:00:46:%LINK-3-UPDOWN:Interface Port-channel1, changed state to up
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>00:00:47:%LINK-3-UPDOWN:Interface Ethernet0/1, changed state to up
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>00:00:47:%LINK-3-UPDOWN:Interface Ethernet0/2, changed state to up
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Router&gt; show logging
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Syslog logging:enabled (2 messages dropped, 0 flushes, 0 overruns)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Console logging:disabled
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Monitor logging:level debugging, 0 messages logged
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Buffer logging:level debugging, 4104 messages logged
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Trap logging:level debugging, 4119 message lines logged
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Logging to 216.231.111.14, 4119 message lines logged
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Log Buffer (262144 bytes):
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Jul 11 12:17:49 EDT:%BGP-4-MAXPFX:No. of prefix received from 209.165.200.225 (afi 0)
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>reaches 24, max 24
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>! THE FOLLOWING LINE IS A DEBUG MESSAGE FROM NTP.
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>! NOTE THAT IT IS NOT PRECEEDED BY THE % SYMBOL.
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Jul 11 12:17:48 EDT: NTP: Maxslew = 213866
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>Jul 11 15:15:41 EDT:%SYS-5-CONFIG:Configured from tftp://host.com/addc5505-rsm.nyiix
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>.Jul 11 15:30:28 EDT:%BGP-5-ADJCHANGE:neighbor 209.165.200.226 Up
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>.Jul 11 15:31:34 EDT:%BGP-3-MAXPFXEXCEED:No. of prefix received from
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>209.165.200.226 (afi 0):16444 exceed limit 375
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>.Jul 11 15:31:34 EDT:%BGP-5-ADJCHANGE:neighbor 209.165.200.226 Down BGP
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>Notification sent
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>.Jul 11 15:31:34 EDT:%BGP-3-NOTIFICATION:sent to neighbor 209.165.200.226 3/1 (update
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>malformed) 0 bytes
+</span></code></pre></div>
+<h2 id="nombre-del-cisco-ios">NOMBRE DEL CISCO IOS<a class="headerlink" href="#nombre-del-cisco-ios" title="Permanent link">&para;</a></h2>
+<p>A partir de la versión IOS 12.3 (<em>Internetwork Operating System</em>) Cisco ha puesto en funcionamiento un nuevo método de categorización y nomenclatura para las imágenes IOS denominado "IOS Packaging".</p>
+<p>Anteriormente era necesario diferenciar las imágenes IOS para las distintas familias de routers debido a las incompatibilidades de hardware. El objetivo principal es reducir la cantidad y variedad de versiones de IOS disponibles para cada dispositivo a solamente 8.</p>
+<ul>
+<li><strong>IP Base:</strong> licencia básica por defecto.</li>
+<li><strong>IP Voice:</strong> añade al IP Base Telefonía IP, VoIP, VoFR.</li>
+<li><strong>SP Services:</strong> añade al IP Voice NetFlow, SSH, ATM, VoATM, MPLS.</li>
+<li><strong>Advanced Security:</strong> añade al IP Base Cisco IOS FW, IDS, SSH, IPsec VPN, 3DES.</li>
+<li><strong>Enterprise Base:</strong> añade al IP Base soporte multi-protocolo y soporte IBM.</li>
+<li><strong>Enterprise Services:</strong> añade a Enterprise Base soporte completo IBM, Service Provider Services.</li>
+<li><strong>Advanced IP Services:</strong> añade a SP Services IPv6, Seguridad avanzada.</li>
+<li><strong>Advanced Enterprise Services:</strong> versión completa del Cisco IOS Software.</li>
+</ul>
+<p>Cisco presentaba importantes revisiones de imágenes del IOS para cada nueva versión de software llamándolas "versions" y utilizaba los cambios menores con las llamadas "release". Sin embargo, Cisco no había utilizado hasta ahora un modelo en el que se instala el IOS como un archivo y, a continuación, añadir correcciones de errores como un archivo separado. Esta nueva modalidad de presentación llamada "universal image" reemplaza el antiguo método de imágenes por paquetes.</p>
+<p>Para los routers ISR G2 (<em>Integrated Service Routers Generation 2</em>), el software Cisco IOS se entrega con una única imagen universal del software Cisco IOS por plataforma para cada versión. En el pasado, había disponibles 44 imágenes diferentes del software Cisco IOS, según cada plataforma y cada versión, con el fin de cubrir todas las combinaciones de conjuntos de funciones del software. El usuario debía asegurarse de comprar la licencia de funciones correcta para cada dispositivo de la red y dedicar bastante tiempo a verificar que estaba utilizando la imagen correcta en cada plataforma. Con la imagen universal solo se debe seleccionar la versión de software Cisco IOS que se necesita para la propia red.</p>
+<p>La característica principal de esta nueva nomenclatura es que para una misma versión de IOS y para idéntico hardware hay una única imagen del sistema operativo que contiene todas las características disponibles.</p>
+<p>Sin embargo el acceso a todas estas características está limitado por un sistema de licencias que comprenden cuatro modalidades básicas.</p>
+<ul>
+<li><strong>IP Base.</strong> Es la licencia por defecto que viene con todos los dispositivos, incorpora BGP, OSPF, EIGRP, ISIS.</li>
+<li><strong>Security.</strong> Firewall IOS, IPS, IPSec, 3DES, VPN.</li>
+<li><strong>Unified Communications.</strong> VoIP, telefonía IP.</li>
+<li><strong>Data.</strong> MPLS, ATM, soporte multiprotocolo.</li>
+</ul>
+<p>Existen licencias específicas como: SNAsw, SSL VPN, IOS IPS y Gatekeeper que dependen de un paquete de Tecnología concreto y solamente pueden ser activados si éste se encuentra instalado y activo previamente.</p>
+<p>Con estas nuevas peculiaridades no será necesario comprar un nuevo dispositivo que cumpla ciertos requisitos, bastará con ampliar las funcionalidades de la IOS habilitando la licencia correspondiente.</p>
+<h3 id="activacion-y-licencias-del-ios">Activación y licencias del IOS<a class="headerlink" href="#activacion-y-licencias-del-ios" title="Permanent link">&para;</a></h3>
+<p>La imagen de IOS 15 es una única imagen universal que solo está limitada por licencia. En consecuencia, no es necesario descargar una nueva imagen de sistema operativo sino activar las características correspondientes actualizando la clave de actualización que habilita la licencia correspondiente.</p>
+<p>Las licencias pueden ser:</p>
+<ul>
+<li><strong>Permanente:</strong> una licencia permanente no tiene vencimiento. Cuando se instala una licencia permanente en un sistema, dicha licencia es válida para ese conjunto de funciones en particular durante toda la vida útil del router.</li>
+<li><strong>Temporal:</strong> también llamada licencia de prueba, es válida durante un período limitado. Todos los nuevos routers ISR incluyen un juego completo de licencias temporales por 60 días para los conjuntos de funciones de datos, de comunicaciones unificadas y de seguridad.</li>
+<li><strong>Por cantidad:</strong> hace referencia al recuento de utilidades determinadas que pueden sumar varias o múltiples licencias.</li>
+<li><strong>Suscripción:</strong> permite acceder a una función o capacidad por un período limitado, a menos que se renueve la suscripción. Las licencias por suscripción generalmente están relacionadas con actualizaciones periódicas del servicio de un tercero.</li>
+</ul>
+<p>Con la presentación de los nuevos routers, Cisco está cambiando la manera en que se disponen los paquetes del software Cisco IOS. Con anterioridad, cada plataforma y versión incluía entre 7 y 11 imágenes diferentes, con diversas funciones y capacidades en cada imagen. Cisco Software Activation crea un método mucho más práctico para los nuevos routers, todas las funciones están incluidas en una única imagen universal de Cisco IOS. Las funciones superiores respecto de las incluidas en el paquete predeterminado IP Base generalmente se agrupan en tres paquetes principales de tecnología: datos, seguridad y comunicaciones unificadas. Estos tres paquetes representan la amplia mayoría de funciones disponibles en el software Cisco IOS.</p>
+<p>Además de los tres paquetes principales de tecnología, existen licencias de funciones adicionales para funciones superiores que requieren servicios de suscripción o solicitud de cantidades.</p>
+<p>Cisco Software Activation es el mecanismo que se utiliza para activar las funciones y componentes del software de los routers ISR de segunda generación. Genera una clave de licencia única para un conjunto de funciones de un dispositivo específico y activa ese conjunto de funciones en el router.</p>
+<p>El primer paso es obtener el código de activación PAK (<em>Product Activation Key</em>) para cada licencia. El PAK se proporciona al comprar o adquirir el derecho de uso de un conjunto de características para una plataforma en particular.</p>
+<p>Obtener el número del identificador UDI (<em>Unique Device Identifier</em>), con el comando <code>show license udi</code>. Este comando muestra además el ID del producto y el número de serie.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Router#show license udi
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Device#   PID                SN              UDI
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>-------------------------------------------------------------
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>*0      CISCO2911/K9   FTX152410Y6   CISCO2911/K9:FTX152410Y6
+</span></code></pre></div>
+<p>Para obtener la licencia apropiada, ingrese los datos UDI obtenidos con el comando <code>show license udi</code> y el código de activación PAK en el portal de Registros de Productos de Cisco en <code>http://www.cisco.com/go/license</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>La Licencia IP Base es un prerrequisito para la instalación de las demás licencias.</p>
+</div>
+<h2 id="ip-sla">IP SLA<a class="headerlink" href="#ip-sla" title="Permanent link">&para;</a></h2>
+<p>Cisco IOS IP SLA (<em>IP Service Level Agreement</em>) permite medir el rendimiento y disponibilidad de la red generando tráfico simulado de manera continua y fiable de forma predecible. Los datos que se pueden obtener varían mucho en función de cómo se configura. Se puede obtener información acerca de la pérdida de paquetes, latencia en un solo sentido, tiempos de respuesta, jitter, disponibilidad de los recursos de red, rendimiento de aplicaciones, tiempos de respuesta del servidor, e incluso calidad de voz.</p>
+<p>Es posible realizar múltiples operaciones con ellas, entre las que se encuentran:</p>
+<ul>
+<li>ICMP (echo, jitter).</li>
+<li>RTP (VoIP).</li>
+<li>TCP (establishes TCP connections).</li>
+<li>UDP (echo, jitter).</li>
+<li>DNS.</li>
+<li>DHCP.</li>
+<li>HTTP.</li>
+<li>FTP.</li>
+</ul>
+<p>IP SLA consiste en un origen que envía las sondas y un destino, el que responde, conocido como <em>responder</em> que envía respuestas a las sondas, aunque no siempre son necesarios ambos. Solo la fuente IP SLA, es decir el origen, es siempre necesario. El <em>responder</em> es necesario únicamente cuando se necesitan recopilar estadísticas de alta precisión para servicios que no son ofrecidas por cualquier dispositivo de red destino. El <em>responder</em> tiene la capacidad de responder a la fuente con mediciones precisas tomando en cuenta su propio tiempo de procesamiento de la sonda.</p>
+<h3 id="configuracion_1">Configuración<a class="headerlink" href="#configuracion_1" title="Permanent link">&para;</a></h3>
+<p>Para comprender el funcionamiento de las SLAs se tomará como ejemplo la operación ICMP, los pasos a seguir para su configuración serán:</p>
+<ol>
+<li>
+<p>Creación de la operación IP SLA y la asignación del número correspondiente, con el comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ip sla sla-ops-number
+</span></code></pre></div>
+</li>
+<li>
+<p>Definir el tipo de operación y los parámetros. Para este caso, ICMP <em>echo</em>, se utiliza IP o nombre destino y opcionalmente el de origen. Se utiliza el subcomando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>icmp-echo {destination-ipaddress | destination-hostname}
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    [source-ip {ip-address | hostname} | source-interface interface-name]
+</span></code></pre></div>
+</li>
+<li>
+<p>De manera opcional se determina la frecuencia con la que se debe ejecutar la operación. Se utiliza el subcomando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>frequency seconds
+</span></code></pre></div>
+</li>
+<li>
+<p>Definir cuando ha de ejecutarse la operación con el comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ip sla schedule sla-ops-number [life {forever | seconds}]
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    [start-time {hh:mm[:ss] [month day | day month] | pending | now | after hh:mm:ss}]
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    [ageout seconds] [recurring]
+</span></code></pre></div>
+</li>
+</ol>
+<h4 id="verificacion_1">Verificación<a class="headerlink" href="#verificacion_1" title="Permanent link">&para;</a></h4>
+<p>Para verificar que las operaciones están soportadas en la plataforma, además de la cantidad de operaciones configuradas y cuantas están actualmente activas, se utiliza el comando <code>show ip sla application</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>R1# show ip sla application
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>IP Service Level Agreements
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Version: Round Trip Time MIB 2.2.0, Infrastructure Engine-III
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>Supported Operation Types:
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  icmpEcho, path-echo, path-jitter, udpEcho, tcpConnect, http
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  dns, udpJitter, dhcp, ftp, lsp Group, lspPing, lspTrace
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>  802.1agEcho VLAN, EVC, Port, 802.1agJitter VLAN, EVC, Port
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>  pseudowirePing, udpApp, wspApp
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>Supported Features:
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>  IPSLAs Event Publisher
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>IP SLAs low memory water mark: 30919230
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>Estimated system max number of entries: 22645
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>Estimated number of configurable operations: 22643
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>Number of Entries configured : 2
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>Number of active Entries : 2
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>Number of pending Entries : 0
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>Number of inactive Entries : 0
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>Time of last change in whole IP SLAs: 09:29:04.789 UTC Sat Jul 26 2014
+</span></code></pre></div>
+<p>Para verificar los valores de configuración para cada instancia IP SLA, así como los valores por defecto que no se han modificado se utiliza el comando <code>show ip sla configuration</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>R1# show ip sla configuration
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>IP SLAs Infrastructure Engine-III
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Entry number: 1
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Owner:
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>Tag:
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>Operation timeout (milliseconds): 5000
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>Type of operation to perform: udp-jitter
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>Target address/Source address: 10.1.34.4/192.168.1.11
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>Target port/Source port: 65051/0
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>Type Of Service parameter: 0x0
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>Request size (ARR data portion): 160
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>Packet Interval (milliseconds)/Number of packets: 20/20
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>Verify data: No
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>Vrf Name:
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>Control Packets: enabled
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>Schedule:
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>Operation frequency (seconds): 30 (not considered if randomly scheduled)
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>Next Scheduled Start Time: Start Time already passed
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>Group Scheduled : FALSE
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>Randomly Scheduled : FALSE
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>Life (seconds): Forever
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>Entry Ageout (seconds): never
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>Recurring (Starting Everyday): FALSE
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>Status of entry (SNMP RowStatus): Active
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>Threshold (milliseconds): 5000
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>Distribution Statistics:
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>Number of statistic hours kept: 2
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>Number of statistic distribution buckets kept: 1
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>Statistic distribution interval (milliseconds): 20
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>Enhanced History:
+</span></code></pre></div>
+<p>Los siguientes son comandos adicionales para la resolución de problemas en Cisco IOS IP SLA.</p>
+<ul>
+<li><code>show ip sla statistics</code>, muestra los resultados de las operaciones de IP SLA y las estadísticas recogidas.</li>
+<li><code>show ip sla responder</code>, se utiliza para verificar el funcionamiento del IP SLA responder.</li>
+<li><code>debug ip sla</code>, muestra la salida en tiempo real de una operación SLA.</li>
+</ul>
+<h2 id="span">SPAN<a class="headerlink" href="#span" title="Permanent link">&para;</a></h2>
+<p>En algunos entornos es necesario utilizar ordenadores o dispositivos específicos en la red para capturar flujos de tráfico y examinar los paquetes. De esta manera se sondea dentro de las cabeceras de capa 2, 3 y 4 para ver como dichos paquetes son tratados en la red.</p>
+<p>Si hay uno varios switches entre los segmentos los dominios de colisión se separarán y no se enviarán las tramas en cuestión al puerto donde se encuentre conectado el analizador de tráfico.</p>
+<p>Para resolver este problema del análisis de tráfico entre switches Cisco incorpora una funcionalidad llamada SPAN (<em>Switched Port Analyzer</em>), cuyo funcionamiento básico es copiar todas las tramas que pasan por un puerto determinado a otro donde estará conectado el capturador de paquetes.</p>
+<p>La siguiente sintaxis muestra un ejemplo de configuración:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Switch# conf term
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Enter configuration commands, one per line. End with CNTL/Z.
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Cat3550(config)# monitor session 1 source interface gig 0/1
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Cat3550(config)# monitor session 1 destination interface gig 0/3
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Cat3550(config)# end
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>Switch# show monitor
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Session 1
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>------------
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>Type : Local Session
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>Source Ports :
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>Both : Gi0/1
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>Destination Ports : Gi0/3
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>Encapsulation : Native
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>Ingress : Disabled
+</span></code></pre></div>
+<p>En entornos de grandes redes puede darse el caso de que un dispositivo de captura de paquetes esté conectado a un switch y sea necesario capturar paquetes desde otros switches. Para estos casos existe la herramienta RSPAN (<em>Remote SPAN</em>). El funcionamiento se basa en una VLAN especial que se encarga de transportar ese tráfico entre los switches.</p>
+<p>El siguiente es un ejemplo que muestra un diagrama de red y la configuración asociada en cada switch:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Switch_1# conf term
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Switch_1(config)# vlan 10
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Switch_1(config-vlan)# name CCNA_SPAN
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Switch_1(config-vlan)# remote-span
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>Switch_1(config-vlan)# exit
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>Switch_1(config)# monitor session 1 source interface gig 0/1
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Switch_1(config)# monitor session 1 destination remote vlan 10 reflector-port gig 0/3
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>Switch_1(config)# end
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>Switch_1#show monitor
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>Session 1
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>------------
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>Type : Remote Source Session
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>Source Ports :
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>Both : Gi0/1
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>Reflector Port : Gi0/3
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>Dest RSPAN VLAN : 20
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Switch_2# conf term
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Switch_2(config)# vlan 10
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Switch_2(config-vlan)# name CCNA_SPAN
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Switch_2(config-vlan)# remote-span
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Switch_2(config-vlan)# exit
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>Switch_2(config)# monitor session 2 source remote vlan 10
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Switch_2(config)# monitor session 2 destination interface fa 5/2
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>Switch_2(config)# end
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>Switch_2# show monitor
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>Session 2
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>------------
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>Type : Remote Destination Session
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>Source RSPAN VLAN : 20
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>Destination Ports : Fa5/2
+</span></code></pre></div>
+<h2 id="servicios-en-la-nube">SERVICIOS EN LA NUBE<a class="headerlink" href="#servicios-en-la-nube" title="Permanent link">&para;</a></h2>
+<p>Los llamados servicios en la nube o Cloud services son servidores en Internet soportados por empresas privadas encargados de atender las peticiones y requerimientos de los usuarios en cualquier momento. Se puede tener acceso a su información o servicio, mediante una conexión a internet desde cualquier dispositivo móvil o fijo ubicado en cualquier lugar. Sirven a sus usuarios desde varios proveedores de alojamiento repartidos frecuentemente por todo el mundo. Esta medida reduce los costes, garantiza un mejor tiempo de actividad y que los sitios web estén debidamente protegidos.</p>
+<p>A diferencia de un Data Center donde los datos son administrados por un departamento específico de la empresa y alojados dentro de la propia empresa o fuera en instalaciones arrendadas, los servicios en la nube ofrecen acceso bajo demanda a un conjunto compartido de recursos informáticos configurables. Estos recursos se pueden aprovisionar rápidamente y liberados con mínimo esfuerzo de gestión.</p>
+<p>Los servicios en la nube están disponibles en una variedad de opciones, adaptadas a las necesidades del cliente. Los tres principales servicios en la nube definidos por el Instituto Nacional de Estándares y Tecnología (NIST) son las siguientes:</p>
+<ul>
+<li><strong>Software como servicio, SaaS (Software as a Service).</strong> El proveedor de la nube es responsable de acceso a los servicios, como el correo electrónico, la comunicación y la Oficina 365 que se entregan a través de Internet. Los usuarios solo tienen que proporcionar sus datos. Las aplicaciones que suministran este modelo de servicio son accesibles a través de un navegador web o de cualquier aplicación diseñada para tal efecto y el usuario no tiene control sobre ellas, aunque en algunos casos se le permite realizar algunas configuraciones. Esto elimina la necesidad al cliente de instalar aplicaciones en sus propios ordenadores, evitando asumir los costos de soporte y el mantenimiento de hardware y software.</li>
+<li><strong>Plataforma como servicio, PaaS (Platform as a Service).</strong> El proveedor de la nube es responsable del acceso a las herramientas y servicios de desarrollo utilizados para entregar las aplicaciones. Las ofertas de PaaS pueden dar servicio a todas las fases del ciclo de desarrollo y pruebas del software, o pueden estar especializadas en cualquier área en particular, tal como la administración del contenido. En este modelo de servicio se le ofrece al usuario la plataforma de desarrollo y las herramientas de programación por lo que puede desarrollar aplicaciones propias y controlar la aplicación, pero no controla la infraestructura.</li>
+<li><strong>Infraestructura como servicio, IaaS (Infrastructure as a Service).</strong> El proveedor de la nube es responsable del acceso a los equipos de red, servicios de red virtualizados y el apoyo a la infraestructura de red. Es un medio de entregar almacenamiento básico y capacidades de cómputo como servicios estandarizados en la red. Servidores, sistemas de almacenamiento, conexiones, enrutadores, y otros sistemas se concentran (por ejemplo, a través de la tecnología de virtualización) para manejar tipos específicos de cargas de trabajo.</li>
+</ul>
+<h3 id="modelos-de-nubes">Modelos de nubes<a class="headerlink" href="#modelos-de-nubes" title="Permanent link">&para;</a></h3>
+<p>Existen cuatro modelos de nubes:</p>
+<ul>
+<li><strong>Nubes públicas:</strong> las aplicaciones basadas en la nube y los servicios ofrecidos en una nube pública se ponen a disposición de la población en general. Los servicios pueden ser libres o en un modelo de pago por uso.</li>
+<li><strong>Nubes privadas:</strong> las aplicaciones basadas en la nube y los servicios ofrecidos en una nube privada se destinan a una organización o entidad específica, como por ejemplo el gobierno. También puede ser administrado por una organización externa con la seguridad de acceso estricto.</li>
+<li><strong>Nubes híbridas:</strong> este modelo se compone de dos o más nubes (parte privada y parte pública por ejemplo), donde cada parte sigue siendo un objeto distintivo. Ambos están conectados mediante una única arquitectura.</li>
+<li><strong>Nubes personalizadas:</strong> son nubes construidas para satisfacer las necesidades de una industria específica, como la salud o multimedia. Las nubes personalizadas pueden ser privadas o públicas.</li>
+</ul>
+<h2 id="virtualizacion">VIRTUALIZACIÓN<a class="headerlink" href="#virtualizacion" title="Permanent link">&para;</a></h2>
+<p>Los servicios en la nube y la virtualización se utilizan generalmente como sinónimos sin embargo, significan cosas diferentes. Mientras que los servicios en la nube separan la aplicación del hardware, la virtualización separa el sistema operativo (OS) del hardware.</p>
+<p>La virtualización es el fundamento del funcionamiento en la nube. Varios proveedores ofrecen servicios en la nube virtual que puede aprovisionar servidores dinámicamente según sea necesario. Un servidor físico, Host, tiene un alto poder de procesamiento. Un Host puede almacenar varias máquinas virtuales VM (<em>Virtual Machine</em>).</p>
+<p>Históricamente, los servidores de la empresa consistían en un sistema operativo de servidor como Windows Server o Servidor Linux, instalado en un hardware específico. El principal problema de esta configuración es que cuando un componente falla, el servicio que es proporcionado por este servidor no está disponible. Esto es un único punto de fallo. La virtualización de servidores aprovecha los recursos ociosos y consolida el número de servidores necesarios. Permite a múltiples sistemas operativos coexistir en una única plataforma de hardware.</p>
+<p>Una de las principales ventajas de la virtualización es que se reduce el costo general:</p>
+<ul>
+<li>Se requiere menos equipo.</li>
+<li>Se consume menos energía.</li>
+<li>Se requiere menos espacio.</li>
+</ul>
+<p>Estos son beneficios adicionales de virtualización:</p>
+<ul>
+<li>Creación de prototipos más simple.</li>
+<li>Suministro de servidores más rápido.</li>
+<li>Máximo aprovechamiento de la actividad del servidor.</li>
+<li>Rápida recuperación ante desastres.</li>
+<li>Compatibilidad con sistemas existentes.</li>
+</ul>
+<h3 id="hypervisor">Hypervisor<a class="headerlink" href="#hypervisor" title="Permanent link">&para;</a></h3>
+<p>Un hypervisor es un software que crea y ejecuta instancias de máquina virtual. Funciona entre el firmware y el sistema operativo. El hypervisor puede soportar múltiples instancias de sistemas operativos. Para que la virtualización del servidor funcione, cada servidor físico debe utilizar un hipervisor.</p>
+<p>El hipervisor gestiona y asigna el hardware del Host (servidor) como la CPU, RAM, etc. a cada VM en función de su configuración. Cada VM se ejecuta como si se ejecutara en un servidor físico autónomo, con un número específico de CPU y NIC virtuales y una cantidad establecida de RAM y almacenamiento.</p>
+<p>Un hypervisor de tipo 2 está instalado en los sistemas operativos existentes, como Mac OS X, Windows o Linux. El equipo en el que un hypervisor está apoyando una o más máquinas virtuales es una máquina host.</p>
+<p>Un hypervisor de tipo 1 se instala directamente en el servidor o hardware de red, por lo tanto, tiene acceso directo a los recursos de hardware. Requiere una consola de administración para gestionarlo. Se utiliza un software de gestión para gestionar múltiples servidores que utilizan el mismo hypervisor.</p>
+<p>Algunos ejemplos de hypervisor pueden ser:</p>
+<ul>
+<li>VMware.</li>
+<li>Oracle VM VirtualBox.</li>
+<li>Red Hat KVM.</li>
+<li>Mac OS X Parallels.</li>
+<li>Citrix XenServer.</li>
+<li>Microsoft Hyper-V.</li>
+</ul>
+<p>La virtualización de servidores oculta los recursos del servidor. Esta práctica puede crear problemas si el centro de datos utiliza arquitecturas de red tradicionales. Por ejemplo, las VLANs utilizadas por las máquinas virtuales deben ser asignadas al mismo puerto del switch como el servidor físico que ejecuta el hypervisor. Otro problema es que los flujos de tráfico difieren sustancialmente del modelo tradicional de cliente-servidor. Estos flujos cambian de ubicación e intensidad con el tiempo, lo que requiere un enfoque flexible para la gestión de recursos de red. Las infraestructuras de red existentes pueden responder a las necesidades cambiantes relacionadas con la gestión de los flujos de tráfico mediante el uso de QoS (<em>Quality of Service</em>).</p>
+<h4 id="virtualizacion-de-la-red">Virtualización de la red<a class="headerlink" href="#virtualizacion-de-la-red" title="Permanent link">&para;</a></h4>
+<p>Las dos principales arquitecturas de red desarrolladas para soportar la virtualización de la red son las siguientes:</p>
+<ul>
+<li><strong>SDN (Software Defined Networking)</strong> una arquitectura de red que permite virtualizar la red.</li>
+<li><strong>ACI (Cisco Application Centric Infrastructure)</strong> una solución de hardware especialmente diseñado para integrar los procesos en nube y la gestión del centro de datos.</li>
+</ul>
+<p>Las siguientes son otras tecnologías de virtualización de red, algunos de los cuales están incluidos como componentes en SDN y ACI:</p>
+<ul>
+<li><strong>OpenFlow</strong>, desarrollado en la Universidad de Stanford para gestionar el tráfico entre los routers, switches, puntos de acceso inalámbrico y un controlador.</li>
+<li><strong>OpenStack</strong>, utilizado comúnmente por Cisco ACI. Es el proceso de automatizar el aprovisionamiento de componentes de red.</li>
+</ul>
+<h2 id="caso-practico">CASO PRÁCTICO<a class="headerlink" href="#caso-practico" title="Permanent link">&para;</a></h2>
+<h3 id="activacion-de-licencia">Activación de licencia<a class="headerlink" href="#activacion-de-licencia" title="Permanent link">&para;</a></h3>
+<p>Requisitos previos para obtener una licencia son los siguientes:</p>
+<ul>
+<li>Obtener el PAK necesario, es un identificador de 11 dígitos que se puede entregar por correo o electrónicamente.</li>
+<li>Poseer nombre de usuario y contraseña válido en Cisco.</li>
+<li>Obtener los datos del número de serie, el PID y el UDI con el comando <code>show license udi</code> o del código de barras de la etiqueta del router.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Router#show license udi
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Device#   PID                SN              UDI
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>-------------------------------------------------------------
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>*0      C3900-SPE100/K9   FHH13030044  C3900-SPE100/K9:FHH13030044
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>Router#
+</span></code></pre></div>
+<p>El comando <code>show license feature</code> muestra un listado resumido de las licencias habilitadas en el router.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Router#show license feature
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Feature name         Enforcement   Evaluation   Subscription   Enabled   RightToUse
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>ipbasek9                       no           no             no       yes            no
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>securityk9                    yes          yes             no        no           yes
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>uck9                          yes          yes             no        no           yes
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>datak9                        yes          yes             no        no           yes
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>gatekeeper
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>SSL_VPN
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>ios-ips-update
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>SNASw
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>hseck9
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>.......
+</span></code></pre></div>
+<p>El comando <code>show license detail</code> muestra un listado más completo de las licencias habilitadas en el router.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Router#show license detail
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Index 1 Feature: ipbasek9
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    Period left: Life time
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    License Type: Permanent
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    License State: Active, In Use
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    License Count: Non-Counted
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    License Priority: Medium
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>Index 2 Feature: securityk9
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    Period left: Not Activated
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    License Type: Evaluation
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>    License Count: Non-Counted
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>    License Priority: None
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>Index 3 Feature: uck9
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>    Period left: Not Activated
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>    License Type: Evaluation
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a>    License Count: Non-Counted
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a>    License Priority: None
+</span><span id="__span-25-24"><a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a>
+</span><span id="__span-25-25"><a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a>Index 4 Feature: datak9
+</span><span id="__span-25-26"><a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a>    Period left: Not Activated
+</span><span id="__span-25-27"><a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-25-28"><a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a>    License Type: Evaluation
+</span><span id="__span-25-29"><a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-25-30"><a id="__codelineno-25-30" name="__codelineno-25-30" href="#__codelineno-25-30"></a>    License Count: Non-Counted
+</span><span id="__span-25-31"><a id="__codelineno-25-31" name="__codelineno-25-31" href="#__codelineno-25-31"></a>    License Priority: None
+</span><span id="__span-25-32"><a id="__codelineno-25-32" name="__codelineno-25-32" href="#__codelineno-25-32"></a>
+</span><span id="__span-25-33"><a id="__codelineno-25-33" name="__codelineno-25-33" href="#__codelineno-25-33"></a>Index 5 Feature: gatekeeper
+</span><span id="__span-25-34"><a id="__codelineno-25-34" name="__codelineno-25-34" href="#__codelineno-25-34"></a>    Period left: Not Activated
+</span><span id="__span-25-35"><a id="__codelineno-25-35" name="__codelineno-25-35" href="#__codelineno-25-35"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-25-36"><a id="__codelineno-25-36" name="__codelineno-25-36" href="#__codelineno-25-36"></a>    License Type: Evaluation
+</span><span id="__span-25-37"><a id="__codelineno-25-37" name="__codelineno-25-37" href="#__codelineno-25-37"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-25-38"><a id="__codelineno-25-38" name="__codelineno-25-38" href="#__codelineno-25-38"></a>    License Count: Non-Counted
+</span><span id="__span-25-39"><a id="__codelineno-25-39" name="__codelineno-25-39" href="#__codelineno-25-39"></a>    License Priority: None
+</span><span id="__span-25-40"><a id="__codelineno-25-40" name="__codelineno-25-40" href="#__codelineno-25-40"></a>
+</span><span id="__span-25-41"><a id="__codelineno-25-41" name="__codelineno-25-41" href="#__codelineno-25-41"></a>Index 6......
+</span></code></pre></div>
+<p>Desde el portal de activación de licencias de Cisco se pueden obtener licencias de los productos y realizar otras operaciones relacionadas con las licencias, <code>http://www.cisco.com/go/license</code>.</p>
+<ol>
+<li>Tenga disponibles el PAK y el UDI.</li>
+<li>Inicie sesión en el portal de licencias de Cisco con nombre de usuario y contraseña.</li>
+<li>Escriba y verifique la información necesaria y presentar el registro de la licencia.</li>
+<li>La generación del registro y licencia se ha completado. Descargue la licencia o bien desde el sitio web haciendo clic en el botón "Descargar Licencia" o desde el archivo adjunto del correo electrónico enviado desde Cisco.</li>
+<li>
+<p>Copie la licencia en la memoria flash, en este caso desde un servidor TFTP de la red.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Router#copy tftp flash0:
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Address or name of remote host []? 192.168.1.3
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Source filename []?
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>/tftpboot/lmxiang/FHH1216P07R_20090528163510702.lic
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>Destination filename [FHH1216P07R_20090528163510702.lic]?
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>Accessing
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>tftp://192.168.1.3//tftpboot/lmxiang/FHH1216P07R_20090528163510702.lic...
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>Loading /tftpboot/lmxiang/FHH1216P07R_20090528163510702.lic from 192.168.1.3
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>(via GigabitEthernet0/0): !
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>[OK - 1149 bytes]
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>1149 bytes copied in 0.548 secs (2097 bytes/sec)
+</span></code></pre></div>
+</li>
+<li>
+<p>Instale la licencia con el comando <code>license install</code>, en este caso desde la memoria flash.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Router#license install flash0:FHH1216P07R_20090528163510702.lic
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>Installing licenses from &quot;flash0:FHH1216P07R_20090528163510702.lic&quot;
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Installing...Feature:securityk9...Successful:Supported
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>1/1 licenses were successfully installed
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>0/1 licenses were existing licenses
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>0/1 licenses were failed to install
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>Router#
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>*May 28 16:27:28.861 PDT: %LICENSE-6-INSTALL: Feature securityk9 1.0
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>was installed in this device. UDI=CISCO2951:FHH1216P07R; StoreIndex=2:Primary
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>License Storage
+</span></code></pre></div>
+</li>
+<li>
+<p>Verifique el estado de la licencia.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Router#show license detail
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Index 1 Feature: ipbasek9
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    Period left: Life time
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>    License Type: Permanent
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>    License State: Active, In Use
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    License Count: Non-Counted
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    License Priority: Medium
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>Index 2 Feature: securityk9
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>    Period left: Life time
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>    License Type: Permanent
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>    License State: Active, In Use
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>    License Count: Non-Counted
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>    License Priority: Medium
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>Index 3 Feature: uck9
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>    Period left: Not Activated
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>    License Type: Evaluation
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>    License Count: Non-Counted
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>    License Priority: None
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>Index 4 Feature: datak9
+</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a>    Period left: Not Activated
+</span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-28-27"><a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a>    License Type: Evaluation
+</span><span id="__span-28-28"><a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-28-29"><a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a>    License Count: Non-Counted
+</span><span id="__span-28-30"><a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a>    License Priority: None
+</span><span id="__span-28-31"><a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a>
+</span><span id="__span-28-32"><a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a>Index 5 Feature: gatekeeper
+</span><span id="__span-28-33"><a id="__codelineno-28-33" name="__codelineno-28-33" href="#__codelineno-28-33"></a>    Period left: Not Activated
+</span><span id="__span-28-34"><a id="__codelineno-28-34" name="__codelineno-28-34" href="#__codelineno-28-34"></a>    Period Used: 0 minute 0 second
+</span><span id="__span-28-35"><a id="__codelineno-28-35" name="__codelineno-28-35" href="#__codelineno-28-35"></a>    License Type: Evaluation
+</span><span id="__span-28-36"><a id="__codelineno-28-36" name="__codelineno-28-36" href="#__codelineno-28-36"></a>    License State: Not in Use, EULA not accepted
+</span><span id="__span-28-37"><a id="__codelineno-28-37" name="__codelineno-28-37" href="#__codelineno-28-37"></a>    License Count: Non-Counted
+</span><span id="__span-28-38"><a id="__codelineno-28-38" name="__codelineno-28-38" href="#__codelineno-28-38"></a>    License Priority: None
+</span><span id="__span-28-39"><a id="__codelineno-28-39" name="__codelineno-28-39" href="#__codelineno-28-39"></a>
+</span><span id="__span-28-40"><a id="__codelineno-28-40" name="__codelineno-28-40" href="#__codelineno-28-40"></a>Index 6......
+</span></code></pre></div>
+</li>
+</ol>
+<h4 id="configuracion-de-ip-sla">Configuración de IP SLA<a class="headerlink" href="#configuracion-de-ip-sla" title="Permanent link">&para;</a></h4>
+<p>En este ejemplo, R1 se configura como una fuente de IP SLA. La sonda que está enviando es un mensaje ICMP echo (ping) a 10.1.100.100, utilizando la dirección IP de origen 192.168.1.11. Esta sonda se envía cada 15 segundos y no expira nunca.</p>
+<p>La sintaxis que sigue muestra la configuración basada en la figura.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>R1# show run | section sla
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>ip sla 2
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a> icmp-echo 10.1.100.100 source-ip 192.168.1.11
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a> frequency 15
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>ip sla schedule 2 life forever start-time now
+</span></code></pre></div>
+<p>En este otro ejemplo, R1 se configura como una fuente de IP SLA. La sonda que está enviando es para probar el jitter UDP desde la dirección de origen 192.168.1.11 a 10.1.34.4 utilizando el puerto 65051. Se enviarán 20 paquetes de sondeo para cada test, con un tamaño de 160 bytes cada uno, y se repetirá cada 30 segundos. La sonda se inicia y nunca expira. Para obtener mediciones relacionadas con jitter, es necesario tener un dispositivo destino que puede procesar las sondas y responder a ellas. Por lo tanto, el dispositivo destino debe ser capaz de soportar Cisco IOS IP SLA y ser configurado como <em>responder</em>. R2 está configurado como <em>responder</em> IP SLA.</p>
+<p>La siguiente salida muestra una configuración basada en la figura.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>R1# show run | section sla
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>ip sla 1
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a> udp-jitter 10.1.34.4 65051 source-ip 192.168.1.11 num-packets 20
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  request-data-size 160
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a> frequency 30
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>ip sla schedule 1 life forever start-time now
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>R2# show run | section sla
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>ip sla responder
+</span></code></pre></div>
+<h2 id="fundamentos-para-el-examen">FUNDAMENTOS PARA EL EXAMEN<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Evalue las características de SNMP y compárelo con SNMPv3.</li>
+<li>Tenga una idea clara del funcionamiento de las comunidades SNMP.</li>
+<li>Piense en la utilidad de una implementación de Syslog y para que se registran los eventos.</li>
+<li>Sepa como reconocer los nombres del Cisco IOS y como administrar sus licencias.</li>
+<li>Estudie el comportamiento de IP SLA y SPAN, compárelos.</li>
+<li>Analice los modelos de Cloud services y las ventajas que ofrecen.</li>
+<li>Recuerde las ventajas de la virtualización, y como funciona.</li>
+<li>Estudie los tipos de virtualizaciones utilizadas en la red.</li>
+<li>Ejercite todas las configuraciones en dispositivos reales o en simuladores.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-11/capitulo_11/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Redes de area amplia">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Redes de area amplia
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../capitulo-13/capitulo_13/" class="md-footer__link md-footer__link--next" aria-label="Next: Automatizacion de la red">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Automatizacion de la red
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

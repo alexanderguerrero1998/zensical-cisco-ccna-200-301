@@ -1,0 +1,4069 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+        <link rel="prev" href="../../capitulo-1/capitulo_1/">
+      
+      
+        <link rel="next" href="../../capitulo-3/capitulo_3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Direccionamiento IP - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#direccionamiento-ip" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Direccionamiento IP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-1/capitulo_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numeros-binarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Números binarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Números binarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-binario-a-decimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conversión de binario a decimal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-decimal-a-binario" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conversión de decimal a binario
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeros-hexadecimales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Números hexadecimales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Números hexadecimales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-numeros-hexadecimales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conversión de números hexadecimales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direccionamiento-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Direccionamiento IPv4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direccionamiento IPv4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-direcciones-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de direcciones IPv4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-comunicacion-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de comunicación IPv4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-de-direcciones-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clases de direcciones IPv4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clases de direcciones IPv4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direcciones-reservadas-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Direcciones reservadas IPv4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subredes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Subredes
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subredes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedimiento-para-la-creacion-de-subredes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Procedimiento para la creación de subredes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalabilidad-del-direccionamiento-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escalabilidad del direccionamiento IPv4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escalabilidad del direccionamiento IPv4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mascaras-de-subred-de-longitud-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Máscaras de subred de longitud variable
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrutamiento-entre-dominios-sin-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento entre dominios sin clase
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-ruta" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen de ruta
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direccionamiento-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Direccionamiento IPv6
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direccionamiento IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formato-del-direccionamiento-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formato del direccionamiento IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefijos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prefijos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cabecera-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cabecera IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-direccionamiento-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de direccionamiento IPv6
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de direccionamiento IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-unicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Global-Unicast
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Link-Local
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Unique-Local
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Multicast
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Anycast
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eui-64" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        EUI-64
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignacion-de-direcciones-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Asignación de direcciones IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transicion-de-ipv4-a-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transición de IPv4 a IPv6
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transición de IPv4 a IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dual Stack
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuneles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Túneles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Traducción
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numeros-binarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Números binarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Números binarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-binario-a-decimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conversión de binario a decimal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-decimal-a-binario" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conversión de decimal a binario
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeros-hexadecimales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Números hexadecimales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Números hexadecimales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-numeros-hexadecimales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conversión de números hexadecimales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direccionamiento-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Direccionamiento IPv4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direccionamiento IPv4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-direcciones-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de direcciones IPv4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-comunicacion-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de comunicación IPv4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-de-direcciones-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clases de direcciones IPv4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clases de direcciones IPv4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direcciones-reservadas-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Direcciones reservadas IPv4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subredes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Subredes
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subredes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedimiento-para-la-creacion-de-subredes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Procedimiento para la creación de subredes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalabilidad-del-direccionamiento-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escalabilidad del direccionamiento IPv4
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escalabilidad del direccionamiento IPv4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mascaras-de-subred-de-longitud-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Máscaras de subred de longitud variable
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrutamiento-entre-dominios-sin-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enrutamiento entre dominios sin clase
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-ruta" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen de ruta
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direccionamiento-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Direccionamiento IPv6
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direccionamiento IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formato-del-direccionamiento-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formato del direccionamiento IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefijos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prefijos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cabecera-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cabecera IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-direccionamiento-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de direccionamiento IPv6
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de direccionamiento IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-unicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Global-Unicast
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Link-Local
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Unique-Local
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Multicast
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Anycast
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eui-64" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        EUI-64
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignacion-de-direcciones-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Asignación de direcciones IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transicion-de-ipv4-a-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transición de IPv4 a IPv6
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transición de IPv4 a IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dual Stack
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuneles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Túneles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Traducción
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    DIRECCIONAMIENTO IP
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="direccionamiento-ip">Direccionamiento IP<a class="headerlink" href="#direccionamiento-ip" title="Permanent link">&para;</a></h1>
+<h2 id="numeros-binarios">Números binarios<a class="headerlink" href="#numeros-binarios" title="Permanent link">&para;</a></h2>
+<p>Los dispositivos emiten y reciben pulsos eléctricos o luminosos. Estos pulsos poseen dos estados, SÍ y NO. Este sistema de dos signos se le llama binario.</p>
+<p>Matemáticamente hablando un sistema binario está compuesto por dos estados de unos y ceros siendo, por tanto, una potencia en base 2. En informática se llama bits a la unidad que tiene también dos estados; un byte es un grupo de ocho bits.</p>
+<p>Un octeto o un byte se expresa de la siguiente manera: <code>00000000</code></p>
+<p>Cada uno de estos bits que componen el octeto posee dos estados, 1 y 0, obteniendo, por tanto, 256 estados con todas las combinaciones posibles.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>00000000 = 0
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>00000001 = 1
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>00000010 = 2
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>00000011 = 3
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>00000100 = 4
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>00000101 = 5
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>00000110 = 6
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>...........
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>11111110 = 254
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>11111111 = 255
+</span></code></pre></div>
+<p>Para que estos bits sean más entendibles conviene trasladarlos al modo decimal al que se está más acostumbrado cotidianamente, por tanto, si son potencias de 2, su valor será:</p>
+<table>
+<thead>
+<tr>
+<th>2⁷</th>
+<th>2⁶</th>
+<th>2⁵</th>
+<th>2⁴</th>
+<th>2³</th>
+<th>2²</th>
+<th>2¹</th>
+<th>2⁰</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>128</td>
+<td>64</td>
+<td>32</td>
+<td>16</td>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Los bits que resulten iguales a 1 tendrán el valor correspondiente a esa potencia, mientras que los que permanezcan en 0 tendrán un valor igual a cero, finalmente se suma el conjunto de los decimales resultantes y se obtiene el equivalente en decimal.</p>
+<h3 id="conversion-de-binario-a-decimal">Conversión de binario a decimal<a class="headerlink" href="#conversion-de-binario-a-decimal" title="Permanent link">&para;</a></h3>
+<p>Para pasar de binario a decimal es posible utilizar la siguiente técnica:</p>
+<ul>
+<li><code>0000001</code> (en binario) = <code>0×2⁰</code> (en decimal) = <strong>1</strong><ul>
+<li>En el octeto: 0+0+0+0+0+0+0+1</li>
+</ul>
+</li>
+<li><code>01001001</code> (en binario) = <code>0×2⁷ + 1×2⁶ + 0×2⁵ + 0×2⁴ + 1×2³ + 0×2² + 0×2¹ + 1×2⁰</code> (en decimal) = <strong>73</strong><ul>
+<li>En el octeto: 0+64+0+0+8+0+0+1</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>8º</th>
+<th>7º</th>
+<th>6º</th>
+<th>5º</th>
+<th>4º</th>
+<th>3º</th>
+<th>2º</th>
+<th>1º</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dígito binario</strong></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>Potencia de dos</strong></td>
+<td>2⁷</td>
+<td>2⁶</td>
+<td>2⁵</td>
+<td>2⁴</td>
+<td>2³</td>
+<td>2²</td>
+<td>2¹</td>
+<td>2⁰</td>
+</tr>
+<tr>
+<td><strong>Valor decimal</strong></td>
+<td>128</td>
+<td>64</td>
+<td>32</td>
+<td>16</td>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="conversion-de-decimal-a-binario">Conversión de decimal a binario<a class="headerlink" href="#conversion-de-decimal-a-binario" title="Permanent link">&para;</a></h3>
+<p>Para pasar de decimal a binario es posible utilizar la siguiente técnica, por ejemplo: <strong>Convertir a binario el número decimal 195</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Valor binario</th>
+<th>Acción</th>
+<th>Resta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>128</td>
+<td>¿Entra en 195?</td>
+<td>195-128</td>
+<td>Sí = 67</td>
+</tr>
+<tr>
+<td>64</td>
+<td>¿Entra en 67?</td>
+<td>67-64</td>
+<td>Sí = 3</td>
+</tr>
+<tr>
+<td>32</td>
+<td>¿Entra en 3?</td>
+<td>3-32</td>
+<td>No, siguiente</td>
+</tr>
+<tr>
+<td>16</td>
+<td>¿Entra en 3?</td>
+<td>3-16</td>
+<td>No, siguiente</td>
+</tr>
+<tr>
+<td>8</td>
+<td>¿Entra en 3?</td>
+<td>3-8</td>
+<td>No, siguiente</td>
+</tr>
+<tr>
+<td>4</td>
+<td>¿Entra en 3?</td>
+<td>3-4</td>
+<td>No, siguiente</td>
+</tr>
+<tr>
+<td>2</td>
+<td>¿Entra en 3?</td>
+<td>3-2</td>
+<td>Sí = 1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>¿Entra en 1?</td>
+<td>1-1</td>
+<td>Sí = 1</td>
+</tr>
+</tbody>
+</table>
+<p>Donde los SÍ equivalen al valor binario 1 y los NO al valor binario 0.</p>
+<p>Por lo tanto, <strong>195 es equivalente en binario a 11000011</strong>.</p>
+<h2 id="numeros-hexadecimales">Números hexadecimales<a class="headerlink" href="#numeros-hexadecimales" title="Permanent link">&para;</a></h2>
+<p>Los números hexadecimales se basan en potencias de 16, utilizando símbolos alfanuméricos, la siguiente tabla le ayudará a convertir números hexadecimales en binarios o en decimales:</p>
+<table>
+<thead>
+<tr>
+<th>Número decimal</th>
+<th>Número hexadecimal</th>
+<th>Número binario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>0011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>0101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>0110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+<td>0111</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>10</td>
+<td>A</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>12</td>
+<td>C</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>13</td>
+<td>D</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>14</td>
+<td>E</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>15</td>
+<td>F</td>
+<td>1111</td>
+</tr>
+</tbody>
+</table>
+<h3 id="conversion-de-numeros-hexadecimales">Conversión de números hexadecimales<a class="headerlink" href="#conversion-de-numeros-hexadecimales" title="Permanent link">&para;</a></h3>
+<p>Siguiendo el ejemplo anterior, el número <strong>195</strong> es igual al número binario:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>11000011
+</span></code></pre></div>
+<ol>
+<li>Divida este octeto en dos grupos de cuatro: <code>1100 0011</code></li>
+<li>Busque el valor correspondiente en la tabla de estos dos grupos de bits.</li>
+<li>Al número binario 1100 le corresponde el número hexadecimal <strong>C</strong>.</li>
+<li>Al número binario 0011 le corresponde el número hexadecimal <strong>3</strong>.</li>
+</ol>
+<p>Por lo tanto, 195 es igual a 11000011 en binario y al C3 en hexadecimal. Para que no existan confusiones los números hexadecimales se identifican con un <code>0x</code> delante, en este caso <code>0xC3</code>.</p>
+<p>El proceso inverso será, por ejemplo, el número hexadecimal <code>0xAE</code> donde:</p>
+<ul>
+<li>A es igual a 1010</li>
+<li>E es igual a 1110</li>
+</ul>
+<p>Por lo tanto, <code>0xAE</code> es igual al número binario <code>10101110</code>. Si se convierte este número a decimal:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>2⁷+0+2⁵+0+2³+2²+2¹+0 = 174
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Existen varias técnicas para hacer conversiones de un sistema numérico a otro; un matemático, un físico o un informático podrían utilizar diferentes métodos de conversión con iguales resultados. El estudiante podrá utilizar el método que crea más conveniente según su propio criterio.</p>
+</div>
+<h2 id="direccionamiento-ipv4">Direccionamiento IPv4<a class="headerlink" href="#direccionamiento-ipv4" title="Permanent link">&para;</a></h2>
+<p>Para que dos dispositivos se comuniquen entre sí, es necesario poder identificarlos claramente. Una dirección IPv4 es una secuencia de unos y ceros de 32 bits. Para hacer más comprensible el direccionamiento, una dirección IP aparece escrita en forma de cuatro números decimales separados por puntos. La notación decimal punteada es un método más sencillo de comprender que el método binario de unos y ceros.</p>
+<p>Esta notación decimal punteada también evita que se produzca una gran cantidad de errores por transposición, que sí se produciría si solo se utilizaran números binarios. El uso de decimales separados por puntos permite una mejor comprensión de los patrones numéricos.</p>
+<p>Una dirección IPv4 consta de dos partes definidas por la llamada máscara de red. La máscara puede describirse a través de una notación decimal punteada o con el prefijo <code>/X</code>, donde X es igual a la cantidad de bits en 1 que contiene dicha máscara. Una parte identifica la red donde se conecta el sistema y la segunda identifica el sistema en particular de esa red. Este tipo de dirección recibe el nombre de dirección jerárquica porque contiene diferentes niveles.</p>
+<p>Una dirección IPv4 combina estos dos identificadores en un solo número. Este número debe ser exclusivo, porque las direcciones repetidas harían imposible el enrutamiento. La primera parte identifica la dirección de la red del sistema. La segunda parte, la del host, identifica qué máquina en particular de la red.</p>
+<p><strong>Ejemplo de una dirección IPv4</strong></p>
+<ul>
+<li><strong>Dirección IP:</strong> 172.16.1.3 → <code>10101100.00010000.00000001.00000011</code></li>
+<li><strong>Máscara:</strong> 255.255.0.0 → <code>11111111.11111111.00000000.00000000</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Octeto 1</th>
+<th>Octeto 2</th>
+<th>Octeto 3</th>
+<th>Octeto 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dirección IP</strong></td>
+<td>172</td>
+<td>16</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Máscara</strong></td>
+<td>255</td>
+<td>255</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Porción de red</strong></td>
+<td></td>
+<td><strong>Porción de host</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tipos-de-direcciones-ipv4">Tipos de direcciones IPv4<a class="headerlink" href="#tipos-de-direcciones-ipv4" title="Permanent link">&para;</a></h3>
+<p>Dentro del rango de direcciones de cada red IPv4, existen tres tipos de direcciones:</p>
+<ul>
+<li><strong>Dirección de red:</strong> la dirección en la que se hace referencia a la red o subred.</li>
+<li><strong>Dirección de broadcast:</strong> una dirección especial que se utiliza para enviar datos a todos los hosts de la red.</li>
+<li><strong>Direcciones host:</strong> las direcciones asignadas a los dispositivos finales de la red.</li>
+</ul>
+<h3 id="tipos-de-comunicacion-ipv4">Tipos de comunicación IPv4<a class="headerlink" href="#tipos-de-comunicacion-ipv4" title="Permanent link">&para;</a></h3>
+<p>En una red IPv4, los hosts pueden comunicarse de tres maneras diferentes:</p>
+<ul>
+<li><strong>Unicast:</strong> es el método por el cual se envía un paquete de un host individual a otro host individual. La comunicación unicast se usa para una comunicación normal de host a host, tanto en una red de cliente/servidor como en una red punto a punto. Los paquetes unicast utilizan la dirección host del dispositivo de destino como la dirección de destino y pueden enrutarse a través de una internetwork. El envío unicast está habilitado por defecto, es el más común de los tres tipos de direccionamiento, mientras que los paquetes broadcast y multicast usan direcciones especiales como dirección de destino. Al utilizar estas direcciones especiales, los broadcasts están generalmente restringidos a la red local.</li>
+<li><strong>Broadcast:</strong> el método por el cual se envía un paquete de un host a todos los hosts de la red. Existe un direccionamiento particular cuando los bits de la dirección de host están todos en la llamada dirección de broadcast, o de difusión. Este direccionamiento identifica al host origen, mientras que como destino tiene a todos los dispositivos que integran el mismo dominio. Las NIC están programadas para escuchar todo el tráfico y de esa manera reconocer el que está destinado a la propia dirección local MAC o la dirección MAC de broadcast y, así, enviar las tramas a las capas superiores. Una cantidad excesiva de estas difusiones provocará una tormenta de broadcast que hará ineficiente el uso de la red, consumiendo gran cantidad de ancho de banda y haciendo que los hosts utilicen demasiados recursos al estar "obligados" a leer esos paquetes, ya que están dirigidos a todos los hosts que integran ese dominio de broadcast. Existen protocolos de enrutamiento que utilizan broadcasts para distribuir la información de enrutamiento. En lugar de requerir varios paquetes unicast simplemente se envía un paquete que alcanza a todos los dispositivos.</li>
+<li><strong>Multicast:</strong> es el mecanismo por el cual se envía un paquete de un host a un grupo seleccionado de hosts. Un dispositivo IP se une a un grupo reconociendo una dirección IP de otro grupo y reprogramando su tarjeta de red (NIC) para copiar todo el tráfico destinado a la dirección MAC del grupo. Debido a que el tráfico multicast está dirigido a diferentes MAC algunos hosts prestarán atención mientras que otros lo ignorarán. El tráfico multicast generalmente es unidireccional, hay un origen que envía el tráfico a todos los destinos, mientras que éstos devuelven el tráfico de manera unicast. El tráfico multicast solamente es procesado por los hosts que están programados para recibirlo.</li>
+</ul>
+<p>Estos tres tipos de comunicación se usan con diferentes objetivos en las redes de datos. En los tres casos, se coloca la dirección IPv4 del host de origen en el encabezado del paquete como la dirección de origen.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Para esta certificación, todas las comunicaciones entre dispositivos son comunicaciones unicast a menos que se indique lo contrario.</p>
+</div>
+<h2 id="clases-de-direcciones-ipv4">Clases de direcciones IPv4<a class="headerlink" href="#clases-de-direcciones-ipv4" title="Permanent link">&para;</a></h2>
+<p>La RFC1700 agrupa rangos de direcciones unicast en tamaños específicos llamados direcciones de clase. Las direcciones IPv4 se dividen en clases para definir las redes de tamaño pequeño, mediano y grande. Las direcciones Clase A se asignan a las redes de mayor tamaño. Las direcciones Clase B se utilizan para las redes de tamaño medio y las de Clase C para redes pequeñas. Dentro de cada rango existen direcciones llamadas privadas para uso interno que no veremos en Internet. Las direcciones de clase D son de uso multicast y las de clase E, experimentales.</p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Rango de direcciones IP</th>
+<th>Máscara de red</th>
+<th>Direcciones privadas / Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>1.0.0.0 a 127.0.0.0</td>
+<td>255.0.0.0 o /8</td>
+<td>10.0.0.0 a 10.255.255.255</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>128.0.0.0 a 191.255.0.0</td>
+<td>255.255.0.0 o /16</td>
+<td>172.16.0.0 a 172.31.255.255</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>192.0.0.0 a 223.255.255.0</td>
+<td>255.255.255.0 o /24</td>
+<td>192.168.0.0 a 192.168.255.255</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>224.0.0.0 a 239.255.255.255</td>
+<td>—</td>
+<td>Uso multicast o multidifusión</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td>240.0.0.0 a 254.255.255.255</td>
+<td>—</td>
+<td>Uso experimental o científico</td>
+</tr>
+</tbody>
+</table>
+<p><strong>En números binarios:</strong></p>
+<ul>
+<li>Las clases A comienzan con <code>00xxxxxx</code></li>
+<li>Las clases B comienzan con <code>10xxxxxx</code></li>
+<li>Las clases C comienzan con <code>11xxxxxx</code></li>
+<li>Las clases D comienzan con <code>111xxxxx</code></li>
+<li>Las clases E comienzan con <code>1111xxxx</code></li>
+</ul>
+<h3 id="direcciones-reservadas-ipv4">Direcciones reservadas IPv4<a class="headerlink" href="#direcciones-reservadas-ipv4" title="Permanent link">&para;</a></h3>
+<p>Hay determinadas direcciones que no pueden asignarse a los hosts por varios motivos. También hay direcciones especiales que pueden asignarse a los hosts pero con restricciones en la interacción de dichos hosts dentro de la red.</p>
+<ul>
+<li><strong>Direcciones de red y de broadcast:</strong> no es posible asignar la primera ni la última dirección a los hosts dentro de cada red. Éstas son, respectivamente, la dirección de red y la dirección de broadcast del rango de host.</li>
+<li><strong>Ruta predeterminada:</strong> la ruta predeterminada IPv4 se representa como <code>0.0.0.0</code>. La ruta predeterminada se usa como ruta por defecto cuando no se dispone de una ruta más específica. El uso de esta dirección también reserva todas las direcciones en el bloque de direcciones 0.0.0.0 al 0.255.255.255 (0.0.0.0/8).</li>
+<li><strong>Loopback:</strong> es una de las direcciones reservadas IPv4. La dirección de loopback <code>127.0.0.1</code> es una dirección especial que los hosts utilizan para dirigir el tráfico hacia ellos mismos. La dirección de loopback crea un método de acceso directo para las aplicaciones y servicios TCP/IP que se ejecutan en el mismo dispositivo para comunicarse entre sí. Al utilizar la dirección de loopback en lugar de la dirección host IPv4 asignada, dos servicios en el mismo host pueden desviar las capas inferiores de la pila TCP/IP. También es posible hacer ping a la dirección de loopback para probar la configuración de TCP/IP en el host local.</li>
+<li><strong>Direcciones link-local:</strong> las direcciones IPv4 del bloque de direcciones desde 169.254.0.0 hasta 169.254.255.255 (169.254.0.0/16) se encuentran designadas como direcciones link-local. El sistema operativo puede asignar automáticamente estas direcciones al host local en entornos donde no se dispone de una configuración IP. Se puede usar en una red de punto a punto o para un host que no pudo obtener automáticamente una dirección de un servidor de protocolo de configuración dinámica de host (DHCP).</li>
+</ul>
+<h3 id="subredes">Subredes<a class="headerlink" href="#subredes" title="Permanent link">&para;</a></h3>
+<p>Las redes IPv4 se pueden dividir en redes más pequeñas, para el mayor aprovechamiento de las mismas, son las llamadas subredes, además de contar con esta flexibilidad, la división en subredes permite que el administrador de la red brinde contención de broadcast y seguridad de bajo nivel en la LAN.</p>
+<p>La división en subredes, además, ofrece seguridad ya que el acceso a las otras subredes está disponible solamente a través de los servicios de un router. Las clases de direcciones IP disponen de 256 a 16,8 millones de hosts según su clase.</p>
+<p>El proceso de creación de subredes comienza pidiendo "prestado" al rango de host la cantidad de bits necesaria para la cantidad de subredes requeridas. Se debe tener especial cuidado en esta acción de pedir ya que deben quedar como mínimo dos bits del rango de host.</p>
+<p>La máxima cantidad de bits disponibles para este propósito depende del tipo de clase:</p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Cantidad disponible de bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clase A</td>
+<td>22 bits</td>
+</tr>
+<tr>
+<td>Clase B</td>
+<td>14 bits</td>
+</tr>
+<tr>
+<td>Clase C</td>
+<td>6 bits</td>
+</tr>
+</tbody>
+</table>
+<p>Cada bit que se toma del rango de host posee dos estados, 0 y 1, por lo tanto, si se toman tres bits existirán 8 estados diferentes:</p>
+<table>
+<thead>
+<tr>
+<th>Bits prestados</th>
+<th>Bits de host</th>
+<th>Valor decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>000</code></td>
+<td><code>00000</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>001</code></td>
+<td><code>00000</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>010</code></td>
+<td><code>00000</code></td>
+<td>64</td>
+</tr>
+<tr>
+<td><code>011</code></td>
+<td><code>00000</code></td>
+<td>96</td>
+</tr>
+<tr>
+<td><code>100</code></td>
+<td><code>00000</code></td>
+<td>128</td>
+</tr>
+<tr>
+<td><code>101</code></td>
+<td><code>00000</code></td>
+<td>160</td>
+</tr>
+<tr>
+<td><code>110</code></td>
+<td><code>00000</code></td>
+<td>192</td>
+</tr>
+<tr>
+<td><code>111</code></td>
+<td><code>00000</code></td>
+<td>224</td>
+</tr>
+</tbody>
+</table>
+<p>El número de subredes que se puede usar es igual a: <strong>2 elevado a la potencia del número de bits asignados a subred</strong>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>2^N = Número de subredes
+</span></code></pre></div>
+<p>Donde N es la cantidad de bits tomados al rango de host.</p>
+<p>Por lo tanto, si se quieren crear 5 subredes, es decir, cumpliendo la fórmula 2^N, tendrá que tomar del rango de host 3 bits:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>2³ = 8
+</span></code></pre></div>
+<p>Observe que no siempre el resultado es exacto, en este caso se pedían 5 subredes pero se obtendrán 8.</p>
+<h4 id="procedimiento-para-la-creacion-de-subredes">Procedimiento para la creación de subredes<a class="headerlink" href="#procedimiento-para-la-creacion-de-subredes" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Piense en binarios.</strong></li>
+<li>
+<p><strong>Encuentre la máscara adecuada</strong> para la cantidad de subredes que le solicitan, independientemente de la dirección IP, lo que nos importa es la cantidad de bits libres.</p>
+<p>Razone, por ejemplo red clase C, el primer octeto, el segundo y el tercero corresponden a la dirección de red, por lo tanto, trabaje con el cuarto octeto correspondiente a los hosts. De izquierda a derecha tome la cantidad de bits necesarios de la máscara para la cantidad de subredes que le solicitan.</p>
+<p>Crear 10 subredes a partir de una red Clase C. Recuerde que no siempre los valores son exactos, en este caso el resultado será 16. Según la formula 2^N debemos tomar 4 bits del rango de host, por lo tanto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>2⁴ = 16
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Rango de red</th>
+<th>Rango de host</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máscara de red 255.255.255.0</td>
+<td><code>11111111.11111111.11111111.00000000</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cuarto octeto</td>
+<td><code>00000000</code></td>
+<td><code>11110000</code></td>
+</tr>
+</tbody>
+</table>
+<p>Coloque en 1 (uno) los bits que resultaron de la operación anterior y súmelos, recuerde el valor de cada bit dentro del octeto: 128, 64, 32, 16, 8, 4, 2, 1</p>
+<p>Se obtiene: <code>11110000</code> → 128+64+32+16+0+0+0+0 = <strong>240</strong></p>
+<p>La máscara de subred de clase C para obtener 10 subredes válidas es: <strong>255.255.255.240</strong></p>
+</li>
+<li>
+<p><strong>Identifique las correspondientes direcciones IP de las subredes</strong> restando a 256, que es la cantidad máxima de combinaciones que tiene un octeto (0 a 255), el valor de la máscara obtenida. Este número será la dirección de la primera subred que a su vez es el incremento o la constante para determinar las siguientes subredes.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>256-240 = 16
+</span></code></pre></div>
+<p>El resultado indica la primera dirección de subred, en este caso 16.</p>
+<table>
+<thead>
+<tr>
+<th>Nº de subred</th>
+<th>Valor del octeto</th>
+<th>Incremento</th>
+<th>Valor decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1º</td>
+<td><code>00000000</code></td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2º</td>
+<td><code>00010000</code></td>
+<td>0+16</td>
+<td>16</td>
+</tr>
+<tr>
+<td>3º</td>
+<td><code>00100000</code></td>
+<td>16+16</td>
+<td>32</td>
+</tr>
+<tr>
+<td>4º</td>
+<td><code>00110000</code></td>
+<td>32+16</td>
+<td>48</td>
+</tr>
+<tr>
+<td>5º</td>
+<td><code>01000000</code></td>
+<td>48+16</td>
+<td>64</td>
+</tr>
+<tr>
+<td>6º</td>
+<td><code>01010000</code></td>
+<td>64+16</td>
+<td>80</td>
+</tr>
+<tr>
+<td>7º</td>
+<td><code>01100000</code></td>
+<td>80+16</td>
+<td>96</td>
+</tr>
+<tr>
+<td>8º</td>
+<td><code>01110000</code></td>
+<td>96+16</td>
+<td>112</td>
+</tr>
+<tr>
+<td>9º</td>
+<td><code>10000000</code></td>
+<td>112+16</td>
+<td>128</td>
+</tr>
+<tr>
+<td>10º</td>
+<td><code>10010000</code></td>
+<td>128+16</td>
+<td>144</td>
+</tr>
+<tr>
+<td>11º</td>
+<td><code>10100000</code></td>
+<td>144+16</td>
+<td>160</td>
+</tr>
+<tr>
+<td>12º</td>
+<td><code>10110000</code></td>
+<td>160+16</td>
+<td>176</td>
+</tr>
+<tr>
+<td>13º</td>
+<td><code>11000000</code></td>
+<td>176+16</td>
+<td>192</td>
+</tr>
+<tr>
+<td>14º</td>
+<td><code>11010000</code></td>
+<td>176+16</td>
+<td>208</td>
+</tr>
+<tr>
+<td>15º</td>
+<td><code>11100000</code></td>
+<td>208+16</td>
+<td>224</td>
+</tr>
+<tr>
+<td>16º</td>
+<td><code>11110000</code></td>
+<td>224+16</td>
+<td>240</td>
+</tr>
+</tbody>
+</table>
+<p>El incremento constante en este caso será de <strong>16</strong>.</p>
+</li>
+<li>
+<p><strong>Obtenga las direcciones IP de las subredes</strong> (observe el cuadro anterior).</p>
+<p><strong>Dirección IP de la red original:</strong> 192.168.1.0 255.255.255.0</p>
+<table>
+<thead>
+<tr>
+<th>Subred</th>
+<th>Dirección IP</th>
+<th>Máscara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1ª</td>
+<td>192.168.1.0</td>
+<td>255.255.255.240</td>
+</tr>
+<tr>
+<td>2ª</td>
+<td>192.168.1.16</td>
+<td>255.255.255.240</td>
+</tr>
+<tr>
+<td>3ª</td>
+<td>192.168.1.32</td>
+<td>255.255.255.240</td>
+</tr>
+<tr>
+<td>4ª</td>
+<td>192.168.1.48</td>
+<td>255.255.255.240</td>
+</tr>
+<tr>
+<td>…</td>
+<td>………………………………………</td>
+<td></td>
+</tr>
+<tr>
+<td>15ª</td>
+<td>192.168.1.224</td>
+<td>255.255.255.240</td>
+</tr>
+<tr>
+<td>16ª</td>
+<td>192.168.1.240</td>
+<td>255.255.255.240</td>
+</tr>
+</tbody>
+</table>
+<p>Otra forma de identificar las máscaras es sumar los bits en uno y colocarlos detrás de la dirección IP separados por una barra:</p>
+<table>
+<thead>
+<tr>
+<th>Subred</th>
+<th>Dirección IP</th>
+<th>Prefijo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red original</td>
+<td>192.168.1.0</td>
+<td>/24</td>
+</tr>
+<tr>
+<td>1ª subred</td>
+<td>192.168.1.0</td>
+<td>/28</td>
+</tr>
+<tr>
+<td>2ª subred</td>
+<td>192.168.1.16</td>
+<td>/28</td>
+</tr>
+<tr>
+<td>3ª subred</td>
+<td>192.168.1.32</td>
+<td>/28</td>
+</tr>
+<tr>
+<td>4ª subred</td>
+<td>192.168.1.48</td>
+<td>/28</td>
+</tr>
+<tr>
+<td>…</td>
+<td>………………………………………</td>
+<td></td>
+</tr>
+<tr>
+<td>15ª subred</td>
+<td>192.168.1.224</td>
+<td>/28</td>
+</tr>
+<tr>
+<td>14ª subred</td>
+<td>192.168.1.240</td>
+<td>/28</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Identifique el rango de host que integran las subredes.</strong> Hasta ahora se ha trabajado con los bits del rango de red, es decir de izquierda a derecha en el octeto correspondiente, ahora lo haremos con los bits restantes del rango de host, es decir de derecha a izquierda.</p>
+<p>Tomemos como ejemplo la subred 196.168.1.16/28 y apliquemos la fórmula 2^N - 2, nos han quedado 4 bits libres, por lo tanto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>2⁴-2 = 16-2 = 14
+</span></code></pre></div>
+<p>Estas subredes tendrán 14 host válidos utilizables en cada una.</p>
+<table>
+<thead>
+<tr>
+<th>Nº de host</th>
+<th>Valor del octeto</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>00010000</code></td>
+<td>Subred 16</td>
+<td></td>
+</tr>
+<tr>
+<td>1º</td>
+<td><code>00010001</code></td>
+<td>Host 17</td>
+<td></td>
+</tr>
+<tr>
+<td>2º</td>
+<td><code>00010010</code></td>
+<td>Host 18</td>
+<td></td>
+</tr>
+<tr>
+<td>3º</td>
+<td><code>00010011</code></td>
+<td>Host 19</td>
+<td></td>
+</tr>
+<tr>
+<td>4º</td>
+<td><code>00010100</code></td>
+<td>Host 20</td>
+<td></td>
+</tr>
+<tr>
+<td>5º</td>
+<td><code>00010101</code></td>
+<td>Host 21</td>
+<td></td>
+</tr>
+<tr>
+<td>6º</td>
+<td><code>00010110</code></td>
+<td>Host 22</td>
+<td></td>
+</tr>
+<tr>
+<td>7º</td>
+<td><code>00010111</code></td>
+<td>Host 23</td>
+<td></td>
+</tr>
+<tr>
+<td>8º</td>
+<td><code>00011000</code></td>
+<td>Host 24</td>
+<td></td>
+</tr>
+<tr>
+<td>9º</td>
+<td><code>00011001</code></td>
+<td>Host 25</td>
+<td></td>
+</tr>
+<tr>
+<td>10º</td>
+<td><code>00011010</code></td>
+<td>Host 26</td>
+<td></td>
+</tr>
+<tr>
+<td>11º</td>
+<td><code>00011011</code></td>
+<td>Host 27</td>
+<td></td>
+</tr>
+<tr>
+<td>12º</td>
+<td><code>00011100</code></td>
+<td>Host 28</td>
+<td></td>
+</tr>
+<tr>
+<td>13º</td>
+<td><code>00011101</code></td>
+<td>Host 29</td>
+<td></td>
+</tr>
+<tr>
+<td>14º</td>
+<td><code>00011110</code></td>
+<td>Host 30</td>
+<td></td>
+</tr>
+<tr>
+<td>15º</td>
+<td><code>00011111</code></td>
+<td>Broadcast</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+<p>El rango de host válido para la subred 192.168.1.16/28 será: <strong>192.168.1.17 al 192.168.1.30</strong></p>
+<p>El mismo procedimiento se lleva a cabo con el resto de las subredes:</p>
+<table>
+<thead>
+<tr>
+<th>Nº de subred</th>
+<th>Rango de host válidos</th>
+<th>Broadcast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.1.0</td>
+<td>1 al 14</td>
+<td>15</td>
+</tr>
+<tr>
+<td>192.168.1.16</td>
+<td>17 al 30</td>
+<td>31</td>
+</tr>
+<tr>
+<td>192.168.1.32</td>
+<td>31 al 62</td>
+<td>63</td>
+</tr>
+<tr>
+<td>192.168.1.64</td>
+<td>65 al 78</td>
+<td>79</td>
+</tr>
+<tr>
+<td>192.168.1.80</td>
+<td>81 al 94</td>
+<td>95</td>
+</tr>
+<tr>
+<td>192.168.1.96</td>
+<td>97 al 110</td>
+<td>111</td>
+</tr>
+<tr>
+<td>192.168.1.112</td>
+<td>113 al 126</td>
+<td>127</td>
+</tr>
+<tr>
+<td>192.168.1.128</td>
+<td>129 al 142</td>
+<td>143</td>
+</tr>
+<tr>
+<td>192.168.1.144</td>
+<td>145 al 158</td>
+<td>159</td>
+</tr>
+<tr>
+<td>192.168.1.160</td>
+<td>161 al 174</td>
+<td>175</td>
+</tr>
+<tr>
+<td>192.168.1.176</td>
+<td>177 al 190</td>
+<td>191</td>
+</tr>
+<tr>
+<td>192.168.1.192</td>
+<td>193 al 206</td>
+<td>207</td>
+</tr>
+<tr>
+<td>192.168.1.208</td>
+<td>209 al 222</td>
+<td>223</td>
+</tr>
+<tr>
+<td>192.168.1.224</td>
+<td>225 al 238</td>
+<td>239</td>
+</tr>
+<tr>
+<td>192.168.1.240</td>
+<td>241 al 254</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<ul>
+<li><strong>Paso 1.</strong> Piense en binarios.</li>
+<li><strong>Paso 2.</strong> Encuentre la máscara contando de izquierda a derecha los bits que tomará prestados del rango de host. Cada uno tendrá dos estados, un bit dos subredes, dos bits cuatro subredes, tres bits ocho subredes, etc.</li>
+<li><strong>Paso 3.</strong> Reste a 256 la suma de los bits que ha tomado en el paso anterior para obtener el incremento para las siguientes subredes.</li>
+<li><strong>Paso 4.</strong> Obtenga las direcciones IP de las subredes siguientes sumando a la "subred 0" el incremento para obtener la siguiente y así hasta la última.</li>
+<li><strong>Paso 5.</strong> Identifique el rango de host y la correspondiente dirección de broadcast de cada subred.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Red</th>
+<th></th>
+<th></th>
+<th>Host</th>
+<th></th>
+<th></th>
+<th>Máscara de red</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>255</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>172</td>
+<td>16</td>
+<td>0</td>
+<td>0</td>
+<td>255</td>
+<td>255</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>192</td>
+<td>168</td>
+<td>0</td>
+<td>0</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Las diferentes clases de redes se pueden identificar fácilmente en números binarios observando el comienzo del primer octeto, puesto que:</p>
+<ul>
+<li>Las clases A comienzan con <code>00xxxxxx</code></li>
+<li>Las clases B comienzan con <code>10xxxxxx</code></li>
+<li>Las clases C comienzan con <code>11xxxxxx</code></li>
+<li>Las clases D comienzan con <code>111xxxxx</code></li>
+<li>Las clases E comienzan con <code>1111xxxx</code></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>La dirección de broadcast de una subred será la inmediatamente inferior a la subred siguiente. La máscara con todos los bits en 1 se denomina máscara de host e identifica un host en particular. Por lo tanto, para IPv4 podría ser /32 o para IPv6 que podría ser /128.</p>
+</div>
+<h2 id="escalabilidad-del-direccionamiento-ipv4">Escalabilidad del direccionamiento IPv4<a class="headerlink" href="#escalabilidad-del-direccionamiento-ipv4" title="Permanent link">&para;</a></h2>
+<p>Una de las razones de que el direccionamiento IPv4 sea demasiado escaso es que no ha sido asignado eficientemente. Las direcciones de clase A son excesivamente grandes para la mayoría de las organizaciones ya que soportan unas 16.777.214 direcciones de host, mientras que las direcciones de clase C soportan solo 254 direcciones de host. Como resultado de esto muchas organizaciones hacen peticiones de clase B que soportan 65.534 direcciones de host, pero hacen solo un uso parcial de dicho rango.</p>
+<p>Inicialmente un dispositivo IP requería una dirección pública. Para prevenir el agotamiento de las direcciones IPv4 la IETF (<em>Internet Engineering Task Force</em>) adoptó el uso de CIDR (<em>Classless Interdomain Routing</em>), VLSM (<em>Variable-Length Subnet Mask</em>) y NAT (<em>Network Address Translation</em>).</p>
+<p>CIDR y VLSM trabajan juntas a la hora de mejorar el direccionamiento, mientras que NAT oculta clientes y minimiza la necesidad de direcciones públicas. Otra de las razones de escasez de direcciones públicas es que no han sido asignadas equitativamente a lo largo del mundo.</p>
+<h3 id="mascaras-de-subred-de-longitud-variable">Máscaras de subred de longitud variable<a class="headerlink" href="#mascaras-de-subred-de-longitud-variable" title="Permanent link">&para;</a></h3>
+<p>El crecimiento exponencial de las redes ha hecho que el direccionamiento IPv4 no permita un desarrollo y una escalabilidad acorde a lo deseado por los administradores de red. IPv4 pronto será reemplazado por IP versión 6 (IPv6) como protocolo dominante de Internet. IPv6 posee un espacio de direccionamiento prácticamente ilimitado y algunos administradores ya han empezado a implementarlo en sus redes. Para dar soporte al direccionamiento IPv4 se ha creado VLSM (<em>Variable Length Subnet Masking</em>) que permite incluir más de una máscara de subred dentro de una misma dirección de red. VLSM es soportado únicamente por protocolos sin clase tales como OSPF, RIPv2 y EIGRP.</p>
+<p>El uso de las máscaras de subred de longitud variable permite el uso más eficaz del direccionamiento IP. Al permitir niveles de jerarquía se pueden resumir diferentes direcciones en una sola, evitando gran cantidad de actualizaciones de ruta.</p>
+<p>Por ejemplo, la red 192.168.1.0/24 debe dividirse en subredes utilizando una máscara de subred de 28 bits. Hasta ahora la primera subred utilizable era la 192.168.1.16/28; configurando el router con el comando <code>ip subnet-zero</code> la dirección IP 192.168.1.0/28 será una dirección válida pudiendo sumar 14 host válidos más al direccionamiento total.</p>
+<p>Siguiendo el esquema de direccionamiento anterior una de las subredes que surgen de la división se utilizará para un enlace serial entre dos routers. En este caso la máscara de 28 bits permite el uso válido de 14 host desperdiciándose 12 direcciones de host para este enlace. El uso de VLSM permite volver a dividir más subredes en otra subred, en este caso la máscara ideal sería una /30.</p>
+<p>Por lo tanto, la red 192.168.1.0/24 será dividida en 16 subredes, se obtienen las siguientes direcciones:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>192.168.1.0/28
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>192.168.1.16/28
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>192.168.1.32/28
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>192.168.1.48/28
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>192.168.1.64/28
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>192.168.1.80/28
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>192.168.1.96/28
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>192.168.1.112/28
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>192.168.1.128/28
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>192.168.1.144/28
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>192.168.1.160/28
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>192.168.1.176/28
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>192.168.1.192/28
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>192.168.1.208/28
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>192.168.1.224/28
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>192.168.1.240/28
+</span></code></pre></div>
+<p>Observe que se tomará en cuenta la 192.168.1.0 al configurar el comando <code>ip subnet-zero</code>.</p>
+<p>Para el enlace serial entre los routers se utilizará una máscara que permita el uso de dos hosts (/30). Elija una de las subredes creadas en el paso anterior, esta subred elegida <strong>NO</strong> podrá utilizarse con la máscara /28 puesto que se seguirá dividiendo en subredes más pequeñas.</p>
+<ol>
+<li>Piense en binario.</li>
+<li>La red 192.168.1.0/24 se divide en subredes con una máscara /28, escriba en binario el último octeto.</li>
+<li>Elija una de las subredes para dividirla con una máscara /30, en este caso la 128. Trace una línea que separe los bits con la máscara /28 y otra que separe los bits con máscara /30. Las subredes se obtienen haciendo las combinaciones correspondientes entre el primer bit (128) y los contenidos entre las dos paralelas.</li>
+<li>Las direcciones de host se obtienen haciendo la combinación con los dos bits libres en cada una de las subredes obtenidas.</li>
+</ol>
+<p><strong>Ejemplo con una red Clase B:</strong></p>
+<p>La red 172.16.0.0/16 se debe dividir en redes más pequeñas:</p>
+<ul>
+<li>La red 172.16.0.0/16 se divide utilizando una máscara <code>/21</code>:
+    172.16.0.0/21, 172.16.8.0/21, 172.16.16.0/21, 172.16.24.0/21, etc. Para seguir el proceso elija una, por ejemplo <code>172.16.8.0/21</code>.</li>
+<li>172.16.8.0/21 se divide en subredes con una máscara <code>/24</code>:
+    172.16.8.0/24, 172.16.9.0/24, 172.16.10.0/24, etc. Para seguir el proceso elija una, por ejemplo <code>172.16.10.0/24</code>.</li>
+<li>172.16.10.0/24 se divide en subredes con una máscara <code>/26</code>:
+    172.16.10.0/26, 172.16.10.64/26, 172.16.10.128/26, 172.16.10.192/26, etc. Para seguir el proceso elija por ejemplo la <code>172.16.10.128/26</code>.</li>
+<li>172.16.10.128/26 se divide en subredes con una máscara <code>/30</code>:
+    172.16.10.128/30, 172.16.10.132/30, 172.16.10.136/30, etc. Para seguir el proceso elija una, por ejemplo <code>172.16.10.132/30</code>, en este caso las direcciones de host serán la 172.16.10.133/30 y la 172.16.10.134/30.</li>
+</ul>
+<p>El rango de red/subred se va ampliando mientras el rango de host disminuye a medida que se siguen dividiendo en más subredes.</p>
+<h3 id="enrutamiento-entre-dominios-sin-clase">Enrutamiento entre dominios sin clase<a class="headerlink" href="#enrutamiento-entre-dominios-sin-clase" title="Permanent link">&para;</a></h3>
+<p>El CIDR (<em>Classless Inter-Domain Routing</em>) definido en la RFC 4632 consiste en la capacidad de un router para utilizar protocolos que no consideran las clases como los límites naturales de las subredes. En otras palabras, CIDR significa que un protocolo de enrutamiento tiene en cuenta el direccionamiento VLSM en sus actualizaciones de enrutamiento y puede enviar actualizaciones incluyendo las máscaras de subred. El objetivo de CIDR es permitir un esquema de sumarización flexible, en especial para los routers de backbone de Internet cuya tabla de enrutamiento es tan grande que están llegando a su límite antes de tiempo.</p>
+<p>En CIDR, una red IP se representa mediante un prefijo, es decir una dirección IP y alguna indicación de la longitud de la máscara. Longitud significa el número de bits de la máscara más a la izquierda contiguos que se establecen a uno. Por ejemplo la red 172.16.0.0 255.255.0.0 se puede representar como la 172.16.0.0/16. CIDR también representa una arquitectura más jerárquica de Internet, donde cada dominio obtiene sus direcciones IP a partir de un nivel superior, de tal forma que el resumen de las rutas ocurra en dicho nivel superior.</p>
+<p>Por ejemplo, si un ISP (<em>Internet Service Provider</em>) es propietario de la red 183.58.0.0/16, podrá otorgar las subredes 183.58.1.0/24, 183.58.2.0/24, y así sucesivamente para los clientes. Sin embargo, otros proveedores cuando intenten llegar a estas subredes solo lo harán a través de la 183.58.0.0/16. </p>
+<p><img alt="" src="../a1.png" /></p>
+<p>Los ISP 2, ISP 3 y ISP 4 solo tienen conocimiento de la red 183.58.0.0/16 a través del ISP 1, de tal forma de no sobrecargar sus tablas de enrutamiento.</p>
+<h3 id="resumen-de-ruta">Resumen de ruta<a class="headerlink" href="#resumen-de-ruta" title="Permanent link">&para;</a></h3>
+<p>El resumen de ruta, o sumarización, reduce la cantidad de rutas que un router debe mantener en sus tablas anunciando y manteniendo una sola dirección que contenga a las demás.</p>
+<p>Este es el proceso que utiliza un router a través de un protocolo de enrutamiento para enviar actualizaciones de enrutamiento en las que una dirección de red representa la conectividad con varias redes que tienen un prefijo común. El principio básico de funcionamiento es que si un router tiene detrás varias redes o subredes que tienen una porción de su parte de red igual entre sí, este router puede enviar en sus actualizaciones de enrutamiento hacia otros dispositivos con una sola dirección de red para todas las redes que tienen el mismo prefijo, entonces esa dirección especial es la parte que tienen en común, como si fuera una sola subred con la máscara indicando la parte en común de las que tiene detrás suyo.</p>
+<p><img alt="" src="../a2.png" /></p>
+<p>El router de resumen tiene múltiples entradas de redes consecutivas, siendo este el principal factor en el resumen de ruta, pero solo anunciará al router remoto la red que contiene a todas las demás.</p>
+<p>La diferencia entre VLSM y la sumarización es para qué se utilizan y tienen en común la idea de que las máscaras variables hacen posible la sumarización y la sumarización es la base del enrutamiento sin clase.</p>
+<p>Imagine que un router posee un rango de redes directamente conectadas, de la 172.16.168.0/24 a la 172.16.175.0/24. El router buscará el bit común más alto para determinar cuál será el resumen de ruta con la máscara más pequeña posible.</p>
+<p><img alt="" src="../a3.png" /></p>
+<p><strong>En binarios:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Dirección de subred</th>
+<th>Primer octeto</th>
+<th>Segundo octeto</th>
+<th>Tercer octeto</th>
+<th></th>
+<th>Cuarto octeto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>172.16.168.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>000</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.169.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>001</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.170.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>010</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.171.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>011</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.172.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>100</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.173.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>101</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.174.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>110</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>172.16.175.0/24</td>
+<td>10101100</td>
+<td>00010000</td>
+<td>10101</td>
+<td>111</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>Bits comunes = 21</strong></td>
+<td></td>
+<td><strong>Bits no comunes o de host</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resumen: 172.16.168.0/21</strong></p>
+<p>Por lo tanto, para el rango especificado el router utilizará la dirección 172.16.168.0/21 para el resumen de ruta solicitado.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>Cuando una dirección IP de destino en particular coincide con más de una ruta en una tabla de enrutamiento del router, el router utiliza la ruta más específica, es decir, la ruta con la longitud del prefijo más largo.</p>
+</div>
+<h2 id="direccionamiento-ipv6">Direccionamiento IPv6<a class="headerlink" href="#direccionamiento-ipv6" title="Permanent link">&para;</a></h2>
+<p>IPv6 ha estado en desarrollo desde mediados de los 90 y durante varios años. Se había anunciado al principio como el protocolo que podría expandir el direccionamiento IP, llevar IP mobile a la madurez y finalmente ser capaz de incorporar seguridad a nivel de capa 3. Esas afirmaciones son correctas, pero hay que tener en cuenta que a nivel de capa 3 esas capacidades de IPv6 han sido aportadas a IPv4 en los pasados años. Actualmente las direcciones IPv4 son escasas y la mayor razón en Internet para evolucionar a IPv6 es la necesidad de un mayor direccionamiento.</p>
+<p>Esta necesidad de direccionamiento IP podría ser atenuada intentando utilizar CIDR, VLSM, NAT y asignaciones temporales a través de DHCP, pero teniendo sistemas intermedios manipulando los paquetes complican el diseño y la resolución de problemas. El concepto del diseño de Internet con innumerables sistemas intermedios no hace que NAT trabaje adecuadamente, sin embargo, es un mal necesario.</p>
+<p>La longitud de una dirección IPv6 es lo primero que sale a relucir, son 128 bits lo que hace 2¹²⁸ direcciones IPv6 disponibles. Varias de estas direcciones dan funciones especiales y están reservadas, pero aun así quedarían disponibles aproximadamente 5×10²⁸ direcciones IP por cada habitante del planeta. Lo que permitiría que el direccionamiento pueda crecer sin preocupaciones en contraposición al direccionamiento IPv4 cuya cantidad está limitada a 2³².</p>
+<p>En IPv6 se utiliza una cabecera más simplificada que IPv4, haciendo que el procesamiento sea más eficiente, permitiendo un mecanismo más flexible y a su vez extensible a otras características. Una de esas características es la movilidad, <em>mobile IP</em> es un estándar de la IETF que permite a los usuarios con dispositivos wireless estar conectados de manera transparente y moverse a cualquier sitio sin restricciones.</p>
+<p>La seguridad es otro tema importante añadido, IPsec está presente en cada uno de los dispositivos IPv6.</p>
+<h3 id="formato-del-direccionamiento-ipv6">Formato del direccionamiento IPv6<a class="headerlink" href="#formato-del-direccionamiento-ipv6" title="Permanent link">&para;</a></h3>
+<p>La primera diferencia respecto a IPv4 es que las direcciones IPv6 son de 128 bits y están representadas en un formato hexadecimal en lugar de la notación decimal tradicional y separada cada parte por dos puntos en lugar de uno. Teniendo de esta forma 8 partes de 16 bits cada una. Como cada dígito hexadecimal se asocia con 4 bits, cada campo de 16 bits será de 4 dígitos hexadecimales.</p>
+<p>Un ejemplo de dirección IPv6 puede ser el siguiente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>2001:0000:0001:0002:0000:0000:0000:ABCD
+</span></code></pre></div>
+<p>Este formato se puede reducir hasta de optimizar la lectura para su comprensión. Hay dos formas para conseguir simplificar tanta cantidad de números:</p>
+<ol>
+<li>
+<p>Todos los 0 a la izquierda de cada uno de los campos pueden ser omitidos.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>2001:0:1:2:0:0:0:ABCD
+</span></code></pre></div>
+</li>
+<li>
+<p>Se pueden omitir los campos consecutivos de 0 con "::" independientemente de la cantidad de campos que se abrevie. Este mecanismo solo puede hacerse una vez debido a que luego no se podrían reestructurar la cantidad de campos exactamente como eran.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>2001:0:1:2::ABCD
+</span></code></pre></div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>La dirección de loopback en IPv6, equivalente al prefijo 127/8 en IPv4, es la que todos los bits son cero excepto el último y se escribe de forma compacta como "::1".</p>
+</div>
+<h3 id="prefijos">Prefijos<a class="headerlink" href="#prefijos" title="Permanent link">&para;</a></h3>
+<p>Los primeros 48 bits de una dirección IPv6 componen la dirección de red, dicho de otra forma, los primeros 3 grupos de la dirección (cada grupo es de 16 bits o 4 caracteres hexadecimales). Por lo general, los ISP de cada región asigna una dirección de red, la cual subdividirán entre todos sus clientes.</p>
+<p>Los siguientes 16 bits, o el cuarto grupo de caracteres hexadecimales conforman la dirección de subred. Esto hace que IPv6 sea mucho más eficiente a nivel de comunicaciones, puesto que la dirección contiene la información de origen y destino sin necesidad de hacer cálculos para averiguarlo o tener que modificar la información transmitida.</p>
+<p>La dirección única del dispositivo representa los últimos 64 bits de la dirección, o los últimos 4 grupos. Este es el identificador único del dispositivo. Algunos dispositivos utilizan la propia dirección física (MAC).</p>
+<p>Es posible combinar el prefijo de red y el identificador de la interfaz en una sola notación. La representación de prefijos de red en IPv6 es similar a la notación utilizada en CIDR para los prefijos IPv4, es decir, dirección-IPv6/longitud-del-prefijo-en-bits.</p>
+<p>Se permite el uso de formatos abreviados con "::"</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>2001:0DB8:7654:3210:0000:0000:0000:0000/64
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>2001:DB8:7654:3210:0:0:0:0/64
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>2001:DB8:7654:3210::/64
+</span></code></pre></div>
+<p>Por lo tanto, esta dirección IPv6 indica que el prefijo de red está constituido por los primeros 64 bits.</p>
+<p>No existen tienen reglas para la asignación de identificadores de subred (SID) dentro de un sitio. Se pueden utilizar varios métodos, como por ejemplo:</p>
+<ul>
+<li><strong>Enumerar de forma incremental las subredes:</strong> 0001, 0002, ... Esta técnica es fácil de implementar en las redes experimentales, pero puede dar lugar a un esquema de direccionamiento plano, difícil de recordar.</li>
+<li><strong>Utilizar el número de VLAN.</strong> Permite no tener que memorizar múltiples niveles de numeración.</li>
+<li><strong>Separar los tipos de redes y utilizar las cifras a la izquierda para designarlos.</strong> Esta técnica facilita las reglas de filtrado, utilizando al mismo tiempo reglas adecuadas para la gestión de estas subredes en el segmento del lado derecho.</li>
+</ul>
+<h3 id="cabecera-ipv6">Cabecera IPv6<a class="headerlink" href="#cabecera-ipv6" title="Permanent link">&para;</a></h3>
+<p>La cabecera IPv6 es optimizada para procesadores de 32 a 64 bits y las extensiones de cabecera permiten la expansión sin tener que forzar a que los campos que no se usan se estén transmitiendo constantemente.</p>
+<p>Las principales diferencias entre las cabeceras de las dos versiones es la longitud de los campos de origen y destino. También hay otros campos que son aparentes como <em>checksum</em>, fragmentación y la etiqueta de flujo.</p>
+<p><img alt="" src="../a4.png" /></p>
+<p>Los campos en una cabecera IPv6 son los siguientes:</p>
+<ul>
+<li><strong>Version:</strong> es un campo de 4 bits que identifica la versión, en este caso a 6.</li>
+<li><strong>Traffic Class:</strong> similar al campo 2 de IPv4, se utiliza para calidad de servicio.</li>
+<li><strong>Flow Label:</strong> campo de 20 bits que permite que el tráfico sea etiquetado para que se pueda manejar de manera más rápida flujo por flujo.</li>
+<li><strong>Payload Length:</strong> campo de 16 bits con la longitud del campo de datos.</li>
+<li><strong>Next Header:</strong> similar al campo de protocolo en la cabecera IPv4. Es un campo de 8 bits que indica cómo los campos después de la cabecera básica de IPv6 deberían ser interpretados. Podría indicar, por ejemplo, que el siguiente campo es TCP o UDP ambos relativos a la capa de transporte o podría indicar que existe una extensión de la cabecera.</li>
+<li><strong>Hop Limit:</strong> similar al campo TTL en IPv4, es de 8 bits y se incrementa por cada router intermediario para prevenir bucles, de tal manera que cuando la cuenta llegue a 0 será descartado. Cuando esto ocurre se envía un mensaje de notificación al origen.</li>
+<li><strong>Source Address y Destination Address:</strong> estos campos de 128 bits son las direcciones IPv6 de origen y de destino de los dispositivos que se están comunicando.</li>
+<li><strong>Extension Headers:</strong> permite agregar más campos opcionales.<ul>
+<li><em>Hop-by-Hop options:</em> utilizados para routers intermediarios.</li>
+<li><em>Destination options:</em> opciones para el nodo final.</li>
+<li><em>Routing:</em> utilizado para especificar a los routers intermedios qué ruta tienen que incluir. El efecto final es forzar el enrutamiento por un camino predefinido.</li>
+<li><em>Fragment:</em> utilizado para dividir los paquetes que son demasiado largos para la MTU. Esta cabecera reemplaza los campos de fragmentación de la cabecera IPv4.</li>
+<li><em>Authentication y Encapsulating Security Payload (ESP):</em> se utiliza por IPsec para proporcionar autenticación, integridad y confidencialidad de los paquetes. AH y ESP son idénticos en IPv4 y en IPv6.</li>
+</ul>
+</li>
+</ul>
+<h2 id="tipos-de-direccionamiento-ipv6">Tipos de direccionamiento IPv6<a class="headerlink" href="#tipos-de-direccionamiento-ipv6" title="Permanent link">&para;</a></h2>
+<p>IPv6 reconoce tres tipos de direcciones: unicast, multicast y anycast. El tipo de la dirección define el destino de la comunicación, es decir, a cuántos receptores debe ser entregado el paquete.</p>
+<p>El primero de estos tipos, la dirección <em>unicast</em>, identifica de manera única una interfaz. Un paquete enviado a ese tipo de dirección será entregado a la interfaz correspondiente. Entre las direcciones unicast, se pueden distinguir aquéllas que tienen una cobertura global, es decir, designan sin ambigüedad un destinatario sobre Internet, y las que tienen cobertura local. Estas últimas no pueden ser enrutadas sobre Internet. Es decir, un paquete que tenga una dirección destino con cobertura local, será ignorado y eliminado por un router de Internet.</p>
+<p>Una dirección <em>multicast</em> designa a un grupo de interfaces que pertenecen, en general, a nodos distintos que pueden ubicarse en cualquier parte de Internet. Cuando un paquete tiene una dirección destino multicast, éste se envía por la red a todas las interfaces miembros de ese grupo.</p>
+<p>Cabe resaltar que desaparecen las direcciones de broadcast (difusión) que existían en IPv4; éstas son remplazadas por direcciones tipo multicast. La dirección de difusión puede ser imitada por una dirección multicast constituyendo un grupo que incluya todos los nodos. La ausencia de direcciones de difusión evita los problemas de saturación en las redes locales conmutadas. Por este motivo una red IPv6 tiene un mejor desempeño sobre este tipo de redes.</p>
+<p>El último tipo de dirección, <em>anycast</em>, se deriva de la oficialización de propuestas hechas para IPv4 (RFC 1546). Como en el caso multicast, una dirección de tipo anycast designa un grupo de interfaces. La principal diferencia consiste en que cuando un paquete tiene una dirección destino anycast, éste es enviado a alguno de los miembros del grupo, no a todos. El receptor del paquete podría ser, por ejemplo, el más cercano de acuerdo a la métrica de usada por los protocolos de enrutamiento. Este tipo de dirección es principalmente experimental.</p>
+<h3 id="global-unicast">Global-Unicast<a class="headerlink" href="#global-unicast" title="Permanent link">&para;</a></h3>
+<p>La escalabilidad de la red es sumamente importante, es directamente proporcional a la capacidad de sumarización que tiene la red. Tal como ocurre con IPv4 los bits más a la izquierda indican el prefijo de enrutamiento y pueden ser sumarizados. Teóricamente existen 2⁶⁴ prefijos IPv6. Si cada prefijo fuera almacenado en la memoria del router utilizando 256 bits (32 bytes), entonces la tabla de enrutamiento consumiría 5.9×10²⁰ bytes, lo cual es demasiado. Esto se reduce a la importancia que tiene la sumarización al momento de construir la tabla de enrutamiento.</p>
+<p>La siguiente figura muestra un esquema de una dirección Global IPv6, definida por la RFC 3587:</p>
+<table>
+<thead>
+<tr>
+<th>Global Prefix</th>
+<th>Subnet ID</th>
+<th>Interface ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/48</td>
+<td>/64</td>
+<td>/64</td>
+</tr>
+</tbody>
+</table>
+<p>Los primeros 48 bits de la dirección Global IPv6 son utilizados para enrutamiento en Internet en el ISP, los siguientes 16 bits forman el <em>sub-net ID</em> permitiendo así a una empresa subdividir su red. Los restantes 64 bits son la interfaz ID en formato EUI-64.</p>
+<p>IANA está asignando direcciones que comienzan con el valor binario 001 o en hexadecimal <code>2000::/3</code>. Este direccionamiento está designado para direcciones globales IPv6 unicast. Éste es una octava parte del espacio total del direccionamiento IPv6. IANA utiliza el rango <code>2001::/16</code> para registros, que normalmente tienen un rango /23 y asigna un rango /32 a los ISP.</p>
+<p>Por ejemplo un ISP podría disponer a una organización de la siguiente dirección <code>2001:0:1AB::/48</code>. En una subred 5 el prefijo sería <code>2001:0:1AB:5::/64</code>. En un dispositivo con una MAC <code>00-0f-66-81-19-a3</code>, el formato EUI-64 de la interfaz ID será <code>020F:66FF:FE81:19A3</code>. Finalmente la dirección IPv6 completa será <code>2001:0:1AB:5:20F:66FF:FE81:19A3</code>.</p>
+<h3 id="link-local">Link-Local<a class="headerlink" href="#link-local" title="Permanent link">&para;</a></h3>
+<p>Las direcciones unicast de IPv6 locales (Link local) permiten a dispositivos que estén en la misma red local ser capaces de comunicarse sin necesidad de asignación de un direccionamiento global. Las direcciones locales son utilizadas para el enrutamiento y por los procesos de descubrimiento entre protocolos. Son auto-configuradas utilizando el prefijo <code>FE80::/10</code> más el formato EUI-64 ID:</p>
+<table>
+<thead>
+<tr>
+<th>10 bits</th>
+<th></th>
+<th>54 bits</th>
+<th>64 bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1111 1110 10</code></td>
+<td>0</td>
+<td></td>
+<td>Interface ID</td>
+</tr>
+<tr>
+<td><code>FE80::/10</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo una MAC <code>00-0f-66-81-19-a3</code> tendrá una dirección IPv6 Local <code>FE80::020F:66FF:FE81:19A3</code>.</p>
+<p>La RFC 4291 especifica otro tipo de dirección unicast. Las direcciones IPv4 son mapeadas a IPv6 concatenando la dirección <code>0::FFFF:0:0/96</code> con una determinada dirección IPv4. Por ejemplo la dirección 10.0.0.1 se convierte en <code>0::FFFF:A00:1</code>, debido a que 10.0.0.1 es en hexadecimal 0A00:0001. Estas direcciones pueden ser utilizadas por los hosts <em>dual-stack</em>, que son aquellos que utilizan ambos tipos de direccionamiento.</p>
+<h3 id="unique-local">Unique-Local<a class="headerlink" href="#unique-local" title="Permanent link">&para;</a></h3>
+<p>El RFC 4193 define un nuevo formato de dirección unicast: las direcciones locales únicas (ULA, <em>Unique Local Address</em>). Estas direcciones son para uso local. No están pensadas para ser enrutadas en Internet, sino dentro de un área acotada, como un sitio o un número limitado de sitios. Con un prefijo de 48 bits, pueden ser manipuladas como las direcciones globales, con un identificador de Subred (SID) de 16 bits y un identificador de interfaz (IID) de 64 bits.</p>
+<p>Las direcciones locales únicas se crean utilizando un identificador global (Global ID) generado de forma pseudoaleatoria. Estas direcciones tienen el formato siguiente:</p>
+<ul>
+<li><strong>Prefix (7 bits):</strong> <code>FC00::/7</code> prefijo para identificar las direcciones IPv6 locales (ULA).</li>
+<li><strong>L (1 bit):</strong> puesto a 1, el prefijo es asignado localmente. El valor 0 está reservado para usos futuros.</li>
+<li><strong>Global ID (40 bits):</strong> identificador global utilizado para la creación de un prefijo "único" (<em>Globally Unique Prefix</em>).</li>
+<li><strong>Subnet ID (16 bits):</strong> identificador de subred al interior del sitio.</li>
+<li><strong>Interface ID (64 bits):</strong> el identificador de interfaz, tal como está definido en Identificador de interfaz.</li>
+</ul>
+<h3 id="multicast">Multicast<a class="headerlink" href="#multicast" title="Permanent link">&para;</a></h3>
+<p>Una dirección de multicast identifica un grupo de interfaces. El tráfico enviado al grupo llega a todas estas interfaces. Éstas pueden a su vez pertenecer a varios grupos multicast simultáneamente. Cada interfaz puede reconocer varias direcciones de multicast incluyendo la dirección <em>all-nodes</em>, la dirección <em>solicited-nodes</em> o cualquier otra dirección a la que el nodo pertenezca. Los routers deben ser capaces de reconocer la dirección <em>all-routers</em>.</p>
+<p>El formato de una dirección IPv6 de multicast se ilustra de la siguiente manera:</p>
+<table>
+<thead>
+<tr>
+<th>8 bits</th>
+<th>4 bits</th>
+<th>4 bits</th>
+<th>112 bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1111 1111</code> — <code>FF00::/8</code></td>
+<td>Flag</td>
+<td>Scope</td>
+<td>Group ID</td>
+</tr>
+</tbody>
+</table>
+<p>Como se muestra en la figura la dirección IPv6 multicast comienza con el prefijo <code>FF00::/8</code>, los siguientes 4 bits son identificadores que se describen a continuación:</p>
+<ol>
+<li>El primer identificador o bandera es indefinido y siempre tiene el valor de cero.</li>
+<li>Conocido como el bit "R" tiene el valor en binario de 1, cuando el RP esté contenido en el paquete multicast.</li>
+<li>Conocido como el bit "P" lleva el valor binario 1 en el caso de que la dirección multicast esté basada en un prefijo unicast.</li>
+<li>Es el llamado bit "T", si la dirección está asignada permanentemente lleva el valor 0, si por el contrario el valor es 1 la dirección es temporal.</li>
+</ol>
+<p>Los 4 bits después de las banderas indican el ámbito de la dirección limitando cuán lejos esta dirección multicast es capaz de llegar. En IPv4 se utiliza el TTL para poder efectuar esta tarea pero no es un mecanismo exacto debido a que la distancia permitida por el TTL puede ser demasiado larga en una dirección y demasiado corta en otra. El ámbito en IPv6 es lo suficientemente flexible como para limitar multicast en un sitio o una empresa determinada.</p>
+<p>Los ámbitos están definidos en hexadecimal y son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Ámbito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Interfaz-local, usado para las interfaces loopback</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Link-local, similar al ámbito unicast link-local</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Admin-local; debe ser administrativamente configurado</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Site-local; solo abarca un sitio</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Organization-local; abarca varios sitios pertenecientes a múltiples sitios u organizaciones</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Es de ámbito global</td>
+</tr>
+</tbody>
+</table>
+<p>El ID del grupo multicast son los 112 bits de menor ámbito de la dirección. Todos los dispositivos deberían reconocer y responder a estas direcciones multicast de todos los nodos:</p>
+<ul>
+<li><code>FF01::1</code> correspondiente a la interfaz local.</li>
+<li><code>FF02::1</code> correspondiente al enlace local.</li>
+</ul>
+<p>Las direcciones de multicast <em>solicited-nodes</em> son utilizadas en los mensajes de solicitud de vecinos y son enviadas en un enlace local por un dispositivo que quiere determinar la dirección de la capa de enlace de otro dispositivo en el mismo enlace local. Este mecanismo se asemeja a ARP en IPv4. Una dirección de multicast solicited-nodes comienza con el prefijo <code>FF02::1:FF00:/104</code> y en los últimos 24 bits insertando las direcciones unicast o anycast del dispositivo.</p>
+<p>Los routers deben poder responder a las direcciones multicast <em>all-router</em>:</p>
+<ul>
+<li><code>FF01::2</code> es la dirección de interfaz local.</li>
+<li><code>FF02::2</code> es la dirección de enlace local.</li>
+<li><code>FF05::2</code> es la dirección del sitio local.</li>
+</ul>
+<p>Los routers también se unen a otros grupos para soportar protocolos de enrutamiento como por ejemplo, OSPF versión 3 (OSPFv3) utiliza <code>FF02::5</code> y <code>FF02::6</code>, y RIPng (<em>Routing Information Protocol new generation</em>) utiliza <code>FF02::9</code>.</p>
+<h3 id="anycast">Anycast<a class="headerlink" href="#anycast" title="Permanent link">&para;</a></h3>
+<p>Una dirección de este tipo es una dirección global que está asignada a dos o más host. Los dispositivos enrutan hacia la dirección más cercana utilizando la métrica proporcionada por el protocolo de enrutamiento.</p>
+<p>Las direcciones anycast son creadas asignando la misma dirección a más de un dispositivo. No existe un espacio de direccionamiento designado para anycast. Los dispositivos que emplearán este tipo de dirección deben ser explícitamente configurados y tiene que saber que la dirección es de anycast.</p>
+<p>Todos los routers tienen que soportar la dirección anycast <em>subnet-router</em> para las subredes en las cuales tienen interfaces. Estas direcciones son las direcciones de unicast con la porción de la interfaz ID puestas en 0. Los paquetes enviados a la dirección de anycast subnet-router serán entregados a un router específico en la subred.</p>
+<h3 id="eui-64">EUI-64<a class="headerlink" href="#eui-64" title="Permanent link">&para;</a></h3>
+<p>Los ID de una dirección IPv6 son utilizados para identificar de manera única una interfaz, este segmento de la dirección es llamado porción de host. Estos ID deben ser únicos en los enlaces, tienen una longitud de 64 bits y pueden ser creados dinámicamente basándose en la dirección de la capa de enlace. El tipo de capa de enlace determinará cómo son dinámicamente creadas las interfaces de IPv6 y cómo funcionará la resolución del direccionamiento.</p>
+<p>Para Ethernet la interfaz ID está basada en la dirección MAC de la interfaz en un formato llamado EUI-64 (<em>Extended Universal Identifier 64-bit</em>). Este formato deriva de la dirección MAC de 48 bits con el agregado de los números hexadecimales <code>FFFE</code> entre el OUI y el código de vendedor. El séptimo bit del primer byte del ID de la interfaz resultante corresponde al bit universal local (U/L) y asume el valor binario 1. Este bit indica si la interfaz ID es localmente única en ese enlace o universalmente única.</p>
+<p>El octavo bit en el primer byte de la interfaz ID corresponde al <em>individual/group</em> (I/G) que se utiliza para gestionar grupos multicast, en este caso no varía.</p>
+<p><img alt="" src="../a5.png" /></p>
+<p>Ethernet transmite los bits de bajo orden de cada byte primero (a la inversa). El bit U/L es el bit séptimo y el I/G es el octavo de la dirección, por lo tanto el primer bit de la dirección MAC transmitido será el bit I/G, usado por direcciones broadcast y multicast y el segundo bit transmitido será el U/L.</p>
+<h3 id="asignacion-de-direcciones-ipv6">Asignación de direcciones IPv6<a class="headerlink" href="#asignacion-de-direcciones-ipv6" title="Permanent link">&para;</a></h3>
+<p>Las direcciones IPv6 pueden ser asignadas de manera manual o de forma dinámica usando DHCPv6 o autoconfiguración <em>stateless</em>.</p>
+<ul>
+<li><strong>Manual:</strong> el administrador es el encargado de asignarlas y configurarlas manualmente, supone más trabajo y demanda llevar un registro de las direcciones que han sido asignadas y a qué host.</li>
+<li><strong>SLAAC (<em>Stateless Address Autoconfiguration</em>):</strong> cada router anuncia información de red incluyendo el prefijo asignado a cada una de sus interfaces. Con la información contenida en este anuncio los sistemas finales crean una dirección única al concatenar el prefijo con el ID en formato EUI-64 de la interfaz. El nombre <em>stateless</em> viene de que ningún dispositivo lleva un registro de las IP que se van asignando. Los sistemas finales piden información de red al router usando un mensaje específico denominado <em>Router Solicitation</em> y los routers responden con un mensaje <em>Router Advertisement</em>. Existe un proceso denominado DAD (<em>Duplicate Address Detection</em>), que se encarga de verificar que las IPs no estén en uso, no sean duplicadas.</li>
+<li><strong>DHCPv6:</strong> se puede definir este método como autoconfiguración <em>stateful</em> y el funcionamiento es similar a DHCP tradicional, asignando direccionamiento a los hosts de un rango preconfigurado. Tiene una ventaja añadida y es que rompe la relación entre MAC e IP (capa 2 y 3) creada si se utiliza la autoconfiguración stateless, aumentando la seguridad.</li>
+</ul>
+<h2 id="transicion-de-ipv4-a-ipv6">Transición de IPv4 a IPv6<a class="headerlink" href="#transicion-de-ipv4-a-ipv6" title="Permanent link">&para;</a></h2>
+<p>Muchos de los actuales dispositivos de red requieren para su funcionalidad la utilización e implementación de IPv6. Sin embargo y por diferentes razones muchas empresas no pueden cambiar fácilmente de IPv4 a IPv6. Este proceso de migración puede llevar un largo período de cambios y transformaciones por lo que durante esta fase pueden coexistir ambas versiones de IP.</p>
+<h3 id="dual-stack">Dual Stack<a class="headerlink" href="#dual-stack" title="Permanent link">&para;</a></h3>
+<p>Con este mecanismo es posible ejecutar IPv4 e IPv6 a la vez sin comunicación entre ambas versiones. Los hosts y los routers llevan configuraciones de las dos versiones de IP y utilizan independientemente unas u otras según los recursos que quieran alcanzar. Si un recurso en concreto proporciona ambas versiones sería conveniente utilizar IPv6 para alcanzarlo.</p>
+<p>Este mecanismo de dualidad permite a los servidores, clientes y aplicaciones moverse gradualmente hacia el nuevo protocolo provocando un mínimo impacto durante el proceso de transición a IPv6.</p>
+<p>La mayor desventaja de esta tecnología, es que requiere que todo el equipamiento soporte ambos protocolos, lo cual no es la situación real.</p>
+<h3 id="tuneles">Túneles<a class="headerlink" href="#tuneles" title="Permanent link">&para;</a></h3>
+<p>El mecanismo que proporciona dual stack funciona correctamente siempre y cuando la infraestructura pueda soportar los dos protocolos, pero hay casos en los que los dispositivos sólo soportan IPv4, como por ejemplo en equipos de core. Hasta que estos equipos sean actualizados se debe utilizar otro tipo de técnica que pueda ejecutar IPv6 a través de IPv4.</p>
+<p>Utilizando túneles los routers que están ejecutando a la vez IPv4 e IPv6 encapsularán el tráfico IPv6 dentro de paquetes IPv4. El origen de los paquetes IPv4 es el propio router local y el destino será el router en el extremo del túnel. Cuando el router destino recibe el paquete IPv4 lo desencapsula y hace un reenvío del tráfico IPv6 que estaba encapsulado.</p>
+<p><img alt="" src="../a6.png" /></p>
+<p>En la actualidad, Internet es básicamente una red IPv4 con algunas islas IPv6; por lo tanto, lo más frecuente es que el tráfico IPv6 viaje encapsulado en paquetes IPv4.</p>
+<p>Los siguientes son algunos de los tipos de túneles más comunes:</p>
+<ul>
+<li><strong>Configuración manual:</strong> el túnel se crea manualmente, IPv6 es el protocolo pasajero siendo IPv4 el encargado de encapsular y transportar a IPv6.</li>
+<li><strong>6-to-4:</strong> permite tráfico IPv6 sobre una red IPv4 sin la necesidad de configurar túneles de forma explícita, aunque se mantiene la función de encapsulamiento de IPv6 en IPv4. Los túneles 6-to-4 utilizan direcciones IPv6 que enlazan las direcciones <code>2002::/16</code> con la dirección IPv4 de 32 bits del router borde creando un prefijo de 48 bits.</li>
+<li><strong>Teredo:</strong> encapsulan paquetes IPv6 en segmentos IPv4 UDP y trabajan de manera similar a los otros mecanismos anteriores con el agregado de poder atravesar redes que están utilizando NAT y firewall. La RFC 4380 describe el funcionamiento de este mecanismo.</li>
+<li><strong>ISATAP (<em>Intra-Site Automatic Tunnel Addressing Protocol</em>):</strong> trata la red como una NBMA de IPv4 y permite a la red privada IPv4 implementar incrementalmente IPv6 sin actualizar la red. La RFC 4214 describe el funcionamiento de ISATAP.</li>
+</ul>
+<h3 id="traduccion">Traducción<a class="headerlink" href="#traduccion" title="Permanent link">&para;</a></h3>
+<p>El problema del mecanismo de túneles, ya sea manual o automático, es que termina siendo una solución del tipo dual stack. Los clientes IPv6 tienen que seguir soportando IPv4 para conectar con otros dispositivos IPv4. La traducción de direcciones es un tipo de solución diferente que permite a dispositivos IPv6 comunicarse con dispositivos IPv4 sin necesidad de dependencia dual stack.</p>
+<p>Algunas de las técnicas de traducción más empleadas son:</p>
+<ul>
+<li><strong>SIIT (<em>Stateless IP/ICMP Translation</em>):</strong> realiza traducción de encabezados IPv6 a IPv4 y viceversa.</li>
+<li><strong>NAT64:</strong> mecanismo que permite a los hosts IPv6 comunicar con hosts IPv4. Puede implementarse en modo <em>stateless</em> según la RFC 6145 o <em>stateful</em> según la RFC 6146.</li>
+<li><strong>Stateless NAT64:</strong> mecanismo de traslación de direcciones IPv6 a IPv4, pero garantizando correspondencia 1 a 1, en lugar de usar correspondencia 1 a muchos como en el NAT stateful.</li>
+</ul>
+<p>Los dominios de enrutamiento IPv4 e IPv6 también pueden estar conectados a través de un Proxy usando ALG (<em>Application-Level Gateways</em>). Un Proxy intercepta tráfico y lo convierte al protocolo correspondiente. Un ALG independiente será necesario para soportar cada protocolo, de esta manera este método solo soluciona algunos problemas específicos de la traducción de direcciones.</p>
+<h2 id="fundamentos-para-el-examen">Fundamentos para el examen<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Practique la conversión de números decimales, binarios y hexadecimales.</li>
+<li>Memorice los rangos de cada una de las clases de redes, el direccionamiento reservado para uso privado.</li>
+<li>Ejercite el cálculo de subredes, VLMS y resúmenes de ruta.</li>
+<li>Tenga claro la diferencia entre VLMS, CIDR y resumen de ruta.</li>
+<li>Estudie el mecanismo de abreviatura de una dirección IPv6.</li>
+<li>Analice las diferencias fundamentales entre el direccionamiento IPv4 e IPv6 y los métodos de transición entre ellos.</li>
+<li>Recuerde cuales son los tipos de direcciones IPv6 y como se constituyen.</li>
+<li>Diferencie los distintos métodos de configuración de una dirección IPv6.</li>
+<li>Deduzca las diferencias entre IPv4 e IPv6, y cómo funcionan los mecanismos de transición.</li>
+<li>Fundamente este capítulo realizando la mayor cantidad posible de ejercidos de subredes hasta tener una idea clara de su funcionamiento.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../capitulo-1/capitulo_1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Conceptos basicos">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Conceptos basicos
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../capitulo-3/capitulo_3/" class="md-footer__link md-footer__link--next" aria-label="Next: Conmutacion">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Conmutacion
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

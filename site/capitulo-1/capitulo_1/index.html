@@ -1,0 +1,4293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aprendizaje de cisco ccn3">
+      
+      
+        <meta name="author" content="Alexander Guerrero">
+      
+      
+      
+      
+        <link rel="next" href="../../capitulo-2/capitulo_2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.36">
+    
+    
+      
+        <title>Conceptos Basicos - CISCO CCN3</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#conceptos-basicos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CISCO CCN3" class="md-header__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CISCO CCN3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conceptos Basicos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CISCO CCN3" class="md-nav__button md-logo" aria-label="CISCO CCN3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    CISCO CCN3
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alexanderguerrero1998/zensical-vue" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zensical-vue
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCCION A LAS REDES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCCION A LAS REDES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos basicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-referencia-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo de referencia OSI
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo de referencia OSI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion-de-las-siete-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Descripción de las siete capas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Descripción de las siete capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de presentación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de sesión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-transporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de transporte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de red
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-enlace-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de enlace de datos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa física
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa física
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de la capa física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivos de la capa física
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares de la capa física
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medios-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Medios de la capa física
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Medios de la capa física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cable-directo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cable directo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cable-cruzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cable cruzado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cable-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cable consola
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medios-inalambricos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Medios inalámbricos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topologias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Topologías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-de-enlace-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa de enlace de datos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de la capa de enlace de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-de-capa-de-enlace-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivos de capa de enlace de datos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispositivos de capa de enlace de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-tarjeta-de-red-nic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        La tarjeta de red (NIC)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-punto-de-acceso-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        El punto de acceso (AP)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-las-redes-conmutadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Características de las redes conmutadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de la capa de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direccion-de-capa-tres" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dirección de capa tres
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-entre-ipv4-e-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comparación entre IPv4 e IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacion-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Operación AND
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-de-la-capa-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivos de la capa de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispositivos de la capa de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Firewalls
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-de-transporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa de transporte
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo TCP/IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo TCP&#x2f;IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-capa-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos de capa de aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-capa-de-transporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos de capa de transporte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeros-de-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Números de puertos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-capa-de-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos de capa de Internet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ethernet
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ethernet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominio-de-colision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dominio de colisión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominio-de-difusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dominio de difusión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csmacd" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CSMA/CD
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacion-duplex" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Operación dúplex
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formato-basico-de-una-trama-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formato básico de una trama Ethernet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-encapsulacion-de-los-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proceso de encapsulación de los datos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-jerarquico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo jerárquico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo jerárquico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de acceso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-distribucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de distribución
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-nucleo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de núcleo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-core-colapsado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo de core colapsado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedimientos-basicos-de-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Procedimientos básicos de troubleshooting
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Caso práctico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso práctico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-conectividad-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prueba de conectividad TCP/IP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIRECCIONAMIENTO IP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DIRECCIONAMIENTO IP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-2/capitulo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direccionamiento IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONMUTACION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONMUTACION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-3/capitulo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conmutacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL SWITCH
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL SWITCH
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-4/capitulo_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONCEPTOS DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-5/capitulo_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptos de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DEL ROUTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DEL ROUTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-6/capitulo_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion del router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES INALAMBRICAS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES INALAMBRICAS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-7/capitulo_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes inalambricas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEGURIDAD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEGURIDAD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-8/capitulo_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CONFIGURACION DE ENRUTAMIENTO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-9/capitulo_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuracion de enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CALIDAD DE SERVICIO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CALIDAD DE SERVICIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-10/capitulo_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad de servicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REDES DE AREA AMPLIA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REDES DE AREA AMPLIA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-11/capitulo_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes de area amplia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADMINISTRACION Y GESTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADMINISTRACION Y GESTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-12/capitulo_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administracion y gestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATIZACION DE LA RED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATIZACION DE LA RED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capitulo-13/capitulo_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizacion de la red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OTRO LIBRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OTRO LIBRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Efficient_NodeJS/cap1/nodeFunfamentals.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NODE FUNDAMENTALS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-referencia-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo de referencia OSI
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo de referencia OSI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion-de-las-siete-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Descripción de las siete capas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Descripción de las siete capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de presentación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de sesión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-transporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de transporte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de red
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-enlace-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de enlace de datos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa física
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa física
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de la capa física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivos de la capa física
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estandares-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estándares de la capa física
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medios-de-la-capa-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Medios de la capa física
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Medios de la capa física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cable-directo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cable directo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cable-cruzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cable cruzado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cable-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cable consola
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medios-inalambricos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Medios inalámbricos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topologias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Topologías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-de-enlace-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa de enlace de datos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de la capa de enlace de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-de-capa-de-enlace-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivos de capa de enlace de datos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispositivos de capa de enlace de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-tarjeta-de-red-nic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        La tarjeta de red (NIC)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-punto-de-acceso-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        El punto de acceso (AP)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-las-redes-conmutadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Características de las redes conmutadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de la capa de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direccion-de-capa-tres" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dirección de capa tres
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-entre-ipv4-e-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comparación entre IPv4 e IPv6
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacion-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Operación AND
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-de-la-capa-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivos de la capa de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispositivos de la capa de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Firewalls
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-de-la-capa-de-transporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Funciones de la capa de transporte
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo TCP/IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo TCP&#x2f;IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-capa-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos de capa de aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-capa-de-transporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos de capa de transporte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeros-de-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Números de puertos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-capa-de-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos de capa de Internet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ethernet
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ethernet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominio-de-colision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dominio de colisión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominio-de-difusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dominio de difusión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csmacd" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CSMA/CD
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacion-duplex" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Operación dúplex
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formato-basico-de-una-trama-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formato básico de una trama Ethernet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-encapsulacion-de-los-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Proceso de encapsulación de los datos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-jerarquico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo jerárquico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo jerárquico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de acceso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-distribucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de distribución
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capa-de-nucleo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capa de núcleo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-core-colapsado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelo de core colapsado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedimientos-basicos-de-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Procedimientos básicos de troubleshooting
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Caso práctico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso práctico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-conectividad-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prueba de conectividad TCP/IP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-para-el-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fundamentos para el examen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Get started
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    INTRODUCCION A LAS REDES
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="conceptos-basicos">Conceptos Basicos<a class="headerlink" href="#conceptos-basicos" title="Permanent link">&para;</a></h1>
+<p>Antes de comenzar la lectura de este libro el estudiante debe tener claros ciertos conceptos que harán posible la mejor comprensión de cada uno de los temas descritos en estas páginas. Esta guía de estudio apunta principalmente a la certificación CCNA, profundizando en el temario cada vez más en cada capítulo. Estos primeros párrafos servirán como base a todo lo que sigue posteriormente.</p>
+<p>Las infraestructuras de red pueden variar dependiendo del tamaño del área, del número de usuarios conectados y del número y los diferentes tipos de servicios disponibles. Además del dispositivo final, hay otros componentes que hacen posible que se establezca el enlace entre los dispositivos de origen y destino. Dos de los componentes críticos en una red de cualquier tamaño son el router y el switch, el funcionamiento y configuración de ambos se detallarán en los capítulos siguientes.</p>
+<p>Todos los tipos de mensajes se tienen que convertir a bits, señales digitales codificadas en binario, antes de enviarse a sus destinos. Esto es así sin importar el formato del mensaje original. Generalmente, las redes utilizan diferentes tipos de medios para proporcionar conectividad. Ethernet es la tecnología de red más común en la actualidad. Las redes cableadas son ideales para transmitir gran cantidad de datos a altas velocidades. Las redes inalámbricas permiten el uso de dispositivos conectados a la red en cualquier lugar de una oficina o casa, incluso en el exterior.</p>
+<p>Las redes LAN (<em>Local Area Network</em>) y las redes WAN (<em>Wide Area Network</em>), conectan a los usuarios dentro y fuera de la organización. Permiten gran cantidad y diversos tipos de comunicación.</p>
+<p>Sin embargo, los aspectos más importantes de las redes no son los dispositivos ni los medios, sino los protocolos que especifican la manera en que se envían los mensajes, cómo se direccionan a través de la red y cómo se interpretan en los dispositivos de destino.</p>
+<h2 id="modelo-de-referencia-osi">Modelo de referencia OSI<a class="headerlink" href="#modelo-de-referencia-osi" title="Permanent link">&para;</a></h2>
+<p>A principios de los años ochenta los fabricantes informáticos más importantes de la época se reúnen para unificar diferencias y recopilar la mayor información posible acerca de cómo poder integrar sus productos hasta el momento no compatibles entre sí y exclusivos para cada uno de ellos. Como resultado de este acuerdo surge el modelo de referencia OSI, que sigue los parámetros comunes de hardware y software haciendo posible la integración multifabricante.</p>
+<p>El modelo OSI (<em>Open System Interconnection</em>, no confundir con ISO) divide a la red en diferentes capas con el propósito de que cada desarrollador trabaje específicamente en su campo sin tener necesidad de depender de otras áreas. Un programador crea una aplicación determinada sin importarle cuáles serán los medios por los que se trasladarán los datos, inversamente un técnico de comunicaciones proveerá comunicación sin importarle qué datos transporta.</p>
+<p><strong>Las siete capas del modelo OSI</strong></p>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>Aplicación</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Presentación</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sesión</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Transporte</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enlace de datos</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Física</td>
+</tr>
+</tbody>
+</table>
+<p>En su conjunto, el modelo OSI se compone de siete capas bien definidas que son: Aplicación, Presentación, Sesión, Transporte, Red, Enlace de Datos y Física.</p>
+<p>Cada una de estas capas presta servicio a la capa inmediatamente superior, siendo la capa de aplicación la única que no lo hace ya que al ser la última capa su servicio está directamente relacionado con el usuario. Así mismo, cada una de estas siete capas del host origen se comunica directamente con su similar en el host de destino. Las cuatro capas inferiores también son denominadas capas de Medios (en algunos casos capas de Flujo de Datos), mientras que las tres capas superiores se llaman de Host o de Aplicación.</p>
+<p><img alt="" src="../a1.png" /></p>
+<p>Las principales características del modelo de referencia OSI pueden resumirse en los siguientes puntos:</p>
+<ul>
+<li>Proporciona una forma de entender cómo operan los dispositivos en una red.</li>
+<li>Es la referencia para crear e implementar estándares de red, dispositivos y esquemas de internetworking.</li>
+<li>Separa la compleja operación de una red en elementos más simples.</li>
+<li>Permite a los ingenieros centrarse en el diseño y desarrollo de funciones modulares ocupándose cada uno de su parte específica.</li>
+<li>Proporciona la posibilidad de definir interfaces estándar para compatibilidad "plug-and-play" e integración multifabricante.</li>
+</ul>
+<h3 id="descripcion-de-las-siete-capas">Descripción de las siete capas<a class="headerlink" href="#descripcion-de-las-siete-capas" title="Permanent link">&para;</a></h3>
+<h4 id="capa-de-aplicacion">Capa de aplicación<a class="headerlink" href="#capa-de-aplicacion" title="Permanent link">&para;</a></h4>
+<p>Es la única capa que no presta servicio a otra puesto que es la capa de nivel superior del modelo OSI directamente relacionada con el usuario. La aplicación a través del software dialoga con los protocolos respectivos para acceder al medio. Por ejemplo, se accede a un procesador de textos por el servicio de transferencia de archivos de esta capa. Algunos protocolos relacionados con esta capa son: HTTP, correo electrónico, telnet.</p>
+<h4 id="capa-de-presentacion">Capa de presentación<a class="headerlink" href="#capa-de-presentacion" title="Permanent link">&para;</a></h4>
+<p>Los datos formateados se proveen de diversas funciones de conversión y codificación que se aplican a los datos provenientes de la capa de aplicación. Estas funciones aseguran que estos datos enviados desde la capa de aplicación de un sistema origen podrán ser leídos por la capa de aplicación de otro sistema destino. Un ejemplo de funciones de codificación sería el cifrado de datos una vez que éstos salen de una aplicación. Por ejemplo, los formatos de imágenes JPEG y GIF que se muestran en páginas web. Este formato asegura que todos los navegadores web puedan mostrar las imágenes, con independencia del sistema operativo utilizado. Algunos protocolos relacionados con esta capa son: JPEG, MIDI, MPEG, QUICKTIME.</p>
+<h4 id="capa-de-sesion">Capa de sesión<a class="headerlink" href="#capa-de-sesion" title="Permanent link">&para;</a></h4>
+<p>Es la responsable de establecer, administrar y concluir las sesiones de comunicaciones entre entidades de la capa de presentación. La comunicación en esta capa consiste en peticiones de servicios y respuestas entre aplicaciones ubicadas en diferentes dispositivos. Un ejemplo de este tipo de coordinación podría ser el que tiene lugar entre un servidor y un cliente de base de datos.</p>
+<h4 id="capa-de-transporte">Capa de transporte<a class="headerlink" href="#capa-de-transporte" title="Permanent link">&para;</a></h4>
+<p>Es la encargada de la comunicación confiable entre host, control de flujo y de la corrección de errores entre otras cosas. Los datos son divididos en segmentos identificados con un encabezado con un número de puerto que identifica la aplicación de origen. En esta capa funcionan protocolos como UDP y TCP, siendo este último uno de los más utilizados debido a su estabilidad y confiabilidad.</p>
+<h4 id="capa-de-red">Capa de red<a class="headerlink" href="#capa-de-red" title="Permanent link">&para;</a></h4>
+<p>En esta capa se lleva a cabo el direccionamiento lógico que tiene carácter jerárquico, se selecciona la mejor ruta hacia el destino mediante el uso de tablas de enrutamiento a través del uso de protocolos de enrutamiento o por direccionamiento estático. Protocolos de capa de red pueden ser: IP, IPX, RIP, IGRP, Apple Talk.</p>
+<h4 id="capa-de-enlace-de-datos">Capa de enlace de datos<a class="headerlink" href="#capa-de-enlace-de-datos" title="Permanent link">&para;</a></h4>
+<p>Proporciona las comunicaciones entre puestos de trabajo en una primera capa lógica, transforma los voltios en tramas y las tramas en voltios. El direccionamiento físico y la determinación de si deben subir un mensaje a la pila de protocolo ocurren en esta capa. Está dividida en dos subcapas, la LLC (<em>Logical Link Control</em>) y la subcapa MAC (<em>Media Access Control</em>). Algunos protocolos de capa 2: Ethernet, 802.2, 802.3, HDLC, Frame-Relay.</p>
+<h4 id="capa-fisica">Capa física<a class="headerlink" href="#capa-fisica" title="Permanent link">&para;</a></h4>
+<p>Se encarga de los medios, conectores, especificaciones eléctricas, lumínicas, radiofrecuencia y de la codificación. Los bits son transformados en pulsos eléctricos, en luz o en radiofrecuencia para ser enviados según sea el medio en que se propaguen.</p>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Nombre</th>
+<th>Protocolos / conceptos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>Aplicación</td>
+<td>HTML, http, telnet, FTP, TFTP…</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Presentación</td>
+<td>JPEG, MIDI, MPEG, ASCII, Quicktime…</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sesión</td>
+<td>Control de diálogo</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Transporte</td>
+<td>Control de flujo, TCP, UDP…</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Red</td>
+<td>Enrutamiento, IP, IPX, RIP, IGRP, Apple Talk…</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enlace de datos</td>
+<td>LLC — Ethernet, 802.2, 802.3, HDLC, Frame-Relay… / MAC</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Física</td>
+<td>Bits, RJ45…</td>
+</tr>
+</tbody>
+</table>
+<h2 id="funciones-de-la-capa-fisica">Funciones de la capa física<a class="headerlink" href="#funciones-de-la-capa-fisica" title="Permanent link">&para;</a></h2>
+<p>La capa física define el medio, el conector y el tipo de señalización. Se especifican los requisitos necesarios para la correcta transmisión de los datos. Se establecen las características eléctricas, mecánicas y funcionales para activar, mantener y desactivar la conexión física entre sistemas finales.</p>
+<p>La capa física especifica también características tales como niveles de voltaje, tasas de transferencia de datos, distancias máximas de transmisión y conectores, cada medio de red posee a su vez su propio ancho de banda y unidad máxima de transmisión (MTU).</p>
+<p>El medio físico y los conectores usados para conectar dispositivos al medio vienen definidos por estándares de la capa física.</p>
+<h3 id="dispositivos-de-la-capa-fisica">Dispositivos de la capa física<a class="headerlink" href="#dispositivos-de-la-capa-fisica" title="Permanent link">&para;</a></h3>
+<p>La capa física comprende los medios (cobre, fibra, RF), los conectores, transceivers, repetidores, AP y hubs. Ninguno de ellos manipula los datos transmitidos, sino que solo se encargan de transportarlos y propagarlos por la red.</p>
+<p>Los repetidores se encargan de retransmitir y de retemporizar los pulsos eléctricos cuando la extensión del cableado supera las medidas específicas.</p>
+<p>Los hubs son repetidores multipuesto, también llamados concentradores. Al recibir una trama inundan todos sus puertos obligando a todos los dispositivos conectados a cada uno de sus puertos a leer dichas tramas.</p>
+<p>Los transceivers son adaptadores de un medio a otro.</p>
+<h3 id="estandares-de-la-capa-fisica">Estándares de la capa física<a class="headerlink" href="#estandares-de-la-capa-fisica" title="Permanent link">&para;</a></h3>
+<p>Los estándares de cableado se identifican siguiendo los siguientes conceptos, tomando como ejemplo <strong>10 Base T</strong>:</p>
+<ul>
+<li><strong>10</strong> hace referencia a la velocidad de transmisión en Mbps (megabits por segundo), en este caso 10 Mbps.</li>
+<li><strong>Base</strong> es la tecnología de transmisión (banda base, analógica o digital), en este caso digital.</li>
+<li><strong>T</strong> se refiere al medio físico, en este caso par trenzado.</li>
+</ul>
+<p>El siguiente cuadro muestra las características de los estándares más comunes:</p>
+<table>
+<thead>
+<tr>
+<th>Estándar</th>
+<th>Nombre</th>
+<th>Distancia máxima</th>
+<th>Comentarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10GBase-S</td>
+<td>Fibra óptica multimodo</td>
+<td>400 metros</td>
+<td>SFP/SFP+</td>
+</tr>
+<tr>
+<td>10GBase-LX4</td>
+<td>Fibra óptica multimodo</td>
+<td>300 metros</td>
+<td>SFP/SFP+</td>
+</tr>
+<tr>
+<td>10GBase-LR</td>
+<td>Fibra óptica monomodo</td>
+<td>10 km</td>
+<td>SFP/SFP+</td>
+</tr>
+<tr>
+<td>10GBase-E</td>
+<td>Fibra óptica monomodo</td>
+<td>30 km</td>
+<td>SFP/SFP+</td>
+</tr>
+<tr>
+<td>1000Base-LX</td>
+<td>Gigabit Ethernet</td>
+<td>5000 metros</td>
+<td>SFP/SFP+</td>
+</tr>
+<tr>
+<td>802.3z</td>
+<td>10Base-T (Ethernet)</td>
+<td>100 metros</td>
+<td>RJ-45</td>
+</tr>
+<tr>
+<td>802.3</td>
+<td>100Base-T (Fast Ethernet)</td>
+<td>100 metros</td>
+<td>RJ-45</td>
+</tr>
+<tr>
+<td>802.3u</td>
+<td>1000Base-T (Gigabit Ethernet)</td>
+<td>100 metros</td>
+<td>RJ-45</td>
+</tr>
+<tr>
+<td>802.3ab</td>
+<td>10GBase-T (10 Gig Ethernet)</td>
+<td>100 metros</td>
+<td>RJ-45</td>
+</tr>
+<tr>
+<td>802.3an</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="medios-de-la-capa-fisica">Medios de la capa física<a class="headerlink" href="#medios-de-la-capa-fisica" title="Permanent link">&para;</a></h3>
+<p>La normativa EIE/TIA 568 fue creada en 1991 y establece los estándares de cableado estructurado, ampliada posteriormente a 568-A y 568-B.</p>
+<p><strong>Orden de los pines correspondiente a la norma 568-A sobre un conector RJ-45</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Par</th>
+<th>Función</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>Transmite (+)</td>
+<td>Blanco/verde</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>Transmite (-)</td>
+<td>Verde</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>Recibe (+)</td>
+<td>Blanco/naranja</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>Telefonía</td>
+<td>Azul</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>Telefonía</td>
+<td>Blanco/azul</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>Recibe (-)</td>
+<td>Naranja</td>
+</tr>
+<tr>
+<td>7</td>
+<td>4</td>
+<td>Respaldo</td>
+<td>Blanco/marrón</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>Respaldo</td>
+<td>Marrón</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Orden de los pines correspondiente a la norma 568-B sobre un conector RJ-45</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Par</th>
+<th>Función</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>Transmite (+)</td>
+<td>Blanco/naranja</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>Transmite (-)</td>
+<td>Naranja</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>Recibe (+)</td>
+<td>Blanco/verde</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>Telefonía</td>
+<td>Azul</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>Telefonía</td>
+<td>Blanco/azul</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>Recibe (-)</td>
+<td>Verde</td>
+</tr>
+<tr>
+<td>7</td>
+<td>4</td>
+<td>Respaldo</td>
+<td>Blanco/marrón</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>Respaldo</td>
+<td>Marrón</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cable-directo">Cable directo<a class="headerlink" href="#cable-directo" title="Permanent link">&para;</a></h4>
+<p>El orden de los pines es igual en ambos conectores, se debe utilizar la misma norma en cada extremo.</p>
+<p><strong>Cable directo 568 B</strong></p>
+<table>
+<thead>
+<tr>
+<th>Extremo 1</th>
+<th>Extremo 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blanco/naranja</td>
+<td>Blanco/naranja</td>
+</tr>
+<tr>
+<td>Naranja</td>
+<td>Naranja</td>
+</tr>
+<tr>
+<td>Blanco/verde</td>
+<td>Blanco/verde</td>
+</tr>
+<tr>
+<td>Azul</td>
+<td>Azul</td>
+</tr>
+<tr>
+<td>Blanco/azul</td>
+<td>Blanco/azul</td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>Verde</td>
+</tr>
+<tr>
+<td>Blanco/marrón</td>
+<td>Blanco/marrón</td>
+</tr>
+<tr>
+<td>Marrón</td>
+<td>Marrón</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cable directo 568 A</strong></p>
+<table>
+<thead>
+<tr>
+<th>Extremo 1</th>
+<th>Extremo 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blanco/verde</td>
+<td>Blanco/verde</td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>Verde</td>
+</tr>
+<tr>
+<td>Blanco/naranja</td>
+<td>Blanco/naranja</td>
+</tr>
+<tr>
+<td>Azul</td>
+<td>Azul</td>
+</tr>
+<tr>
+<td>Blanco/azul</td>
+<td>Blanco/azul</td>
+</tr>
+<tr>
+<td>Naranja</td>
+<td>Naranja</td>
+</tr>
+<tr>
+<td>Blanco/marrón</td>
+<td>Blanco/marrón</td>
+</tr>
+<tr>
+<td>Marrón</td>
+<td>Marrón</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cable-cruzado">Cable cruzado<a class="headerlink" href="#cable-cruzado" title="Permanent link">&para;</a></h4>
+<p>El orden de los pines varía en ambos extremos, se cruzan el 1-2 con el 3-6 y el 3-6 con el 1-2. El cable cruzado también es llamado <em>crossover</em>. Se utiliza para conectar dispositivos como, por ejemplo, PC-PC, PC-Router, Router-Router, etc.</p>
+<p><strong>Orden de los colores en ambos extremos de un cable cruzado</strong></p>
+<table>
+<thead>
+<tr>
+<th>Extremo 1</th>
+<th>Extremo 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blanco/naranja</td>
+<td>Blanco/verde</td>
+</tr>
+<tr>
+<td>Naranja</td>
+<td>Verde</td>
+</tr>
+<tr>
+<td>Blanco/verde</td>
+<td>Blanco/naranja</td>
+</tr>
+<tr>
+<td>Azul</td>
+<td>Azul</td>
+</tr>
+<tr>
+<td>Blanco/azul</td>
+<td>Blanco/azul</td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>Naranja</td>
+</tr>
+<tr>
+<td>Blanco/marrón</td>
+<td>Blanco/marrón</td>
+</tr>
+<tr>
+<td>Marrón</td>
+<td>Marrón</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cable-consola">Cable consola<a class="headerlink" href="#cable-consola" title="Permanent link">&para;</a></h4>
+<p>El orden de los pines es completamente inverso, 1-2-3-4-5-6-7-8 con el 8-7-6-5-4-3-2-1, respectivamente. El cable de consola también es llamado <em>rollover</em>.</p>
+<p><strong>Conector RJ-45</strong></p>
+<table>
+<thead>
+<tr>
+<th>Extremo 1</th>
+<th>Extremo 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 al 8</td>
+<td>8 al 1</td>
+</tr>
+<tr>
+<td>2 al 7</td>
+<td>7 al 2</td>
+</tr>
+<tr>
+<td>3 al 6</td>
+<td>6 al 3</td>
+</tr>
+<tr>
+<td>4 al 5</td>
+<td>5 al 4</td>
+</tr>
+</tbody>
+</table>
+<p>Tipos de cable y conectores habituales: Cable UTP, Cable blindado STP, Fibra óptica, Transceptor SFP, Conector LC.</p>
+<p><img alt="" src="../a2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>El enfoque principal de este libro está asociado con los estándares e implementaciones Ethernet e IEE 802.3.</p>
+</div>
+<h3 id="medios-inalambricos">Medios inalámbricos<a class="headerlink" href="#medios-inalambricos" title="Permanent link">&para;</a></h3>
+<p>Los medios inalámbricos transportan señales electromagnéticas mediante frecuencias de microondas y radiofrecuencias que representan los dígitos binarios de las comunicaciones de datos. Como medio en sí mismo, el sistema inalámbrico no se limita a condiciones físicas, como en el caso de los medios de fibra o de cobre. Sin embargo, el medio inalámbrico es susceptible a la interferencia y puede distorsionarse por dispositivos comunes como teléfonos inalámbricos domésticos, algunos tipos de luces fluorescentes, hornos microondas y otras comunicaciones inalámbricas.</p>
+<p>Los estándares IEEE sobre las comunicaciones inalámbricas abarcan las capas físicas y de enlace de datos. Los cuatro estándares comunes de comunicación de datos que se aplican a los medios inalámbricos son:</p>
+<ul>
+<li><strong>IEEE estándar 802.11:</strong> comúnmente denominada Wi-Fi, se trata de una tecnología LAN inalámbrica (red de área local inalámbrica, WLAN) que utiliza una contención o sistema no determinista con un proceso de acceso a los medios de Acceso múltiple con detección de portadora/Prevención de colisiones (CSMA/CA).</li>
+<li><strong>IEEE estándar 802.15:</strong> estándar de red de área personal inalámbrica (WPAN), comúnmente denominada Bluetooth, utiliza un proceso de emparejamiento de dispositivos para comunicarse a través de una distancia de 1 a 100 metros.</li>
+<li><strong>IEEE estándar 802.16:</strong> comúnmente conocida como WiMAX (<em>Worldwide Interoperability for Microwave Access</em>), utiliza una topología punto a multipunto para proporcionar un acceso de ancho de banda inalámbrico en una extensa cobertura.</li>
+<li><strong>Sistema global para comunicaciones móviles (GSM):</strong> incluye las especificaciones de la capa física que habilitan la implementación del protocolo Servicio general de radio por paquetes (GPRS) de capa 2 para proporcionar la transferencia de datos a través de redes de telefonía celular móvil.</li>
+</ul>
+<h3 id="topologias">Topologías<a class="headerlink" href="#topologias" title="Permanent link">&para;</a></h3>
+<p>La topología define como las estaciones de trabajo se conectan entre sí. Existe un número de factores a considerar para determinar cuál topología es la más apropiada para una situación dada.</p>
+<p><strong>Topologías más comunes:</strong></p>
+<ul>
+<li><strong>Bus:</strong> esta topología permite que todas las estaciones reciban la información que se transmite, una estación transmite y todas las restantes escuchan. Consiste en un cable con un terminador en cada extremo del que se cuelgan todos los elementos de una red.</li>
+<li><strong>Anillo:</strong> las estaciones están unidas unas con otras formando un círculo por medio de un cable común. El último nodo de la cadena se conecta al primero cerrando el anillo. Las señales circulan en un solo sentido alrededor del círculo, regenerándose en cada nodo. Con esta metodología, cada nodo examina la información que es enviada a través del anillo. Si la información no está dirigida al nodo que la examina, la pasa al siguiente en el anillo. La desventaja del anillo es que si se rompe una conexión se cae la red completa.</li>
+<li><strong>Estrella:</strong> los datos en estas redes fluyen del emisor hasta un concentrador, que realiza las funciones de enviar y recibir las señales de red, además actúa como amplificador de los datos.</li>
+<li><strong>Estrella extendida:</strong> es la combinación de dos o más topologías en estrella unidas entre sí por sus respectivos concentradores.</li>
+<li><strong>Híbridas:</strong> es una combinación de todas las anteriores.</li>
+</ul>
+<p>Los concentradores o hubs de capa uno son reemplazados en la actualidad por switches de capa dos.</p>
+<h2 id="funciones-de-la-capa-de-enlace-de-datos">Funciones de la capa de enlace de datos<a class="headerlink" href="#funciones-de-la-capa-de-enlace-de-datos" title="Permanent link">&para;</a></h2>
+<p>La finalidad de esta capa es proporcionar comunicación entre puestos de trabajo en una primera capa lógica que hay por encima de los bits del cable. El direccionamiento físico de los puestos finales se realiza en la capa de enlace de datos con el fin de facilitar a los dispositivos de red la determinación de si deben subir un mensaje a la pila de protocolo.</p>
+<p>La capa de enlace de datos da soporte a servicios basados en la conectividad y no basados en ella, y proporciona la secuencia y control de flujo (no confundir con la capa de transporte). Tiene conocimiento de la topología a la que está afectada y donde se desempeña la tarjeta de red o NIC (<em>Network interface controller</em>).</p>
+<p>Está dividida en dos subcapas, la LLC (<em>Logical Link Control</em> 802.2), responsable de la identificación lógica de los distintos tipos de protocolos y el encapsulado posterior de los mismos para ser transmitidos a través de la red, y la subcapa MAC (<em>Media Access Control</em> 802.3), responsable del acceso al medio, el direccionamiento físico, topología de la red, disciplina de la línea, notificación de errores, distribución ordenada de tramas y control óptimo de flujo. Las direcciones físicas de origen destino son representadas como direcciones de capa MAC.</p>
+<h3 id="dispositivos-de-capa-de-enlace-de-datos">Dispositivos de capa de enlace de datos<a class="headerlink" href="#dispositivos-de-capa-de-enlace-de-datos" title="Permanent link">&para;</a></h3>
+<p>En la capa de enlace de datos se diferencian perfectamente los Dominios de Colisión y los Dominios de Difusión (ver más adelante). Los puentes y los switches dividen a la red en segmentos, estos a su vez crean dominios de colisión. Una colisión producida en un segmento conectado a un switch no afectará a los demás segmentos conectados al mismo switch. Sin embargo, los dispositivos de capa 2 no crean dominios de broadcast o difusión.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Un switch de 12 puertos utilizados tendrá 12 dominios de colisión y uno de difusión. Los dispositivos de capa dos crean dominios de colisión pero mantienen un único dominio de broadcast. Una colisión producida en un segmento no afecta al resto.</p>
+</div>
+<p><img alt="" src="../a3.png" /></p>
+<p>En un switch, el reenvío de tramas se controla por medio de hardware (ASIC). Esta tecnología permite que las funciones de conmutación puedan llevarse a cabo a una velocidad mucho mayor que por software. Debido a la tecnología ASIC (<em>Application-Specific Integrated Circuits</em>), los switches proporcionan escalabilidad a velocidades de gigabits con una latencia baja.</p>
+<p>Los puentes funcionan a nivel de software por lo que poseen mayor latencia comparados con un switch.</p>
+<p>El switch almacena en una memoria de contenido direccionable (CAM) las direcciones físicas de los dispositivos asociados a un segmento de red conectado directamente a un puerto determinado. De esta manera identificará inmediatamente por qué puerto enviar la trama. Si el dispositivo de destino está en el mismo segmento que el origen, el switch bloquea el paso de la trama a otro segmento. Este proceso se conoce como filtrado. Si el dispositivo de destino se encuentra en un segmento diferente, el switch envía la trama únicamente al segmento apropiado, técnica conocida como conmutación de capa dos. Si la dirección de destino es desconocida para el switch, o si se tratara de un broadcast, este enviará la trama a todos los segmentos excepto a aquel de donde se ha recibido la información. Este proceso se denomina inundación.</p>
+<h4 id="la-tarjeta-de-red-nic">La tarjeta de red (NIC)<a class="headerlink" href="#la-tarjeta-de-red-nic" title="Permanent link">&para;</a></h4>
+<p>La NIC o tarjeta de red opera en la capa de enlace de datos, no debe confundirse con la capa física a pesar de estar directamente conectada al medio ya que sus principales funciones radican en la capa 2. La NIC almacena en su propia ROM la dirección MAC que consta de 48 bits y viene expresada en 12 dígitos hexadecimales. Los primeros 24 bits, o 6 dígitos hexadecimales, de la dirección MAC contienen un código de identificación del fabricante o vendedor OUI (<em>Organizationally Unique Identifier</em>). Los últimos 24 bits, o 6 dígitos hexadecimales, están administrados por cada fabricante y presentan, por lo general, el número de serie de la tarjeta. La dirección de la capa de enlace de datos no tiene jerarquías, es decir, que es un direccionamiento plano.</p>
+<p><strong>Ejemplo de una dirección MAC o dirección física:</strong> <code>00-11-85-f2-32-e5</code></p>
+<ul>
+<li><code>00-11-85</code> representa el código del fabricante.</li>
+<li><code>f2-32-e5</code> representa el número de serie.</li>
+</ul>
+<h4 id="el-punto-de-acceso-ap">El punto de acceso (AP)<a class="headerlink" href="#el-punto-de-acceso-ap" title="Permanent link">&para;</a></h4>
+<p>Un AP o punto de acceso es un concentrador que gestiona y administra la red wireless anunciando su propia presencia para que los clientes puedan asociarse y controla el proceso de la comunicación. Es, además, responsable de enviar los ACK a las estaciones que están enviando.</p>
+<p>La función primaria del AP es puentear datos wireless del aire hasta la red tradicional cableada. El AP lleva a cabo ciertas consideraciones antes de permitir transmitir a la estación.</p>
+<p>Una vez asociadas todas las comunicaciones desde y hacia el cliente pasarán por el AP. Los clientes ahora no pueden comunicarse directamente con otros sin la intervención del AP.</p>
+<p>Los Wireless Controllers de Cisco se utilizan para configurar las directivas inalámbricas o la configuración de seguridad en cualquier momento a través de una gestión centralizada. Reducen los gastos operativos mediante la simplificación de despliegue de red, operaciones y gestión. Responden al crecimiento de la organización con el modelo de licencias escalables.</p>
+<p>La implementación de los controladores inalámbricos ayuda a gestionar de forma centralizada, segura y permite configurar los puntos de acceso en toda la organización.</p>
+<p>Los Cisco Wireless Controllers pueden funcionar en capa 2 y capa 3 y brindan movilidad y calidad de servicio para voz y vídeo y el acceso inalámbrico de alta seguridad para invitados.</p>
+<p><img alt="" src="../a4.png" /></p>
+<p>Los Wireless Controllers de Cisco se utilizan para configurar las directivas inalámbricas a través de una gestión centralizada.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Para verificar el correcto funcionamiento de la tarjeta de red se realiza un ping a la dirección IP de la misma.</p>
+</div>
+<h3 id="caracteristicas-de-las-redes-conmutadas">Características de las redes conmutadas<a class="headerlink" href="#caracteristicas-de-las-redes-conmutadas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cada segmento genera su propio dominio de colisión.</li>
+<li>Todos los dispositivos conectados al mismo bridge o switch forman parte del mismo dominio de difusión.</li>
+<li>Todos los segmentos deben utilizar la misma implementación al nivel de la capa de enlace de datos como, por ejemplo, Ethernet o Token Ring.</li>
+<li>Si un puesto final concreto necesita comunicarse con otro puesto final a través de un medio diferente, se hace necesaria la presencia de algún dispositivo, como puede ser un router o un bridge de traducción, que haga posible el diálogo entre los diferentes tipos de medios.</li>
+</ul>
+<p>En un entorno conmutado, puede haber un dispositivo por segmento, y todos los dispositivos pueden enviar tramas al mismo tiempo, permitiendo de este modo que se comparta la ruta primaria.</p>
+<h2 id="funciones-de-la-capa-de-red">Funciones de la capa de red<a class="headerlink" href="#funciones-de-la-capa-de-red" title="Permanent link">&para;</a></h2>
+<p>La capa de red define cómo transportar el tráfico de datos entre dispositivos que no están conectados localmente en el mismo dominio de difusión, es decir, que pertenecen a diferentes redes. Para conseguir esta comunicación se necesita conocer las direcciones lógicas asociadas a cada puesto de origen y de destino y una ruta bien definida a través de la red para alcanzar el destino deseado. La capa de red es independiente de la de enlace de datos y, por lo tanto, puede ser utilizada para conectividad de medios físicos diferentes.</p>
+<p>Las direcciones de capa 3, o direcciones lógicas, son direcciones jerárquicas. Esta jerarquía define primero las redes y luego a los dispositivos (nodos) pertenecientes a esas redes. Un ejemplo para la comprensión de una dirección jerárquica sería un número telefónico, donde primero se define el código del país, luego el estado y luego el número del usuario. Un esquema plano se puede exemplificar con un número de un documento de identidad donde cada número es único y personal.</p>
+<p>Una dirección lógica cuenta con dos partes bien definidas, una que identifica de forma única a la red dentro de un conjunto en la internetwork y la otra parte que representa al host dentro de estas redes. Con la suma o combinación de ambas partes se obtiene un identificador único para cada dispositivo. El router identifica dentro de la dirección lógica la porción perteneciente a la red con el fin de identificar la red donde enviar los paquetes.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Existen muchos protocolos de red, todos cumplen las mismas funciones de identificar redes y hosts. TCP/IP es el protocolo común más usado.</p>
+</div>
+<h3 id="direccion-de-capa-tres">Dirección de capa tres<a class="headerlink" href="#direccion-de-capa-tres" title="Permanent link">&para;</a></h3>
+<p>Una dirección IPv4 se caracteriza por lo siguiente:</p>
+<ul>
+<li>Una dirección de 32 bits, dividida en cuatro octetos. Este direccionamiento identifica una porción perteneciente a la red y otra al host.</li>
+<li>A cada dirección IP le corresponde una máscara de red de 32 bits dividida en cuatro octetos. El router determina las porciones de red y host por medio de la máscara de red.</li>
+<li>Las direcciones IP generalmente se representan en forma decimal para hacerlas más comprensibles. Esta forma se conoce como decimal punteado o notación decimal de punto.</li>
+</ul>
+<p><strong>Ejemplo del formato de una dirección IPv4</strong></p>
+<ul>
+<li><strong>Dirección IP:</strong> 172.16.1.3 → <code>10101100.00010000.00000001.00000011</code></li>
+<li><strong>Máscara:</strong> 255.255.0.0 → <code>11111111.11111111.00000000.00000000</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Octeto 1</th>
+<th>Octeto 2</th>
+<th>Octeto 3</th>
+<th>Octeto 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dirección IP</strong></td>
+<td>172</td>
+<td>16</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Máscara</strong></td>
+<td>255</td>
+<td>255</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Porción de red</strong></td>
+<td></td>
+<td><strong>Porción de host</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Las direcciones IPv6 miden 128 bits y son identificadores de interfaces individuales y conjuntos de interfaces. Las direcciones IPv6 se asignan a interfaces, no a nodos. Como cada interfaz pertenece a un solo nodo, cualquiera de las direcciones unicast asignada a las interfaces del nodo se pueden usar como identificadores del nodo. Las direcciones IPv6 se escriben en hexadecimal, separadas por dos puntos. Los campos IPv6 tienen una longitud de 16 bits.</p>
+<p><strong>Ejemplo de una dirección IPv6:</strong> <code>24ae:0000:f2f3:0000:0000:0687:a2ff:6184</code></p>
+<h3 id="comparacion-entre-ipv4-e-ipv6">Comparación entre IPv4 e IPv6<a class="headerlink" href="#comparacion-entre-ipv4-e-ipv6" title="Permanent link">&para;</a></h3>
+<p>Cuando se adoptó TCP/IP en los años ochenta, la versión 4 del direccionamiento IP (IPv4) ofrecía una estrategia de direccionamiento que, aunque resultó escalable durante algún tiempo, produjo una asignación poco eficiente de las direcciones.</p>
+<p>A mediados de los años noventa se comenzaron a detectar las siguientes dificultades sobre IPv4:</p>
+<ul>
+<li>Agotamiento de las restantes direcciones de red IPv4 no asignadas. En ese entonces, el espacio de Clase B estaba a punto de agotarse.</li>
+<li>Se produjo un gran y rápido aumento en el tamaño de las tablas de enrutamiento de Internet a medida que las redes Clase C se conectaban en línea. La inundación resultante de nueva información en la red amenazaba la capacidad de los routers de Internet para ejercer una efectiva administración.</li>
+<li>Durante las últimas dos décadas, se desarrollaron numerosas extensiones al IPv4. Estas extensiones se diseñaron específicamente para mejorar la eficiencia con la cual es posible utilizar un espacio de direccionamiento de 32 bits como VLSM y CIDR (ver más adelante).</li>
+</ul>
+<p>Mientras tanto, se ha definido y desarrollado una versión más extensible y escalable del IP, la versión 6 del IP (IPv6). IPv6 utiliza 128 bits en lugar de los 32 bits que en la actualidad utiliza el IPv4. IPv6 utiliza números hexadecimales para representar los 128 bits. IPv6 proporciona 640 sextillones de direcciones. Esta versión del IP proporciona un número de direcciones suficientes para futuras necesidades de comunicación.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>El direccionamiento IPv6 también es conocido como IPng o "IP de nueva generación".</p>
+</div>
+<h3 id="operacion-and">Operación AND<a class="headerlink" href="#operacion-and" title="Permanent link">&para;</a></h3>
+<p>Los routers determinan la ruta de destino a partir de la dirección de red, estos comparan las direcciones IP con sus respectivas máscaras efectuando la operación booleana AND. Los routers ignoran el rango de host para encontrar la red destino a la que éste pertenece.</p>
+<p>La operación AND consiste en comparar bit a bit la dirección IP y la máscara utilizando el siguiente razonamiento:</p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>x</th>
+<th>Máscara</th>
+<th>=</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>x</td>
+<td>1</td>
+<td>=</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>x</td>
+<td>0</td>
+<td>=</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>x</td>
+<td>1</td>
+<td>=</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>x</td>
+<td>0</td>
+<td>=</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Binario</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dirección de host</td>
+<td>10101100.00100000.00000001.00000011</td>
+<td>172.16.1.3</td>
+</tr>
+<tr>
+<td>Máscara de red</td>
+<td>11111111.11111111.00000000.00000000</td>
+<td>255.255.0.0</td>
+</tr>
+<tr>
+<td><strong>Dirección de red</strong></td>
+<td><strong>10101100.00100000.00000000.00000000</strong></td>
+<td><strong>172.16.0.0</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dispositivos-de-la-capa-de-red">Dispositivos de la capa de red<a class="headerlink" href="#dispositivos-de-la-capa-de-red" title="Permanent link">&para;</a></h3>
+<p>Los routers funcionan en la capa de red del modelo OSI separando los segmentos en dominios de colisión y difusión únicos. Estos segmentos están identificados por una dirección de red que permitirá alcanzar las estaciones finales. Los routers cumplen dos funciones básicas que son la de enrutar y conmutar los paquetes. Para ejecutar estas funciones registran en tablas de enrutamiento los datos necesarios para esta función.</p>
+<p>Además de identificar redes y proporcionar conectividad, los routers deben proporcionar estas otras funciones:</p>
+<ul>
+<li>Los routers no envían difusiones de capa 2 ni tramas de multidifusión.</li>
+<li>Los routers intentan determinar la ruta óptima a través de una red enrutada basándose en algoritmos de enrutamiento.</li>
+<li>Los routers separan las tramas de capa 2 y envían paquetes basados en direcciones de destino capa 3.</li>
+<li>Los routers asignan una dirección lógica de capa 3 individual a cada dispositivo de red; por tanto, los routers pueden limitar o asegurar el tráfico de la red basándose en atributos identificables con cada paquete. Estas opciones, controladas por medio de listas de acceso, pueden ser aplicadas para incluir o descartar paquetes.</li>
+<li>Los routers pueden ser configurados para realizar funciones tanto de puenteado como de enrutamiento.</li>
+<li>Los routers proporcionan conectividad entre diferentes LAN virtuales (VLAN) en entornos conmutados.</li>
+<li>Los routers pueden ser usados para desplegar parámetros de calidad de servicio para tipos específicos de tráfico de red.</li>
+</ul>
+<p>Los routers conocen los diferentes destinos manteniendo tablas de enrutamiento que contienen la siguiente información:</p>
+<ul>
+<li><strong>Dirección de red.</strong> Representa redes conocidas por el router. La dirección de red es específica del protocolo. Si un router soporta varios protocolos, tendrá una tabla por cada uno de ellos.</li>
+<li><strong>Interfaz.</strong> Se refiere a la interfaz usada por el router para llegar a una red dada. Esta es la interfaz que será usada para enviar los paquetes destinados a la red que figura en la lista.</li>
+<li><strong>Métrica.</strong> Se refiere al coste o distancia para llegar a la red de destino. Se trata de un valor que facilita al router la elección de la mejor ruta para alcanzar una red dada. Esta métrica cambia en función de la forma en que el router elige las rutas. Entre las métricas más habituales figuran el número de redes que han de ser cruzadas para llegar al destino (conocido también como saltos), el tiempo que se tarda en atravesar todas las interfaces hasta una red dada (conocido también como retraso), o un valor asociado con la velocidad de un enlace (conocido también como ancho de banda).</li>
+</ul>
+<p>En la siguiente salida del router se observa una tabla de enrutamiento con las direcciones IP de destino (172.25.25.6/32), la métrica ([120/2]) y la correspondiente interfaz de salida Serial 0.1.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Router2#show ip route rip
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>R 172.21.0.0/16 [120/1] via 172.25.2.1, 00:00:01, Serial0.1
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>R 172.22.0.0/16 [120/1] via 172.25.2.1, 00:00:01, Serial0.1
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>172.25.0.0/16 is variably subnetted, 6 subnets, 3 masks
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>R 172.25.25.6/32 [120/2] via 172.25.2.1, 00:00:01, Serial0.1
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>R 172.25.25.1/32 [120/1] via 172.25.2.1, 00:00:01, Serial0.1
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>R 172.25.1.0/24 [120/1] via 172.25.2.1, 00:00:01, Serial0.1
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>R 172.25.0.0/16 [120/1] via 172.25.2.1, 00:00:01, Serial0.1
+</span></code></pre></div>
+<p><img alt="" src="../a5.png" /></p>
+<p>Además de las ventajas que aporta su uso en un campus, los routers pueden utilizarse también para conectar ubicaciones remotas con la oficina principal por medio de servicios WAN. Los routers soportan una gran variedad de estándares de conectividad al nivel de la capa física, lo cual ofrece la posibilidad de construir WAN. Además, pueden proporcionar controles de acceso y seguridad, que son elementos necesarios cuando se conectan ubicaciones remotas.</p>
+<p><img alt="" src="../a6.png" /></p>
+<p>Los routers comunican redes diferentes creando dominios de difusión y de colisión, los broadcast de un segmento no inundan a los demás ni las colisiones afectan al resto.</p>
+<h4 id="firewalls">Firewalls<a class="headerlink" href="#firewalls" title="Permanent link">&para;</a></h4>
+<p>Los Firewalls trabajan principalmente en la capa de Red del modelo OSI y generalmente se los considera dispositivos de esta capa. Sin embargo, algunos firewalls, analizan tráfico basándose en información de las capas 3, 4, 5 y 7 del modelo de referencia OSI, como protocolo y números de puerto de origen y destino. El filtrado de paquetes utiliza las ACL para determinar si permite o deniega tráfico basándose en direcciones IP de origen y destino, protocolo, tipo de paquete y números de puerto origen y destino. Los firewalls de filtrado de paquetes generalmente son parte de un router con funcionalidad de firewall.</p>
+<p>Algunos diseños con firewalls son tan simples como la designación de una red externa y una interna, determinadas por dos interfaces del firewall. La red externa no es confiable, mientras que la interna sí lo es. El tráfico proveniente de la red interna pasa a través del firewall hacia afuera con pocas o ninguna restricción. El tráfico que se origina fuera generalmente es bloqueado o permitido muy selectivamente. Al tráfico de retorno que proviene de la red externa, asociado con tráfico de origen interno, se le permite pasar de la interfaz no confiable a la confiable. Un diseño más complicado puede involucrar tres o más interfaces del firewall.</p>
+<h2 id="funciones-de-la-capa-de-transporte">Funciones de la capa de transporte<a class="headerlink" href="#funciones-de-la-capa-de-transporte" title="Permanent link">&para;</a></h2>
+<p>Para conectar dos dispositivos remotos es necesario establecer una conexión. La capa de transporte establece las reglas para esta interconexión. Permite que las estaciones finales ensamblen y reensamblen múltiples segmentos del mismo flujo de datos. Esto se hace por medio de identificadores que en TCP/IP reciben el nombre de números de puerto. La capa cuatro permite además que las aplicaciones soliciten transporte fiable entre los sistemas.</p>
+<ul>
+<li>Asegura que los segmentos distribuidos serán confirmados al remitente.</li>
+<li>Proporciona la retransmisión de cualquier segmento que no sea confirmado.</li>
+<li>Coloca de nuevo los segmentos en su orden correcto en el receptor.</li>
+<li>Proporciona control de flujo regulando el tráfico de datos.</li>
+</ul>
+<p>En la capa de transporte, los datos pueden ser transmitidos de forma fiable o no fiable. Para IP, el protocolo TCP (<em>Transmission Control Protocol</em>) es fiable u orientado a conexión con un saludo previo de tres vías, mientras que UDP (<em>User Datagram Protocol</em>) no es fiable, o no orientado a la conexión donde solo se establece un saludo de dos vías antes de enviar los datos.</p>
+<h2 id="modelo-tcpip">Modelo TCP/IP<a class="headerlink" href="#modelo-tcpip" title="Permanent link">&para;</a></h2>
+<p>El Departamento de Defensa de EE.UU. (DoD) creó el modelo de referencia TCP/IP porque necesitaba una red que pudiera sobrevivir ante cualquier circunstancia. Para tener una mejor idea, imagine un mundo, cruzado por numerosos tendidos de cables, alambres, microondas, fibras ópticas y enlaces satelitales. Entonces, imagine la necesidad de transmitir datos independientemente del estado de un nodo o red en particular. El DoD requería una transmisión de datos confiable hacia cualquier destino de la red, en cualquier circunstancia. La creación del modelo TCP/IP ayudó a solucionar este difícil problema de diseño. Desde entonces, TCP/IP se ha convertido en el estándar en el que se basa Internet. Al leer sobre las capas del modelo TCP/IP, tenga en cuenta el diseño original de Internet. Recordar su propósito ayudará a reducir las confusiones.</p>
+<p>El modelo TCP/IP tenía originalmente cuatro capas: la capa de aplicación, la capa de transporte, la capa de Internet y la capa de acceso de red (NAL). Posteriormente en una actualización del modelo la capa de acceso a la red se ha dividido en dos subcapas.</p>
+<table>
+<thead>
+<tr>
+<th>TCP/IP original</th>
+<th>TCP/IP actualizado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aplicación</td>
+<td>Aplicación</td>
+</tr>
+<tr>
+<td>Transporte</td>
+<td>Transporte</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>Acceso a la red</td>
+<td>Enlace de datos</td>
+</tr>
+<tr>
+<td></td>
+<td>Física</td>
+</tr>
+</tbody>
+</table>
+<p>Es importante observar que algunas de las capas del modelo TCP/IP poseen el mismo nombre que las capas del modelo OSI. Resulta fundamental no confundir las funciones de las capas de los dos modelos ya que estas se desempeñan de diferente manera en cada modelo.</p>
+<table>
+<thead>
+<tr>
+<th>Modelo OSI</th>
+<th>Modelo TCP/IP</th>
+<th>Protocolos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aplicación, Presentación, Sesión</td>
+<td>Aplicación</td>
+<td>Telnet, FTP, LPD, SNMP, TFTP, SMTP, NFS, HTTP, X Windows</td>
+</tr>
+<tr>
+<td>Transporte</td>
+<td>Transporte</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Internet</td>
+<td>ICMP, BOOTP, ARP, RARP, IP</td>
+</tr>
+<tr>
+<td>Enlace de datos, Física</td>
+<td>Red</td>
+<td>Ethernet, Fast-Ethernet, Token Ring, FDDI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Comparativa entre el modelo OSI y el modelo TCP/IP</strong></p>
+<h3 id="protocolos-de-capa-de-aplicacion">Protocolos de capa de aplicación<a class="headerlink" href="#protocolos-de-capa-de-aplicacion" title="Permanent link">&para;</a></h3>
+<p>Los protocolos describen el conjunto de normas y convenciones que rigen la forma en que los dispositivos de una red intercambian información. Algunos de los protocolos de la capa de Aplicación del modelo TCP/IP son:</p>
+<ul>
+<li><strong>Telnet.</strong> Protocolo de emulación de terminal estándar que se usa para la conexión de terminales remotas, permitiendo que los usuarios se registren en dichos sistemas y utilicen los recursos como si estuvieran conectados localmente.</li>
+<li><strong>FTP.</strong> Protocolo utilizado para transferir archivos entre host de red de manera confiable ya que utiliza un mecanismo orientado a conexión.</li>
+<li><strong>TFTP.</strong> Versión simplificada de FTP que permite la transferencia de archivos de un host a otro a través de una red de manera menos confiable.</li>
+<li><strong>DNS.</strong> El sistema de denominación de dominio es utilizado en Internet para convertir los nombres de los nodos de red en direcciones.</li>
+<li><strong>SMTP.</strong> Protocolo simple de transferencia de correo basado en texto utilizado para el intercambio de mensajes de correo electrónico entre distintos dispositivos. Se basa en el modelo cliente-servidor, donde un cliente envía un mensaje a uno o varios receptores.</li>
+<li><strong>SNMP.</strong> Protocolo de administración de redes utilizado casi con exclusividad en redes TCP/IP. El SNMP brinda una forma de monitorizar y controlar los dispositivos de red y de administrar configuraciones, recolección de estadísticas, desempeño y seguridad.</li>
+<li><strong>DHCP.</strong> Protocolo de configuración dinámica del host. Protocolo que proporciona un mecanismo para asignar direcciones IP de forma dinámica, de modo que las direcciones se pueden reutilizar automáticamente cuando los hosts ya no las necesitan.</li>
+</ul>
+<h3 id="protocolos-de-capa-de-transporte">Protocolos de capa de transporte<a class="headerlink" href="#protocolos-de-capa-de-transporte" title="Permanent link">&para;</a></h3>
+<p>Los protocolos de la capa de transporte se encargan de dar soporte a la capa superior brindando apoyo enviando los datos sin importar el contenido de los mismos. Los dos protocolos extensamente conocidos para tal proceso son:</p>
+<ul>
+<li><strong>TCP.</strong> Protocolo de control de transmisión, es básicamente el más utilizado, tiene control de flujo, reensamblado de paquetes y acuses de recibo. Es un protocolo orientado a conexión muy seguro que utiliza un saludo de tres vías antes del envío de los datos. En párrafos anteriores se hace una descripción más en detalle del funcionamiento de TCP.</li>
+<li><strong>UDP.</strong> El protocolo de datagrama del usuario es en general menos seguro que TCP, no tiene corrección de errores y es del tipo no orientado a conexión, los datos se envían sin verificar previamente el destino. A pesar de ello es muy utilizado por el bajo consumo de recursos de red.</li>
+</ul>
+<p>Un ejemplo de protocolo orientado a conexión puede compararse con una llamada telefónica, donde el interlocutor establece una conexión (marcando el número), verifica que el destinatario sea la persona que se espera (saludando recíprocamente) y, finalmente, estableciendo la conversación (envío de datos). El caso de un protocolo no orientado a conexión puede ser un envío postal, donde se envía la correspondencia sin establecer ningún aviso previo, ni acuse de recibo.</p>
+<p>TCP utiliza una técnica llamada ventanas, donde se establece la cantidad de envío de paquetes antes de transmitir; mientras que en el <em>windowing</em> o de ventana deslizante, el flujo de envío de datos es negociado dinámicamente entre el emisor y el receptor. En las ventanas deslizantes o <em>windowing</em> cada acuse de recibo ACK (<em>acknowledgement</em>) confirma la recepción y el envío siguiente.</p>
+<p><img alt="" src="../a7.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<ul>
+<li>TCP, protocolo confiable de capa de transporte orientado a conexión.</li>
+<li>UDP, protocolo NO confiable de capa de transporte NO orientado a conexión.</li>
+</ul>
+<p>Un protocolo orientado a conexión es el que previamente establece un saludo antes de enviar los datos, como es el ejemplo de una llamada telefónica, donde se establece un saludo de tres vías. Un protocolo No orientado a conexión es el que no establece saludo previo antes de enviar los datos como es el caso de un envío postal donde se establece un saludo de dos vías.</p>
+</div>
+<h3 id="numeros-de-puertos">Números de puertos<a class="headerlink" href="#numeros-de-puertos" title="Permanent link">&para;</a></h3>
+<p>Los números de puerto son utilizados por TCP y UDP para identificar sesiones de diferentes aplicaciones, los números de puertos ocupan rangos definidos que van desde puertos bien conocidos hasta puertos específicos determinados por los usuarios.</p>
+<p><strong>Números de puerto utilizados por TCP y UDP para identificar sesiones de diferentes aplicaciones</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rango</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 al 1023</td>
+<td>Puertos bien conocidos</td>
+</tr>
+<tr>
+<td>1 al 255</td>
+<td>Puertos públicos</td>
+</tr>
+<tr>
+<td>256 al 1023</td>
+<td>Asignados a empresas</td>
+</tr>
+<tr>
+<td>Mayores al 1023</td>
+<td>Definidos por el usuario</td>
+</tr>
+</tbody>
+</table>
+<p>A continuación, se detallan los números de puertos más comunes:</p>
+<table>
+<thead>
+<tr>
+<th>Número de puerto</th>
+<th>Protocolo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>Echo</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Discard</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Daytime</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Character Generator</td>
+</tr>
+<tr>
+<td>20</td>
+<td>FTP Data Connections</td>
+</tr>
+<tr>
+<td>21</td>
+<td>File Transfer Protocol</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Telnet</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Simple Mail Transport Protocol</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Time</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Nicname</td>
+</tr>
+<tr>
+<td>49</td>
+<td>TAC Access Control System</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Domain Name Service</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Trivial File Transfer Protocol</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Gopher</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Finger</td>
+</tr>
+<tr>
+<td>80</td>
+<td>World Wide Web</td>
+</tr>
+<tr>
+<td>101</td>
+<td>NIC hostname server</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Post Office Protocol v2</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Post Office Protocol v3</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Sun Remote Procedure Call</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Ident Protocol</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Network News Transport Protocol</td>
+</tr>
+<tr>
+<td>179</td>
+<td>Border Gateway Protocol</td>
+</tr>
+</tbody>
+</table>
+<h3 id="protocolos-de-capa-de-internet">Protocolos de capa de Internet<a class="headerlink" href="#protocolos-de-capa-de-internet" title="Permanent link">&para;</a></h3>
+<p>Estos son algunos de los protocolos más usados que operan en la capa de Internet del modelo TCP/IP:</p>
+<ul>
+<li><strong>IP.</strong> Protocolo de Internet, proporciona un enrutamiento de paquetes no orientado a conexión de máximo esfuerzo. IP no se ve afectado por el contenido de los paquetes, sino que busca una ruta hacia el destino.</li>
+<li><strong>ARP.</strong> Protocolo de resolución de direcciones, determina la dirección de la capa de enlace de datos, la dirección MAC, para las direcciones IP conocidas.</li>
+<li><strong>RARP.</strong> Protocolo de resolución inversa de direcciones, determina las direcciones IP cuando se conoce la dirección MAC.</li>
+<li><strong>ICMP.</strong> Protocolo de mensajes de control en Internet, suministra capacidades de control y envío de mensajes. Herramientas tales como PING y tracert utilizan ICMP para poder funcionar, enviando un paquete a la dirección destino específica y esperando una determinada respuesta. ICMP se describe con más detalle más adelante.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>La capa de Acceso a la Red está dividida en dos subcapas: Enlace de datos y Física. La capa de Internet también es llamada capa de Interred o capa de red.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<ul>
+<li>Puertos bien conocidos del 1 al 1023.</li>
+<li>Puertos públicos del 1 al 255.</li>
+<li>Puertos asignados a empresas del 256 al 1023.</li>
+<li>Puertos definidos por el usuario son los superiores a 1023.</li>
+</ul>
+</div>
+<h2 id="ethernet">Ethernet<a class="headerlink" href="#ethernet" title="Permanent link">&para;</a></h2>
+<p>Ethernet es la tecnología de acceso al medio más popular, es escalable, económica y fácilmente integrable a nuevas aplicaciones, se pueden obtener arquitecturas de LAN a velocidades de Gigabit sobre cobre y la resolución de fallos suele ser simple y rápida. Ethernet opera sobre la capa de enlace de datos y física del modelo OSI. Sin embargo, no es determinista ni ofrece jerarquías.</p>
+<p>Ethernet es una tecnología conflictiva de máximo esfuerzo, todos los equipos de trabajo que se conectan al mismo medio físico reciben las señales enviadas por otros dispositivos. Si dos estaciones transmiten a la vez, se genera una colisión. Si no existieran mecanismos que detectasen y corrigiesen los errores de estas colisiones, Ethernet no podría funcionar.</p>
+<p>Ethernet fue creada en colaboración por Intel, Digital y Xerox, originalmente se implementó como Ethernet 802.3, half-duplex, limitada al transporte de datos por solo un par de cobre a la vez (recibe por un par y transmite por otro, pero no al mismo tiempo). Posteriormente, la tecnología Ethernet full-duplex permitió recibir y enviar datos al mismo tiempo libre de colisiones. El uso más adecuado del ancho de banda permite casi duplicarse al poder transmitir y recibir al 100% de capacidad. Sin embargo, esta tecnología no es tan económica y es solo aplicable a dispositivos que lo permitan.</p>
+<p>En el diseño de una red Ethernet se debe tener especial cuidado con los llamados dominios de colisión y dominios de difusión (broadcast) debido a que la excesiva cantidad de colisiones o de broadcast (tormentas de broadcast) harían inaceptable el funcionamiento de Ethernet.</p>
+<h3 id="dominio-de-colision">Dominio de colisión<a class="headerlink" href="#dominio-de-colision" title="Permanent link">&para;</a></h3>
+<p>Grupo de dispositivos conectados al mismo medio físico, de tal manera que, si dos dispositivos acceden al medio al mismo tiempo, el resultado será una colisión entre las dos señales. Como resultado de estas colisiones se produce un consumo inadecuado de recursos y de ancho de banda. Cuanto menor sea la cantidad de dispositivos afectados a un dominio de colisión mejor desempeño de la red.</p>
+<h3 id="dominio-de-difusion">Dominio de difusión<a class="headerlink" href="#dominio-de-difusion" title="Permanent link">&para;</a></h3>
+<p>Grupo de dispositivos de la red que envían y reciben mensajes de difusión entre ellos. Una cantidad excesiva de estos mensajes de difusión (broadcast) provocará un bajo rendimiento en la red, una cantidad exagerada (tormenta de broadcast) dará como resultado el mal funcionamiento de la red hasta tal punto de poder dejarla completamente congestionada.</p>
+<p>Los hubs o concentradores tienen un único dominio de colisión, eso quiere decir que si dos equipos provocan una colisión en un segmento asociado a un puerto del hub, todos los demás dispositivos aun estando en diferentes puertos se verán afectados. De igual manera se verían afectados si una estación envía un broadcast, debido a que un hub también tiene un solo dominio de difusión.</p>
+<p><img alt="" src="../a8.png" /></p>
+<p><strong>Comparativa entre dominios de colisión y dominios de difusión en dispositivos de tres capas diferentes</strong></p>
+<p><img alt="" src="../a9.png" /></p>
+<p>Los dispositivos conectados a través de un hub comparten el mismo dominio de colisión y de broadcast. Las colisiones en el medio afectarán por igual a todos los hosts del segmento.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>Asocie a los routers como los dispositivos que crean dominios de difusión y a los switches como los que crean dominios de colisión.</p>
+</div>
+<h3 id="csmacd">CSMA/CD<a class="headerlink" href="#csmacd" title="Permanent link">&para;</a></h3>
+<p>La tecnología Ethernet utiliza para controlar las colisiones dentro de un determinado segmento el protocolo CSMA/CD (<em>Carrier Sense Multiple Access with Collision Detection</em>). En la práctica, esto significa que varios puestos pueden tener acceso al medio y que, para que un puesto pueda acceder a dicho medio, deberá detectar la portadora para asegurarse de que ningún otro puesto esté utilizándolo. Si el medio se encuentra en uso, el puesto procederá a mantener en suspenso el envío de datos. En caso de que haya dos puestos que no detectan ningún otro tráfico, ambos tratarán de transmitir al mismo tiempo, dando como resultado una colisión.</p>
+<p>A partir de esta colisión las estaciones emiten una señal de congestión para asegurarse de que existe una colisión y se genera un algoritmo de espera con el que las estaciones retransmitirán aleatoriamente.</p>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<p>El ejemplo más claro de CSMA/CD es el de "escucho y luego transmito".</p>
+</div>
+<p><img alt="" src="../a10.png" /></p>
+<p><strong>Secuencia de una colisión en un entorno Ethernet</strong></p>
+<h3 id="operacion-duplex">Operación dúplex<a class="headerlink" href="#operacion-duplex" title="Permanent link">&para;</a></h3>
+<p>En las comunicaciones de datos, <em>duplex</em> se refiere a la dirección de transmisión de los datos entre dos dispositivos.</p>
+<ul>
+<li><strong>Half-duplex:</strong> la comunicación se limita al intercambio de datos en una dirección a la vez.</li>
+<li><strong>Full-duplex:</strong> la comunicación es simultánea y permite al envío y recepción de datos al mismo tiempo.</li>
+</ul>
+<p>Los dispositivos interconectados deben funcionar en el mismo modo dúplex para evitar problemas en el enlace. La autonegociación Ethernet facilita esta configuración y, por tanto, minimiza los problemas. Los <em>duplex mismatches</em> son desajustes en el modo dúplex y producen problemas de comunicación entre los dispositivos. Pueden ser difíciles de solucionar porque pueden no ser evidentes incluso cuando se utilizan herramientas como ping.</p>
+<h3 id="formato-basico-de-una-trama-ethernet">Formato básico de una trama Ethernet<a class="headerlink" href="#formato-basico-de-una-trama-ethernet" title="Permanent link">&para;</a></h3>
+<p>El formato de la trama del estándar IEEE 802.3 y el de Ethernet creado por Xerox son muy similares y compatibles, solo difieren en algunas pequeñas cuestiones de concepto. IEEE 802.3 se basa en las especificaciones recogidas por los estándares del Instituto de Ingenieros Eléctricos y Electrónicos, a partir de Ethernet mientras que Ethernet II es una versión actualizada de Ethernet.</p>
+<table>
+<thead>
+<tr>
+<th>Preámbulo</th>
+<th>Dirección MAC destino</th>
+<th>Dirección MAC origen</th>
+<th>Tipo de protocolo</th>
+<th>Datos</th>
+<th>FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 Bytes</td>
+<td>6 Bytes</td>
+<td>6 Bytes</td>
+<td>2 Bytes</td>
+<td>46 - 1500 Bytes</td>
+<td>4 Bytes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Longitud máxima: 1518 Bytes. Longitud mínima: 64 Bytes</strong></p>
+<ul>
+<li><strong>Preámbulo.</strong> Secuencia de valores alternados 1 y 0 usados para la sincronización y para detectar la presencia de señal, indica el inicio de la trama.</li>
+<li><strong>Dirección de destino.</strong> Este campo identifica la dirección MAC del dispositivo que debe recibir la trama. La dirección de destino puede especificar una dirección individual o una dirección multicast destinada a un grupo de estaciones. Una dirección destino con todos los bits en 1 se refiere a todos los dispositivos de la red denominada dirección de broadcast o difusión.</li>
+<li><strong>Dirección de origen.</strong> Este campo identifica la dirección MAC del dispositivo que debe enviar la trama.</li>
+<li><strong>Tipo.</strong> Indica el tipo de protocolo de capa superior.</li>
+<li><strong>Datos.</strong> Este campo contiene los datos transferidos desde el origen hasta el destino. El tamaño máximo de este campo es de 1500 bytes. Si el tamaño de este campo es menor de 46 bytes, entonces es necesario el uso del campo siguiente (Pad) para añadir bytes hasta que el tamaño de la trama alcance el valor mínimo.</li>
+<li><strong>FSC.</strong> Campo de comprobación de la trama, este campo contiene un valor de chequeo de redundancia de 4 bytes (CRC) para verificación de errores. La estación origen efectúa un cálculo y lo transmite como parte de la trama. Cuando la trama es recibida por el destino, este realiza un chequeo idéntico. Si el valor calculado no coincide con el valor en el campo, el destino asume que ha sido un error durante la transmisión y entonces descarta la trama completa.</li>
+</ul>
+<p>Los estándares originales Ethernet definen el tamaño mínimo de trama como 64 bytes y el máximo como 1518 bytes. Estas cantidades incluyen todos los bytes de la trama menos los comprendidos en el preámbulo. En 1998 se promovió una iniciativa con el fin de incrementar el tamaño máximo del campo de datos de 1500 a 9000 bytes. Las tramas más largas (tramas gigantes) proveen un uso más eficiente del ancho de banda en la red a la vez que reducen la cantidad de tramas a procesar.</p>
+<h3 id="proceso-de-encapsulacion-de-los-datos">Proceso de encapsulación de los datos<a class="headerlink" href="#proceso-de-encapsulacion-de-los-datos" title="Permanent link">&para;</a></h3>
+<p>El proceso desde que los datos son incorporados al ordenador hasta que se transmiten al medio se llama encapsulación. Estos datos son formateados, segmentados, identificados con el direccionamiento lógico y físico para finalmente ser enviados al medio. A cada capa del modelo OSI le corresponde una PDU (Unidad de Datos) que se puede abreviar con el formato LxPDU, donde la x representa el número de la capa correspondiente. Por ejemplo, para la capa de red la abreviatura correspondiente será L3PDU.</p>
+<p>Siguiendo por lo tanto el siguiente orden de encapsulamiento:</p>
+<ol>
+<li><strong>Datos.</strong> Los datos son incorporados al ordenador por el usuario a través de una determinada aplicación. Los datos son formateados de tal manera que puedan ser leídos por la capa de aplicación de otro ordenador en el destino.</li>
+<li><strong>Segmentos.</strong> Debido a que posiblemente la cantidad de los datos sea demasiada, la capa de transporte desde el origen se encarga de segmentarlos para así ser empaquetados debidamente, esta misma capa en el destino se encargará de reensamblar los datos y colocarlos en forma secuencial, ya que no siempre llegan a su destino en el orden en que han sido segmentados, así mismo acorde al protocolo que se esté utilizando habrá o no corrección de errores.</li>
+<li><strong>Paquetes.</strong> Los segmentos son empaquetados en paquetes o datagramas e identificados en la capa de red con la dirección lógica o IP correspondiente al origen y destino.</li>
+<li><strong>Tramas.</strong> En la capa de enlace de datos se añade una cabecera con la dirección MAC y el campo de comprobación de la trama formándose las tramas, o <em>frames</em>, para ser transmitidos a través de alguna interfaz.</li>
+<li><strong>Bits.</strong> Finalmente, las tramas son enviadas al medio desde la capa física, en forma de pulsos eléctricos, luz o radiofrecuencia.</li>
+</ol>
+<p><strong>Relación entre capas del modelo OSI y su correspondiente PDU</strong></p>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Unidad</th>
+<th>Abreviatura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aplicación</td>
+<td>Datos</td>
+<td>L7PDU</td>
+</tr>
+<tr>
+<td>Presentación</td>
+<td>Datos</td>
+<td>L6PDU</td>
+</tr>
+<tr>
+<td>Sesión</td>
+<td>Datos</td>
+<td>L5PDU</td>
+</tr>
+<tr>
+<td>Transporte</td>
+<td>Segmentos</td>
+<td>L4PDU</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Paquetes</td>
+<td>L3PDU</td>
+</tr>
+<tr>
+<td>Enlace de datos</td>
+<td>Tramas</td>
+<td>L2PDU</td>
+</tr>
+<tr>
+<td>Física</td>
+<td>Bits</td>
+<td>L1PDU</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Secuencia de la encapsulación de datos:</strong></p>
+<ol>
+<li>Se crean los datos a través de una aplicación → <strong>DATOS</strong></li>
+<li>Los datos son segmentados → <strong>SEGMENTO</strong> (Puerto origen, Puerto destino, . . . ., DATOS)</li>
+<li>Se coloca el encabezado IP → <strong>PAQUETE</strong> (Dirección IP de origen, Dirección IP de destino, Protocolo, . . . ., SEGMENTO)</li>
+<li>Se agrega el encabezado MAC → <strong>TRAMA</strong> (Dirección MAC origen, Dirección MAC destino, . . . ., PAQUETE, FCS)</li>
+<li>Se envía al medio → <strong>BITS</strong> (<code>10010111010011110010101000111101010000…………</code>)</li>
+</ol>
+<p><img alt="" src="../a11.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">NOTA</p>
+<p>El proceso inverso se realiza en el destino y se llama desencapsulación de datos.</p>
+</div>
+<h2 id="modelo-jerarquico">Modelo jerárquico<a class="headerlink" href="#modelo-jerarquico" title="Permanent link">&para;</a></h2>
+<p>Con el fin de simplificar el diseño, implementación y administración de las redes, Cisco utiliza un modelo jerárquico para describir la red. Aunque la práctica de este método suele estar asociada con el proceso de diseño de una red, es importante comprender el modelo para poder determinar el equipo y características que van a necesitar en la red. Un modelo jerárquico acelera la convergencia, mantiene posibles problemas aislados por capas y reduce la sobrecarga en los dispositivos.</p>
+<p>El modelo se compone de tres capas o niveles:</p>
+<ul>
+<li>Capa o nivel de acceso.</li>
+<li>Capa o nivel de distribución.</li>
+<li>Capa o nivel de núcleo.</li>
+</ul>
+<p><img alt="" src="../a12.png" /></p>
+<p><strong>Modelo jerárquico de tres capas</strong></p>
+<h3 id="capa-de-acceso">Capa de acceso<a class="headerlink" href="#capa-de-acceso" title="Permanent link">&para;</a></h3>
+<p>La capa de acceso de la red es el punto en el que cada usuario se conecta a la red. Esta es la razón por la cual la capa de acceso se denomina a veces capa de puesto de trabajo, capa de escritorio o de usuario. Los usuarios, así como los recursos a los que estos necesitan acceder con más frecuente están disponibles a nivel local. El tráfico hacia y desde recursos locales está confinado entre los recursos, switches y usuarios finales.</p>
+<p>En la capa de acceso podemos encontrar múltiples grupos de usuarios con sus correspondientes recursos. En muchas redes no es posible proporcionar a los usuarios un acceso local a todos los servicios, como archivos de bases de datos, almacenamiento centralizado o acceso telefónico a la Web. En estos casos, el tráfico de usuarios que demandan estos servicios se desvía a la siguiente capa del modelo: la capa de distribución.</p>
+<p>Algunas de las funciones de la capa de acceso son:</p>
+<ul>
+<li>Interconexión de los diferentes grupos de trabajo hacia la capa de distribución.</li>
+<li>Segmentación en múltiples dominios de colisión.</li>
+<li>Brinda soporte a tecnologías como Ethernet y Wireless.</li>
+<li>Implementación de redes virtuales (VLAN).</li>
+</ul>
+<h3 id="capa-de-distribucion">Capa de distribución<a class="headerlink" href="#capa-de-distribucion" title="Permanent link">&para;</a></h3>
+<p>La capa de distribución marca el punto medio entre la capa de acceso y los servicios principales de la red. La función primordial de esta capa es realizar funciones tales como enrutamiento, filtrado y acceso a WAN.</p>
+<p>En un entorno de campus, la capa de distribución abarca una gran diversidad de funciones, entre las que figuran las siguientes:</p>
+<ul>
+<li>Servir como punto de concentración para acceder a los dispositivos de capa de acceso.</li>
+<li>Enrutar el tráfico para proporcionar acceso a los departamentos o grupos de trabajo y entre las diferentes VLAN.</li>
+<li>Segmentar la red en múltiples dominios de difusión/multidifusión.</li>
+<li>Traducir los diálogos entre diferentes tipos de medios, como Token Ring y Ethernet.</li>
+<li>Proporcionar servicios de seguridad y filtrado.</li>
+</ul>
+<p>La capa de distribución puede resumirse como la capa que proporciona una conectividad basada en una determinada política, dado que determina cuándo y cómo los paquetes pueden acceder a los servicios principales de la red. La capa de distribución determina la forma más rápida para que la petición de un usuario (como un acceso al servidor de archivos) pueda ser remitida al servidor. Una vez que la capa de distribución ha elegido la ruta, envía la petición a la capa de núcleo. La capa de núcleo podrá entonces transportar la petición al servicio apropiado.</p>
+<h3 id="capa-de-nucleo">Capa de núcleo<a class="headerlink" href="#capa-de-nucleo" title="Permanent link">&para;</a></h3>
+<p>La capa del núcleo o <em>core</em> se encarga de desviar el tráfico lo más rápidamente posible hacia los servicios apropiados. Normalmente, el tráfico transportado se dirige o proviene de servicios comunes a todos los usuarios. Estos servicios se conocen como servicios globales o corporativos. Algunos de ellos pueden ser e-mail, el acceso a Internet o videoconferencia.</p>
+<p>Cuando un usuario necesita acceder a un servicio corporativo, la petición se procesa al nivel de la capa de distribución. El dispositivo de la capa de distribución envía la petición del usuario al núcleo. Este se limita a proporcionar un transporte rápido hasta el servicio corporativo solicitado. El dispositivo de la capa de distribución se encarga de proporcionar un acceso controlado a la capa de núcleo.</p>
+<p>Para la capa de <em>core</em> se deben tomar en cuenta los siguientes conceptos:</p>
+<ul>
+<li>Esta capa debe ser diseñada para una alta velocidad de transferencia y mínima latencia.</li>
+<li>No se debe dar soporte a grupos de trabajo ni enrutamiento entre VLAN.</li>
+<li>El tráfico debe haber sido filtrado en la capa anterior.</li>
+<li>Los protocolos de enrutamientos utilizados deben ser de rápida convergencia y redundantes.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">RECUERDE</p>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Funciones</th>
+<th>Dispositivos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Núcleo</td>
+<td>Conmuta el tráfico hacia el servicio solicitado, comunicación rápida y segura</td>
+<td>Routers, switch multicapa</td>
+</tr>
+<tr>
+<td>Distribución</td>
+<td>Enrutamiento, filtrado, acceso WAN, seguridad basada en políticas, servicios empresariales, enrutamiento entre VLANS, definición de dominios de broadcast y multicast</td>
+<td>Router</td>
+</tr>
+<tr>
+<td>Acceso</td>
+<td>Define Dominios de colisión, estaciones finales, ubicación de usuarios, servicios de grupos de trabajos, VLANS</td>
+<td>Hub, switch</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="modelo-de-core-colapsado">Modelo de core colapsado<a class="headerlink" href="#modelo-de-core-colapsado" title="Permanent link">&para;</a></h2>
+<p>El diseño jerárquico de tres niveles maximiza el rendimiento, la disponibilidad de la red y la capacidad de escalar el diseño de la red. La mayoría de las pequeñas empresas no crecen significativamente con el tiempo, por tanto, un diseño jerárquico de dos capas o niveles, donde las capas de núcleo y de distribución se colapsan en una sola capa, es suficiente para proporcionar las exigencias de la empresa. La principal motivación para el diseño de núcleo colapsado es la reducción de costos de la red, manteniendo al mismo tiempo la mayor parte de los beneficios del modelo jerárquico de tres niveles.</p>
+<p>La implementación principal de un modelo colapsado reside en que las funciones de la capa de distribución y la capa de core están aplicadas en un solo dispositivo.</p>
+<p>El dispositivo de núcleo-distribución colapsado debe proporcionar lo siguiente:</p>
+<ul>
+<li>Rutas físicas y lógicas de alta velocidad de conexión a la red.</li>
+<li>Servir como punto de demarcación entre acceso y núcleo y de concentración de capa 2.</li>
+<li>Definir las políticas de acceso y de enrutamiento.</li>
+<li>Proveer calidad de servicio (QoS), virtualización de red, etc.</li>
+</ul>
+<p><img alt="" src="../a13.png" /></p>
+<p>Sin embargo, si se espera que la empresa crezca con el tiempo, la implementación del modelo jerárquico de tres niveles es la mejor opción.</p>
+<h2 id="procedimientos-basicos-de-troubleshooting">Procedimientos básicos de troubleshooting<a class="headerlink" href="#procedimientos-basicos-de-troubleshooting" title="Permanent link">&para;</a></h2>
+<p>Un buen procedimiento de troubleshooting estructurado ayuda a utilizar de manera más eficiente los recursos de una empresa, además, en caso de que un administrador deba continuar el trabajo de otro será más fácil de asumir. La combinación de las herramientas mencionadas en los párrafos anteriores (como <em>ping</em>, <em>traceroute</em> y todos los comandos <em>show</em> que se verán a lo largo de todo este libro) permite obtener resultados positivos a la hora de solucionar problemas en la red.</p>
+<p>Los siguientes pasos siguen un correcto mecanismo de <em>troubleshooting</em> estructurado:</p>
+<ol>
+<li><strong>Informe del problema.</strong> Normalmente viene dado por alguien que hace uso de los recursos de la red y casi siempre será información poco precisa, e incluso errónea. El que alguien reporte un problema tiene que servir, sobre todo, para ser capaz de identificar qué parte de la red ha sido afectada, qué dispositivos, o qué grupo es responsable de la avería.</li>
+<li><strong>Recopilación de información.</strong> Una vez que el error ha sido reportado y se piensa haber identificado la parte de la red que tiene el problema, se ha de recopilar tanta información como sea posible, tanto de los dispositivos afectados, como logs, histórico de cambios realizados, etc. En caso de que haya dispositivos de red a los que no se tenga acceso será necesario ponerse en contacto con los grupos correspondientes para solicitar dicha información.</li>
+<li>
+<p><strong>Examinar la información recopilada.</strong> Una vez recopilada toda la información necesaria se debe analizar exhaustivamente, estando siempre pendientes de:</p>
+<ul>
+<li>Identificar causas que apunten al problema raíz.</li>
+<li>Eliminar información que sea innecesaria.</li>
+</ul>
+<p>Dependiendo del grado de experiencia del administrador se deben efectuar seguidamente algunas preguntas que se contestarán de manera más o menos rápida, necesitando para ello analizar toda la información recopilada, o simplemente mirando el comportamiento de los protocolos de la red, etc.</p>
+<ul>
+<li>¿Qué es lo que está pasando en la red?</li>
+<li>¿Qué debería estar pasando?, ¿cómo debería estar funcionando?</li>
+<li><strong>Eliminar causas potenciales.</strong> Una vez examinados los datos se debe descartar la información relativa a causas que no sean propias del problema y, lo que es muy importante, no imaginar ni querer formular hipótesis basadas en datos que no están en la información recopilada.</li>
+<li><strong>Crear una hipótesis de la causa.</strong> Una vez eliminadas las causas potenciales, centrarse únicamente en la que se crea sea la definitiva. En caso de que se tenga acceso al dispositivo se procederá a intentar solucionar el problema. En caso de que no tener acceso al dispositivo se deberá buscar una solución alternativa a través del administrador de red correspondiente.</li>
+<li><strong>Verificación de la hipótesis.</strong> Una vez conocida la causa se puede intentar resolverla. Es importante pensar cómo actuar debido a que el hecho de implementar la solución inmediatamente puede provocar cortes en la red, entonces quizás sea mejor planificar la intervención para un momento más adecuado: por la noche o cuando el impacto sea mínimo.</li>
+</ul>
+<p>Es de vital importancia documentar todos los cambios que se apliquen para que, en caso de que la solución pensada no resuelva el problema, sea posible dar marcha atrás y pensar en otra solución.
+7. <strong>Resolución del problema.</strong> Una vez resuelto el problema se debe dejar claramente documentado y todas las partes implicadas han de recibir una explicación de lo ocurrido y cómo se resolvió.</p>
+</li>
+</ol>
+<h2 id="caso-practico">Caso práctico<a class="headerlink" href="#caso-practico" title="Permanent link">&para;</a></h2>
+<h3 id="prueba-de-conectividad-tcpip">Prueba de conectividad TCP/IP<a class="headerlink" href="#prueba-de-conectividad-tcpip" title="Permanent link">&para;</a></h3>
+<p>Imagine que desea comprobar la conectividad de un host, usted enviará un <em>ping</em> a la dirección IP del host en cuestión esperando algún tipo de respuesta o mensaje de error (protocolo ICMP).</p>
+<p>El host emisor debe conocer las direcciones físicas y lógicas del destino. Antes de enviar el <em>ping</em> buscará en su tabla ARP la dirección MAC del destinatario. Si este no supiera cuál es la dirección física de aquel, enviará una petición ARP con la dirección IP del receptor y la MAC en forma de <em>broadcast</em>. El receptor responderá con su MAC haciendo posible que el emisor agregue a su tabla esa dirección y envíe por fin el PING. Si el host destino está dentro de otra red, quien responde en este caso es el router entregando su propia MAC para recibir el paquete y conmutarlo a la red correspondiente, es lo que se llama <strong>ARP Proxy</strong>.</p>
+<p>Desde su PC abra una ventana de línea de comandos:</p>
+<ol>
+<li>Ejecute <code>ipconfig</code> para verificar su configuración.</li>
+<li>Ejecute <code>arp –a</code> para ver el contenido de la tabla ARP.</li>
+</ol>
+<p><img alt="" src="../a14.png" /></p>
+<ol>
+<li>Ejecute un <em>ping</em> al host de destino y vuelva a ejecutar <code>arp –a</code>. Verifique las diferencias entre la tabla anterior y la actual.</li>
+</ol>
+<p><img alt="" src="../a15.png" /></p>
+<p>Otros sistemas operativos como MAC OS ofrecen además de una consola de terminal, aplicaciones específicas para ejecutar pruebas de red como <em>ping</em>, <em>traceroute</em>, <em>netstat</em>, etc.</p>
+<p><img alt="" src="../a16.png" /></p>
+<h2 id="fundamentos-para-el-examen">Fundamentos para el examen<a class="headerlink" href="#fundamentos-para-el-examen" title="Permanent link">&para;</a></h2>
+<p>Este capítulo resulta extremadamente teórico, incluso puede llegar a ser aburrido si se tienen conocimientos básicos sobre redes. Sin embargo, es fundamental entender el principio de la división en capas de una red, los modelos utilizados y los protocolos principales que resultan básicos y primordiales. Conocer el modelo OSI le ayudará a identificar problemas e incluso le ayudarán a determinar a qué departamento corresponde la solución de la incidencia (redes, sistema, desarrollo, etc.).</p>
+<ul>
+<li>Tenga una idea clara sobre las siete capas del modelo OSI, las funciones en la red para que se usan y los protocolos asociados a cada una.</li>
+<li>Analice las diferencias entre los dispositivos de cada capa del modelo OSI, cuáles son sus funciones y para qué se aplican en cada caso.</li>
+<li>Recuerde las posibles causas que pueden generar congestión en una LAN. Cómo, de ser posible, evitarlo.</li>
+<li>Tenga en cuenta las diferencias entre dominio de colisión y dominio de broadcast y los dispositivos asociados a cada uno.</li>
+<li>Recuerde la diferencia entre orientado a conexión y no orientado a conexión y los protocolos a que hacen referencia.</li>
+<li>Sepa diferenciar entre los tipos de cableado Ethernet y sus estándares, además de saber distinguir en cada caso cuál utilizar según los dispositivos a conectar.</li>
+<li>Tenga en cuenta las características, campos y tamaño de la trama Ethernet.</li>
+<li>Recuerde las funciones de cada capa del modelo jerárquico de Cisco, para qué se aplican y los dispositivos asociados.</li>
+<li>Recuerde las cuatro capas del modelo TCP/IP, sus funciones y los protocolos asociados a cada una.</li>
+<li>Sepa cuáles son las diferencias entre el modelo TCP/IP y el modelo OSI. Analice y compare sus capas.</li>
+<li>Tenga en cuenta las diferencias fundamentales entre TCP y UDP, control de flujo, ACK, ventanas y ventanas deslizantes.</li>
+<li>Recuerde las diferencias entre el modelo de tres capas y el modelo de core colapsado.</li>
+<li>Analice y recuerde los pasos para un procedimiento de <em>troubleshooting</em>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+        
+          
+          <a href="../../capitulo-2/capitulo_2/" class="md-footer__link md-footer__link--next" aria-label="Next: Direccionamiento IP">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Direccionamiento IP
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>
